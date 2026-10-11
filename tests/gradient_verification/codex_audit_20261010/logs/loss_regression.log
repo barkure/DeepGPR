@@ -1,0 +1,17 @@
+test_codata_2018_constants (test_signal_and_regularization.ConstantTests) ... ok
+test_envelope_of_a_pure_cosine_is_flat (test_signal_and_regularization.EnvelopeTests) ... ok
+test_even_lengths_are_unchanged_from_legacy (test_signal_and_regularization.EnvelopeTests) ... ok
+test_matches_analytic_signal_for_odd_and_even_lengths (test_signal_and_regularization.EnvelopeTests) ... ok
+test_apply_filter_validates_cutoff_and_length (test_signal_and_regularization.FirFilterTests) ... ok
+test_legacy_reproduces_the_even_length_centre_override (test_signal_and_regularization.FirFilterTests) ... ok
+test_matches_windowed_sinc_for_odd_and_even_lengths (test_signal_and_regularization.FirFilterTests) ... ok
+test_isotropic_gradient_is_finite_on_constant_models (test_signal_and_regularization.TotalVariationTests) ... ok
+test_isotropic_is_rotation_invariant_unlike_anisotropic (test_signal_and_regularization.TotalVariationTests) ... ok
+test_isotropic_matches_per_cell_gradient_magnitude (test_signal_and_regularization.TotalVariationTests) ... ok
+test_method_names (test_signal_and_regularization.TotalVariationTests) ... ok
+test_preserves_input_dtype_and_float64_gradient (test_signal_and_regularization.TotalVariationTests) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.035s
+
+OK

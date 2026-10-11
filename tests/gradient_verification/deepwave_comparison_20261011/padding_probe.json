@@ -1,0 +1,64 @@
+{
+  "scope": "Isolated source functions for padding only; not a wave-propagation test.",
+  "deepwave_release": "v0.0.26",
+  "deepwave_commit": "7dbaeda5fdfbff2a6d579dcc9f7f18488c5e6084",
+  "torch": "1.11.0+cu115",
+  "dtype": "float64",
+  "physical_shape": [
+    3,
+    3
+  ],
+  "padding": [
+    1,
+    1,
+    1,
+    1
+  ],
+  "objective": "sum of extended material values",
+  "same_forward": true,
+  "deepwave_gradient": [
+    [
+      4.0,
+      2.0,
+      4.0
+    ],
+    [
+      2.0,
+      1.0,
+      2.0
+    ],
+    [
+      4.0,
+      2.0,
+      4.0
+    ]
+  ],
+  "deepgpr_gradient": [
+    [
+      1.0,
+      1.0,
+      1.0
+    ],
+    [
+      1.0,
+      1.0,
+      1.0
+    ],
+    [
+      1.0,
+      1.0,
+      1.0
+    ]
+  ],
+  "corner": {
+    "deepwave_ad": 4.0,
+    "deepgpr_ad": 1.0,
+    "deepwave_fd": 4.0000000000048885,
+    "deepgpr_fd": 4.0000000000048885,
+    "h": 0.001
+  },
+  "fixed_max_vel_profile_requires_grad": [
+    false,
+    false
+  ]
+}

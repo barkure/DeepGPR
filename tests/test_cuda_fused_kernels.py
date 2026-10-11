@@ -63,10 +63,11 @@ def _case(mode, nt):
     return eps_r.to(device), sigma.to(device), source.to(device), common
 
 
-def _history(mode, nt, **options):
-    """Return (E_saved, E fields, receiver data) of a gradient-enabled run."""
+def _history(mode, nt, material_grad=True, **options):
+    """Return saved fields from a material- or source-gradient-enabled run."""
     eps_r, sigma, source, common = _case(mode, nt)
-    eps_r = eps_r.clone().requires_grad_(True)
+    eps_r = eps_r.clone().requires_grad_(material_grad)
+    source = source.clone().requires_grad_(True)
     result = DeepGPR.compute(eps_r=eps_r, sigma=sigma, source_amplitudes=source, **common, **options)
     node = result[-1].grad_fn
     return node.E_saved.detach().cpu(), [t.detach().cpu() for t in result[1]], result[-1].detach().cpu()
@@ -104,6 +105,7 @@ class CudaFusedHistoryTests(unittest.TestCase):
                             history, _, _ = _history(
                                 mode, nt, wavefield_history_region=region,
                                 use_async_offload=offload, model_gradient_sampling_interval=interval,
+                                material_grad=region != "physical",
                             )
                         nx, ny, nz = (f - 1 for f in reference[1][0].shape[1:])
                         origin, extent = DeepGPR.solver.storage.history_box(
@@ -146,13 +148,20 @@ class CudaFusedHistoryTests(unittest.TestCase):
                 dict(wavefield_compression="int8"),
                 dict(wavefield_history_region="physical", wavefield_rhs_history="stored"),
             )
-            runs = [_history(mode, 24, **option) for option in options]
+            runs = [_history(mode, 24, material_grad=option.get("wavefield_history_region") != "physical",
+                             **option) for option in options]
             reference = _fields_after(mode, 24)
             for option, (_, fields, data) in zip(options, runs):
                 with self.subTest(mode=mode, option=option):
                     self.assertTrue(torch.equal(data, runs[0][2]))
                     for field, expected in zip(fields, reference):
                         self.assertTrue(torch.equal(field, expected))
+
+    def test_physical_history_rejects_pml_material_gradients(self):
+        for mode in (2, 3):
+            with self.subTest(mode=mode):
+                with self.assertRaisesRegex(ValueError, "physical.*PML|PML.*physical"):
+                    _history(mode, 24, wavefield_history_region="physical")
 
 
 @unittest.skipUnless(torch.cuda.is_available(), "CUDA is not available")

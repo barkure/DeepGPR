@@ -1,0 +1,39 @@
+{
+  "assembled_date": "2026-10-11",
+  "tests_executed_date": "2026-10-10",
+  "no_commit_or_push_performed": true,
+  "cpu_regression": {
+    "status": "PASS",
+    "tests": 151,
+    "skipped": 38,
+    "executed": 113,
+    "seconds": 10.591,
+    "command": "CUDA_VISIBLE_DEVICES='' OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /home/ll/anaconda3/envs/deepgpr/bin/python -m unittest discover -s tests -p 'test_*.py'",
+    "log": "tests/gradient_verification/codex_audit_20261010/logs/regression_cpu.log",
+    "log_sha256": "f7de038488325ad091d79ac838efac322eed1c50fe95bcb5039b23f20918e448"
+  },
+  "cuda_regression": {
+    "status": "PASS",
+    "tests": 151,
+    "skipped": 1,
+    "executed": 150,
+    "seconds": 13.244,
+    "command": "OMP_NUM_THREADS=1 PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=src /home/ll/anaconda3/envs/deepgpr/bin/python -m unittest discover -s tests -p 'test_*.py'",
+    "log": "tests/gradient_verification/codex_audit_20261010/logs/regression_cuda.log",
+    "log_sha256": "8256b4fcebbe9fd82f7a6ffced3654066466c71651df7599fcc096ef4fcb4dd5"
+  },
+  "ruff": {
+    "status": "PASS",
+    "command": "/tmp/deepgpr-ruff-check-20261007/bin/ruff check src/DeepGPR tools tests/test_signal_and_regularization.py tests/test_unupdated_e_material_gradients.py"
+  },
+  "current_file_sha256": {
+    "src/DeepGPR/inversion/regularization.py": "b1ae761417adccbec09f39ea899583779ca8c98c50a4e4039bf427358bc76668",
+    "src/DeepGPR/lib/deepgpr_cpu.c": "bae0dab09c1844042cc952fbafaba85de3417a90451282fa87e97ef89c1a2eca",
+    "src/DeepGPR/lib/deepgpr.cu": "848fdd85799767f8ad1712d566bd7b840d28848157b279d8ad3214e98b1ff34a",
+    "src/DeepGPR/lib/deepgpr_cpu.so": "2925ec1d49c36f4914f68442209e743d46ee34f764d3b4f5a7f986c0e3a39161",
+    "src/DeepGPR/lib/deepgpr.so": "d2e458bd438ed0a050ad7e74b871e5c8ad5ce6633e65954020e28dc998401861",
+    "tests/test_signal_and_regularization.py": "9ec8e3d129ee2c2bb469ce8ad95a5e979dfa8ea28932c52b62099430cb9be8e5",
+    "tests/test_unupdated_e_material_gradients.py": "04b0890a639eb7dde27153a4be184ceb97c2d0671c3fe6d4db67d6328e4a5259"
+  },
+  "supplemental_tests_executed_date": "2026-10-11"
+}

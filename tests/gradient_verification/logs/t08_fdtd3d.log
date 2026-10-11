@@ -1,0 +1,196 @@
+base A cpu eps pixel: AD=-7.676235e-06 FD=-1.014641e-05 rel=2.43e-01 pair=2.65e-01 extrap=4.68e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 2.7e-01)
+base A cpu sig pixel: AD=4.250214e-06 FD=4.251437e-06 rel=2.88e-04 pair=4.18e-02 extrap=7.32e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 4.2e-02)
+base A cpu joint pixel: AD=-3.426022e-06 FD=-3.313837e-06 rel=3.27e-02 pair=1.71e-01 extrap=1.27e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.7e-01)
+base A cpu eps random: AD=3.706788e-03 FD=3.731593e-03 rel=6.65e-03 pair=3.95e-02 extrap=1.35e-02 n=5 slope=2.00 local=['2.05', '2.02', '2.00', '2.00'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.3e-02)
+base A cpu sig random: AD=1.221807e-01 FD=1.221119e-01 rel=5.63e-04 pair=6.41e-04 extrap=3.09e-04 n=5 slope=2.01 local=['2.04', '2.02', '2.01', '2.01'] -> PASS 
+base A cpu joint random: AD=1.258875e-01 FD=1.261237e-01 rel=1.87e-03 pair=4.34e-03 extrap=3.42e-04 n=4 slope=2.01 local=['2.05', '2.02', '2.00'] -> PASS 
+base A cpu eps local: AD=-2.177334e-03 FD=-2.192135e-03 rel=6.75e-03 pair=1.86e-02 extrap=3.32e-03 n=3 slope=1.95 local=['1.93', '1.96'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.3e-03)
+base A cpu sig local: AD=-9.961005e-04 FD=-9.962469e-04 rel=1.47e-04 pair=3.75e-03 extrap=nan n=2 slope=1.96 local=['1.96'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.8e-03)
+base A cpu joint local: AD=-3.173434e-03 FD=-3.171512e-03 rel=6.06e-04 pair=2.92e-02 extrap=3.29e-03 n=3 slope=1.91 local=['1.95', '1.87'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.3e-03)
+base A cpu eps smooth: AD=-2.309968e-03 FD=-2.296300e-03 rel=5.92e-03 pair=3.21e-02 extrap=9.38e-03 n=4 slope=1.98 local=['1.95', '1.98', '1.97'] -> INCONCLUSIVE FD uncertainty too large (relative error 9.4e-03)
+base A cpu sig smooth: AD=-3.764724e-02 FD=-3.764475e-02 rel=6.61e-05 pair=1.58e-04 extrap=3.19e-04 n=4 slope=1.98 local=['1.96', '1.97', '1.99'] -> PASS 
+base A cpu joint smooth: AD=-3.995721e-02 FD=-4.006499e-02 rel=2.69e-03 pair=7.25e-03 extrap=4.08e-03 n=4 slope=1.93 local=['1.95', '1.98', '1.88'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.1e-03)
+base A cpu source smooth: AD=6.121310e-01 FD=6.121297e-01 rel=2.15e-06 pair=2.07e-05 extrap=5.80e-04 n=7 slope=2.03 local=['2.00', '2.00', '2.00', '2.00', '2.01', '2.05'] -> PASS 
+base A cuda_general eps pixel: AD=-7.675829e-06 FD=-7.906440e-06 rel=2.92e-02 pair=1.76e-01 extrap=7.32e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.8e-01)
+base A cuda_general sig pixel: AD=4.250032e-06 FD=3.909185e-06 rel=8.02e-02 pair=1.37e-01 extrap=5.25e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.4e-01)
+base A cuda_general joint pixel: AD=-3.425796e-06 FD=-3.082353e-06 rel=1.00e-01 pair=2.28e-01 extrap=1.77e+02 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 2.3e-01)
+base A cuda_general eps random: AD=3.708362e-03 FD=3.695674e-03 rel=3.42e-03 pair=4.87e-02 extrap=1.25e-02 n=5 slope=1.99 local=['2.05', '2.02', '2.00', '1.98'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.3e-02)
+base A cuda_general sig random: AD=1.221806e-01 FD=1.221186e-01 rel=5.07e-04 pair=6.53e-04 extrap=2.85e-04 n=5 slope=2.01 local=['2.04', '2.02', '2.01', '2.01'] -> PASS 
+base A cuda_general joint random: AD=1.258889e-01 FD=1.261165e-01 rel=1.80e-03 pair=4.39e-03 extrap=3.31e-04 n=4 slope=2.01 local=['2.05', '2.02', '2.00'] -> PASS 
+base A cuda_general eps local: AD=-2.177301e-03 FD=-2.186454e-03 rel=4.19e-03 pair=5.44e-03 extrap=1.47e-03 n=3 slope=1.96 local=['1.93', '1.98'] -> PASS 
+base A cuda_general sig local: AD=-9.960990e-04 FD=-9.961519e-04 rel=5.32e-05 pair=3.50e-03 extrap=nan n=2 slope=1.94 local=['1.94'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.5e-03)
+base A cuda_general joint local: AD=-3.173400e-03 FD=-3.185913e-03 rel=3.93e-03 pair=2.81e-02 extrap=5.30e-03 n=2 slope=1.94 local=['1.94'] -> INCONCLUSIVE FD uncertainty too large (relative error 5.3e-03)
+base A cuda_general eps smooth: AD=-2.310505e-03 FD=-2.295703e-03 rel=6.41e-03 pair=3.30e-02 extrap=9.10e-03 n=4 slope=1.98 local=['1.95', '1.98', '1.97'] -> INCONCLUSIVE FD uncertainty too large (relative error 9.1e-03)
+base A cuda_general sig smooth: AD=-3.764720e-02 FD=-3.764335e-02 rel=1.02e-04 pair=3.17e-04 extrap=3.22e-04 n=4 slope=1.98 local=['1.96', '1.97', '1.99'] -> PASS 
+base A cuda_general joint smooth: AD=-3.995770e-02 FD=-4.005830e-02 rel=2.51e-03 pair=6.94e-03 extrap=4.00e-03 n=4 slope=1.93 local=['1.95', '1.98', '1.88'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.0e-03)
+base A cuda_general source smooth: AD=6.121285e-01 FD=6.121320e-01 rel=5.67e-06 pair=2.25e-05 extrap=6.56e-05 n=6 slope=1.99 local=['2.00', '2.00', '2.00', '2.00', '1.99'] -> PASS 
+base B cpu eps pixel: AD=1.132549e-05 FD=1.026267e-05 rel=9.38e-02 pair=1.08e-01 extrap=1.18e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.1e-01)
+base B cpu sig pixel: AD=3.456398e-06 FD=3.407583e-06 rel=1.41e-02 pair=1.30e-01 extrap=3.68e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.3e-01)
+base B cpu joint pixel: AD=1.478188e-05 FD=1.475903e-05 rel=1.55e-03 pair=1.09e-01 extrap=5.97e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.1e-01)
+base B cpu eps random: AD=-1.348009e-02 FD=-1.336628e-02 rel=8.44e-03 pair=1.31e-02 extrap=3.90e-03 n=5 slope=2.07 local=['2.12', '2.04', '2.01', '2.11'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.9e-03)
+base B cpu sig random: AD=-1.019468e-01 FD=-1.019381e-01 rel=8.52e-05 pair=9.55e-04 extrap=4.06e-04 n=5 slope=1.99 local=['2.01', '2.00', '2.00', '1.98'] -> PASS 
+base B cpu joint random: AD=-1.154269e-01 FD=-1.153798e-01 rel=4.08e-04 pair=2.46e-03 extrap=8.20e-04 n=4 slope=2.03 local=['2.12', '2.04', '2.03'] -> PASS 
+base B cpu eps local: AD=-1.787765e-03 FD=-1.814003e-03 rel=1.45e-02 pair=2.45e-02 extrap=6.73e-03 n=3 slope=2.01 local=['1.95', '2.06'] -> INCONCLUSIVE FD uncertainty too large (relative error 6.7e-03)
+base B cpu sig local: AD=-1.194047e-03 FD=-1.194230e-03 rel=1.53e-04 pair=1.63e-03 extrap=1.36e-03 n=3 slope=1.97 local=['1.92', '2.00'] -> PASS 
+base B cpu joint local: AD=-2.981812e-03 FD=-2.994578e-03 rel=4.26e-03 pair=9.60e-03 extrap=1.24e-02 n=2 slope=1.92 local=['1.92'] -> INCONCLUSIVE FD uncertainty too large (relative error 9.6e-03)
+base B cpu eps smooth: AD=-2.397098e-03 FD=-2.383059e-03 rel=5.86e-03 pair=5.02e-02 extrap=9.18e-03 n=4 slope=1.98 local=['1.94', '1.98', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 9.2e-03)
+base B cpu sig smooth: AD=-3.695960e-02 FD=-3.695590e-02 rel=1.00e-04 pair=9.30e-04 extrap=5.35e-04 n=4 slope=2.00 local=['1.96', '1.98', '2.01'] -> PASS 
+base B cpu joint smooth: AD=-3.935670e-02 FD=-3.949705e-02 rel=3.55e-03 pair=4.00e-03 extrap=1.88e-03 n=4 slope=2.00 local=['1.94', '1.98', '2.02'] -> PASS 
+base B cpu source smooth: AD=-6.236747e-01 FD=-6.236756e-01 rel=1.53e-06 pair=1.57e-05 extrap=1.93e-04 n=7 slope=1.99 local=['2.00', '2.00', '2.00', '2.00', '2.00', '1.98'] -> PASS 
+base B cuda_general eps pixel: AD=1.132584e-05 FD=1.100770e-05 rel=2.81e-02 pair=1.56e-01 extrap=8.05e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.6e-01)
+base B cuda_general sig pixel: AD=3.456391e-06 FD=3.411266e-06 rel=1.31e-02 pair=9.23e-02 extrap=1.57e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 9.2e-02)
+base B cuda_general joint pixel: AD=1.478223e-05 FD=1.532923e-05 rel=3.57e-02 pair=7.70e-02 extrap=4.60e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 7.7e-02)
+base B cuda_general eps random: AD=-1.348005e-02 FD=-1.332701e-02 rel=1.14e-02 pair=1.21e-02 extrap=4.74e-03 n=5 slope=2.07 local=['2.12', '2.04', '2.01', '2.13'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.7e-03)
+base B cuda_general sig random: AD=-1.019475e-01 FD=-1.019438e-01 rel=3.64e-05 pair=9.66e-04 extrap=3.92e-04 n=5 slope=1.99 local=['2.01', '2.00', '2.00', '1.98'] -> PASS 
+base B cuda_general joint random: AD=-1.154275e-01 FD=-1.154098e-01 rel=1.53e-04 pair=5.14e-03 extrap=3.49e-05 n=4 slope=2.03 local=['2.12', '2.04', '2.03'] -> PASS 
+base B cuda_general eps local: AD=-1.787758e-03 FD=-1.829921e-03 rel=2.30e-02 pair=2.51e-02 extrap=1.21e-02 n=3 slope=2.06 local=['1.94', '2.16'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.2e-02)
+base B cuda_general sig local: AD=-1.194052e-03 FD=-1.193663e-03 rel=3.26e-04 pair=9.86e-04 extrap=1.92e-03 n=3 slope=1.98 local=['1.92', '2.01'] -> PASS 
+base B cuda_general joint local: AD=-2.981810e-03 FD=-2.993865e-03 rel=4.03e-03 pair=1.23e-02 extrap=1.41e-02 n=2 slope=1.93 local=['1.93'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.2e-02)
+base B cuda_general eps smooth: AD=-2.397252e-03 FD=-2.421085e-03 rel=9.84e-03 pair=4.95e-02 extrap=1.44e-04 n=4 slope=2.00 local=['1.94', '1.98', '2.01'] -> PASS 
+base B cuda_general sig smooth: AD=-3.695983e-02 FD=-3.695972e-02 rel=2.97e-06 pair=8.68e-04 extrap=4.97e-04 n=4 slope=2.00 local=['1.96', '1.98', '2.01'] -> PASS 
+base B cuda_general joint smooth: AD=-3.935708e-02 FD=-3.950136e-02 rel=3.65e-03 pair=5.17e-03 extrap=2.58e-03 n=4 slope=2.01 local=['1.94', '1.98', '2.04'] -> INCONCLUSIVE FD uncertainty too large (relative error 2.6e-03)
+base B cuda_general source smooth: AD=-6.236763e-01 FD=-6.236764e-01 rel=9.18e-08 pair=6.05e-06 extrap=1.81e-05 n=7 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '1.99'] -> PASS 
+base C cpu eps pixel: AD=-9.188982e-06 FD=-1.039648e-05 rel=1.16e-01 pair=1.95e-01 extrap=2.17e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 2.0e-01)
+base C cpu sig pixel: AD=4.403732e-06 FD=4.562847e-06 rel=3.49e-02 pair=1.02e-01 extrap=6.24e-01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.0e-01)
+base C cpu joint pixel: AD=-4.785251e-06 FD=-6.255213e-06 rel=2.35e-01 pair=2.62e-01 extrap=5.77e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 2.6e-01)
+base C cpu eps random: AD=-3.455458e-02 FD=-3.467502e-02 rel=3.47e-03 pair=9.88e-03 extrap=3.55e-03 n=5 slope=2.01 local=['1.96', '1.99', '2.00', '2.02'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.5e-03)
+base C cpu sig random: AD=-2.404413e-02 FD=-2.407438e-02 rel=1.26e-03 pair=3.79e-03 extrap=7.96e-04 n=4 slope=1.99 local=['1.96', '1.98', '2.00'] -> PASS 
+base C cpu joint random: AD=-5.859871e-02 FD=-5.887421e-02 rel=4.68e-03 pair=5.24e-03 extrap=3.31e-03 n=5 slope=2.05 local=['1.96', '1.99', '2.00', '2.09'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.3e-03)
+base C cpu eps local: AD=-2.729918e-03 FD=-2.722785e-03 rel=2.61e-03 pair=1.69e-02 extrap=1.79e-03 n=3 slope=1.92 local=['1.95', '1.89'] -> PASS 
+base C cpu sig local: AD=-7.317877e-04 FD=-7.365856e-04 rel=6.51e-03 pair=7.36e-03 extrap=nan n=2 slope=2.13 local=['2.13'] -> INCONCLUSIVE FD uncertainty too large (relative error 7.4e-03)
+base C cpu joint local: AD=-3.461706e-03 FD=-3.486186e-03 rel=7.02e-03 pair=1.51e-02 extrap=nan n=2 slope=1.93 local=['1.93'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.5e-02)
+base C cpu eps smooth: AD=-2.886762e-03 FD=-2.894754e-03 rel=2.76e-03 pair=3.96e-02 extrap=2.95e-03 n=4 slope=1.98 local=['1.95', '1.98', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.0e-03)
+base C cpu sig smooth: AD=-4.442271e-02 FD=-4.444202e-02 rel=4.35e-04 pair=4.93e-04 extrap=1.72e-04 n=4 slope=1.99 local=['1.95', '1.97', '2.00'] -> PASS 
+base C cpu joint smooth: AD=-4.730947e-02 FD=-4.740289e-02 rel=1.97e-03 pair=2.35e-03 extrap=9.38e-04 n=4 slope=1.98 local=['1.95', '1.99', '1.98'] -> PASS 
+base C cpu source smooth: AD=5.826230e-01 FD=5.826208e-01 rel=3.73e-06 pair=7.64e-06 extrap=1.13e-04 n=6 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+base C cuda_general eps pixel: AD=-9.189107e-06 FD=-8.885468e-06 rel=3.30e-02 pair=9.90e-02 extrap=3.28e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 9.9e-02)
+base C cuda_general sig pixel: AD=4.403740e-06 FD=4.604037e-06 rel=4.35e-02 pair=1.40e-01 extrap=1.11e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.4e-01)
+base C cuda_general joint pixel: AD=-4.785367e-06 FD=-5.668394e-06 rel=1.56e-01 pair=7.77e-01 extrap=5.82e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 7.8e-01)
+base C cuda_general eps random: AD=-3.455227e-02 FD=-3.468591e-02 rel=3.85e-03 pair=1.02e-02 extrap=3.87e-03 n=5 slope=2.01 local=['1.96', '1.99', '2.00', '2.02'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.9e-03)
+base C cuda_general sig random: AD=-2.404424e-02 FD=-2.407624e-02 rel=1.33e-03 pair=3.80e-03 extrap=8.51e-04 n=4 slope=1.99 local=['1.96', '1.98', '2.00'] -> PASS 
+base C cuda_general joint random: AD=-5.859651e-02 FD=-5.886764e-02 rel=4.61e-03 pair=4.82e-03 extrap=3.11e-03 n=5 slope=2.05 local=['1.96', '1.99', '2.00', '2.10'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.1e-03)
+base C cuda_general eps local: AD=-2.729916e-03 FD=-2.723101e-03 rel=2.50e-03 pair=3.03e-03 extrap=1.07e-04 n=3 slope=1.92 local=['1.95', '1.89'] -> PASS 
+base C cuda_general sig local: AD=-7.317891e-04 FD=-7.371098e-04 rel=7.22e-03 pair=8.04e-03 extrap=nan n=2 slope=2.14 local=['2.14'] -> INCONCLUSIVE FD uncertainty too large (relative error 8.0e-03)
+base C cuda_general joint local: AD=-3.461705e-03 FD=-3.484374e-03 rel=6.51e-03 pair=1.43e-02 extrap=nan n=2 slope=1.93 local=['1.93'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.4e-02)
+base C cuda_general eps smooth: AD=-2.886023e-03 FD=-2.912518e-03 rel=9.10e-03 pair=3.07e-02 extrap=8.28e-03 n=4 slope=1.99 local=['1.95', '1.99', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 8.3e-03)
+base C cuda_general sig smooth: AD=-4.442295e-02 FD=-4.441776e-02 rel=1.17e-04 pair=3.47e-04 extrap=2.11e-04 n=4 slope=1.99 local=['1.95', '1.97', '2.00'] -> PASS 
+base C cuda_general joint smooth: AD=-4.730897e-02 FD=-4.741772e-02 rel=2.29e-03 pair=2.65e-03 extrap=1.27e-03 n=4 slope=1.99 local=['1.95', '1.99', '1.99'] -> PASS 
+base C cuda_general source smooth: AD=5.826234e-01 FD=5.826184e-01 rel=8.69e-06 pair=1.31e-05 extrap=4.70e-05 n=6 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.01'] -> PASS 
+base D cpu eps pixel: AD=1.013925e-05 FD=1.020426e-05 rel=6.37e-03 pair=3.01e-02 extrap=1.80e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 3.0e-02)
+base D cpu sig pixel: AD=3.643100e-06 FD=3.635588e-06 rel=2.06e-03 pair=6.63e-02 extrap=2.12e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 6.6e-02)
+base D cpu joint pixel: AD=1.378235e-05 FD=1.453426e-05 rel=5.17e-02 pair=8.40e-02 extrap=1.61e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 8.4e-02)
+base D cpu eps random: AD=4.931784e-02 FD=4.928911e-02 rel=5.83e-04 pair=2.52e-03 extrap=7.63e-04 n=5 slope=1.99 local=['1.89', '1.96', '1.98', '2.00'] -> PASS 
+base D cpu sig random: AD=-1.877556e-02 FD=-1.877675e-02 rel=6.38e-05 pair=2.31e-04 extrap=1.90e-04 n=3 slope=2.14 local=['2.18', '2.11'] -> PASS 
+base D cpu joint random: AD=3.054228e-02 FD=3.032674e-02 rel=7.06e-03 pair=1.82e-02 extrap=2.49e-03 n=4 slope=1.99 local=['1.88', '1.96', '2.02'] -> INCONCLUSIVE FD uncertainty too large (relative error 2.5e-03)
+base D cpu eps local: AD=-1.430635e-03 FD=-1.417162e-03 rel=9.42e-03 pair=3.09e-02 extrap=2.12e-03 n=3 slope=1.91 local=['1.96', '1.86'] -> INCONCLUSIVE FD uncertainty too large (relative error 2.1e-03)
+base D cpu sig local: AD=4.671971e-04 FD=4.658058e-04 rel=2.98e-03 pair=9.89e-03 extrap=nan n=2 slope=2.20 local=['2.20'] -> INCONCLUSIVE FD uncertainty too large (relative error 9.9e-03)
+base D cpu joint local: AD=-9.634382e-04 FD=-1.002839e-03 rel=3.93e-02 pair=4.35e-02 extrap=nan n=2 slope=1.98 local=['1.98'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.4e-02)
+base D cpu eps smooth: AD=-2.118117e-03 FD=-2.041629e-03 rel=3.61e-02 pair=6.67e-02 extrap=1.89e-02 n=4 slope=1.98 local=['1.94', '1.98', '1.97'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.9e-02)
+base D cpu sig smooth: AD=-3.941320e-02 FD=-3.939235e-02 rel=5.29e-04 pair=6.17e-04 extrap=3.80e-04 n=4 slope=2.00 local=['1.96', '1.98', '2.01'] -> PASS 
+base D cpu joint smooth: AD=-4.153131e-02 FD=-4.156849e-02 rel=8.94e-04 pair=2.78e-03 extrap=6.31e-05 n=4 slope=2.05 local=['1.94', '1.98', '2.12'] -> PASS 
+base D cpu source smooth: AD=9.549669e-01 FD=9.549753e-01 rel=8.73e-06 pair=1.14e-05 extrap=5.76e-05 n=7 slope=1.98 local=['2.00', '2.00', '2.00', '2.00', '2.00', '1.96'] -> PASS 
+base D cuda_general eps pixel: AD=1.013905e-05 FD=1.076714e-05 rel=5.83e-02 pair=6.06e-02 extrap=1.69e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 6.1e-02)
+base D cuda_general sig pixel: AD=3.643051e-06 FD=3.665296e-06 rel=6.07e-03 pair=1.81e-02 extrap=9.10e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.8e-02)
+base D cuda_general joint pixel: AD=1.378210e-05 FD=1.388828e-05 rel=7.65e-03 pair=2.58e-02 extrap=3.96e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 2.6e-02)
+base D cuda_general eps random: AD=4.931847e-02 FD=4.932221e-02 rel=7.59e-05 pair=4.55e-04 extrap=5.04e-04 n=5 slope=1.95 local=['1.89', '1.96', '1.97', '1.93'] -> PASS 
+base D cuda_general sig random: AD=-1.877544e-02 FD=-1.877714e-02 rel=9.01e-05 pair=2.42e-04 extrap=2.05e-04 n=3 slope=2.13 local=['2.18', '2.11'] -> PASS 
+base D cuda_general joint random: AD=3.054302e-02 FD=3.037173e-02 rel=5.61e-03 pair=1.70e-02 extrap=1.77e-03 n=4 slope=1.99 local=['1.88', '1.96', '2.01'] -> PASS 
+base D cuda_general eps local: AD=-1.430618e-03 FD=-1.421568e-03 rel=6.33e-03 pair=2.98e-02 extrap=9.88e-04 n=3 slope=1.91 local=['1.95', '1.87'] -> PASS 
+base D cuda_general sig local: AD=4.671989e-04 FD=4.644602e-04 rel=5.86e-03 pair=6.45e-03 extrap=nan n=2 slope=2.21 local=['2.21'] -> INCONCLUSIVE FD uncertainty too large (relative error 6.5e-03)
+base D cuda_general joint local: AD=-9.634188e-04 FD=-9.999160e-04 rel=3.65e-02 pair=4.01e-02 extrap=nan n=2 slope=1.98 local=['1.98'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.0e-02)
+base D cuda_general eps smooth: AD=-2.117675e-03 FD=-2.180471e-03 rel=2.88e-02 pair=6.51e-02 extrap=1.62e-02 n=4 slope=1.97 local=['1.94', '1.98', '1.96'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.6e-02)
+base D cuda_general sig smooth: AD=-3.941300e-02 FD=-3.938882e-02 rel=6.14e-04 pair=9.07e-04 extrap=4.55e-04 n=4 slope=2.00 local=['1.96', '1.98', '2.01'] -> PASS 
+base D cuda_general joint smooth: AD=-4.153068e-02 FD=-4.152480e-02 rel=1.42e-04 pair=2.03e-03 extrap=4.52e-04 n=4 slope=2.04 local=['1.94', '1.98', '2.10'] -> PASS 
+base D cuda_general source smooth: AD=9.549695e-01 FD=9.549675e-01 rel=2.12e-06 pair=8.11e-06 extrap=1.75e-05 n=7 slope=1.97 local=['2.00', '2.00', '2.00', '2.00', '2.00', '1.95'] -> PASS 
+base E cpu eps pixel: AD=4.380239e-06 FD=3.726021e-06 rel=1.49e-01 pair=2.25e-01 extrap=4.00e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 2.2e-01)
+base E cpu sig pixel: AD=6.348917e-06 FD=6.185528e-06 rel=2.57e-02 pair=8.12e-02 extrap=8.54e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 8.1e-02)
+base E cpu joint pixel: AD=1.072916e-05 FD=1.176204e-05 rel=8.78e-02 pair=1.22e-01 extrap=4.83e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.2e-01)
+base E cpu eps random: AD=4.188645e-02 FD=4.192232e-02 rel=8.56e-04 pair=2.20e-03 extrap=8.29e-05 n=6 slope=1.95 local=['2.01', '2.00', '2.00', '2.00', '1.89'] -> PASS 
+base E cpu sig random: AD=-8.332825e-02 FD=-8.328791e-02 rel=4.84e-04 pair=1.25e-03 extrap=7.50e-04 n=4 slope=2.03 local=['2.03', '2.01', '2.06'] -> PASS 
+base E cpu joint random: AD=-4.144180e-02 FD=-4.144923e-02 rel=1.79e-04 pair=4.58e-03 extrap=2.64e-03 n=5 slope=2.01 local=['2.01', '2.00', '2.00', '2.02'] -> INCONCLUSIVE FD uncertainty too large (relative error 2.6e-03)
+base E cpu eps local: AD=-3.222892e-03 FD=-3.216257e-03 rel=2.06e-03 pair=1.02e-02 extrap=2.99e-03 n=3 slope=1.94 local=['1.92', '1.96'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.0e-03)
+base E cpu sig local: AD=1.547917e-03 FD=1.541414e-03 rel=4.20e-03 pair=4.91e-03 extrap=nan n=2 slope=2.08 local=['2.08'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.9e-03)
+base E cpu joint local: AD=-1.674975e-03 FD=-1.715080e-03 rel=2.34e-02 pair=8.30e-02 extrap=9.96e-02 n=3 slope=2.02 local=['1.92', '2.10'] -> INCONCLUSIVE FD uncertainty too large (relative error 8.3e-02)
+base E cpu eps smooth: AD=3.868257e-04 FD=3.839436e-04 rel=7.45e-03 pair=1.05e-01 extrap=2.79e-02 n=4 slope=1.99 local=['1.93', '1.98', '2.00'] -> INCONCLUSIVE FD uncertainty too large (relative error 2.8e-02)
+base E cpu sig smooth: AD=-5.483756e-02 FD=-5.485957e-02 rel=4.01e-04 pair=9.72e-04 extrap=8.41e-04 n=4 slope=1.97 local=['1.97', '1.98', '1.96'] -> PASS 
+base E cpu joint smooth: AD=-5.445073e-02 FD=-5.460444e-02 rel=2.81e-03 pair=2.94e-03 extrap=3.77e-04 n=4 slope=2.00 local=['1.93', '1.98', '2.02'] -> PASS 
+base E cpu source smooth: AD=-5.836749e-01 FD=-5.836733e-01 rel=2.81e-06 pair=2.26e-05 extrap=5.94e-04 n=7 slope=1.99 local=['2.00', '2.00', '2.00', '2.00', '1.99', '1.98'] -> PASS 
+base E cuda_general eps pixel: AD=4.379597e-06 FD=5.921620e-06 rel=2.60e-01 pair=9.28e-01 extrap=7.33e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 9.3e-01)
+base E cuda_general sig pixel: AD=6.349051e-06 FD=6.814236e-06 rel=6.83e-02 pair=7.08e-02 extrap=1.59e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 7.1e-02)
+base E cuda_general joint pixel: AD=1.072865e-05 FD=1.076277e-05 rel=3.17e-03 pair=8.82e-02 extrap=1.23e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 8.8e-02)
+base E cuda_general eps random: AD=4.188590e-02 FD=4.194148e-02 rel=1.33e-03 pair=2.60e-03 extrap=1.93e-03 n=6 slope=1.91 local=['2.01', '2.00', '2.00', '1.99', '1.82'] -> PASS 
+base E cuda_general sig random: AD=-8.332779e-02 FD=-8.329080e-02 rel=4.44e-04 pair=1.41e-03 extrap=8.69e-04 n=4 slope=2.03 local=['2.03', '2.01', '2.05'] -> PASS 
+base E cuda_general joint random: AD=-4.144189e-02 FD=-4.146553e-02 rel=5.70e-04 pair=5.02e-03 extrap=1.29e-03 n=5 slope=2.00 local=['2.01', '2.00', '1.99', '2.01'] -> PASS 
+base E cuda_general eps local: AD=-3.222936e-03 FD=-3.243199e-03 rel=6.25e-03 pair=1.34e-02 extrap=4.39e-03 n=3 slope=1.95 local=['1.92', '1.97'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.4e-03)
+base E cuda_general sig local: AD=1.547890e-03 FD=1.541790e-03 rel=3.94e-03 pair=4.52e-03 extrap=nan n=2 slope=2.10 local=['2.10'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.5e-03)
+base E cuda_general joint local: AD=-1.675046e-03 FD=-1.799672e-03 rel=6.92e-02 pair=7.74e-02 extrap=4.63e-02 n=3 slope=2.00 local=['1.92', '2.07'] -> PASS (noise-limited) |g|/(|grad||p|) = 8.0e-04; FD-AD difference within the FD uncertainty 1.8e-04 = 8.9e-05 |grad||p|
+base E cuda_general eps smooth: AD=3.871487e-04 FD=3.497785e-04 rel=9.65e-02 pair=5.87e-01 extrap=6.50e-03 n=4 slope=1.99 local=['1.93', '1.98', '2.01'] -> INCONCLUSIVE FD uncertainty too large (relative error 6.5e-03)
+base E cuda_general sig smooth: AD=-5.483718e-02 FD=-5.485629e-02 rel=3.48e-04 pair=9.03e-04 extrap=7.58e-04 n=4 slope=1.96 local=['1.97', '1.98', '1.94'] -> PASS 
+base E cuda_general joint smooth: AD=-5.445003e-02 FD=-5.456278e-02 rel=2.07e-03 pair=2.94e-03 extrap=4.30e-05 n=4 slope=1.99 local=['1.93', '1.97', '2.02'] -> PASS 
+base E cuda_general source smooth: AD=-5.836790e-01 FD=-5.836807e-01 rel=2.85e-06 pair=2.85e-06 extrap=3.01e-04 n=7 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.01'] -> PASS 
+order D-order4 cpu eps random: AD=-3.272659e-02 FD=-3.277121e-02 rel=1.36e-03 pair=5.26e-03 extrap=2.39e-03 n=5 slope=1.98 local=['1.92', '1.97', '2.00', '1.97'] -> INCONCLUSIVE FD uncertainty too large (relative error 2.4e-03)
+order D-order4 cpu sig random: AD=7.142336e-02 FD=7.147490e-02 rel=7.21e-04 pair=8.57e-04 extrap=3.89e-04 n=5 slope=2.02 local=['2.05', '2.03', '2.01', '2.02'] -> PASS 
+order D-order4 cpu joint random: AD=3.869677e-02 FD=3.867672e-02 rel=5.18e-04 pair=1.31e-02 extrap=9.31e-04 n=4 slope=1.98 local=['1.92', '1.97', '1.99'] -> PASS 
+order D-order4 cuda_general eps random: AD=-3.272759e-02 FD=-3.268273e-02 rel=1.37e-03 pair=2.48e-03 extrap=5.14e-04 n=5 slope=1.99 local=['1.92', '1.97', '2.00', '1.97'] -> PASS 
+order D-order4 cuda_general sig random: AD=7.142273e-02 FD=7.147421e-02 rel=7.20e-04 pair=8.26e-04 extrap=3.72e-04 n=5 slope=2.01 local=['2.05', '2.03', '2.01', '2.01'] -> PASS 
+order D-order4 cuda_general joint random: AD=3.869514e-02 FD=3.866888e-02 rel=6.79e-04 pair=1.13e-02 extrap=1.01e-03 n=4 slope=1.98 local=['1.92', '1.97', '1.99'] -> PASS 
+order D-order8 cpu eps random: AD=-1.343783e-02 FD=-1.346553e-02 rel=2.06e-03 pair=1.12e-02 extrap=6.05e-03 n=4 slope=1.99 local=['2.00', '2.00', '1.98'] -> INCONCLUSIVE FD uncertainty too large (relative error 6.1e-03)
+order D-order8 cpu sig random: AD=6.263867e-03 FD=6.269042e-03 rel=8.25e-04 pair=4.48e-03 extrap=3.61e-03 n=4 slope=1.96 local=['1.96', '1.97', '1.95'] -> PASS (noise-limited) |g|/(|grad||p|) = 1.8e-03; FD-AD difference within the FD uncertainty 8.9e-05 = 2.6e-05 |grad||p|
+order D-order8 cpu joint random: AD=-7.173960e-03 FD=-7.136425e-03 rel=5.23e-03 pair=1.85e-02 extrap=1.46e-02 n=4 slope=2.00 local=['2.00', '2.00', '2.00'] -> PASS (noise-limited) |g|/(|grad||p|) = 1.9e-03; FD-AD difference within the FD uncertainty 3.6e-04 = 9.9e-05 |grad||p|
+order D-order8 cuda_general eps random: AD=-1.343708e-02 FD=-1.346031e-02 rel=1.73e-03 pair=1.20e-02 extrap=6.64e-03 n=4 slope=1.99 local=['2.00', '2.00', '1.98'] -> INCONCLUSIVE FD uncertainty too large (relative error 6.6e-03)
+order D-order8 cuda_general sig random: AD=6.263848e-03 FD=6.277874e-03 rel=2.23e-03 pair=4.62e-03 extrap=3.84e-03 n=4 slope=1.96 local=['1.96', '1.97', '1.96'] -> PASS (noise-limited) |g|/(|grad||p|) = 1.8e-03; FD-AD difference within the FD uncertainty 9.1e-05 = 2.6e-05 |grad||p|
+order D-order8 cuda_general joint random: AD=-7.173229e-03 FD=-7.139643e-03 rel=4.68e-03 pair=1.84e-02 extrap=1.38e-02 n=4 slope=2.00 local=['2.00', '2.00', '2.01'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.4e-02)
+pml D-pml[2, 5, 0, 3, 4, 1] cpu eps random: AD=-5.768501e-03 FD=-5.844581e-03 rel=1.30e-02 pair=2.53e-02 extrap=9.33e-03 n=5 slope=1.99 local=['1.92', '1.97', '1.99', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 9.3e-03)
+pml D-pml[2, 5, 0, 3, 4, 1] cpu sig random: AD=3.077703e-02 FD=3.078785e-02 rel=3.51e-04 pair=4.60e-04 extrap=3.13e-04 n=4 slope=2.00 local=['1.99', '2.00', '2.01'] -> PASS 
+pml D-pml[2, 5, 0, 3, 4, 1] cpu joint random: AD=2.500853e-02 FD=2.516146e-02 rel=6.08e-03 pair=6.68e-03 extrap=3.80e-03 n=4 slope=1.98 local=['1.92', '1.98', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.8e-03)
+pml D-pml[2, 5, 0, 3, 4, 1] cuda_general eps random: AD=-5.767883e-03 FD=-5.862435e-03 rel=1.61e-02 pair=5.34e-02 extrap=1.85e-02 n=5 slope=1.97 local=['1.92', '1.97', '2.00', '1.95'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.9e-02)
+pml D-pml[2, 5, 0, 3, 4, 1] cuda_general sig random: AD=3.077710e-02 FD=3.079105e-02 rel=4.53e-04 pair=4.90e-04 extrap=3.73e-04 n=4 slope=2.00 local=['1.99', '2.00', '2.00'] -> PASS 
+pml D-pml[2, 5, 0, 3, 4, 1] cuda_general joint random: AD=2.500922e-02 FD=2.515522e-02 rel=5.80e-03 pair=8.46e-03 extrap=3.13e-03 n=4 slope=1.98 local=['1.92', '1.98', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.1e-03)
+pml D-pml0 cpu eps random: AD=1.264471e-04 FD=2.239353e-04 rel=4.35e-01 pair=6.71e-01 extrap=2.34e-01 n=5 slope=2.03 local=['1.92', '1.97', '2.00', '2.06'] -> INCONCLUSIVE FD uncertainty too large (relative error 2.3e-01)
+pml D-pml0 cpu sig random: AD=2.740609e-02 FD=2.739534e-02 rel=3.92e-04 pair=4.33e-04 extrap=3.77e-04 n=4 slope=2.00 local=['1.99', '2.00', '2.00'] -> PASS 
+pml D-pml0 cpu joint random: AD=2.753254e-02 FD=2.765273e-02 rel=4.35e-03 pair=9.84e-03 extrap=2.09e-03 n=4 slope=1.99 local=['1.92', '1.98', '2.00'] -> INCONCLUSIVE FD uncertainty too large (relative error 2.1e-03)
+pml D-pml0 cuda_general eps random: AD=1.251815e-04 FD=7.100005e-05 rel=4.33e-01 pair=4.42e-01 extrap=3.29e-01 n=5 slope=1.99 local=['1.92', '1.97', '1.99', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.3e-01)
+pml D-pml0 cuda_general sig random: AD=2.740570e-02 FD=2.739705e-02 rel=3.16e-04 pair=3.70e-04 extrap=3.63e-04 n=4 slope=2.00 local=['1.99', '2.00', '2.00'] -> PASS 
+pml D-pml0 cuda_general joint random: AD=2.753088e-02 FD=2.762428e-02 rel=3.38e-03 pair=7.77e-03 extrap=1.70e-03 n=4 slope=1.98 local=['1.92', '1.98', '1.99'] -> PASS 
+pml D-pml2 cpu eps random: AD=-5.609045e-03 FD=-5.604771e-03 rel=7.62e-04 pair=3.25e-02 extrap=1.70e-02 n=5 slope=1.98 local=['1.92', '1.97', '1.99', '1.97'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.7e-02)
+pml D-pml2 cpu sig random: AD=3.052840e-02 FD=3.051478e-02 rel=4.46e-04 pair=4.52e-04 extrap=3.90e-04 n=4 slope=2.00 local=['1.99', '2.00', '2.00'] -> PASS 
+pml D-pml2 cpu joint random: AD=2.491936e-02 FD=2.506378e-02 rel=5.76e-03 pair=1.46e-02 extrap=3.01e-03 n=4 slope=1.98 local=['1.92', '1.98', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.0e-03)
+pml D-pml2 cuda_general eps random: AD=-5.609929e-03 FD=-5.537286e-03 rel=1.29e-02 pair=2.36e-02 extrap=6.86e-03 n=5 slope=2.02 local=['1.92', '1.97', '2.00', '2.03'] -> INCONCLUSIVE FD uncertainty too large (relative error 6.9e-03)
+pml D-pml2 cuda_general sig random: AD=3.052875e-02 FD=3.051639e-02 rel=4.05e-04 pair=4.23e-04 extrap=3.92e-04 n=4 slope=2.00 local=['1.99', '2.00', '2.00'] -> PASS 
+pml D-pml2 cuda_general joint random: AD=2.491882e-02 FD=2.508203e-02 rel=6.51e-03 pair=1.22e-02 extrap=3.38e-03 n=4 slope=1.99 local=['1.92', '1.98', '2.00'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.4e-03)
+pml D-pml6 cpu eps random: AD=-5.589022e-03 FD=-5.490120e-03 rel=1.77e-02 pair=1.85e-02 extrap=4.97e-03 n=5 slope=1.97 local=['1.92', '1.97', '1.99', '1.95'] -> INCONCLUSIVE FD uncertainty too large (relative error 5.0e-03)
+pml D-pml6 cpu sig random: AD=3.057474e-02 FD=3.058355e-02 rel=2.88e-04 pair=3.80e-04 extrap=2.97e-04 n=4 slope=2.00 local=['1.99', '1.99', '2.00'] -> PASS 
+pml D-pml6 cpu joint random: AD=2.498572e-02 FD=2.515477e-02 rel=6.72e-03 pair=1.44e-02 extrap=3.58e-03 n=4 slope=1.98 local=['1.92', '1.98', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.6e-03)
+pml D-pml6 cuda_general eps random: AD=-5.588162e-03 FD=-5.627335e-03 rel=6.96e-03 pair=4.07e-02 extrap=1.69e-02 n=5 slope=1.96 local=['1.92', '1.97', '1.99', '1.94'] -> INCONCLUSIVE FD uncertainty too large (relative error 1.7e-02)
+pml D-pml6 cuda_general sig random: AD=3.057484e-02 FD=3.056333e-02 rel=3.77e-04 pair=4.61e-04 extrap=4.28e-04 n=4 slope=1.99 local=['1.99', '1.99', '1.99'] -> PASS 
+pml D-pml6 cuda_general joint random: AD=2.498668e-02 FD=2.514979e-02 rel=6.49e-03 pair=1.72e-02 extrap=3.63e-03 n=4 slope=1.98 local=['1.92', '1.98', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.6e-03)
+polarisation D-pol0 cpu eps random: AD=3.670077e-03 FD=3.633562e-03 rel=9.95e-03 pair=1.47e-02 extrap=4.63e-03 n=4 slope=1.98 local=['1.92', '1.97', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.6e-03)
+polarisation D-pol0 cpu sig random: AD=6.598744e-03 FD=6.595476e-03 rel=4.95e-04 pair=1.71e-03 extrap=9.08e-05 n=4 slope=1.97 local=['1.87', '1.93', '1.98'] -> PASS 
+polarisation D-pol0 cpu joint random: AD=1.026882e-02 FD=1.032340e-02 rel=5.29e-03 pair=9.24e-03 extrap=4.83e-03 n=4 slope=1.98 local=['1.92', '1.97', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.8e-03)
+polarisation D-pol0 cuda_general eps random: AD=3.669953e-03 FD=3.644597e-03 rel=6.91e-03 pair=1.18e-02 extrap=6.03e-03 n=5 slope=2.00 local=['1.92', '1.97', '1.99', '2.01'] -> INCONCLUSIVE FD uncertainty too large (relative error 6.0e-03)
+polarisation D-pol0 cuda_general sig random: AD=6.598803e-03 FD=6.594974e-03 rel=5.80e-04 pair=2.12e-03 extrap=3.94e-05 n=4 slope=1.97 local=['1.88', '1.93', '1.99'] -> PASS 
+polarisation D-pol0 cuda_general joint random: AD=1.026876e-02 FD=1.033934e-02 rel=6.83e-03 pair=9.55e-03 extrap=5.54e-03 n=4 slope=1.98 local=['1.92', '1.97', '1.99'] -> INCONCLUSIVE FD uncertainty too large (relative error 5.5e-03)
+polarisation D-pol1 cpu eps random: AD=9.494211e-04 FD=8.890125e-04 rel=6.36e-02 pair=1.25e-01 extrap=5.91e-02 n=5 slope=2.00 local=['1.99', '2.00', '2.00', '2.00'] -> INCONCLUSIVE FD uncertainty too large (relative error 5.9e-02)
+polarisation D-pol1 cpu sig random: AD=3.130903e-02 FD=3.129282e-02 rel=5.18e-04 pair=3.48e-03 extrap=3.84e-04 n=5 slope=2.02 local=['2.05', '2.03', '2.01', '2.03'] -> PASS 
+polarisation D-pol1 cpu joint random: AD=3.225845e-02 FD=3.240557e-02 rel=4.54e-03 pair=7.39e-03 extrap=1.47e-03 n=5 slope=2.06 local=['1.99', '2.00', '2.00', '2.11'] -> PASS 
+polarisation D-pol1 cuda_general eps random: AD=9.485070e-04 FD=8.860908e-04 rel=6.58e-02 pair=9.51e-02 extrap=4.82e-02 n=5 slope=1.98 local=['1.99', '1.99', '1.99', '1.98'] -> INCONCLUSIVE FD uncertainty too large (relative error 4.8e-02)
+polarisation D-pol1 cuda_general sig random: AD=3.130835e-02 FD=3.128641e-02 rel=7.01e-04 pair=3.54e-03 extrap=4.36e-04 n=5 slope=2.02 local=['2.05', '2.03', '2.01', '2.02'] -> PASS 
+polarisation D-pol1 cuda_general joint random: AD=3.225686e-02 FD=3.244088e-02 rel=5.67e-03 pair=7.60e-03 extrap=1.89e-03 n=5 slope=2.05 local=['1.99', '2.00', '1.99', '2.10'] -> PASS 
+{'series': '3d_edge_cells', 'cell': 'z0_first', 'label': 'eps'} frozen cpu eps : AD=2.693825e-06 FD=2.397218e-06 rel=1.10e-01 pair=4.25e-01 extrap=2.42e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 4.3e-01) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'z0_first', 'label': 'sig'} frozen cpu sig : AD=2.435406e-07 FD=2.323685e-07 rel=4.59e-02 pair=1.00e+00 extrap=4.09e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.0e+00) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'zm_last', 'label': 'eps'} frozen cpu eps : AD=1.242692e-05 FD=1.259742e-05 rel=1.35e-02 pair=5.98e-02 extrap=1.85e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 6.0e-02) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'zm_last', 'label': 'sig'} frozen cpu sig : AD=1.179090e-06 FD=1.100935e-06 rel=6.63e-02 pair=1.16e-01 extrap=9.16e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.2e-01) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'corner', 'label': 'eps'} frozen cpu eps : AD=-1.800586e-09 FD=-4.486865e-09 rel=5.99e-01 pair=7.86e-01 extrap=nan n=1 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 7.9e-01) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'corner', 'label': 'sig'} frozen cpu sig : AD=-2.144060e-09 FD=-2.176960e-09 rel=1.51e-02 pair=7.18e-02 extrap=1.07e+02 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 7.2e-02) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'x0_first', 'label': 'eps'} frozen cpu eps : AD=-5.747994e-05 FD=-5.923652e-05 rel=2.97e-02 pair=4.87e-02 extrap=1.74e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 4.9e-02) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'x0_first', 'label': 'sig'} frozen cpu sig : AD=1.761871e-05 FD=1.754425e-05 rel=4.23e-03 pair=1.33e-02 extrap=7.99e-01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.3e-02) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'z0_first', 'label': 'eps'} frozen cuda_general eps : AD=2.693813e-06 FD=2.745131e-06 rel=1.87e-02 pair=6.16e-02 extrap=6.28e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 6.2e-02) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'z0_first', 'label': 'sig'} frozen cuda_general sig : AD=2.435393e-07 FD=2.787246e-07 rel=1.26e-01 pair=4.40e-01 extrap=6.11e+00 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 4.4e-01) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'zm_last', 'label': 'eps'} frozen cuda_general eps : AD=1.242700e-05 FD=1.205156e-05 rel=3.02e-02 pair=9.09e-02 extrap=4.95e-01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 9.1e-02) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'zm_last', 'label': 'sig'} frozen cuda_general sig : AD=1.179103e-06 FD=1.004824e-06 rel=1.48e-01 pair=1.86e-01 extrap=2.13e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.9e-01) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'corner', 'label': 'eps'} frozen cuda_general eps : AD=-1.799955e-09 FD=-1.164292e-09 rel=3.53e-01 pair=1.00e+00 extrap=nan n=1 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 1.0e+00) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'corner', 'label': 'sig'} frozen cuda_general sig : AD=-2.144598e-09 FD=-2.035751e-09 rel=5.08e-02 pair=8.58e-02 extrap=nan n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 8.6e-02) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'x0_first', 'label': 'eps'} frozen cuda_general eps : AD=-5.748009e-05 FD=-5.962209e-05 rel=3.59e-02 pair=5.92e-02 extrap=1.05e+01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 5.9e-02) J0==compute: True
+{'series': '3d_edge_cells', 'cell': 'x0_first', 'label': 'sig'} frozen cuda_general sig : AD=1.761882e-05 FD=1.732259e-05 rel=1.68e-02 pair=2.27e-02 extrap=5.28e-01 n=0 slope=nan local=[] -> INCONCLUSIVE FD uncertainty too large (relative error 2.3e-02) J0==compute: True
+wrote /home/ll/下载/DeepGPR-dev/tests/gradient_verification/data/t08_fdtd3d.json
+verdicts {'INCONCLUSIVE': 116, 'PASS': 74, 'PASS (noise-limited)': 4}

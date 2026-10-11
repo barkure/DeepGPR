@@ -1,0 +1,28 @@
+E cpu sig: AD=1.215966e-03 g0=1.217867e-03+-1.1e-06 rel=1.56e-03 z=1.79 -> PASS
+E cpu joint: AD=9.069897e-03 g0=9.054746e-03+-1.1e-05 rel=1.67e-03 z=1.32 -> PASS
+E cuda_fast sig: AD=1.215962e-03 g0=1.217877e-03+-1.2e-06 rel=1.57e-03 z=1.65 -> PASS
+E cuda_fast joint: AD=9.069709e-03 g0=9.053833e-03+-1.1e-05 rel=1.75e-03 z=1.40 -> PASS
+E cuda_general sig: AD=1.215961e-03 g0=1.217877e-03+-1.2e-06 rel=1.58e-03 z=1.65 -> PASS
+E cuda_general joint: AD=9.069701e-03 g0=9.053833e-03+-1.1e-05 rel=1.75e-03 z=1.40 -> PASS
+A cpu sig_relative random: AD=-8.073342e-03 FD=-8.073279e-03 rel=7.76e-06 pair=4.33e-04 extrap=2.31e-04 n=5 slope=1.93 local=['1.99', '1.99', '1.98', '1.80'] -> PASS 
+A cuda_fast sig_relative random: AD=-8.073344e-03 FD=-8.072741e-03 rel=7.46e-05 pair=4.96e-04 extrap=2.86e-04 n=5 slope=1.92 local=['1.99', '1.99', '1.97', '1.80'] -> PASS 
+A cuda_general sig_relative random: AD=-8.073343e-03 FD=-8.072741e-03 rel=7.46e-05 pair=4.95e-04 extrap=2.86e-04 n=5 slope=1.92 local=['1.99', '1.99', '1.97', '1.80'] -> PASS 
+B cpu sig_relative random: AD=-1.009474e-02 FD=-1.009111e-02 rel=3.59e-04 pair=3.63e-04 extrap=3.44e-05 n=5 slope=2.02 local=['1.99', '2.00', '2.01', '2.05'] -> PASS 
+B cuda_fast sig_relative random: AD=-1.009473e-02 FD=-1.009849e-02 rel=3.72e-04 pair=4.54e-04 extrap=7.31e-05 n=5 slope=2.02 local=['1.99', '2.00', '2.01', '2.05'] -> PASS 
+B cuda_general sig_relative random: AD=-1.009473e-02 FD=-1.009849e-02 rel=3.72e-04 pair=4.53e-04 extrap=7.29e-05 n=5 slope=2.02 local=['1.99', '2.00', '2.01', '2.05'] -> PASS 
+C cpu sig_relative random: AD=2.942946e-03 FD=2.943513e-03 rel=1.93e-04 pair=2.96e-04 extrap=8.47e-05 n=5 slope=2.01 local=['2.01', '2.01', '2.01', '2.03'] -> PASS 
+C cuda_fast sig_relative random: AD=2.942947e-03 FD=2.944314e-03 rel=4.64e-04 pair=4.77e-04 extrap=2.70e-04 n=5 slope=2.01 local=['2.01', '2.01', '2.01', '2.02'] -> PASS 
+C cuda_general sig_relative random: AD=2.942950e-03 FD=2.944314e-03 rel=4.63e-04 pair=4.76e-04 extrap=2.70e-04 n=5 slope=2.01 local=['2.01', '2.01', '2.01', '2.02'] -> PASS 
+D cpu sig_relative random: AD=-1.044488e-02 FD=-1.044499e-02 rel=1.05e-05 pair=1.32e-04 extrap=7.02e-05 n=5 slope=2.00 local=['2.00', '2.00', '2.00', '2.00'] -> PASS 
+D cuda_fast sig_relative random: AD=-1.044488e-02 FD=-1.044511e-02 rel=2.24e-05 pair=1.89e-04 extrap=8.85e-05 n=5 slope=2.00 local=['2.00', '2.00', '2.00', '2.00'] -> PASS 
+D cuda_general sig_relative random: AD=-1.044488e-02 FD=-1.044511e-02 rel=2.23e-05 pair=1.89e-04 extrap=8.86e-05 n=5 slope=2.00 local=['2.00', '2.00', '2.00', '2.00'] -> PASS 
+E cpu sig_relative random: AD=1.326174e-03 FD=1.326133e-03 rel=3.09e-05 pair=7.46e-04 extrap=2.08e-04 n=4 slope=1.95 local=['2.00', '1.99', '1.92'] -> PASS 
+E cuda_fast sig_relative random: AD=1.326178e-03 FD=1.326040e-03 rel=1.04e-04 pair=7.04e-04 extrap=2.79e-04 n=4 slope=1.95 local=['2.00', '1.99', '1.92'] -> PASS 
+E cuda_general sig_relative random: AD=1.326177e-03 FD=1.326040e-03 rel=1.04e-04 pair=7.04e-04 extrap=2.79e-04 n=4 slope=1.95 local=['2.00', '1.99', '1.92'] -> PASS 
+F cpu sig_relative random: AD=4.871310e-03 FD=4.872044e-03 rel=1.51e-04 pair=7.48e-04 extrap=1.44e-04 n=5 slope=1.97 local=['2.02', '2.01', '2.00', '1.91'] -> PASS 
+F cuda_fast sig_relative random: AD=4.871273e-03 FD=4.871955e-03 rel=1.40e-04 pair=7.49e-04 extrap=1.40e-04 n=5 slope=1.97 local=['2.02', '2.01', '2.00', '1.91'] -> PASS 
+F cuda_general sig_relative random: AD=4.871273e-03 FD=4.871955e-03 rel=1.40e-04 pair=7.49e-04 extrap=1.40e-04 n=5 slope=1.97 local=['2.02', '2.01', '2.00', '1.91'] -> PASS 
+G cpu sig_relative random: AD=-3.626875e-03 FD=-3.628732e-03 rel=5.12e-04 pair=1.44e-03 extrap=4.03e-04 n=5 slope=2.00 local=['2.01', '2.01', '1.99', '2.00'] -> PASS 
+G cuda_fast sig_relative random: AD=-3.626901e-03 FD=-3.628668e-03 rel=4.87e-04 pair=2.11e-03 extrap=6.99e-04 n=5 slope=2.00 local=['2.01', '2.01', '1.99', '2.00'] -> PASS 
+G cuda_general sig_relative random: AD=-3.626901e-03 FD=-3.628668e-03 rel=4.87e-04 pair=2.11e-03 extrap=6.99e-04 n=5 slope=2.00 local=['2.01', '2.01', '1.99', '2.00'] -> PASS 
+wrote /home/ll/下载/DeepGPR-dev/tests/gradient_verification/data/t01b_resolve.json

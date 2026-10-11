@@ -1,0 +1,39 @@
+{
+  "git_head": "386f214d88cae2111dda8c5aa1ef0434595b02f8",
+  "source_sha256": {
+    "src/DeepGPR/lib/deepgpr.h": "47758a3c15aa41a9cab1ddad9052ddbdaecabb8e28c84bbbbba1abbc18709dde",
+    "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+    "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f"
+  },
+  "libraries": {
+    "deepgpr_cpu.so": {
+      "sha256": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251",
+      "before_sha256": "2925ec1d49c36f4914f68442209e743d46ee34f764d3b4f5a7f986c0e3a39161",
+      "abi": 6,
+      "pml_material_gradients": true
+    },
+    "deepgpr.so": {
+      "sha256": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+      "before_sha256": "d2e458bd438ed0a050ad7e74b871e5c8ad5ce6633e65954020e28dc998401861",
+      "abi": 6,
+      "pml_material_gradients": true
+    }
+  },
+  "cuda_toolkit": "12.4",
+  "sass_targets": [
+    50,
+    52,
+    60,
+    61,
+    70,
+    75,
+    80,
+    86,
+    89,
+    90
+  ],
+  "ptx_target": 90,
+  "validation_platform": "Linux, RTX 4090 sm_89",
+  "other_platforms": "Windows/macOS shipped binaries are not rebuilt here; capability guard requires rebuilt libraries for PML material gradients.",
+  "exact_zero_material_guard": true
+}

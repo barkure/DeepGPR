@@ -331,7 +331,9 @@ def build_backward_arguments(
     return arguments
 
 
-def _check_forward_capabilities(c_lib: Any, config: SolverConfig) -> None:
+def _check_forward_capabilities(
+    c_lib: Any, config: SolverConfig, needs_model_gradient: bool = False
+) -> None:
     """Reject native libraries that lack a feature this call needs."""
     if bool(config.pmlthick.any()):
         require_capability(
@@ -340,6 +342,13 @@ def _check_forward_capabilities(c_lib: Any, config: SolverConfig) -> None:
             "The loaded library lacks external-PML material gradients. "
             "Rebuild the CPU/CUDA shared libraries from the current sources.",
         )
+        if needs_model_gradient:
+            require_capability(
+                c_lib,
+                "deepgpr_supports_pml_material_gradients",
+                "The loaded library omits PML material sensitivities. "
+                "Rebuild the CPU/CUDA shared libraries from the current sources.",
+            )
     storage = config.storage
     if config.tm2d_fast_path:
         require_capability(
@@ -518,11 +527,22 @@ class DeepGPR(torch.autograd.Function):
         ).contiguous()
 
         c_lib = get_deepgpr_lib(device)
-        _check_forward_capabilities(c_lib, config)
-
         eps_r_requires_grad = bool(eps_r.requires_grad)
         sigma_requires_grad = bool(sigma.requires_grad)
         needs_model_gradient = eps_r_requires_grad or sigma_requires_grad
+        _check_forward_capabilities(
+            c_lib, config, needs_model_gradient and config.save_wavefield_history
+        )
+        if (
+            config.save_wavefield_history
+            and needs_model_gradient
+            and config.history_region == "physical"
+            and bool(config.pmlthick.any())
+        ):
+            raise ValueError(
+                "wavefield_history_region='physical' omits PML material sensitivities. "
+                "Use 'extended' for material gradients with PML."
+            )
         use_async_offload = bool(config.use_async_offload and device.type == "cuda")
         reconstruct_rhs = bool(
             config.reconstruct_rhs and config.save_wavefield_history and needs_model_gradient

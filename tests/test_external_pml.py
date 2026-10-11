@@ -1,4 +1,4 @@
-"""Physical-model API, fixed external PML, and temporal checkpoint regressions."""
+"""Physical-model API, differentiable PML extension, and checkpoint regressions."""
 import importlib
 import sys
 import unittest
@@ -57,14 +57,32 @@ def raw_compute(model, sigma, args, pml):
 
 
 class ExternalPMLTests(unittest.TestCase):
-    def test_replicated_material_values_and_crop_only_backward(self):
-        for shape, pml in [((3, 4, 1), (5, 2, 0, 3, 0, 0)), ((3, 4, 2), (1, 2, 3, 0, 2, 1))]:
+    def test_replicated_material_values_and_folded_backward(self):
+        torch.manual_seed(612)
+        for shape, pml in [
+            ((3, 4, 1), (5, 2, 0, 3, 0, 0)),
+            ((3, 4, 2), (1, 2, 3, 0, 2, 1)),
+            ((1, 2, 1), (3, 4, 2, 1, 2, 3)),
+            ((3, 4, 2), (0, 0, 0, 0, 0, 0)),
+        ]:
             with self.subTest(shape=shape):
                 model = torch.arange(int(torch.tensor(shape).prod()), dtype=torch.float64).reshape(shape).requires_grad_()
+                reference = model.detach().clone().requires_grad_()
                 extended = common._ExtendModel.apply(model, pml)
-                torch.testing.assert_close(extended, pad_model(model.detach(), pml))
-                extended.sum().backward()
-                torch.testing.assert_close(model.grad, torch.ones_like(model))
+                padded = pad_model(reference, pml)
+                torch.testing.assert_close(extended, padded, rtol=0, atol=0)
+                dual = torch.randn_like(extended)
+                extended.backward(dual)
+                padded.backward(dual)
+                torch.testing.assert_close(model.grad, reference.grad, rtol=1.e-13, atol=1.e-13)
+
+                # With a unit dual, a corner receives the product of the
+                # replication counts of all its incident faces.
+                model.grad = None
+                reference.grad = None
+                common._ExtendModel.apply(model, pml).sum().backward()
+                pad_model(reference, pml).sum().backward()
+                torch.testing.assert_close(model.grad, reference.grad, rtol=0, atol=0)
 
     def test_automatic_extension_matches_manual_solver_grid(self):
         for shape, pml in [((8, 9), (2, 3, 1, 2, 0, 0)), ((8, 9, 1), (0, 3, 2, 0, 0, 0)), ((6, 7, 5), (2, 1, 1, 2, 1, 3))]:
@@ -72,7 +90,8 @@ class ExternalPMLTests(unittest.TestCase):
                 with self.subTest(shape=shape, order=order):
                     model, sigma, args = problem(shape, pml)
                     args['fdtd_order'] = order
-                    model.requires_grad_(); sigma.requires_grad_()
+                    model.requires_grad_()
+                    sigma.requires_grad_()
                     loc_before = args['source_location'].clone()
                     auto = DeepGPR.compute(eps_r=model, sigma=sigma, **args)
                     auto[-1].square().sum().backward()
@@ -87,38 +106,41 @@ class ExternalPMLTests(unittest.TestCase):
                     for a, b in zip((auto[0], *auto[1], *auto[2], *auto[3], auto[-1]),
                                     (raw[0], *raw[1], *raw[2], *raw[3], raw[-1])):
                         torch.testing.assert_close(a, b, rtol=0, atol=0)
-                    slices = tuple(slice(pml[2*i], pml[2*i] + n) for i, n in enumerate(model.reshape(*model.shape[:2], -1).shape))
                     for a, b in [(model.grad, full_model.grad), (sigma.grad, full_sigma.grad)]:
-                        torch.testing.assert_close(a, b[slices].reshape(shape), rtol=0, atol=0)
+                        reference = torch.zeros(shape, dtype=torch.float64, requires_grad=True)
+                        pad_model(reference, pml).backward(b.double())
+                        # The independent PyTorch transpose accumulates in a
+                        # different order from the deterministic native fold.
+                        torch.testing.assert_close(a.double(), reference.grad, rtol=2.e-6, atol=1.e-5)
                     torch.testing.assert_close(args['source_location'], loc_before)
                     self.assertGreater(model.grad[0].abs().max().item(), 0)
 
-    def test_model_edge_derivative_with_fixed_external_materials(self):
-        # Freeze the halo and coefficient averages to test the documented FWI
-        # derivative, including the first physical cell formerly masked by CPML.
+    def test_model_edge_derivative_reextends_materials_on_every_forward(self):
         model, sigma, args = problem()
-        pml = (2, 3, 1, 2, 0, 0)
+        sigma.fill_(.01)
         model.requires_grad_()
+        sigma.requires_grad_()
         result = DeepGPR.compute(eps_r=model, sigma=sigma, **args)
-        result[-1].square().sum().backward()
-        full = pad_model(model.detach(), pml)
-        offset = torch.tensor(pml[::2])
-        raw_args = {**args, 'mu_r': pad_model(args['mu_r'], pml),
-                    'source_location': args['source_location'] + offset,
-                    'receiver_location': args['receiver_location'] + offset}
-        # Coefficients themselves are fixed during inversion backward.
-        original = compute_module.build_pml_coeffs
-        def fixed_coefficients(er, *values):
-            return original(full, *values)
-        h = .002
-        with patch.object(compute_module, 'build_pml_coeffs', fixed_coefficients), torch.no_grad():
-            losses = []
-            for sign in (1, -1):
-                varied = full.clone()
-                varied[2, 4, 0] += sign*h
-                losses.append(raw_compute(varied, pad_model(sigma, pml), raw_args, pml)[-1].square().sum())
-        fd = (losses[0] - losses[1]) / (2*h)
-        torch.testing.assert_close(model.grad[0, 3], fd, rtol=.003, atol=1.e-6)
+        scale = result[-1].detach().double().abs().max()
+        (.5 * (result[-1].double() / scale).square().sum()).backward()
+        for name, values, steps in [
+            ('eps', model, (.04, .02, .01, .005)),
+            ('sigma', sigma, (.003, .0015, .00075, .000375)),
+        ]:
+            errors = []
+            for h in steps:
+                losses = []
+                for sign in (1, -1):
+                    er, se = model.detach().clone(), sigma.detach().clone()
+                    (er if name == 'eps' else se)[0, 3] += sign*h
+                    with torch.no_grad():
+                        data = DeepGPR.compute(eps_r=er, sigma=se, save_wavefield_history=False, **args)[-1]
+                    losses.append(.5 * (data.double() / scale).square().sum())
+                fd = float((losses[0] - losses[1]) / (2*h))
+                ad = float(values.grad[0, 3])
+                errors.append(abs(fd - ad) / max(abs(fd), abs(ad), 1.e-20))
+            with self.subTest(parameter=name, errors=errors):
+                self.assertTrue(any(max(a, b) < .003 for a, b in zip(errors[:-1], errors[1:])))
 
     def test_checkpoint_recomputation_and_fwi_updates(self):
         for shape, pml, reentrant in [
@@ -183,6 +205,14 @@ class ExternalPMLTests(unittest.TestCase):
         self.assertEqual(tuple(r[1][0].shape), (2, 9, 10, 2))
         self.assertEqual(r[0].numel(), 0)
 
+    def test_absorption_speed_must_be_fixed_positive_and_finite(self):
+        model, sigma, args = problem()
+        for speed in (0., -1., float('nan'), float('inf'), True,
+                      torch.tensor(2.e8, requires_grad=True)):
+            with self.subTest(speed=speed):
+                with self.assertRaises((ValueError, TypeError)):
+                    DeepGPR.compute(eps_r=model, sigma=sigma, pml_max_velocity=speed, **args)
+
     def test_checkpoint_shot_subset_with_disabled_faces(self):
         for shape, pml in [((8, 9), (0, 2, 1, 0)), ((6, 7, 5), (0, 1, 0, 2, 0, 1)), ((8, 9), 0)]:
             model, sigma, args = problem(shape, pml)
@@ -213,7 +243,8 @@ class ExternalPMLTests(unittest.TestCase):
         outputs = []
         for device in ('cpu', 'cuda'):
             model, sigma, args = problem(device=device)
-            model.requires_grad_(); sigma.requires_grad_()
+            model.requires_grad_()
+            sigma.requires_grad_()
             result = DeepGPR.compute(eps_r=model, sigma=sigma, **args)
             result[-1].square().sum().backward()
             outputs.append([t.detach().cpu() for t in (result[-1], model.grad, sigma.grad)])

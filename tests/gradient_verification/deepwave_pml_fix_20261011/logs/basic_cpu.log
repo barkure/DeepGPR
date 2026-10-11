@@ -1,0 +1,105 @@
+{
+ "date": "2026-10-11 05:19:08 -0400",
+ "python": "3.10.16",
+ "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+ "torch": "1.11.0+cu115",
+ "torch_cuda": "11.5",
+ "cudnn": 8302,
+ "numpy": "1.26.4",
+ "deepgpr_file": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/__init__.py",
+ "deepgpr_version": "0.1.0",
+ "git_commit": "386f214d88cae2111dda8c5aa1ef0434595b02f8",
+ "git_branch": "test/gradient-verification",
+ "omp_num_threads": "1",
+ "torch_threads": 1,
+ "seed": 20261010,
+ "solver_precision": "float32 (native CPU and CUDA solvers have no float64 path)",
+ "misfit_precision": "float64 accumulation of float32 receiver data",
+ "command": "OMP_NUM_THREADS=1 /home/ll/anaconda3/envs/deepgpr/bin/python -u /home/ll/\u4e0b\u8f7d/DeepGPR-dev/tests/gradient_verification/deepwave_pml_fix_20261011/physical_verification.py basic --paths cpu --tag cpu",
+ "hashes": {
+  "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+  "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+  "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+  "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+ }
+}
+2d_A cpu eps/pixel: PASS err=0.000208 slope=2.03
+2d_A cpu eps/random: PASS err=0.00108 slope=1.99
+2d_A cpu eps/local: PASS err=2.77e-05 slope=1.99
+2d_A cpu eps/smooth: PASS err=8.35e-05 slope=1.98
+2d_A cpu sig/pixel: INCONCLUSIVE err=9.31e-05 slope=2.13
+2d_A cpu sig/random: PASS err=3.43e-05 slope=1.93
+2d_A cpu sig/local: PASS err=0.000139 slope=1.92
+2d_A cpu sig/smooth: PASS err=0.00159 slope=1.98
+2d_A cpu joint/random: PASS err=0.000703 slope=1.99
+2d_A cpu joint/smooth: PASS err=0.000308 slope=1.99
+2d_A cpu joint/interior_local: PASS err=1.92e-05 slope=1.99
+2d_B cpu eps/pixel: PASS err=0.000521 slope=2.04
+2d_B cpu eps/random: PASS err=3.17e-05 slope=2.01
+2d_B cpu eps/local: PASS err=2.19e-05 slope=2.01
+2d_B cpu eps/smooth: PASS err=9.24e-05 slope=2.03
+2d_B cpu sig/pixel: INCONCLUSIVE err=2.38e-05 slope=1.99
+2d_B cpu sig/random: PASS (noise-limited) err=0.00135 slope=2.03
+2d_B cpu sig/local: PASS err=5.06e-05 slope=2.01
+2d_B cpu sig/smooth: PASS err=0.00162 slope=2.01
+2d_B cpu joint/random: PASS err=3.43e-05 slope=2
+2d_B cpu joint/smooth: PASS err=6.69e-05 slope=2.06
+2d_B cpu joint/interior_local: PASS err=4.32e-05 slope=2
+2d_C cpu eps/pixel: PASS err=0.000111 slope=2.02
+2d_C cpu eps/random: PASS err=1.69e-05 slope=2
+2d_C cpu eps/local: PASS err=1.77e-05 slope=2
+2d_C cpu eps/smooth: PASS err=9.95e-05 slope=2.01
+2d_C cpu sig/pixel: INCONCLUSIVE err=0.000602 slope=1.9
+2d_C cpu sig/random: PASS err=0.00128 slope=1.99
+2d_C cpu sig/local: PASS err=0.000243 slope=1.98
+2d_C cpu sig/smooth: INCONCLUSIVE err=0.00131 slope=1.99
+2d_C cpu joint/random: PASS err=4.07e-05 slope=1.99
+2d_C cpu joint/smooth: PASS err=5.18e-05 slope=1.92
+2d_C cpu joint/interior_local: PASS err=1.02e-05 slope=1.97
+2d_D cpu eps/pixel: PASS err=0.000212 slope=2.01
+2d_D cpu eps/random: PASS err=0.000977 slope=2.04
+2d_D cpu eps/local: PASS err=2.53e-05 slope=2
+2d_D cpu eps/smooth: PASS err=0.000164 slope=2.02
+2d_D cpu sig/pixel: INCONCLUSIVE err=9.77e-05 slope=2.03
+2d_D cpu sig/random: PASS err=0.000612 slope=2
+2d_D cpu sig/local: PASS err=0.00027 slope=2
+2d_D cpu sig/smooth: INCONCLUSIVE err=5.31e-05 slope=1.94
+2d_D cpu joint/random: PASS (noise-limited) err=0.000337 slope=1.99
+2d_D cpu joint/smooth: PASS err=0.000103 slope=1.98
+2d_D cpu joint/interior_local: PASS err=2.92e-05 slope=2.01
+2d_E cpu eps/pixel: PASS err=8.93e-05 slope=2.01
+2d_E cpu eps/random: PASS err=0.000345 slope=1.95
+2d_E cpu eps/local: PASS err=5.13e-05 slope=1.98
+2d_E cpu eps/smooth: PASS err=4.72e-05 slope=1.97
+2d_E cpu sig/pixel: INCONCLUSIVE err=0.000115 slope=1.96
+2d_E cpu sig/random: PASS err=0.000409 slope=1.86
+2d_E cpu sig/local: PASS err=0.000607 slope=1.95
+2d_E cpu sig/smooth: PASS err=0.000378 slope=1.95
+2d_E cpu joint/random: PASS err=0.000886 slope=1.94
+2d_E cpu joint/smooth: PASS err=6.75e-05 slope=1.98
+2d_E cpu joint/interior_local: PASS err=7.23e-07 slope=1.98
+2d_F cpu eps/pixel: PASS err=0.0003 slope=2
+2d_F cpu eps/random: PASS err=0.000716 slope=1.98
+2d_F cpu eps/local: PASS err=2.03e-05 slope=1.99
+2d_F cpu eps/smooth: PASS err=0.000178 slope=1.99
+2d_F cpu sig/pixel: INCONCLUSIVE err=0.000114 slope=1.99
+2d_F cpu sig/random: PASS (noise-limited) err=0.00109 slope=1.97
+2d_F cpu sig/local: PASS err=0.000113 slope=1.94
+2d_F cpu sig/smooth: PASS err=0.000489 slope=1.94
+2d_F cpu joint/random: PASS err=0.000366 slope=1.97
+2d_F cpu joint/smooth: PASS err=0.00033 slope=1.99
+2d_F cpu joint/interior_local: PASS err=0.000126 slope=1.99
+2d_G cpu eps/pixel: PASS err=0.000245 slope=1.98
+2d_G cpu eps/random: PASS err=6.96e-06 slope=1.99
+2d_G cpu eps/local: PASS err=2.06e-05 slope=2
+2d_G cpu eps/smooth: PASS err=0.000172 slope=2
+2d_G cpu sig/pixel: INCONCLUSIVE err=0.000283 slope=2
+2d_G cpu sig/random: PASS err=0.000355 slope=2.01
+2d_G cpu sig/local: PASS err=3.96e-05 slope=1.98
+2d_G cpu sig/smooth: PASS err=5.73e-05 slope=1.98
+2d_G cpu joint/random: PASS err=0.000478 slope=2.01
+2d_G cpu joint/smooth: PASS err=0.000267 slope=2
+2d_G cpu joint/interior_local: PASS err=6.1e-07 slope=2
+2d_G_boundary cpu eps/edge: PASS err=0.000201 slope=1.99
+2d_G_boundary cpu sig/edge: PASS err=3.5e-05 slope=1.98
+completed seconds 200.15698026609607

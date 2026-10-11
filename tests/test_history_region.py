@@ -62,13 +62,18 @@ def _case(device, mode, nt=40):
     return eps_r.to(device), sigma.to(device), common
 
 
-def _run(device, mode, region, storage="fp32", rhs="auto", compression="none", offload=False):
+def _run(device, mode, region, storage="fp32", rhs="auto", compression="none", offload=False,
+         material_grad=True, pml=None):
     eps_base, sigma_base, common = _case(device, mode)
-    eps_r = eps_base.clone().requires_grad_(True)
-    sigma = sigma_base.clone().requires_grad_(True)
+    if pml is not None:
+        common["pmlthick"] = pml
+    eps_r = eps_base.clone().requires_grad_(material_grad)
+    sigma = sigma_base.clone().requires_grad_(material_grad)
+    source = common.pop("source_amplitudes").clone().requires_grad_(True)
     result = DeepGPR.compute(
         eps_r=eps_r,
         sigma=sigma,
+        source_amplitudes=source,
         wavefield_storage_dtype=STORAGE[storage],
         wavefield_rhs_history=rhs,
         wavefield_compression=compression,
@@ -87,8 +92,9 @@ def _run(device, mode, region, storage="fp32", rhs="auto", compression="none", o
     return {
         "data": data.detach().cpu(),
         "history": result[0].detach().cpu(),
-        "eps": eps_r.grad.detach().cpu(),
-        "sigma": sigma.grad.detach().cpu(),
+        "eps": eps_r.grad.detach().cpu() if eps_r.grad is not None else None,
+        "sigma": sigma.grad.detach().cpu() if sigma.grad is not None else None,
+        "source": source.grad.detach().cpu(),
         "history_bytes": history_bytes,
         "pml": common["pmlthick"],
     }
@@ -136,7 +142,7 @@ class HistoryRegionContractTests(unittest.TestCase):
             device=torch.device("cpu"), nx=30, ny=26, nz=1, nt=50, nstep=2, nsr=1, nrx=3,
             source_waveforms=1, pml=[3, 5, 4, 2, 0, 0], mode=2, sampling_interval=1,
             storage_dtype=torch.float32, use_async_offload=False,
-            er_requires_grad=True, se_requires_grad=True,
+            er_requires_grad=False, se_requires_grad=False,
         )
         extended = DeepGPR.estimate_compute_memory(**common)
         physical = DeepGPR.estimate_compute_memory(history_region="physical", **common)
@@ -164,14 +170,55 @@ class HistoryRegionContractTests(unittest.TestCase):
 
 
 class CpuHistoryRegionTests(unittest.TestCase):
-    def test_physical_history_gives_bitwise_identical_gradients(self):
+    def test_forward_only_accepts_physical_history_with_pml(self):
+        eps, sigma, common = _case("cpu", 2)
+        result = DeepGPR.compute(
+            eps_r=eps.requires_grad_(), sigma=sigma.requires_grad_(),
+            wavefield_history_region="physical", save_wavefield_history=False, **common,
+        )
+        self.assertEqual(result[0].numel(), 0)
+        self.assertTrue(torch.isfinite(result[-1]).all())
+
+    def test_physical_history_preserves_initial_state_gradients(self):
+        for mode in (2, 3):
+            eps, sigma, common = _case("cpu", mode)
+            initial_args = {k: v for k, v in common.items() if k != "mode"}
+            groups = DeepGPR.checkpoint_initial_field(er=eps, se=sigma, **initial_args)
+            torch.manual_seed(1670 + mode)
+            initial = [torch.randn_like(t) * 1.e-3 for group in groups for t in group]
+            gradients = []
+            for region in ("extended", "physical"):
+                owned = [t.clone().requires_grad_() for t in initial]
+                result = DeepGPR.compute(
+                    eps_r=eps, sigma=sigma, E=tuple(owned[:3]), H=tuple(owned[3:6]),
+                    PML=tuple(owned[6:]), wavefield_history_region=region, **common,
+                )
+                loss = (result[-1].double().square().sum()
+                        + sum(t.double().square().sum() for group in result[1:4] for t in group))
+                loss.backward()
+                gradients.append([t.grad for t in owned])
+            with self.subTest(mode=mode):
+                for full, physical in zip(*gradients):
+                    self.assertTrue(torch.equal(full, physical))
+
+    def test_physical_history_rejects_pml_material_gradients(self):
+        for mode in (2, 3):
+            for parameter in ("eps", "sigma"):
+                eps, sigma, common = _case("cpu", mode)
+                (eps if parameter == "eps" else sigma).requires_grad_()
+                with self.subTest(mode=mode, parameter=parameter):
+                    with self.assertRaisesRegex(ValueError, "physical.*PML|PML.*physical"):
+                        DeepGPR.compute(eps_r=eps, sigma=sigma,
+                                        wavefield_history_region="physical", **common)
+
+    def test_physical_history_preserves_forward_and_source_gradients(self):
         cases = (("fp32", "auto"), ("fp32", "stored"), ("fp16", "auto"), ("bf16", "reconstructed"))
         for mode in (2, 3):
             for storage, rhs in cases:
-                extended = _run("cpu", mode, "extended", storage, rhs)
-                physical = _run("cpu", mode, "physical", storage, rhs)
+                extended = _run("cpu", mode, "extended", storage, rhs, material_grad=False)
+                physical = _run("cpu", mode, "physical", storage, rhs, material_grad=False)
                 with self.subTest(mode=mode, storage=storage, rhs=rhs):
-                    for key in ("data", "eps", "sigma"):
+                    for key in ("data", "source"):
                         self.assertTrue(torch.equal(extended[key], physical[key]), key)
                     cropped = _crop(extended["history"], mode, extended["pml"])
                     self.assertTrue(torch.equal(cropped, physical["history"]))
@@ -182,10 +229,25 @@ class CpuHistoryRegionTests(unittest.TestCase):
                     )
                     self.assertLess(ratio, 0.75)
 
+    def test_physical_history_without_pml_keeps_material_gradients(self):
+        for mode in (2, 3):
+            for rhs in ("stored", "reconstructed"):
+                extended = _run("cpu", mode, "extended", rhs=rhs, pml=0)
+                physical = _run("cpu", mode, "physical", rhs=rhs, pml=0)
+                with self.subTest(mode=mode, rhs=rhs):
+                    for key in ("data", "history", "eps", "sigma", "source"):
+                        self.assertTrue(torch.equal(extended[key], physical[key]), key)
+
 
 @unittest.skipUnless(torch.cuda.is_available(), "CUDA is not available")
 class CudaHistoryRegionTests(unittest.TestCase):
-    def test_physical_history_matches_extended(self):
+    def test_physical_history_rejects_pml_material_gradients(self):
+        for mode in (2, 3):
+            with self.subTest(mode=mode):
+                with self.assertRaisesRegex(ValueError, "physical.*PML|PML.*physical"):
+                    _run("cuda", mode, "physical")
+
+    def test_physical_history_preserves_forward_and_source_gradients(self):
         cases = (
             ("fp32", "auto", False),
             ("fp32", "stored", True),
@@ -194,21 +256,25 @@ class CudaHistoryRegionTests(unittest.TestCase):
         )
         for mode in (2, 3):
             for storage, rhs, offload in cases:
-                extended = _run("cuda", mode, "extended", storage, rhs, offload=offload)
-                physical = _run("cuda", mode, "physical", storage, rhs, offload=offload)
+                extended = _run("cuda", mode, "extended", storage, rhs, offload=offload,
+                                material_grad=False)
+                physical = _run("cuda", mode, "physical", storage, rhs, offload=offload,
+                                material_grad=False)
                 with self.subTest(mode=mode, storage=storage, rhs=rhs, offload=offload):
                     self.assertTrue(torch.equal(extended["data"], physical["data"]))
                     cropped = _crop(extended["history"], mode, extended["pml"])
                     self.assertTrue(torch.equal(cropped, physical["history"]))
                     # Remaining differences come from the atomic adjoint scatter.
-                    for key in ("eps", "sigma"):
+                    for key in ("source",):
                         self.assertLess(_relative(physical[key], extended[key]), 2.0e-6, key)
 
-    def test_int8_tiles_and_gradients_follow_the_full_grid_tiling(self):
+    def test_int8_tiles_and_source_gradients_follow_the_full_grid_tiling(self):
         for mode in (2, 3):
             for rhs in ("stored", "reconstructed"):
-                extended = _run("cuda", mode, "extended", rhs=rhs, compression="int8")
-                physical = _run("cuda", mode, "physical", rhs=rhs, compression="int8")
+                extended = _run("cuda", mode, "extended", rhs=rhs, compression="int8",
+                                material_grad=False)
+                physical = _run("cuda", mode, "physical", rhs=rhs, compression="int8",
+                                material_grad=False)
                 _, _, common = _case("cpu", mode)
                 nx, ny, nz = (25, 25, 1) if mode == 2 else (15, 18, 14)
                 block = (8, 8, 1) if mode == 2 else (4, 4, 4)
@@ -232,7 +298,7 @@ class CudaHistoryRegionTests(unittest.TestCase):
                         torch.equal(full[..., x0 : x0 + hx, y0 : y0 + hy, z0 : z0 + hz], part)
                     )
                     self.assertLess(physical["history_bytes"], extended["history_bytes"])
-                    for key in ("eps", "sigma"):
+                    for key in ("source",):
                         self.assertLess(_relative(physical[key], extended[key]), 2.0e-6, key)
 
 

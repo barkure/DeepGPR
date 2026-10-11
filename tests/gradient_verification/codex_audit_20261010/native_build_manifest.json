@@ -1,0 +1,25 @@
+{
+  "installed_at_utc": "2026-10-10T14:15:17.781853+00:00",
+  "source_sha256": {
+    "deepgpr_cpu.c": "bae0dab09c1844042cc952fbafaba85de3417a90451282fa87e97ef89c1a2eca",
+    "deepgpr.cu": "848fdd85799767f8ad1712d566bd7b840d28848157b279d8ad3214e98b1ff34a"
+  },
+  "binary_sha256": {
+    "before": {
+      "deepgpr_cpu.so": "a901019842ee3daefa05a4412d5e965c1141d3cd404585f4f1d65de216dd4a31",
+      "deepgpr.so": "592a9d3bacfa20c2dbfe5b6edc0b11a8ae54c756868d47df0913d1b93c41dabe"
+    },
+    "after": {
+      "deepgpr_cpu.so": "2925ec1d49c36f4914f68442209e743d46ee34f764d3b4f5a7f986c0e3a39161",
+      "deepgpr.so": "d2e458bd438ed0a050ad7e74b871e5c8ad5ce6633e65954020e28dc998401861"
+    }
+  },
+  "installed_sha256": {
+    "deepgpr_cpu.so": "2925ec1d49c36f4914f68442209e743d46ee34f764d3b4f5a7f986c0e3a39161",
+    "deepgpr.so": "d2e458bd438ed0a050ad7e74b871e5c8ad5ce6633e65954020e28dc998401861"
+  },
+  "cpu_compile": "cc -std=c99 -O3 -fopenmp -fPIC -shared deepgpr_cpu.c -o deepgpr_cpu.so",
+  "cuda_compile": "/usr/local/cuda-12.4/bin/nvcc -std=c++14 -O3 -arch=sm_89 --shared -Xcompiler -fPIC deepgpr.cu -o deepgpr.so",
+  "platform": "Linux x86_64; CUDA binary built for sm_89; other OS precompiled binaries untouched",
+  "complete_pml_material_derivative": "UNRESOLVED"
+}

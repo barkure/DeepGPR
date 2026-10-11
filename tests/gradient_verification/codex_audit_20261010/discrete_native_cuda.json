@@ -1,0 +1,19 @@
+{
+  "device": "cuda",
+  "tests": [
+    "test_cuda_cpml_single_step_dot_products_orders_2_4_8",
+    "test_cuda_asymmetric_cpml_dot_products_orders_2_4_8",
+    "test_cuda_2d_tm_adjoint_is_bitwise_reproducible",
+    "test_cpu_cuda_forward_and_gradient_consistency",
+    "test_cuda_coincident_sources_and_receivers_accumulate",
+    "test_cuda_2d_tm_fast_path_state_dot_products_orders_2_4_8",
+    "test_cuda_material_taylor_checks_without_and_with_cpml",
+    "test_cuda_2d_tm_fast_path_selection_and_forward_identity",
+    "test_cuda_asymmetric_cpml_and_incomplete_sampling_block"
+  ],
+  "ran": 9,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true
+}

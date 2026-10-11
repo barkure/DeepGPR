@@ -1,0 +1,75 @@
+{
+ "date": "2026-10-10 10:21:50 -0400",
+ "python": "3.10.16",
+ "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+ "torch": "1.11.0+cu115",
+ "torch_cuda": "11.5",
+ "cudnn": 8302,
+ "numpy": "1.26.4",
+ "deepgpr_file": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/__init__.py",
+ "deepgpr_version": "0.1.0",
+ "git_commit": "3bfc1e998851dbe489cf3a56b3a7cb27d8f476ba",
+ "git_branch": "test/gradient-verification",
+ "omp_num_threads": "1",
+ "torch_threads": 1,
+ "seed": 20261010,
+ "solver_precision": "float32 (native CPU and CUDA solvers have no float64 path)",
+ "misfit_precision": "float64 accumulation of float32 receiver data",
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "gpu_capability": [
+  8,
+  9
+ ],
+ "nvidia_smi": "NVIDIA GeForce RTX 4090, 575.51.03, 4 %, 1185 MiB, 24564 MiB",
+ "nvidia_smi_apps": "",
+ "command": "OMP_NUM_THREADS=1 /home/ll/anaconda3/envs/deepgpr/bin/python -u /home/ll/\u4e0b\u8f7d/DeepGPR-dev/tests/gradient_verification/codex_audit_20261010/physical_verification.py scatter --paths cuda_fast",
+ "hashes": {
+  "src/DeepGPR/lib/deepgpr.cu": "848fdd85799767f8ad1712d566bd7b840d28848157b279d8ad3214e98b1ff34a",
+  "src/DeepGPR/lib/deepgpr_cpu.c": "bae0dab09c1844042cc952fbafaba85de3417a90451282fa87e97ef89c1a2eca",
+  "src/DeepGPR/lib/deepgpr.so": "d2e458bd438ed0a050ad7e74b871e5c8ad5ce6633e65954020e28dc998401861",
+  "src/DeepGPR/lib/deepgpr_cpu.so": "2925ec1d49c36f4914f68442209e743d46ee34f764d3b4f5a7f986c0e3a39161"
+ }
+}
+sample eps (6, 8) PASS 7.898848854975773e-05
+sample eps (6, 16) PASS 3.240581601441957e-06
+sample eps (6, 24) PASS 0.00031580477747811307
+sample eps (6, 32) PASS 0.0001109858939484361
+sample eps (14, 8) PASS 7.670353320783115e-05
+sample eps (14, 16) PASS 1.9774506808166927e-05
+sample eps (14, 24) PASS 1.2973699680004865e-05
+sample eps (14, 32) PASS 9.292272678283697e-05
+sample eps (22, 8) PASS 4.232913846795982e-05
+sample eps (22, 16) PASS 3.034213939778434e-05
+sample eps (22, 24) PASS 0.00043885321325766555
+sample eps (22, 32) PASS 0.0002762611647973349
+sample eps (30, 8) PASS 2.7707120157345903e-05
+sample eps (30, 16) PASS 1.1853869766477543e-05
+sample eps (30, 24) PASS 0.0009389718967265112
+sample eps (30, 32) PASS 8.512760691668523e-05
+sample eps (0, 10) FAIL 1.128524452782865
+sample eps (0, 20) FAIL 1.0796998788640872
+sample eps (39, 15) FAIL 0.97522887604861
+sample eps (20, 0) FAIL 0.00011607950022023226
+sample eps (20, 39) FAIL 0.05903944947044523
+sample sig (6, 8) PASS 0.000359984614431154
+sample sig (6, 16) INCONCLUSIVE 0.00013173642199662672
+sample sig (6, 24) PASS 3.2088299332173037e-05
+sample sig (6, 32) PASS 0.000508075770183214
+sample sig (14, 8) INCONCLUSIVE 4.1774563340837246e-05
+sample sig (14, 16) INCONCLUSIVE 0.00011760055958573354
+sample sig (14, 24) INCONCLUSIVE 3.734243784123791e-06
+sample sig (14, 32) INCONCLUSIVE 2.6556126390286672e-05
+sample sig (22, 8) INCONCLUSIVE 0.00012158855456231878
+sample sig (22, 16) INCONCLUSIVE 0.00015177976985679867
+sample sig (22, 24) INCONCLUSIVE 5.944987718452234e-05
+sample sig (22, 32) INCONCLUSIVE 3.664144308090061e-05
+sample sig (30, 8) INCONCLUSIVE 0.00016018033215508656
+sample sig (30, 16) INCONCLUSIVE 6.455911757962026e-06
+sample sig (30, 24) INCONCLUSIVE 1.8983376471145895e-05
+sample sig (30, 32) INCONCLUSIVE 5.385125744122693e-06
+sample sig (0, 10) FAIL 0.33973026427239894
+sample sig (0, 20) FAIL 0.4479504291556517
+sample sig (39, 15) FAIL 0.3781766037959315
+sample sig (20, 0) FAIL 1.14047016474687
+sample sig (20, 39) FAIL 0.9245119551609645
+completed seconds 5.723954293876886

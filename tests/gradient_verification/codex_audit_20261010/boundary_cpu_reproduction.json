@@ -1,0 +1,61 @@
+{
+  "path": "cpu",
+  "shape": [
+    48,
+    48
+  ],
+  "nt": 400,
+  "pml": 10,
+  "threads": 1,
+  "precision": "native float32, objective and directions float64",
+  "J0": 0.16186441543242752,
+  "J0_frozen": 0.16186441543242752,
+  "g_ad": -0.002835520139817002,
+  "direction_nonzero_cells": 188,
+  "rows": [
+    {
+      "h": 0.03,
+      "total_compute_fd": 0.004299940578932071,
+      "fixed_boundary_fd": -0.002835396751489176,
+      "J_plus": 0.16205015075522802,
+      "J_minus": 0.1617921543204921,
+      "total_first_order_remainder": 0.00027080092699501105,
+      "replicated_material_fixed_coefficients_fd": 0.004299705256949338,
+      "missing_replication_term_fd": 0.007135102008438514,
+      "missing_coefficient_term_fd": 2.353219827333497e-07
+    },
+    {
+      "h": 0.01,
+      "total_compute_fd": 0.0043008175855591135,
+      "fixed_boundary_fd": -0.0028360264439419858,
+      "J_plus": 0.16191375495260807,
+      "J_minus": 0.1618277386008969,
+      "total_first_order_remainder": 7.76947215787169e-05,
+      "replicated_material_fixed_coefficients_fd": 0.004302253583776672,
+      "missing_replication_term_fd": 0.0071382800277186575,
+      "missing_coefficient_term_fd": -1.435998217558243e-06
+    },
+    {
+      "h": 0.003,
+      "total_compute_fd": 0.004304746564755731,
+      "fixed_boundary_fd": -0.002828956274819605,
+      "J_plus": 0.16187797128067685,
+      "J_minus": 0.16185214280128832,
+      "total_first_order_remainder": 2.2062408668781324e-05,
+      "replicated_material_fixed_coefficients_fd": 0.004306428835430347,
+      "missing_replication_term_fd": 0.007135385110249952,
+      "missing_coefficient_term_fd": -1.6822706746157795e-06
+    },
+    {
+      "h": 0.001,
+      "total_compute_fd": 0.004298090407625632,
+      "fixed_boundary_fd": -0.002856444337270836,
+      "J_plus": 0.16186878681350053,
+      "J_minus": 0.16186019063268528,
+      "total_first_order_remainder": 7.206901212826497e-06,
+      "replicated_material_fixed_coefficients_fd": 0.004281089019605999,
+      "missing_replication_term_fd": 0.007137533356876835,
+      "missing_coefficient_term_fd": 1.7001388019632913e-05
+    }
+  ]
+}

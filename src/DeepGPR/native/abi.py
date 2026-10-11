@@ -165,6 +165,7 @@ NATIVE_FUNCTIONS: Dict[str, Tuple[Signature, object]] = {
     "deepgpr_deterministic_adjoint": ((), INT),
     "deepgpr_abi_version": ((), INT),
     "deepgpr_supports_external_pml": ((), INT),
+    "deepgpr_supports_pml_material_gradients": ((), INT),
     "deepgpr_supports_int8_wavefield": ((), INT),
     "deepgpr_supports_conversion_backends": ((), INT),
     "deepgpr_supports_int8_reduction_backends": ((), INT),

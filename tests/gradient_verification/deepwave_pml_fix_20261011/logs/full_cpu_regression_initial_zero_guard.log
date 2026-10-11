@@ -1,0 +1,262 @@
+test_forward_and_gradients_are_bitwise_identical_across_thread_counts (test_cpu_determinism.CpuDeterminismTests) ... ok
+test_backend_contract_rejects_irrelevant_selection (test_cuda_conversion_backends.CudaConversionBackendTests) ... skipped 'CUDA is not available'
+test_bf16_legacy_native_special_values_are_bit_exact (test_cuda_conversion_backends.CudaConversionBackendTests) ... skipped 'CUDA is not available'
+test_fp16_legacy_native_special_values_are_bit_exact (test_cuda_conversion_backends.CudaConversionBackendTests) ... skipped 'CUDA is not available'
+test_full_bf16_legacy_native_parity (test_cuda_conversion_backends.CudaConversionBackendTests) ... skipped 'CUDA is not available'
+test_full_fp16_legacy_native_parity (test_cuda_conversion_backends.CudaConversionBackendTests) ... skipped 'CUDA is not available'
+test_segmented_run_reproduces_the_full_run_bitwise (test_cuda_fused_kernels.CudaFusedCpmlStateTests) ... skipped 'CUDA is not available'
+test_forward_does_not_depend_on_the_history_writer (test_cuda_fused_kernels.CudaFusedHistoryTests) ... skipped 'CUDA is not available'
+test_low_precision_frames_match_the_separate_writer (test_cuda_fused_kernels.CudaFusedHistoryTests) ... skipped 'CUDA is not available'
+test_physical_history_rejects_pml_material_gradients (test_cuda_fused_kernels.CudaFusedHistoryTests) ... skipped 'CUDA is not available'
+test_saved_frames_are_the_fields_after_each_step (test_cuda_fused_kernels.CudaFusedHistoryTests) ... skipped 'CUDA is not available'
+test_canonical_and_deprecated_compute_names_match (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cpml_coefficients_are_separate_from_trainable_materials (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cpml_coefficients_stay_fixed_when_the_materials_change (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cpu_cuda_forward_and_gradient_consistency (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_cuda_2d_tm_adjoint_is_bitwise_reproducible (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_cuda_2d_tm_fast_path_selection_and_forward_identity (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_cuda_2d_tm_fast_path_state_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_cuda_asymmetric_cpml_and_incomplete_sampling_block (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_cuda_asymmetric_cpml_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_cuda_coincident_sources_and_receivers_accumulate (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_cuda_cpml_single_step_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_cuda_explicit_device_selects_matching_native_runtime (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'At least two CUDA devices are required'
+test_cuda_large_3d_all_face_cpml_async_bounds (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_cuda_material_taylor_checks_without_and_with_cpml (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'CUDA is not available'
+test_incomplete_sampling_block_uses_actual_length (test_discrete_adjoint.DiscreteAdjointTests) ... /home/ll/下载/DeepGPR-dev/tests/test_discrete_adjoint.py:530: RuntimeWarning: model_gradient_sampling_interval=11 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=1.6667e+10 Hz, dt=3.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  receiver = DeepGPR.compute(
+/home/ll/下载/DeepGPR-dev/tests/test_discrete_adjoint.py:530: RuntimeWarning: model_gradient_sampling_interval=16 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=1.6667e+10 Hz, dt=3.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  receiver = DeepGPR.compute(
+ok
+test_material_taylor_checks_without_and_with_cpml (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_native_2d_tm_state_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_native_cpml_single_step_dot_product_all_faces (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_native_field_update_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_source_waveform_gradient_matches_finite_difference (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_weighted_curl_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_absorption_speed_must_be_fixed_positive_and_finite (test_external_pml.ExternalPMLTests) ... ok
+test_automatic_extension_matches_manual_solver_grid (test_external_pml.ExternalPMLTests) ... ok
+test_cfl_uses_axes_activated_by_extension (test_external_pml.ExternalPMLTests) ... ok
+test_checkpoint_recomputation_and_fwi_updates (test_external_pml.ExternalPMLTests) ... /home/ll/anaconda3/envs/deepgpr/lib/python3.10/site-packages/torch/autocast_mode.py:162: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
+  warnings.warn('User provided device_type of \'cuda\', but CUDA is not available. Disabling')
+ok
+test_checkpoint_shot_subset_with_disabled_faces (test_external_pml.ExternalPMLTests) ... ok
+test_cuda_physical_model_gradient_parity (test_external_pml.ExternalPMLTests) ... skipped 'CUDA is not available'
+test_model_edge_derivative_reextends_materials_on_every_forward (test_external_pml.ExternalPMLTests) ... ok
+test_physical_coordinate_and_state_validation (test_external_pml.ExternalPMLTests) ... ok
+test_replicated_material_values_and_folded_backward (test_external_pml.ExternalPMLTests) ... ok
+test_stale_native_library_is_rejected (test_external_pml.ExternalPMLTests) ... ok
+test_auto_interval_gradient_stays_close_to_exact_gradient (test_gradient_sampling.AutomaticSamplingIntervalTests) ... ok
+test_invalid_interval_values_are_rejected (test_gradient_sampling.AutomaticSamplingIntervalTests) ... ok
+test_only_intervals_above_the_bound_warn (test_gradient_sampling.AutomaticSamplingIntervalTests) ... ok
+test_cutoff_fraction_matches_ricker_spectrum_at_three_peaks (test_gradient_sampling.SourceSpectrumBoundTests) ... ok
+test_recommended_interval_for_the_2d_fwi_example (test_gradient_sampling.SourceSpectrumBoundTests) ... ok
+test_ricker_maximum_frequency_is_about_three_peak_frequencies (test_gradient_sampling.SourceSpectrumBoundTests) ... ok
+test_several_waveforms_use_the_most_conservative_interval (test_gradient_sampling.SourceSpectrumBoundTests) ... ok
+test_zero_source_and_invalid_arguments (test_gradient_sampling.SourceSpectrumBoundTests) ... ok
+test_forward_only_accepts_physical_history_with_pml (test_history_region.CpuHistoryRegionTests) ... ok
+test_physical_history_preserves_forward_and_source_gradients (test_history_region.CpuHistoryRegionTests) ... ok
+test_physical_history_preserves_initial_state_gradients (test_history_region.CpuHistoryRegionTests) ... ok
+test_physical_history_rejects_pml_material_gradients (test_history_region.CpuHistoryRegionTests) ... ok
+test_physical_history_without_pml_keeps_material_gradients (test_history_region.CpuHistoryRegionTests) ... ok
+test_int8_tiles_and_source_gradients_follow_the_full_grid_tiling (test_history_region.CudaHistoryRegionTests) ... skipped 'CUDA is not available'
+test_physical_history_preserves_forward_and_source_gradients (test_history_region.CudaHistoryRegionTests) ... skipped 'CUDA is not available'
+test_physical_history_rejects_pml_material_gradients (test_history_region.CudaHistoryRegionTests) ... skipped 'CUDA is not available'
+test_history_box_matches_tile_aligned_full_grid (test_history_region.HistoryRegionContractTests) ... ok
+test_invalid_region_and_stale_library (test_history_region.HistoryRegionContractTests) ... ok
+test_memory_estimate_scales_with_physical_cells (test_history_region.HistoryRegionContractTests) ... ok
+test_saved_file_records_the_physical_region (test_history_region.HistoryRegionContractTests) ... ok
+test_backends_take_constants_from_the_header (test_native_abi.HeaderConsistencyTests) ... ok
+test_cpu_backend_has_no_atomics (test_native_abi.HeaderConsistencyTests) ... ok
+test_every_header_function_is_described (test_native_abi.HeaderConsistencyTests) ... ok
+test_header_abi_version_matches_python (test_native_abi.HeaderConsistencyTests) ... ok
+test_parameter_counts (test_native_abi.HeaderConsistencyTests) ... ok
+test_parameter_names_kinds_and_order_match (test_native_abi.HeaderConsistencyTests) ... ok
+test_physical_constants_match_python (test_native_abi.HeaderConsistencyTests) ... ok
+test_cpu_backend_declares_deterministic_adjoint (test_native_abi.LibraryLoadingTests) ... ok
+test_cpu_backend_reports_errors_through_python (test_native_abi.LibraryLoadingTests) ... ok
+test_cpu_library_configuration (test_native_abi.LibraryLoadingTests) ... ok
+test_unknown_device_and_kind (test_native_abi.LibraryLoadingTests) ... ok
+test_conversion_follows_signature_order (test_native_abi.MarshallingTests) ... ok
+test_missing_and_unexpected_arguments_are_rejected (test_native_abi.MarshallingTests) ... ok
+test_different_orders_never_overlap_and_same_orders_run_concurrently (test_native_abi.OrderGateTests) ... ok
+test_anisotropic_3d_base_update_uses_z_spacing (test_numerics.NumericsValidationTests) ... ok
+test_anisotropic_base_update_uses_directional_spacing (test_numerics.NumericsValidationTests) ... ok
+test_anisotropic_cfl_uses_each_active_axis_spacing (test_numerics.NumericsValidationTests) ... ok
+test_anisotropic_cpml_coefficients_use_axis_spacing (test_numerics.NumericsValidationTests) ... ok
+test_anisotropic_forward_and_backward_are_finite (test_numerics.NumericsValidationTests) ... ok
+test_anisotropic_material_gradient_matches_finite_difference (test_numerics.NumericsValidationTests) ... ok
+test_anisotropic_source_scaling_uses_cell_dimensions (test_numerics.NumericsValidationTests) ... ok
+test_compute_parameter_preview_reports_memory (test_numerics.NumericsValidationTests) ... /home/ll/下载/DeepGPR-dev/tests/test_numerics.py:272: RuntimeWarning: model_gradient_sampling_interval=2 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=1.6667e+10 Hz, dt=3.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  DeepGPR.compute(
+ok
+test_compute_parameter_preview_requires_bool (test_numerics.NumericsValidationTests) ... ok
+test_compute_rejects_invalid_forward_wavefield_path (test_numerics.NumericsValidationTests) ... ok
+test_compute_saves_forward_wavefield_to_requested_directory (test_numerics.NumericsValidationTests) ... ok
+test_cpml_checkpoint_shapes_are_validated_before_native_call (test_numerics.NumericsValidationTests) ... ok
+test_cpml_memory_estimate_matches_allocated_tensors (test_numerics.NumericsValidationTests) ... ok
+test_cuda_async_memory_estimate_splits_host_and_device_payload (test_numerics.NumericsValidationTests) ... ok
+test_grid_spacing_accepts_scalar_sequence_and_tensor (test_numerics.NumericsValidationTests) ... ok
+test_high_order_cfl_includes_material_velocity (test_numerics.NumericsValidationTests) ... ok
+test_high_order_cfl_rejects_second_order_time_step (test_numerics.NumericsValidationTests) ... ok
+test_initialization_casts_native_inputs_to_float32 (test_numerics.NumericsValidationTests) ... ok
+test_initialization_extends_pml_outside_acquisition (test_numerics.NumericsValidationTests) ... ok
+test_initialization_rejects_empty_native_launch_dimensions (test_numerics.NumericsValidationTests) ... ok
+test_initialization_validates_coordinates_before_int32_conversion (test_numerics.NumericsValidationTests) ... ok
+test_int8_configuration_validation (test_numerics.NumericsValidationTests) ... ok
+test_int8_diagnostic_decoder_uses_per_block_scales (test_numerics.NumericsValidationTests) ... ok
+test_int8_layout_handles_partial_boundary_blocks (test_numerics.NumericsValidationTests) ... ok
+test_int8_memory_estimate_includes_fp32_scales (test_numerics.NumericsValidationTests) ... ok
+test_long_3d_cpml_backward_remains_finite (test_numerics.NumericsValidationTests) ... /home/ll/下载/DeepGPR-dev/tests/test_numerics.py:728: RuntimeWarning: model_gradient_sampling_interval=10 exceeds the recommended bound 8 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=1.5022e+09 Hz, dt=2.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  result = DeepGPR.compute(
+backward: Tensor `grad_eps_r` contains NaN | shape=(30, 34, 34) | dtype=torch.float32
+ERROR
+test_low_precision_exact_snapshot_is_only_allocated_for_model_gradients (test_numerics.NumericsValidationTests) ... ok
+test_nonpositive_relative_permeability_is_rejected (test_numerics.NumericsValidationTests) ... ok
+test_scalar_and_equal_axis_spacing_produce_identical_results (test_numerics.NumericsValidationTests) ... ok
+test_wavefield_storage_aliases (test_numerics.NumericsValidationTests) ... ok
+test_checkpoint_full_model_pml_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) ... /home/ll/anaconda3/envs/deepgpr/lib/python3.10/site-packages/torch/autocast_mode.py:162: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
+  warnings.warn('User provided device_type of \'cuda\', but CUDA is not available. Disabling')
+ok
+test_cpu_full_model_receiver_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) ... skipped '0.2% unresolved: measured FD uncertainty 2.61e-05, |AD|=0.00068; raw FD evidence retained'
+skipped '0.2% unresolved: measured FD uncertainty 2.61e-05, |AD|=0.00068; raw FD evidence retained'
+test_cpu_nonzero_state_single_step_material_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) ... ok
+test_cuda_full_model_receiver_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) ... skipped 'CUDA is not available'
+test_cuda_nonzero_state_single_step_material_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) ... skipped 'CUDA is not available'
+test_final_frame_is_independent_of_returned_states (test_rhs_history.CpuRhsReconstructionTests) ... ok
+test_float32_gradients_are_bitwise_identical (test_rhs_history.CpuRhsReconstructionTests) ... ok
+test_low_precision_reconstruction_stays_close (test_rhs_history.CpuRhsReconstructionTests) ... ok
+test_stored_rhs_equals_rebuilt_rhs_bitwise (test_rhs_history.CpuRhsReconstructionTests) ... ok
+test_cpu_and_cuda_reconstruction_agree (test_rhs_history.CudaRhsReconstructionTests) ... skipped 'CUDA is not available'
+test_float32_gradients_match_stored_rhs (test_rhs_history.CudaRhsReconstructionTests) ... skipped 'CUDA is not available'
+test_low_precision_and_int8_reconstruction (test_rhs_history.CudaRhsReconstructionTests) ... skipped 'CUDA is not available'
+test_auto_selects_e_only_for_float32_and_keeps_low_precision_pairs (test_rhs_history.RhsHistoryPolicyTests) ... ok
+test_invalid_option_is_rejected (test_rhs_history.RhsHistoryPolicyTests) ... ok
+test_memory_estimate_counts_one_history_and_the_final_frame (test_rhs_history.RhsHistoryPolicyTests) ... ok
+test_resolution_rules (test_rhs_history.RhsHistoryPolicyTests) ... ok
+test_stale_library_is_rejected_before_native_call (test_rhs_history.RhsHistoryPolicyTests) ... ok
+test_codata_2018_constants (test_signal_and_regularization.ConstantTests) ... ok
+test_envelope_of_a_pure_cosine_is_flat (test_signal_and_regularization.EnvelopeTests) ... ok
+test_even_lengths_are_unchanged_from_legacy (test_signal_and_regularization.EnvelopeTests) ... ok
+test_matches_analytic_signal_for_odd_and_even_lengths (test_signal_and_regularization.EnvelopeTests) ... ok
+test_apply_filter_validates_cutoff_and_length (test_signal_and_regularization.FirFilterTests) ... ok
+test_legacy_reproduces_the_even_length_centre_override (test_signal_and_regularization.FirFilterTests) ... ok
+test_matches_windowed_sinc_for_odd_and_even_lengths (test_signal_and_regularization.FirFilterTests) ... ok
+test_isotropic_gradient_is_finite_on_constant_models (test_signal_and_regularization.TotalVariationTests) ... ok
+test_isotropic_is_rotation_invariant_unlike_anisotropic (test_signal_and_regularization.TotalVariationTests) ... ok
+test_isotropic_matches_per_cell_gradient_magnitude (test_signal_and_regularization.TotalVariationTests) ... ok
+test_method_names (test_signal_and_regularization.TotalVariationTests) ... ok
+test_preserves_input_dtype_and_float64_gradient (test_signal_and_regularization.TotalVariationTests) ... ok
+test_cpu_lossy_rhs_history_keeps_actual_component_coefficient (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+test_cpu_unupdated_component_keeps_cpml_correction (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+test_cpu_unupdated_components_and_boundary_sources (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+test_cuda_fast_unupdated_component_and_boundary_source (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... skipped 'CUDA unavailable'
+test_cuda_general_unupdated_component_keeps_cpml_correction (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... skipped 'CUDA unavailable'
+test_cuda_general_unupdated_components_and_boundary_sources (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... skipped 'CUDA unavailable'
+test_cuda_int8_unupdated_component_and_boundary_source (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... skipped 'CUDA unavailable'
+test_cuda_lossy_rhs_history_keeps_actual_component_coefficient (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... skipped 'CUDA unavailable'
+test_2d_compressed_gradient_directional_consistency (test_wavefield_compression.Int8WavefieldCompressionTests) ... skipped 'CUDA is not available'
+test_2d_wavefield_and_gradient_accuracy (test_wavefield_compression.Int8WavefieldCompressionTests) ... skipped 'CUDA is not available'
+test_3d_partial_tiles_are_device_safe (test_wavefield_compression.Int8WavefieldCompressionTests) ... skipped 'CUDA is not available'
+test_fdtd_only_backward_fails_explicitly (test_wavefield_compression.Int8WavefieldCompressionTests) ... skipped 'CUDA is not available'
+test_fdtd_only_matches_fp32_history_receiver_data (test_wavefield_compression.Int8WavefieldCompressionTests) ... skipped 'CUDA is not available'
+test_int8_experimental_reduction_requires_64_voxels (test_wavefield_compression.Int8WavefieldCompressionTests) ... skipped 'CUDA is not available'
+test_int8_reduction_backends_are_bit_exact (test_wavefield_compression.Int8WavefieldCompressionTests) ... skipped 'CUDA is not available'
+test_common_wavelets_are_finite_with_expected_peaks (test_wavelet.WaveletTests) ... ok
+test_invalid_wavelet_parameters_are_rejected (test_wavelet.WaveletTests) ... ok
+test_ricker_matches_the_reference_formula (test_wavelet.WaveletTests) ... ok
+test_wavelet_module_and_legacy_exports (test_wavelet.WaveletTests) ... ok
+test_wavelet_symmetry_and_burst_support (test_wavelet.WaveletTests) ... ok
+test_api_failure_retains_persistent_total_in_public_snapshot (test_website_stats.PersistentPyPIDownloadHistoryTests) ... pypi_recent unavailable: simulated provider outage
+pypi_metadata unavailable: simulated provider outage
+pypi_history unavailable: simulated provider outage
+github_repository unavailable: simulated provider outage
+ok
+test_daily_history_keeps_zero_download_dates (test_website_stats.PersistentPyPIDownloadHistoryTests) ... ok
+test_dates_outside_current_api_window_are_preserved (test_website_stats.PersistentPyPIDownloadHistoryTests) ... ok
+test_first_run_sums_visible_daily_history (test_website_stats.PersistentPyPIDownloadHistoryTests) ... ok
+test_incomplete_window_is_not_marked_as_release_lifetime (test_website_stats.PersistentPyPIDownloadHistoryTests) ... ok
+test_project_defaults_are_explicit (test_website_stats.PersistentPyPIDownloadHistoryTests) ... ok
+test_recent_date_correction_overwrites_instead_of_adding (test_website_stats.PersistentPyPIDownloadHistoryTests) ... ok
+test_repeated_run_is_idempotent (test_website_stats.PersistentPyPIDownloadHistoryTests) ... ok
+test_second_run_adds_only_the_new_date (test_website_stats.PersistentPyPIDownloadHistoryTests) ... ok
+
+======================================================================
+ERROR: test_long_3d_cpml_backward_remains_finite (test_numerics.NumericsValidationTests)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ll/下载/DeepGPR-dev/tests/test_numerics.py", line 745, in test_long_3d_cpml_backward_remains_finite
+    receiver.square().mean().backward()
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/site-packages/torch/_tensor.py", line 363, in backward
+    torch.autograd.backward(self, gradient, retain_graph, create_graph, inputs=inputs)
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/site-packages/torch/autograd/__init__.py", line 173, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/site-packages/torch/autograd/function.py", line 253, in apply
+    return user_fn(self, *args)
+  File "/home/ll/下载/DeepGPR-dev/src/DeepGPR/solver/autograd.py", line 743, in backward
+    check_tensors_for_nan_inf(d="backward", **to_check)
+  File "/home/ll/下载/DeepGPR-dev/src/DeepGPR/utils/tensor_checks.py", line 54, in check_tensors_for_nan_inf
+    raise NonFiniteTensorError(
+DeepGPR.utils.exceptions.NonFiniteTensorError: backward produced tensors containing NaN or Inf values: Tensor `grad_eps_r` contains NaN | shape=(30, 34, 34) | dtype=torch.float32
+
+----------------------------------------------------------------------
+Ran 164 tests in 16.923s
+
+FAILED (errors=1, skipped=44)
+
+=== DeepGPR compute preview ===
+Simulation
+  device: cpu
+  model shape: (12, 16, 1)
+  computational shape (including PML): (18, 22, 1)
+  padded field shape: (19, 23, 2)
+  shots / sources per shot / receivers per shot: 1 / 1 / 1
+  time steps: 80
+  dx / dy / dz: 2.000000e-02 m / 2.000000e-02 m / 2.000000e-02 m
+  dt / simulated duration: 3.000000e-11 s / 2.400000e-09 s
+  FDTD order / gradient mode: 4 / 2
+  source / receiver component: 2 / 2
+  PML thickness [x0, x1, y0, y1, z0, z1]: [3, 3, 3, 3, 0, 0]
+Model
+  eps_r range / requires_grad: [4.000000e+00, 4.000000e+00] / True
+  sigma range / requires_grad: [2.000000e-04, 2.000000e-04] / True
+  mu_r range / supplied: [1.000000e+00, 1.000000e+00] / False
+  propagation dtype: torch.float32
+Wavefield and runtime options
+  save wavefield history: True
+  gradient sampling interval / saved time steps: 2 / 40
+  saved components / compression: 1 / none
+  history region / frame cells: extended / (18, 22, 1)
+  R history: stored with E
+  saved wavefield storage dtype: torch.float16
+  CUDA conversion backend: legacy
+  async offload requested / effective: False / False
+  debug validation: False
+  print parameters: True
+  forward wavefield save directory: disabled
+  initial E / H / PML supplied: False / False / False
+Input tensors
+  source amplitudes shape / range: (1, 80, 1) / [-4.461524e-01, 2.072797e-01]
+  source locations shape: (1, 1, 3)
+  receiver locations shape: (1, 1, 3)
+Estimated tensor payload
+  model and padded materials: 13.34 KiB
+  electric and magnetic fields: 20.48 KiB
+  CPML auxiliary fields: 6.67 KiB
+  CPML coefficients: 496.00 B
+  source and acquisition locations: 344.00 B
+  saved E_saved and R_saved wavefields: 61.88 KiB
+    of which final E frame (E-only history): 0.00 B
+  FDTD update coefficients: 20.48 KiB
+  receiver data: 320.00 B
+  material gradients: 3.09 KiB
+  adjoint fields and CPML: 27.16 KiB
+  receiver adjoint: 320.00 B
+  CPU adjoint stencil weights: 20.48 KiB
+  low-precision exact snapshot: 1.55 KiB
+  CUDA transfer buffers: 0.00 B
+  estimated peak CPU memory: 175.03 KiB
+  recommended CPU capacity with 20% margin: 210.04 KiB
+  note: estimates exclude the CUDA context, PyTorch allocator cache, autograd metadata, Python objects, and other tensors owned by the calling program.
+=== End DeepGPR compute preview ===
+

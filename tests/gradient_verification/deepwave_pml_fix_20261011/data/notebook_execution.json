@@ -1,0 +1,23 @@
+[
+  {
+    "notebook": "02_cpml_absorption.ipynb",
+    "execution": "exact code cells in sequential Python namespace; no notebook kernel",
+    "verdict": "PASS",
+    "seconds": 3.8838849759195,
+    "code_cells_executed": 5
+  },
+  {
+    "notebook": "03_gradient_2d.ipynb",
+    "execution": "exact code cells in sequential Python namespace; no notebook kernel",
+    "verdict": "PASS",
+    "seconds": 1.028149097925052,
+    "code_cells_executed": 4
+  },
+  {
+    "notebook": "04_gradient_3d.ipynb",
+    "execution": "exact code cells in sequential Python namespace; no notebook kernel",
+    "verdict": "PASS",
+    "seconds": 12.872546458151191,
+    "code_cells_executed": 5
+  }
+]

@@ -22,7 +22,7 @@ jobs:
       - name: Install linters
         run: python -m pip install "ruff>=0.5"
       - name: Ruff
-        run: ruff check src/DeepGPR tools
+        run: ruff check src/DeepGPR website/tools docs/build_support.py
       - name: Native ABI table matches lib/deepgpr.h (no PyTorch needed)
         run: python -m unittest tests/test_native_abi.py -v
 
@@ -49,7 +49,7 @@ jobs:
         run: cc -std=c99 -O3 -fopenmp -fPIC -shared -o src/DeepGPR/lib/deepgpr_cpu.so src/DeepGPR/lib/deepgpr_cpu.c
       - name: Unit tests
         run: python -m unittest discover -s tests -p "test_*.py" -v
-      - name: Equivalence with the pre-refactor release
+      - name: No-PML compatibility with the pre-refactor release
         run: |
           git fetch --no-tags --depth=200 origin 73b2b5080f3a7f8828ad4a13e3538499e0d85ba5 || true
-          python tools/verify_equivalence.py --device cpu --quick
+          python website/tools/verify_equivalence.py --device cpu --quick --no-pml

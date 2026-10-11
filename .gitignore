@@ -20,7 +20,7 @@ experiment/
 .pytest_cache/
 .venv/
 
-# Local validation reports (tools/run_local_validation.sh)
+# Local validation reports (website/tools/run_local_validation.sh)
 validation/
 
 # Local hidden directories; retain repository automation.

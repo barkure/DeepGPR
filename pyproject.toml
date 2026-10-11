@@ -39,11 +39,14 @@ dev = ["ruff>=0.5", "mypy>=1.8", "pytest>=7", "nbformat", "nbclient"]
 Homepage = "https://github.com/songc0a/DeepGPR"
 Repository = "https://github.com/songc0a/DeepGPR"
 Documentation = "https://songc0a.github.io/DeepGPR/"
-Changelog = "https://github.com/songc0a/DeepGPR/blob/main/CHANGELOG.md"
+Changelog = "https://github.com/songc0a/DeepGPR/blob/main/docs/CHANGELOG.md"
 
 [tool.setuptools]
-package-dir = { "" = "src" }
+package-dir = { "" = "src", docs = "docs" }
 include-package-data = true
+
+[tool.setuptools.cmdclass]
+egg_info = "docs.build_support.EggInfo"
 
 [tool.setuptools.dynamic]
 version = { attr = "DeepGPR._version.__version__" }
@@ -77,8 +80,8 @@ DeepGPR = [
 [tool.ruff]
 line-length = 100
 target-version = "py38"
-src = ["src", "tests", "tools"]
-extend-exclude = ["tests/*.ipynb", "examples", "website", "scripts"]
+src = ["src", "tests", "website/tools"]
+extend-exclude = ["tests/*.ipynb", "examples", "website/assets", "website/scripts", "website/promo_pixel"]
 
 [tool.ruff.lint]
 select = ["E", "F", "W", "B", "UP", "SIM", "C4"]

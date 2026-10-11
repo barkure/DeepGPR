@@ -1,0 +1,68 @@
+dot 2D cpu 1 3.13e-08 PASS 
+dot 2D cuda_fast 1 2.70e-07 PASS fast
+dot 2D cuda_general 1 1.49e-07 PASS 
+dot 2D cpu 2 7.62e-09 PASS 
+dot 2D cuda_fast 2 7.42e-08 PASS fast
+dot 2D cuda_general 2 1.37e-07 PASS 
+dot 2D cpu 5 3.44e-08 PASS 
+dot 2D cuda_fast 5 6.11e-08 PASS fast
+dot 2D cuda_general 5 6.31e-08 PASS 
+dot 2D cpu 20 2.88e-07 PASS 
+dot 2D cuda_fast 20 8.87e-08 PASS fast
+dot 2D cuda_general 20 3.24e-07 PASS 
+dot 2D cpu 100 4.55e-07 PASS 
+dot 2D cuda_fast 100 2.26e-07 PASS fast
+dot 2D cuda_general 100 2.13e-07 PASS 
+dot 2D cpu 300 2.62e-07 PASS 
+dot 2D cuda_fast 300 1.53e-06 PASS fast
+dot 2D cuda_general 300 2.17e-07 PASS 
+dot 2D order 2 [3, 5, 4, 2] cpu 3.24e-07 PASS
+dot 2D order 2 [3, 5, 4, 2] cuda_fast 2.63e-06 PASS
+dot 2D order 2 [3, 5, 4, 2] cuda_general 1.27e-07 PASS
+dot 2D order 2 [0, 6, 2, 0] cpu 4.29e-07 PASS
+dot 2D order 2 [0, 6, 2, 0] cuda_fast 8.11e-07 PASS
+dot 2D order 2 [0, 6, 2, 0] cuda_general 4.90e-07 PASS
+dot 2D order 2 0 cpu 1.14e-07 PASS
+dot 2D order 2 0 cuda_fast 3.63e-07 PASS
+dot 2D order 2 0 cuda_general 6.13e-07 PASS
+dot 2D order 8 [3, 5, 4, 2] cpu 1.04e-07 PASS
+dot 2D order 8 [3, 5, 4, 2] cuda_fast 6.88e-07 PASS
+dot 2D order 8 [3, 5, 4, 2] cuda_general 4.80e-07 PASS
+dot 2D order 8 [0, 6, 2, 0] cpu 3.51e-07 PASS
+dot 2D order 8 [0, 6, 2, 0] cuda_fast 1.17e-07 PASS
+dot 2D order 8 [0, 6, 2, 0] cuda_general 4.07e-07 PASS
+dot 2D order 8 0 cpu 1.38e-07 PASS
+dot 2D order 8 0 cuda_fast 1.72e-07 PASS
+dot 2D order 8 0 cuda_general 3.43e-07 PASS
+dot 3D cpu 1 5.35e-08 PASS
+dot 3D cuda_general 1 8.20e-08 PASS
+dot 3D cpu 5 8.43e-08 PASS
+dot 3D cuda_general 5 1.72e-08 PASS
+dot 3D cpu 20 5.62e-07 PASS
+dot 3D cuda_general 20 8.46e-07 PASS
+dot 3D cpu 100 3.06e-06 PASS
+dot 3D cuda_general 100 4.65e-06 PASS
+cpu state:E random: AD=3.582266e-02 FD=3.582472e-02 rel=5.73e-05 pair=7.21e-05 extrap=1.96e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cpu state:H random: AD=-5.640463e-01 FD=-5.641645e-01 rel=2.10e-04 pair=3.66e-04 extrap=1.52e-03 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cpu state:CPML random: AD=-1.054175e-02 FD=-1.054172e-02 rel=2.39e-06 pair=3.06e-06 extrap=1.01e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cpu state:all random: AD=3.145452e-01 FD=3.144435e-01 rel=3.23e-04 pair=3.52e-04 extrap=1.33e-02 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_fast state:E random: AD=-2.506258e-02 FD=-2.506433e-02 rel=6.97e-05 pair=7.48e-05 extrap=4.11e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_fast state:H random: AD=4.204807e-02 FD=4.205156e-02 rel=8.29e-05 pair=8.75e-05 extrap=1.63e-03 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_fast state:CPML random: AD=-4.811153e-05 FD=-4.811521e-05 rel=7.64e-05 pair=8.34e-05 extrap=1.17e-03 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_fast state:all random: AD=2.114697e-03 FD=2.114771e-03 rel=3.50e-05 pair=3.21e-04 extrap=9.80e-03 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+fast path inactive cotangents max 0.0
+cuda_general state:E random: AD=3.582096e-02 FD=3.582082e-02 rel=3.86e-06 pair=3.71e-05 extrap=3.03e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_general state:H random: AD=-5.640490e-01 FD=-5.640621e-01 rel=2.32e-05 pair=2.06e-04 extrap=1.29e-02 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_general state:CPML random: AD=-1.054174e-02 FD=-1.054172e-02 rel=2.20e-06 pair=9.56e-06 extrap=5.70e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_general state:all random: AD=3.145372e-01 FD=3.145221e-01 rel=4.78e-05 pair=3.06e-03 extrap=1.96e-02 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> INCONCLUSIVE FD uncertainty too large (relative error 3.1e-03)
+cpu state:E random: AD=9.090930e-01 FD=9.090984e-01 rel=6.00e-06 pair=8.42e-06 extrap=9.05e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cpu state:H random: AD=1.005144e-02 FD=1.004809e-02 rel=3.34e-04 pair=5.11e-04 extrap=9.01e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cpu state:CPML random: AD=7.999704e-05 FD=7.999829e-05 rel=1.57e-05 pair=3.91e-05 extrap=1.02e-04 n=7 slope=1.99 local=['2.00', '2.00', '2.00', '2.00', '1.99', '1.95'] -> PASS 
+cpu state:all random: AD=-2.682048e-01 FD=-2.682410e-01 rel=1.35e-04 pair=1.55e-04 extrap=8.44e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_general state:E random: AD=9.091023e-01 FD=9.091012e-01 rel=1.22e-06 pair=3.05e-05 extrap=7.86e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_general state:H random: AD=1.004726e-02 FD=1.004561e-02 rel=1.65e-04 pair=4.66e-04 extrap=9.90e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_general state:CPML random: AD=7.999806e-05 FD=7.999866e-05 rel=7.55e-06 pair=3.32e-05 extrap=4.70e-04 n=6 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '1.99'] -> PASS 
+cuda_general state:all random: AD=-2.682542e-01 FD=-2.682393e-01 rel=5.55e-05 pair=1.52e-04 extrap=1.10e-03 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+wrote /home/ll/下载/DeepGPR-dev/tests/gradient_verification/data/t02_states_dot.json
+dot verdicts {'PASS': 44, 'FAIL': 0}
+state verdicts {'PASS': 20, 'FAIL': 0, 'INCONCLUSIVE': 1}

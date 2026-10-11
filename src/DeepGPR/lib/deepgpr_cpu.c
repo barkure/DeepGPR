@@ -218,6 +218,12 @@ DEEPGPR_API int deepgpr_supports_external_pml(void)
     return 1;
 }
 
+/* Material sensitivities include the replicated PML cells at fixed CPML coefficients. */
+DEEPGPR_API int deepgpr_supports_pml_material_gradients(void)
+{
+    return 1;
+}
+
 DEEPGPR_API int deepgpr_abi_version(void)
 {
     return DEEPGPR_ABI_VERSION;
@@ -1527,9 +1533,26 @@ static void adjoint_source_injection_cpu(
     }
 }
 
+/* Match update_e_cpu for one material cell/component. An unupdated Yee field
+ * retains E^n with coefficient 1, but source/CPML corrections can still use cb. */
+static int material_component_has_e_update_cpu(
+    int component, long long i, long long j, long long k, int NX, int NY, int NZ)
+{
+    if (component == 0) {
+        return ((NY - 1) != 1 || (NZ - 1) != 1)
+            && i < NX - 1 && j > 0 && j < NY - 1 && k > 0 && k < NZ - 1;
+    }
+    if (component == 1) {
+        return ((NX - 1) != 1 || (NZ - 1) != 1)
+            && i > 0 && i < NX - 1 && j < NY - 1 && k > 0 && k < NZ - 1;
+    }
+    return ((NX - 1) != 1 || (NY - 1) != 1)
+        && i > 0 && i < NX - 1 && j > 0 && j < NY - 1 && k < NZ - 1;
+}
+
 /*
  * Save the effective electric-field right-hand side R from
- * E^(n+1) = ca E^n + cb R. Eold_ptr contains E^n for this saved step.
+ * E^(n+1) = a E^n + cb R, where a=ca for updated fields and a=1 otherwise.
  * This definition includes CPML corrections and the material-dependent
  * source injection, so the cb gradient follows the executed discrete scheme.
  */
@@ -1538,7 +1561,7 @@ static void save_rhs_snapshot_cpu(
     const float* RESTRICT E, const void* RESTRICT Eold_ptr,
     const float* RESTRICT exact_Eold,
     const float* RESTRICT ca, const float* RESTRICT cb,
-    int step, int NX, int NY, int NZ, HistoryBox box, int storage_kind)
+    int step, int NX, int NY, int NZ, HistoryBox box, int storage_kind, int component)
 {
     long long ny1 = box.ny, nz1 = box.nz;
     long long total = (long long)box.nx * ny1 * nz1;
@@ -1562,8 +1585,10 @@ static void save_rhs_snapshot_cpu(
         float e_old = exact_Eold != NULL
             ? exact_Eold[work]
             : load_wavefield_value(Eold_ptr, saved_idx, storage_kind);
+        float effective_ca = material_component_has_e_update_cpu(component, i, j, k, NX, NY, NZ)
+            ? ca[i * NY * NZ + j * NZ + k] : 1.0f;
         float rhs = cb_value != 0.0f
-            ? (E[field_idx] - ca[i * NY * NZ + j * NZ + k] * e_old) / cb_value
+            ? (E[field_idx] - effective_ca * e_old) / cb_value
             : 0.0f;
         store_wavefield_value(dst_ptr, saved_idx, rhs, storage_kind);
     }
@@ -1608,7 +1633,9 @@ static void save_e_snapshot_cpu(
 }
 
 /*
- * Accumulate model gradients from saved forward fields and adjoint fields.
+ * Accumulate model gradients over the saved extended-grid cells, including PML.
+ * CPML coefficients are fixed; replicated material sensitivities are returned
+ * on the extended grid for the model-extension transpose to fold into edges.
  *
  * Parameters:
  *   lambda_ex, lambda_ey, lambda_ez: Adjoint electric field component arrays.
@@ -1621,13 +1648,13 @@ static void save_e_snapshot_cpu(
  *   grad_sigma: Output conductivity gradient array.
  *   step: Number of shots or simulations in the batch.
  *   NX, NY, NZ: Padded field grid sizes.
- *   pml0..pml5: CPML thicknesses; gradients are excluded from these cells.
  *   dt: Time step size.
  *   eps_r_requires_grad: Whether to accumulate grad_eps_r.
  *   sigma_requires_grad: Whether to accumulate grad_sigma.
  *   sample_weight: Length of the sampling block represented by this step.
  *   fwi_mode: Gradient mode; 2 uses lambda_ez only, 3 uses lambda_ex, lambda_ey, and lambda_ez.
- *   rhs_from_e: Rebuild R^n = (E^(n+1) - ca E^n) / cb exactly as save_rhs_snapshot_cpu did.
+ *   rhs_from_e: Rebuild R with the actual component history coefficient,
+ *       matching save_rhs_snapshot_cpu.
  */
 static void accumulate_material_gradients_cpu(
     const float* RESTRICT lambda_ex, const float* RESTRICT lambda_ey, const float* RESTRICT lambda_ez,
@@ -1637,12 +1664,11 @@ static void accumulate_material_gradients_cpu(
     const float* RESTRICT sigma_pad,
     float* RESTRICT grad_eps_r, float* RESTRICT grad_sigma,
     int step, int NX, int NY, int NZ,
-    int pml0, int pml1, int pml2, int pml3, int pml4, int pml5,
     float dt,
     int eps_r_requires_grad, int sigma_requires_grad, int sample_weight,
     int fwi_mode, int storage_kind, int rhs_from_e, HistoryBox box)
 {
-    long long sx = NX - 1, sy = NY - 1, sz = NZ - 1;
+    long long sy = NY - 1, sz = NZ - 1;
     long long hy = box.ny, hz = box.nz;
     long long total_cells = (long long)box.nx * hy * hz;
     long long history_idx;
@@ -1654,16 +1680,6 @@ static void accumulate_material_gradients_cpu(
         long long iy = rem / hz + box.y0;
         long long iz = rem % hz + box.z0;
         long long idx = ix * sy * sz + iy * sz + iz;
-
-        /* CPML is a numerical boundary, not part of the invertible model. */
-        if ((pml0 > 0 && ix < pml0) ||
-            (pml1 > 0 && ix >= sx - pml1) ||
-            (pml2 > 0 && iy < pml2) ||
-            (pml3 > 0 && iy >= sy - pml3) ||
-            (pml4 > 0 && iz < pml4) ||
-            (pml5 > 0 && iz >= sz - pml5)) {
-            continue;
-        }
 
         long long material_idx = ix * NY * NZ + iy * NZ + iz;
         float local_grader = 0.0f;
@@ -1679,6 +1695,9 @@ static void accumulate_material_gradients_cpu(
             };
 
             for (int c = 0; c < components; ++c) {
+                int field_component = (fwi_mode == 3) ? c : 2;
+                int has_e_update = material_component_has_e_update_cpu(
+                    field_component, ix, iy, iz, NX, NY, NZ);
                 float e_old = load_wavefield_value(
                     e_frame, (long long)c * e_component_stride + base_idx, storage_kind);
                 float second = load_wavefield_value(
@@ -1688,11 +1707,17 @@ static void accumulate_material_gradients_cpu(
                 float cb_value = cb[material_idx];
                 float rhs = second;
                 if (rhs_from_e) {
+                    float effective_ca = has_e_update ? ca_value : 1.0f;
                     rhs = cb_value != 0.0f
-                        ? (second - ca_value * e_old) / cb_value
+                        ? (second - effective_ca * e_old) / cb_value
                         : 0.0f;
                 }
-                float grad_ca = adjoint_val * e_old * (float)sample_weight;
+                /* A zero local material sensitivity contributes exactly zero,
+                 * even if an unobservable CPML-boundary cotangent overflowed.
+                 * Do not turn that zero contribution into NaN through 0*Inf. */
+                if (e_old == 0.0f && rhs == 0.0f) adjoint_val = 0.0f;
+                float grad_ca = has_e_update
+                    ? adjoint_val * e_old * (float)sample_weight : 0.0f;
                 float grad_cb = adjoint_val * rhs * (float)sample_weight;
 
                 if (sigma_pad[material_idx] <= DEEPGPR_PEC_SIGMA_THRESHOLD_F) {
@@ -1801,6 +1826,13 @@ DEEPGPR_API void forward(const float* RESTRICT eps_r_pad, const float* RESTRICT 
     float* exact_Eold = NULL;
 
     deepgpr_clear_last_error();
+    if (save_wavefield_history && save_model_history && has_cpml
+        && (storage_type & WAVEFIELD_PHYSICAL_HISTORY) != 0) {
+        deepgpr_set_error(
+            "deepgpr_cpu forward: material gradients with PML require extended "
+            "wavefield history; physical history omits PML material sensitivities");
+        return;
+    }
     if (rhs_from_e && sampling_interval != 1) {
         deepgpr_set_error("deepgpr_cpu forward: E-only wavefield history requires sampling interval 1");
         return;
@@ -1868,16 +1900,16 @@ DEEPGPR_API void forward(const float* RESTRICT eps_r_pad, const float* RESTRICT 
             int t_saved = i / sampling_interval;
             if (fwi_mode == 3) {
                 save_rhs_snapshot_cpu(R_saved, t_saved, Ex, E_saved, exact_Eold, ce_hist, ce_rhs,
-                    step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, storage_kind);
+                    step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, storage_kind, 0);
                 save_rhs_snapshot_cpu(wavefield_offset(R_saved, component_stride, storage_kind), t_saved, Ey,
                     wavefield_const_offset(E_saved, component_stride, storage_kind), exact_Eold != NULL ? exact_Eold + snap_size : NULL,
-                    ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, storage_kind);
+                    ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, storage_kind, 1);
                 save_rhs_snapshot_cpu(wavefield_offset(R_saved, 2 * component_stride, storage_kind), t_saved, Ez,
                     wavefield_const_offset(E_saved, 2 * component_stride, storage_kind), exact_Eold != NULL ? exact_Eold + 2 * snap_size : NULL,
-                    ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, storage_kind);
+                    ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, storage_kind, 2);
             } else {
                 save_rhs_snapshot_cpu(R_saved, t_saved, Ez, E_saved, exact_Eold, ce_hist, ce_rhs,
-                    step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, storage_kind);
+                    step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, storage_kind, 2);
             }
         }
 
@@ -1991,6 +2023,13 @@ DEEPGPR_API void backward(const float* RESTRICT eps_r_pad, const float* RESTRICT
     float* adjoint_weights;
 
     deepgpr_clear_last_error();
+    if ((eps_r_requires_grad || sigma_requires_grad) && has_cpml
+        && (storage_type & WAVEFIELD_PHYSICAL_HISTORY) != 0) {
+        deepgpr_set_error(
+            "deepgpr_cpu backward: material gradients with PML require extended "
+            "wavefield history; physical history omits PML material sensitivities");
+        return;
+    }
     if (rhs_from_e && sampling_interval != 1) {
         deepgpr_set_error("deepgpr_cpu backward: E-only wavefield history requires sampling interval 1");
         return;
@@ -2044,8 +2083,7 @@ DEEPGPR_API void backward(const float* RESTRICT eps_r_pad, const float* RESTRICT
             accumulate_material_gradients_cpu(lambda_ex, lambda_ey, lambda_ez,
                 e_frame, component_stride, second_frame, second_stride,
                 ce_hist, ce_rhs, sigma_pad,
-                grad_eps_r, grad_sigma, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS,
-                pml0, pml1, pml2, pml3, pml4, pml5, dt,
+                grad_eps_r, grad_sigma, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, dt,
                 eps_r_requires_grad, sigma_requires_grad, sample_weight,
                 fwi_mode, storage_kind, rhs_from_e, history);
         }

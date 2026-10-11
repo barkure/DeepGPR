@@ -3,7 +3,7 @@ from pathlib import Path
 from tempfile import TemporaryDirectory
 from unittest.mock import patch
 
-from scripts import update_website_stats as stats
+from website.scripts import update_website_stats as stats
 
 
 class PersistentPyPIDownloadHistoryTests(unittest.TestCase):

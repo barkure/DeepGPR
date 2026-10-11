@@ -1,0 +1,99 @@
+{
+  "checks": [
+    {
+      "early_stop_sample": 300,
+      "name": "CPML does not alter the causal early interior trace",
+      "relative_l2": 0.0,
+      "status": "PASS",
+      "tolerance": 2e-06
+    },
+    {
+      "late_rms": 0.06339806610992031,
+      "late_start_sample": 600,
+      "name": "late reflected energy is suppressed for CPML thickness 6",
+      "no_pml_late_rms": 156.9486649279403,
+      "pml_thickness": 6,
+      "reflection_rms_ratio": 0.0004039414170170113,
+      "status": "PASS",
+      "tolerance": 0.25
+    },
+    {
+      "late_rms": 0.02781679345556884,
+      "late_start_sample": 600,
+      "name": "late reflected energy is suppressed for CPML thickness 10",
+      "no_pml_late_rms": 156.9486649279403,
+      "pml_thickness": 10,
+      "reflection_rms_ratio": 0.00017723497978361483,
+      "status": "PASS",
+      "tolerance": 0.25
+    },
+    {
+      "late_rms": 0.027828296715032046,
+      "late_start_sample": 600,
+      "name": "late reflected energy is suppressed for CPML thickness 14",
+      "no_pml_late_rms": 156.9486649279403,
+      "pml_thickness": 14,
+      "reflection_rms_ratio": 0.00017730827291719128,
+      "status": "PASS",
+      "tolerance": 0.25
+    },
+    {
+      "gradient_shape": [
+        64,
+        80
+      ],
+      "model_shape": [
+        64,
+        80
+      ],
+      "name": "material gradients contain only the input model",
+      "status": "PASS"
+    },
+    {
+      "name": "solver states and histories retain the external PML",
+      "status": "PASS"
+    }
+  ],
+  "extra": {
+    "thickness_rows": [
+      {
+        "late_rms": 0.06339806610992031,
+        "late_start_sample": 600,
+        "no_pml_late_rms": 156.9486649279403,
+        "pml_thickness": 6,
+        "reflection_rms_ratio": 0.0004039414170170113
+      },
+      {
+        "late_rms": 0.02781679345556884,
+        "late_start_sample": 600,
+        "no_pml_late_rms": 156.9486649279403,
+        "pml_thickness": 10,
+        "reflection_rms_ratio": 0.00017723497978361483
+      },
+      {
+        "late_rms": 0.027828296715032046,
+        "late_start_sample": 600,
+        "no_pml_late_rms": 156.9486649279403,
+        "pml_thickness": 14,
+        "reflection_rms_ratio": 0.00017730827291719128
+      }
+    ]
+  },
+  "metadata": {
+    "deepgpr_package": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/__init__.py",
+    "device": "cpu",
+    "git_commit": "386f214d88cae2111dda8c5aa1ef0434595b02f8",
+    "git_dirty": true,
+    "native_abi": 6,
+    "native_library": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/lib/deepgpr_cpu.so",
+    "native_library_sha256": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251",
+    "omp_num_threads": "1",
+    "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+    "python": "3.10.16",
+    "source_tree_sha256": "0ee08e098260570f6570a7414749444c2fe0d7b32487ec6dbdfb7b91c6cbd691",
+    "timestamp_utc": "2026-10-11T09:22:12.905956+00:00",
+    "torch": "1.11.0+cu115"
+  },
+  "overall_status": "PASS",
+  "report": "02_cpml_absorption"
+}

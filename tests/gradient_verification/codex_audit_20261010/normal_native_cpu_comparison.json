@@ -1,0 +1,187 @@
+{
+  "device": "cpu",
+  "models": "synthetic D; zero initial states; full physical gradients",
+  "comparison": {
+    "2d_cpu_stored": {
+      "data": {
+        "shape": [
+          2,
+          400,
+          18
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 9050.385423246891
+      },
+      "eps": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.07939990318007364
+      },
+      "sigma": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 2.103902212042729
+      },
+      "source": {
+        "shape": [
+          1,
+          400,
+          1
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.2077503863093452
+      }
+    },
+    "2d_cpu_reconstructed": {
+      "data": {
+        "shape": [
+          2,
+          400,
+          18
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 9050.385423246891
+      },
+      "eps": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.07939990318007364
+      },
+      "sigma": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 2.103902212042729
+      },
+      "source": {
+        "shape": [
+          1,
+          400,
+          1
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.2077503863093452
+      }
+    },
+    "3d_cpu_stored": {
+      "data": {
+        "shape": [
+          2,
+          150,
+          12
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 2538.994926089491
+      },
+      "eps": {
+        "shape": [
+          16,
+          16,
+          12
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.023733855695068938
+      },
+      "sigma": {
+        "shape": [
+          16,
+          16,
+          12
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 26.57198377847554
+      },
+      "source": {
+        "shape": [
+          1,
+          150,
+          1
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.5937907172172695
+      }
+    },
+    "3d_cpu_reconstructed": {
+      "data": {
+        "shape": [
+          2,
+          150,
+          12
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 2538.994926089491
+      },
+      "eps": {
+        "shape": [
+          16,
+          16,
+          12
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.023733855695068938
+      },
+      "sigma": {
+        "shape": [
+          16,
+          16,
+          12
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 26.57198377847554
+      },
+      "source": {
+        "shape": [
+          1,
+          150,
+          1
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.5937907172172695
+      }
+    }
+  },
+  "all_bitwise_identical": true
+}

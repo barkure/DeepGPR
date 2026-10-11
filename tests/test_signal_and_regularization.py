@@ -104,8 +104,21 @@ class TotalVariationTests(unittest.TestCase):
                 value = DeepGPR.TVRegularization(1, 0, method="isotropic")(model)
                 expected = numpy_isotropic_tv(model.squeeze(-1).numpy() if shape[-1] == 1
                                               else model.numpy(), 1e-8)
-                # The penalty is accumulated in float32 (as in 0.0.20).
                 self.assertAlmostEqual(float(value), expected, delta=1e-6 * expected)
+
+    def test_preserves_input_dtype_and_float64_gradient(self):
+        generator = torch.Generator().manual_seed(3)
+        for method in ("anisotropic", "isotropic", "legacy_isotropic"):
+            for dtype in (torch.float32, torch.float64):
+                with self.subTest(method=method, dtype=dtype):
+                    model = torch.randn((4, 5), generator=generator, dtype=dtype)
+                    criterion = DeepGPR.TVRegularization(1, 0, method=method)
+                    self.assertEqual(criterion(model).dtype, dtype)
+                    if dtype == torch.float64:
+                        self.assertTrue(torch.autograd.gradcheck(
+                            criterion, (model.requires_grad_(),),
+                            eps=1e-6, atol=1e-7, rtol=2e-5,
+                        ))
 
     def test_isotropic_is_rotation_invariant_unlike_anisotropic(self):
         x, y = torch.meshgrid(torch.arange(40.0), torch.arange(40.0), indexing="ij")

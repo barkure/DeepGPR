@@ -8,10 +8,10 @@ DeepGPR provides a wave propagation module for PyTorch, designed for application
 
 - 2D and 3D forward modeling of Maxwell's equations with the Finite-Difference Time-Domain (FDTD) method, for single and multiple excitations.
 - Gradients of the receiver data with respect to relative permittivity, conductivity, the initial wavefield and the source amplitudes, computed by an exact discrete adjoint.
-- Automatic extension of the physical model into a CPML with an independent thickness on every face. Supply only air and the target region; material gradients keep the input model shape.
+- Automatic extension of the physical model into a CPML with an independent thickness on every face. Supply only air and the target region; sensitivities from replicated PML materials are summed back to the input model edges. Absorption uses a fixed `pml_max_velocity` reference (vacuum light speed by default).
 - CUDA GPU backend and a C/OpenMP CPU backend (selected automatically with `device='cpu'`).
 - Spatial FDTD order 2, 4 or 8 (`fdtd_order`), and gradient mode 2 (Ez only) or 3 (Ex, Ey, Ez).
-- Large models: checkpointing, DDP, temporal sub-sampling (fixed or `"auto"` from the source spectrum), E-only float32 histories (default; half the memory of E+R), histories restricted to the physical model (`wavefield_history_region="physical"`), FP16/BF16 or GPU-native INT8 wavefield histories and asynchronous offload to host memory. See [`docs/API.md`](docs/API.md) §4.3-4.6.
+- Large models: checkpointing, DDP, temporal sub-sampling (fixed or `"auto"` from the source spectrum), E-only float32 histories (default; half the memory of E+R), FP16/BF16 or GPU-native INT8 wavefield histories and asynchronous offload to host memory. Material gradients with PML require `wavefield_history_region="extended"`; physical-only histories remain available for diagnostics, source/initial-state gradients and models without PML. See [`docs/API.md`](docs/API.md) §4.3-4.6.
 
 ## System requirements
 
@@ -32,8 +32,7 @@ pip install "DeepGPR[examples]"     # + scipy, scikit-image, jupyter for the not
 For development from a clone:
 
 ```bash
-pip install -r requirements-dev.txt
-pip install -e .
+pip install -e ".[dev,examples]"
 ```
 
 The prebuilt native libraries ship in `src/DeepGPR/lib`. To rebuild them see [`docs/BUILDING.md`](docs/BUILDING.md).
@@ -78,7 +77,7 @@ DeepGPR.visualization.plot_model(eps_r.grad, ax=ax[1], title="Gradient", cmap="s
 plt.show()
 ```
 
-![result](Fig/example.png)
+![result](docs/Fig/example.png)
 
 More examples are in [`examples/`](examples) (forward modeling, 2D FWI, 3D FWI).
 
@@ -105,15 +104,15 @@ The figures show the true model, the initial model and the inverted result.
 
 | True model | Initial model | Inverted result |
 | --- | --- | --- |
-| ![2D true model](Fig/2dfwitrue.png) | ![2D initial model](Fig/2dfwiinit.png) | ![2D inverted result](Fig/2dfwipred.png) |
+| ![2D true model](docs/Fig/2dfwitrue.png) | ![2D initial model](docs/Fig/2dfwiinit.png) | ![2D inverted result](docs/Fig/2dfwipred.png) |
 
 ### 3D FWI (central slice)
 
 | Model | Central slice |
 | --- | --- |
-| True model | ![3D true model central slice](Fig/3dfwitrue.png) |
-| Initial model | ![3D initial model central slice](Fig/3dfwiinit.png) |
-| Inverted result | ![3D inverted result central slice](Fig/3dfwipred.png) |
+| True model | ![3D true model central slice](docs/Fig/3dfwitrue.png) |
+| Initial model | ![3D initial model central slice](docs/Fig/3dfwiinit.png) |
+| Inverted result | ![3D inverted result central slice](docs/Fig/3dfwipred.png) |
 
 ## API overview
 
@@ -162,10 +161,10 @@ src/DeepGPR/
 ├── utils/                 logging, exceptions, validators, diagnostics
 ├── lib/                   deepgpr.cu, deepgpr_cpu.c, deepgpr.h and prebuilt binaries
 ├── common.py, compute2.py, multiscale.py, wavelet.py   compatibility modules
-docs/                      API reference, build guide, code audit
+docs/                      API reference, build guide, changelog, manifest and Fig/
 examples/                  forward, 2D FWI and 3D FWI notebooks
 tests/                     unit tests, verification notebooks, benchmarks
-tools/                     verify_equivalence.py
+website/                   static pages, assets, scripts/, tools/ and promo_pixel/
 ```
 
 Data flow of one `compute` call:
@@ -180,8 +179,8 @@ and the saved history.
 python -m unittest discover -s tests -p "test_*.py"     # unit tests
 python -m unittest tests/test_native_abi.py             # ABI check, no PyTorch needed
 python tests/run_notebook.py tests/00_local_backend_and_contracts.ipynb
-python tools/verify_equivalence.py --reference-src /path/to/DeepGPR-0.0.20/src/DeepGPR
-bash tools/run_local_validation.sh /path/to/DeepGPR-0.0.20   # rebuild CPU+CUDA libs, run everything
+python website/tools/verify_equivalence.py --no-pml --reference-src /path/to/DeepGPR-0.0.20/src/DeepGPR
+bash website/tools/run_local_validation.sh /path/to/DeepGPR-0.0.20   # rebuild CPU+CUDA libs, run everything
 ```
 
 Run the notebooks `00` to `09` in numeric order, followed by
@@ -196,15 +195,15 @@ bits between runs.
 
 **Reproducing results from DeepGPR ≤ 0.0.20.** 0.1.0 corrects the FIR design
 for even filter lengths, the envelope for odd trace lengths and the isotropic
-TV (see [`CHANGELOG.md`](CHANGELOG.md)). Use `apply_filter(..., legacy=True)`,
+TV (see [`docs/CHANGELOG.md`](docs/CHANGELOG.md)). Use `apply_filter(..., legacy=True)`,
 `design_fir_filter(..., legacy=True)`, `hilbert_transform(..., legacy=True)`
 and `TVRegularization(method="legacy_isotropic")` to reproduce earlier numbers.
 
 ## Development
 
-- Code style: PEP 8, enforced with `ruff check src/DeepGPR tools` (configuration in `pyproject.toml`).
+- Code style: PEP 8, enforced with `ruff check src/DeepGPR website/tools docs/build_support.py` (configuration in `pyproject.toml`).
 - Type hints throughout; `mypy` configuration in `pyproject.toml`.
-- Changes are recorded in [`CHANGELOG.md`](CHANGELOG.md); known issues and recommended native work in [`docs/AUDIT.md`](docs/AUDIT.md).
+- Changes are recorded in [`docs/CHANGELOG.md`](docs/CHANGELOG.md); known issues and recommended native work in [`docs/AUDIT.md`](docs/AUDIT.md).
 - Changes to `lib/deepgpr.h` must be mirrored in `src/DeepGPR/native/abi.py`; `tests/test_native_abi.py` enforces it.
 
 ## Citation

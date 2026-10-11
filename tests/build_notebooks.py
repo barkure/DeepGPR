@@ -457,7 +457,8 @@ NOTEBOOKS["02_cpml_absorption.ipynb"] = notebook(
 
             This notebook checks that CPML is transparent before a boundary return can
             arrive, substantially suppresses late reflected energy, remains effective
-            across several thicknesses, and is excluded from material gradients.
+            across several thicknesses, and returns gradients in the physical model
+            shape. Sensitivities from replicated PML materials flow back to model edges.
             """
         ),
         code(BOOTSTRAP),
@@ -606,7 +607,7 @@ NOTEBOOKS["03_gradient_2d.ipynb"] = notebook(
                 [[[6, 14, 0], [6, 18, 0], [6, 22, 0]]], dtype=torch.int32
             )
             source = DeepGPR.wavelet.ricker(2.5e8, nt, dt, 4.0e-9).reshape(1, nt, 1)
-            interior = vu.fixed_boundary_direction_mask((nx, ny), pml, DEVICE)
+            model_mask = torch.ones((nx, ny), dtype=torch.bool, device=DEVICE)
             """
         ),
         code(
@@ -644,8 +645,8 @@ NOTEBOOKS["03_gradient_2d.ipynb"] = notebook(
                 loss.backward()
                 vu.assert_finite(f"order {order} gradients", er.grad, se.grad)
 
-                direction_er = vu.gradient_direction(er.grad, interior)
-                direction_se = vu.gradient_direction(se.grad, interior)
+                direction_er = vu.gradient_direction(er.grad, model_mask)
+                direction_se = vu.gradient_direction(se.grad, model_mask)
                 rows_er = vu.directional_derivative_rows(
                     lambda value: objective(value, se.detach()),
                     er.detach(),
@@ -750,7 +751,7 @@ NOTEBOOKS["04_gradient_3d.ipynb"] = notebook(
                 [[[6, 5, 6], [10, 5, 10]]], dtype=torch.int32
             )
             source = DeepGPR.wavelet.ricker(4.0e8, nt, dt, 2.5e-9).reshape(1, nt, 1)
-            interior = vu.fixed_boundary_direction_mask((nx, ny, nz), pml, DEVICE)
+            model_mask = torch.ones((nx, ny, nz), dtype=torch.bool, device=DEVICE)
             """
         ),
         code(
@@ -794,8 +795,8 @@ NOTEBOOKS["04_gradient_3d.ipynb"] = notebook(
                         er.grad,
                         se.grad,
                     )
-                    direction_er = vu.gradient_direction(er.grad, interior)
-                    direction_se = vu.gradient_direction(se.grad, interior)
+                    direction_er = vu.gradient_direction(er.grad, model_mask)
+                    direction_se = vu.gradient_direction(se.grad, model_mask)
                     rows_er = vu.directional_derivative_rows(
                         lambda value: objective(value, se.detach()),
                         er.detach(),

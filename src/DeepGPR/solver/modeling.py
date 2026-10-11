@@ -12,6 +12,7 @@ import torch
 from ..config.constants import (
     FIELD_COMPONENTS,
     INT8_SPECIALISED_REDUCTION_VOLUME,
+    SPEED_OF_LIGHT,
     SUPPORTED_FDTD_ORDERS,
     SUPPORTED_GRADIENT_MODES,
 )
@@ -33,7 +34,7 @@ from ..preprocessing.grid import normalize_grid_spacing
 from ..preprocessing.model_setup import PreparedModel, _shift_locations, initialization
 from ..native.loader import get_deepgpr_lib, library_supports
 from ..utils.logger import get_logger
-from ..utils.validators import require_bool
+from ..utils.validators import require_bool, require_positive_finite
 from .autograd import TM2D_INACTIVE_STATE_INDICES, DeepGPR, SolverConfig, SolverTensors
 from .fields import create_or_separate
 from .memory import format_compute_preview
@@ -294,6 +295,7 @@ def compute(
     wavefield_compression_rate=None,
     wavefield_rhs_history=DEFAULT_WAVEFIELD_RHS_HISTORY,
     wavefield_history_region=DEFAULT_WAVEFIELD_HISTORY_REGION,
+    pml_max_velocity=SPEED_OF_LIGHT,
 ):
     """Run 2D/3D FDTD forward modelling of Maxwell's equations with autograd.
 
@@ -322,6 +324,11 @@ def compute(
         pmlthick: External CPML thickness: an int, four values
             ``[x0, xm, y0, ym]`` or six values ``[x0, xm, y0, ym, z0, zm]``.
             z faces must be zero in 2D.
+        pml_max_velocity: Fixed reference maximum propagation speed [m/s] for
+            the absorbing profiles, default vacuum light speed. Keep it fixed
+            across optimization steps, finite differences and checkpoint
+            segments. This changes absorption strength, not the model materials
+            or CFL check. PML material sensitivities still flow to model edges.
         source_direction: Source polarisation (0: Ex, 1: Ey, 2: Ez).
         reciever_direction: Deprecated alias of ``receiver_component``.
         model_gradient_sampling_interval: Store every n-th forward step for
@@ -364,8 +371,8 @@ def compute(
         wavefield_history_region: ``"extended"`` (default) saves histories on
             the whole grid including CPML; ``"physical"`` saves only the
             physical model cells (``E_saved`` then has the physical spatial
-            shape). Material gradients never use CPML cells, so they are
-            unchanged (INT8 tiles start at the physical origin instead).
+            shape). ``"physical"`` is incompatible with material gradients
+            when PML is present, since it omits the required PML history.
 
     Returns:
         ``(E_saved, (Ex, Ey, Ez), (Hx, Hy, Hz), PML, receiver_amplitudes)``
@@ -380,6 +387,9 @@ def compute(
     sigma = _resolve_alias("sigma", sigma, "se", se)
     mu_r = _resolve_alias("mu_r", mu_r, "mr", mr)
     receiver_component = reciever_direction if receiver_component is None else receiver_component
+    if isinstance(pml_max_velocity, bool) or getattr(pml_max_velocity, "requires_grad", False):
+        raise TypeError("pml_max_velocity must be a fixed finite positive scalar.")
+    pml_max_velocity = require_positive_finite("pml_max_velocity", pml_max_velocity)
 
     device = torch.device(device)
     if fdtd_order not in SUPPORTED_FDTD_ORDERS:
@@ -469,6 +479,11 @@ def compute(
         save_wavefield_history and needs_model_gradient,
     )
     stores_model_history = save_wavefield_history and needs_model_gradient
+    if stores_model_history and wavefield_history_region == "physical" and bool(pmlthick.any()):
+        raise ValueError(
+            "wavefield_history_region='physical' omits PML material sensitivities. "
+            "Use 'extended' for material gradients with PML."
+        )
     lossless_storage = (
         wavefield_compression == "none" and wavefield_storage_dtype == torch.float32
     )
@@ -547,7 +562,8 @@ def compute(
     # ``dt`` is forwarded exactly as the caller supplied it (not ``float(dt)``)
     # so the CPML coefficient arithmetic is unchanged for tensor/NumPy inputs.
     pml_arrays = build_pml_coeffs(
-        eps_r, mu_r_pad, dt, grid_spacing, nx, ny, nz, pmlthick, device, prepared.dtype
+        eps_r, mu_r_pad, dt, grid_spacing, nx, ny, nz, pmlthick, device, prepared.dtype,
+        max_velocity=pml_max_velocity,
     )
     descriptors, coefficients = pml_arrays[:6], pml_arrays[6:]
     phi = build_pml_phi(*descriptors, nstep, PML, device)

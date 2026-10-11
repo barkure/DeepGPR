@@ -1,0 +1,136 @@
+segments cpu K=1 reentrant: data bitwise True states bitwise True grad rel 0.0e+00/0.0e+00 FD PASS (2.4e-04) peak None MiB 0.15s -> PASS
+segments cpu K=1 nonreentrant: data bitwise True states bitwise True grad rel 0.0e+00/0.0e+00 FD PASS (2.4e-04) peak None MiB 0.15s -> PASS
+segments cpu K=1 plain: data bitwise True states bitwise True grad rel 0.0e+00/0.0e+00 FD PASS (2.4e-04) peak None MiB 0.10s -> PASS
+segments cpu K=2 reentrant: data bitwise True states bitwise True grad rel 1.9e-07/1.6e-07 FD PASS (2.4e-04) peak None MiB 0.16s -> PASS
+segments cpu K=3 reentrant: data bitwise True states bitwise True grad rel 2.6e-07/2.4e-07 FD PASS (2.4e-04) peak None MiB 0.17s -> PASS
+segments cpu K=4 reentrant: data bitwise True states bitwise True grad rel 2.7e-07/2.5e-07 FD PASS (2.4e-04) peak None MiB 0.29s -> PASS
+segments cpu K=4 nonreentrant: data bitwise True states bitwise True grad rel 2.7e-07/2.5e-07 FD PASS (2.4e-04) peak None MiB 0.21s -> PASS
+segments cpu K=4 plain: data bitwise True states bitwise True grad rel 2.7e-07/2.5e-07 FD PASS (2.4e-04) peak None MiB 0.13s -> PASS
+segments cpu K=5 reentrant: data bitwise True states bitwise True grad rel 2.8e-07/2.4e-07 FD PASS (2.4e-04) peak None MiB 0.21s -> PASS
+segments cpu K=7 reentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.6e-07 FD PASS (2.4e-04) peak None MiB 0.22s -> PASS
+segments cpu K=7 nonreentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.6e-07 FD PASS (2.4e-04) peak None MiB 0.22s -> PASS
+segments cpu K=7 plain: data bitwise True states bitwise True grad rel 2.9e-07/2.6e-07 FD PASS (2.4e-04) peak None MiB 0.13s -> PASS
+segments cpu K=13 reentrant: data bitwise True states bitwise True grad rel 2.8e-07/2.6e-07 FD PASS (2.4e-04) peak None MiB 0.25s -> PASS
+segments cpu K=40 reentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.6e-07 FD PASS (2.4e-04) peak None MiB 0.33s -> PASS
+segments cuda_fast K=1 reentrant: data bitwise True states bitwise True grad rel 0.0e+00/0.0e+00 FD PASS (2.5e-04) peak 17.55859375 MiB 0.02s -> PASS
+segments cuda_fast K=1 nonreentrant: data bitwise True states bitwise True grad rel 0.0e+00/0.0e+00 FD PASS (2.5e-04) peak 30.5703125 MiB 0.02s -> PASS
+segments cuda_fast K=1 plain: data bitwise True states bitwise True grad rel 0.0e+00/0.0e+00 FD PASS (2.5e-04) peak 16.517578125 MiB 0.01s -> PASS
+segments cuda_fast K=2 reentrant: data bitwise True states bitwise True grad rel 2.0e-07/1.6e-07 FD PASS (2.5e-04) peak 11.23095703125 MiB 0.03s -> PASS
+segments cuda_fast K=3 reentrant: data bitwise True states bitwise True grad rel 2.8e-07/2.4e-07 FD PASS (2.5e-04) peak 9.42138671875 MiB 0.03s -> PASS
+segments cuda_fast K=4 reentrant: data bitwise True states bitwise True grad rel 2.7e-07/2.6e-07 FD PASS (2.5e-04) peak 8.818359375 MiB 0.04s -> PASS
+segments cuda_fast K=4 nonreentrant: data bitwise True states bitwise True grad rel 2.7e-07/2.6e-07 FD PASS (2.5e-04) peak 21.9228515625 MiB 0.03s -> PASS
+segments cuda_fast K=4 plain: data bitwise True states bitwise True grad rel 2.7e-07/2.6e-07 FD PASS (2.5e-04) peak 18.0595703125 MiB 0.02s -> PASS
+segments cuda_fast K=5 reentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.5e-07 FD PASS (2.5e-04) peak 9.1982421875 MiB 0.04s -> PASS
+segments cuda_fast K=7 reentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.8e-07 FD PASS (2.5e-04) peak 9.52490234375 MiB 0.06s -> PASS
+segments cuda_fast K=7 nonreentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.8e-07 FD PASS (2.5e-04) peak 22.74462890625 MiB 0.06s -> PASS
+segments cuda_fast K=7 plain: data bitwise True states bitwise True grad rel 2.9e-07/2.8e-07 FD PASS (2.5e-04) peak 19.3974609375 MiB 0.03s -> PASS
+segments cuda_fast K=13 reentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.7e-07 FD PASS (2.5e-04) peak 12.8779296875 MiB 0.09s -> PASS
+segments cuda_fast K=40 reentrant: data bitwise True states bitwise True grad rel 3.0e-07/2.7e-07 FD PASS (2.5e-04) peak 27.6044921875 MiB 0.24s -> PASS
+segments cuda_general K=1 reentrant: data bitwise True states bitwise True grad rel 1.3e-07/1.5e-07 FD PASS (2.5e-04) peak 19.1171875 MiB 0.02s -> PASS
+segments cuda_general K=1 nonreentrant: data bitwise True states bitwise True grad rel 1.4e-07/1.6e-07 FD PASS (2.5e-04) peak 32.12890625 MiB 0.03s -> PASS
+segments cuda_general K=1 plain: data bitwise True states bitwise True grad rel 1.4e-07/1.5e-07 FD PASS (2.5e-04) peak 18.076171875 MiB 0.02s -> PASS
+segments cuda_general K=2 reentrant: data bitwise True states bitwise True grad rel 2.3e-07/2.2e-07 FD PASS (2.5e-04) peak 12.78955078125 MiB 0.03s -> PASS
+segments cuda_general K=3 reentrant: data bitwise True states bitwise True grad rel 3.0e-07/2.7e-07 FD PASS (2.5e-04) peak 10.97998046875 MiB 0.03s -> PASS
+segments cuda_general K=4 reentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.9e-07 FD PASS (2.5e-04) peak 10.376953125 MiB 0.04s -> PASS
+segments cuda_general K=4 nonreentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.9e-07 FD PASS (2.5e-04) peak 23.4814453125 MiB 0.04s -> PASS
+segments cuda_general K=4 plain: data bitwise True states bitwise True grad rel 2.9e-07/2.9e-07 FD PASS (2.5e-04) peak 19.6181640625 MiB 0.02s -> PASS
+segments cuda_general K=5 reentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.8e-07 FD PASS (2.5e-04) peak 10.7568359375 MiB 0.04s -> PASS
+segments cuda_general K=7 reentrant: data bitwise True states bitwise True grad rel 3.0e-07/2.9e-07 FD PASS (2.5e-04) peak 11.08349609375 MiB 0.05s -> PASS
+segments cuda_general K=7 nonreentrant: data bitwise True states bitwise True grad rel 3.1e-07/2.8e-07 FD PASS (2.5e-04) peak 24.30322265625 MiB 0.05s -> PASS
+segments cuda_general K=7 plain: data bitwise True states bitwise True grad rel 3.0e-07/2.8e-07 FD PASS (2.5e-04) peak 20.9560546875 MiB 0.03s -> PASS
+segments cuda_general K=13 reentrant: data bitwise True states bitwise True grad rel 3.0e-07/2.7e-07 FD PASS (2.5e-04) peak 14.4365234375 MiB 0.09s -> PASS
+segments cuda_general K=40 reentrant: data bitwise True states bitwise True grad rel 2.9e-07/2.8e-07 FD PASS (2.5e-04) peak 29.1630859375 MiB 0.24s -> PASS
+history 2D cpu          exact (stored, fp32, S=1)          data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.12s PASS -> PASS
+history 2D cpu          E-only auto (fp32)                 data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.11s PASS -> PASS
+history 2D cpu          E-only reconstructed (fp32)        data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.10s PASS -> PASS
+history 2D cpu          physical, E-only (fp32)            data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.10s PASS -> PASS
+history 2D cpu          physical, stored (fp32)            data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.11s PASS -> PASS
+history 2D cpu          S=2                                data bitwise True eps 6.56e-05 sig 9.52e-05 dir 4.4e-05 peak None MiB 0.10s  -> MEASURED (approximation)
+history 2D cpu          S=3                                data bitwise True eps 3.89e-04 sig 6.58e-04 dir 2.2e-04 peak None MiB 0.09s  -> MEASURED (approximation)
+history 2D cpu          S=auto                             data bitwise True eps 1.83e-03 sig 2.52e-03 dir 1.5e-03 peak None MiB 0.09s  -> MEASURED (approximation)
+/home/ll/下载/DeepGPR-dev/tests/gradient_verification/gv_common.py:347: RuntimeWarning: model_gradient_sampling_interval=17 exceeds the recommended bound 8 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=1.2024e+09 Hz, dt=2.5000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  return DeepGPR.compute(**kwargs)
+history 2D cpu          S=17 (above bound 8)               data bitwise True eps 2.94e-02 sig 3.96e-02 dir 2.9e-02 peak None MiB 0.09s  -> MEASURED (approximation)
+history 2D cpu          fp16 (E+R)                         data bitwise True eps 2.90e-05 sig 3.49e-05 dir 3.6e-05 peak None MiB 0.10s  -> PASS (approximation within documented magnitude)
+history 2D cpu          bf16 (E+R)                         data bitwise True eps 2.41e-04 sig 2.70e-04 dir 1.8e-04 peak None MiB 0.10s  -> PASS (approximation within documented magnitude)
+history 2D cpu          fp16 E-only                        data bitwise True eps 3.29e-05 sig 3.52e-05 dir 1.7e-05 peak None MiB 0.10s  -> PASS (approximation within documented magnitude)
+history 2D cpu          bf16 E-only                        data bitwise True eps 2.63e-04 sig 2.72e-04 dir 7.7e-05 peak None MiB 0.10s  -> PASS (approximation within documented magnitude)
+history 2D cuda_fast    exact (stored, fp32, S=1)          data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 33.0 MiB 0.02s PASS -> PASS
+history 2D cuda_fast    E-only auto (fp32)                 data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 18.9 MiB 0.02s PASS -> PASS
+history 2D cuda_fast    E-only reconstructed (fp32)        data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 18.9 MiB 0.01s PASS -> PASS
+history 2D cuda_fast    physical, E-only (fp32)            data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 11.8 MiB 0.01s PASS -> PASS
+history 2D cuda_fast    physical, stored (fp32)            data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 18.8 MiB 0.02s PASS -> PASS
+history 2D cuda_fast    S=2                                data bitwise True eps 6.56e-05 sig 9.52e-05 dir 4.3e-05 peak 18.9 MiB 0.02s  -> MEASURED (approximation)
+history 2D cuda_fast    S=3                                data bitwise True eps 3.89e-04 sig 6.58e-04 dir 2.2e-04 peak 14.2 MiB 0.01s  -> MEASURED (approximation)
+history 2D cuda_fast    S=auto                             data bitwise True eps 1.83e-03 sig 2.52e-03 dir 1.5e-03 peak 8.3 MiB 0.01s  -> MEASURED (approximation)
+history 2D cuda_fast    S=17 (above bound 8)               data bitwise True eps 2.94e-02 sig 3.96e-02 dir 2.9e-02 peak 6.5 MiB 0.01s  -> MEASURED (approximation)
+history 2D cuda_fast    fp16 (E+R)                         data bitwise True eps 2.89e-05 sig 3.49e-05 dir 3.5e-05 peak 18.9 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_fast    bf16 (E+R)                         data bitwise True eps 2.41e-04 sig 2.70e-04 dir 1.8e-04 peak 18.9 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_fast    fp16 E-only                        data bitwise True eps 3.29e-05 sig 3.52e-05 dir 1.8e-05 peak 11.8 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_fast    bf16 E-only                        data bitwise True eps 2.63e-04 sig 2.72e-04 dir 8.0e-05 peak 11.8 MiB 0.01s  -> PASS (approximation within documented magnitude)
+history 2D cuda_fast    int8 (E+R)                         data bitwise True eps 6.26e-04 sig 8.13e-04 dir 3.3e-04 peak 12.3 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_fast    int8 E-only                        data bitwise True eps 7.10e-04 sig 8.13e-04 dir 9.9e-04 peak 8.5 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_fast    int8 physical                      data bitwise True eps 6.26e-04 sig 8.13e-04 dir 3.3e-04 peak 9.8 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_fast    async offload (fp32 E-only)        data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 4.8 MiB 0.03s PASS -> PASS
+history 2D cuda_fast    async offload (fp32 stored)        data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 4.8 MiB 0.02s PASS -> PASS
+history 2D cuda_fast    async offload (fp16)               data bitwise True eps 2.89e-05 sig 3.49e-05 dir 3.5e-05 peak 4.8 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_fast    async + physical (fp32)            data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 4.8 MiB 0.02s PASS -> PASS
+history 2D cuda_general exact (stored, fp32, S=1)          data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 33.0 MiB 0.02s PASS -> PASS
+history 2D cuda_general E-only auto (fp32)                 data bitwise True eps 1.29e-07 sig 1.55e-07 dir 4.2e-08 peak 18.9 MiB 0.02s PASS -> PASS
+history 2D cuda_general E-only reconstructed (fp32)        data bitwise True eps 1.36e-07 sig 1.52e-07 dir 5.3e-08 peak 18.9 MiB 0.01s PASS -> PASS
+history 2D cuda_general physical, E-only (fp32)            data bitwise True eps 1.36e-07 sig 1.59e-07 dir 4.7e-08 peak 11.8 MiB 0.01s PASS -> PASS
+history 2D cuda_general physical, stored (fp32)            data bitwise True eps 1.32e-07 sig 1.54e-07 dir 1.1e-07 peak 18.8 MiB 0.02s PASS -> PASS
+history 2D cuda_general S=2                                data bitwise True eps 6.56e-05 sig 9.52e-05 dir 4.3e-05 peak 18.9 MiB 0.02s  -> MEASURED (approximation)
+history 2D cuda_general S=3                                data bitwise True eps 3.89e-04 sig 6.58e-04 dir 2.2e-04 peak 14.2 MiB 0.02s  -> MEASURED (approximation)
+history 2D cuda_general S=auto                             data bitwise True eps 1.83e-03 sig 2.52e-03 dir 1.5e-03 peak 8.3 MiB 0.02s  -> MEASURED (approximation)
+history 2D cuda_general S=17 (above bound 8)               data bitwise True eps 2.94e-02 sig 3.96e-02 dir 2.9e-02 peak 6.5 MiB 0.01s  -> MEASURED (approximation)
+history 2D cuda_general fp16 (E+R)                         data bitwise True eps 2.89e-05 sig 3.49e-05 dir 3.5e-05 peak 18.9 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_general bf16 (E+R)                         data bitwise True eps 2.41e-04 sig 2.70e-04 dir 1.8e-04 peak 18.9 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_general fp16 E-only                        data bitwise True eps 3.29e-05 sig 3.52e-05 dir 1.8e-05 peak 11.8 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_general bf16 E-only                        data bitwise True eps 2.63e-04 sig 2.72e-04 dir 8.0e-05 peak 11.8 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_general int8 (E+R)                         data bitwise True eps 6.26e-04 sig 8.13e-04 dir 3.3e-04 peak 12.3 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_general int8 E-only                        data bitwise True eps 7.10e-04 sig 8.13e-04 dir 9.9e-04 peak 8.5 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_general int8 physical                      data bitwise True eps 6.26e-04 sig 8.13e-04 dir 3.3e-04 peak 9.8 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_general async offload (fp32 E-only)        data bitwise True eps 1.22e-07 sig 1.45e-07 dir 1.5e-07 peak 4.8 MiB 0.02s PASS -> PASS
+history 2D cuda_general async offload (fp32 stored)        data bitwise True eps 1.38e-07 sig 1.55e-07 dir 3.0e-08 peak 4.8 MiB 0.02s PASS -> PASS
+history 2D cuda_general async offload (fp16)               data bitwise True eps 2.89e-05 sig 3.49e-05 dir 3.5e-05 peak 4.8 MiB 0.02s  -> PASS (approximation within documented magnitude)
+history 2D cuda_general async + physical (fp32)            data bitwise True eps 1.40e-07 sig 1.57e-07 dir 1.7e-07 peak 4.8 MiB 0.02s PASS -> PASS
+history 3D cpu          exact (stored, fp32, S=1)          data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.09s PASS -> PASS
+history 3D cpu          E-only auto (fp32)                 data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.08s PASS -> PASS
+history 3D cpu          E-only reconstructed (fp32)        data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.08s PASS -> PASS
+history 3D cpu          physical, E-only (fp32)            data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.07s PASS -> PASS
+history 3D cpu          physical, stored (fp32)            data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.07s PASS -> PASS
+/home/ll/下载/DeepGPR-dev/tests/gradient_verification/gv_common.py:347: RuntimeWarning: model_gradient_sampling_interval=2 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=1.2049e+10 Hz, dt=2.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  return DeepGPR.compute(**kwargs)
+history 3D cpu          S=2                                data bitwise True eps 2.76e-04 sig 4.46e-05 dir 9.1e-05 peak None MiB 0.08s  -> MEASURED (approximation)
+/home/ll/下载/DeepGPR-dev/tests/gradient_verification/gv_common.py:347: RuntimeWarning: model_gradient_sampling_interval=3 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=1.2049e+10 Hz, dt=2.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  return DeepGPR.compute(**kwargs)
+history 3D cpu          S=3                                data bitwise True eps 6.36e-04 sig 1.19e-04 dir 8.2e-05 peak None MiB 0.07s  -> MEASURED (approximation)
+history 3D cpu          S=auto                             data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak None MiB 0.08s  -> MEASURED (approximation)
+history 3D cpu          S=3 (above bound 1)                data bitwise True eps 6.36e-04 sig 1.19e-04 dir 8.2e-05 peak None MiB 0.08s  -> MEASURED (approximation)
+history 3D cpu          fp16 (E+R)                         data bitwise True eps 5.76e-04 sig 6.15e-05 dir 3.3e-04 peak None MiB 0.11s  -> PASS (approximation within documented magnitude)
+history 3D cpu          bf16 (E+R)                         data bitwise True eps 9.56e-03 sig 3.17e-04 dir 1.3e-03 peak None MiB 0.09s  -> PASS (approximation within documented magnitude)
+history 3D cpu          fp16 E-only                        data bitwise True eps 3.59e-04 sig 6.18e-05 dir 1.3e-04 peak None MiB 0.09s  -> PASS (approximation within documented magnitude)
+history 3D cpu          bf16 E-only                        data bitwise True eps 3.07e-03 sig 3.27e-04 dir 1.2e-03 peak None MiB 0.08s  -> PASS (approximation within documented magnitude)
+history 3D cuda_general exact (stored, fp32, S=1)          data bitwise True eps 0.00e+00 sig 0.00e+00 dir 0.0e+00 peak 85.8 MiB 0.01s PASS -> PASS
+history 3D cuda_general E-only auto (fp32)                 data bitwise True eps 2.37e-06 sig 7.99e-08 dir 1.1e-06 peak 46.1 MiB 0.01s PASS -> PASS
+history 3D cuda_general E-only reconstructed (fp32)        data bitwise True eps 2.11e-06 sig 1.50e-07 dir 8.6e-07 peak 46.1 MiB 0.01s PASS -> PASS
+history 3D cuda_general physical, E-only (fp32)            data bitwise True eps 2.21e-06 sig 1.68e-07 dir 5.1e-07 peak 16.4 MiB 0.01s PASS -> PASS
+history 3D cuda_general physical, stored (fp32)            data bitwise True eps 1.84e-06 sig 8.96e-08 dir 6.7e-07 peak 26.9 MiB 0.01s PASS -> PASS
+history 3D cuda_general S=2                                data bitwise True eps 2.73e-04 sig 4.46e-05 dir 9.0e-05 peak 45.8 MiB 0.01s  -> MEASURED (approximation)
+history 3D cuda_general S=3                                data bitwise True eps 6.33e-04 sig 1.19e-04 dir 8.2e-05 peak 32.2 MiB 0.01s  -> MEASURED (approximation)
+history 3D cuda_general S=auto                             data bitwise True eps 3.67e-06 sig 8.74e-08 dir 4.8e-06 peak 46.1 MiB 0.01s  -> MEASURED (approximation)
+history 3D cuda_general S=3 (above bound 1)                data bitwise True eps 6.32e-04 sig 1.19e-04 dir 7.9e-05 peak 32.2 MiB 0.01s  -> MEASURED (approximation)
+history 3D cuda_general fp16 (E+R)                         data bitwise True eps 5.91e-04 sig 6.14e-05 dir 3.2e-04 peak 45.8 MiB 0.01s  -> PASS (approximation within documented magnitude)
+history 3D cuda_general bf16 (E+R)                         data bitwise True eps 9.56e-03 sig 3.17e-04 dir 1.2e-03 peak 45.8 MiB 0.01s  -> PASS (approximation within documented magnitude)
+history 3D cuda_general fp16 E-only                        data bitwise True eps 3.56e-04 sig 6.20e-05 dir 1.4e-04 peak 25.7 MiB 0.01s  -> PASS (approximation within documented magnitude)
+history 3D cuda_general bf16 E-only                        data bitwise True eps 3.07e-03 sig 3.27e-04 dir 1.2e-03 peak 25.7 MiB 0.01s  -> PASS (approximation within documented magnitude)
+history 3D cuda_general int8 (E+R)                         data bitwise True eps 5.31e-02 sig 1.53e-03 dir 3.6e-02 peak 26.8 MiB 0.01s  -> PASS (approximation within documented magnitude)
+history 3D cuda_general int8 E-only                        data bitwise True eps 1.77e-02 sig 1.48e-03 dir 2.2e-02 peak 16.4 MiB 0.01s  -> PASS (approximation within documented magnitude)
+history 3D cuda_general int8 physical                      data bitwise True eps 5.31e-02 sig 1.53e-03 dir 3.6e-02 peak 11.4 MiB 0.01s  -> PASS (approximation within documented magnitude)
+history 3D cuda_general async offload (fp32 E-only)        data bitwise True eps 1.69e-06 sig 1.35e-07 dir 3.1e-08 peak 6.1 MiB 0.03s PASS -> PASS
+history 3D cuda_general async offload (fp32 stored)        data bitwise True eps 5.23e-06 sig 3.68e-07 dir 7.8e-06 peak 5.8 MiB 0.03s PASS -> PASS
+history 3D cuda_general async offload (fp16)               data bitwise True eps 5.90e-04 sig 6.14e-05 dir 3.3e-04 peak 5.8 MiB 0.01s  -> PASS (approximation within documented magnitude)
+history 3D cuda_general async + physical (fp32)            data bitwise True eps 1.80e-06 sig 2.45e-07 dir 1.2e-06 peak 5.9 MiB 0.01s PASS -> PASS
+wrote /home/ll/下载/DeepGPR-dev/tests/gradient_verification/data/t05_checkpoint_storage.json
+verdicts {'MEASURED (approximation)': 20, 'PASS': 76, 'PASS (approximation within documented magnitude)': 32}

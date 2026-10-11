@@ -1,0 +1,73 @@
+FORWARD_FD tm2d epsilon_edge
+FORWARD_FD tm2d sigma_edge
+FORWARD_FD tm2d joint_edge
+FORWARD_FD tm2d epsilon_corner
+FORWARD_FD tm2d sigma_corner
+FORWARD_FD tm2d joint_all
+CASE tm2d fp32/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp32/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp32/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp32/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_legacy/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_legacy/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_legacy/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_legacy/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_native_scalar/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_native_scalar/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_native_scalar/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_native_scalar/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_native_vec2/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_native_vec2/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_native_vec2/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d fp16_native_vec2/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_legacy/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_legacy/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_legacy/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_legacy/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_native_scalar/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_native_scalar/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_native_scalar/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_native_scalar/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_native_vec2/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_native_vec2/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_native_vec2/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d bf16_native_vec2/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d int8/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE tm2d int8/reconstructed/resident {'PASS': 4, 'FAIL': 0, 'INCONCLUSIVE': 2}
+FORWARD_FD general epsilon_edge
+FORWARD_FD general sigma_edge
+FORWARD_FD general joint_edge
+FORWARD_FD general epsilon_corner
+FORWARD_FD general sigma_corner
+FORWARD_FD general joint_all
+CASE general fp32/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp32/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp32/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp32/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_legacy/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_legacy/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_legacy/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_legacy/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_native_scalar/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_native_scalar/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_native_scalar/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_native_scalar/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_native_vec2/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_native_vec2/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_native_vec2/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general fp16_native_vec2/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_legacy/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_legacy/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_legacy/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_legacy/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_native_scalar/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_native_scalar/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_native_scalar/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_native_scalar/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_native_vec2/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_native_vec2/stored/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_native_vec2/reconstructed/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general bf16_native_vec2/reconstructed/async_cpu {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general int8/stored/resident {'PASS': 5, 'FAIL': 0, 'INCONCLUSIVE': 1}
+CASE general int8/reconstructed/resident {'PASS': 4, 'FAIL': 0, 'INCONCLUSIVE': 2}
+COUNTS {'PASS': 298, 'FAIL': 0, 'INCONCLUSIVE': 62} cases 60

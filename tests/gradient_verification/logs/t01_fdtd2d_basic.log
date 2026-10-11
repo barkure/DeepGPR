@@ -1,0 +1,297 @@
+cpu eps pixel: AD=-1.475630e-02 FD=-1.475560e-02 rel=4.71e-05 pair=9.45e-05 extrap=3.86e-07 n=3 slope=2.04 local=['2.06', '2.02'] -> PASS 
+cpu sig pixel: AD=-1.973656e-04 FD=-1.973405e-04 rel=1.27e-04 pair=2.18e-04 extrap=3.72e-04 n=4 slope=1.97 local=['1.99', '1.99', '1.95'] -> PASS 
+cpu joint pixel: AD=-1.495366e-02 FD=-1.495356e-02 rel=6.46e-06 pair=5.28e-05 extrap=4.94e-06 n=4 slope=2.03 local=['2.06', '2.00', '2.07'] -> PASS 
+cpu eps random: AD=8.118275e-03 FD=8.125244e-03 rel=8.58e-04 pair=2.06e-03 extrap=2.50e-04 n=4 slope=2.00 local=['2.01', '2.00', '1.99'] -> PASS 
+cpu sig random: AD=-2.815519e-03 FD=-2.815120e-03 rel=1.42e-04 pair=1.52e-03 extrap=8.09e-04 n=5 slope=1.94 local=['2.00', '2.00', '1.99', '1.83'] -> PASS 
+cpu joint random: AD=5.302755e-03 FD=5.289039e-03 rel=2.59e-03 pair=2.88e-03 extrap=1.46e-03 n=4 slope=2.00 local=['2.01', '2.00', '1.99'] -> PASS 
+cpu eps local: AD=-1.086198e-01 FD=-1.085844e-01 rel=3.26e-04 pair=8.64e-04 extrap=4.06e-04 n=5 slope=1.98 local=['2.00', '2.00', '1.99', '1.92'] -> PASS 
+cpu sig local: AD=-3.031604e-02 FD=-3.030810e-02 rel=2.62e-04 pair=5.85e-04 extrap=1.53e-04 n=5 slope=1.95 local=['1.92', '1.95', '1.98', '1.94'] -> PASS 
+cpu joint local: AD=-1.389358e-01 FD=-1.388995e-01 rel=2.62e-04 pair=5.49e-04 extrap=5.23e-04 n=5 slope=1.97 local=['1.98', '1.99', '1.99', '1.92'] -> PASS 
+cpu eps smooth: AD=1.526425e+00 FD=1.526432e+00 rel=4.19e-06 pair=9.98e-06 extrap=4.62e-06 n=6 slope=1.99 local=['1.96', '1.99', '2.00', '2.00', '1.97'] -> PASS 
+cpu sig smooth: AD=-6.134029e-02 FD=-6.133502e-02 rel=8.59e-05 pair=2.93e-04 extrap=1.19e-04 n=6 slope=2.00 local=['2.04', '2.01', '2.00', '2.00', '1.97'] -> PASS 
+cpu joint smooth: AD=1.465085e+00 FD=1.465052e+00 rel=2.26e-05 pair=4.17e-05 extrap=1.18e-05 n=6 slope=1.99 local=['1.98', '2.00', '2.00', '2.00', '1.98'] -> PASS 
+cpu source smooth: AD=-3.506050e-01 FD=-3.506025e-01 rel=7.18e-06 pair=2.74e-05 extrap=2.85e-06 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (11.7s)
+cuda_fast eps pixel: AD=-1.475630e-02 FD=-1.475610e-02 rel=1.32e-05 pair=9.12e-05 extrap=2.65e-05 n=3 slope=2.03 local=['2.06', '2.01'] -> PASS 
+cuda_fast sig pixel: AD=-1.973657e-04 FD=-1.974146e-04 rel=2.48e-04 pair=3.25e-04 extrap=1.04e-03 n=4 slope=2.10 local=['1.99', '2.02', '2.19'] -> PASS 
+cuda_fast joint pixel: AD=-1.495366e-02 FD=-1.495283e-02 rel=5.53e-05 pair=6.76e-05 extrap=1.33e-05 n=3 slope=2.03 local=['2.06', '2.01'] -> PASS 
+cuda_fast eps random: AD=8.118177e-03 FD=8.122761e-03 rel=5.64e-04 pair=2.38e-03 extrap=1.52e-04 n=4 slope=2.00 local=['2.01', '2.00', '1.99'] -> PASS 
+cuda_fast sig random: AD=-2.815524e-03 FD=-2.814985e-03 rel=1.92e-04 pair=1.29e-03 extrap=7.20e-04 n=5 slope=1.94 local=['2.00', '2.00', '1.99', '1.84'] -> PASS 
+cuda_fast joint random: AD=5.302653e-03 FD=5.294267e-03 rel=1.58e-03 pair=2.27e-03 extrap=1.33e-03 n=4 slope=2.00 local=['2.01', '2.00', '1.99'] -> PASS 
+cuda_fast eps local: AD=-1.086197e-01 FD=-1.085853e-01 rel=3.17e-04 pair=9.15e-04 extrap=4.30e-04 n=5 slope=1.98 local=['2.00', '2.00', '1.99', '1.92'] -> PASS 
+cuda_fast sig local: AD=-3.031604e-02 FD=-3.030801e-02 rel=2.65e-04 pair=5.89e-04 extrap=1.54e-04 n=5 slope=1.95 local=['1.92', '1.95', '1.98', '1.94'] -> PASS 
+cuda_fast joint local: AD=-1.389358e-01 FD=-1.389009e-01 rel=2.51e-04 pair=5.46e-04 extrap=5.28e-04 n=5 slope=1.97 local=['1.98', '1.99', '1.99', '1.92'] -> PASS 
+cuda_fast eps smooth: AD=1.526426e+00 FD=1.526422e+00 rel=2.07e-06 pair=4.18e-06 extrap=4.30e-06 n=6 slope=1.99 local=['1.96', '1.99', '2.00', '2.00', '1.97'] -> PASS 
+cuda_fast sig smooth: AD=-6.134032e-02 FD=-6.133513e-02 rel=8.45e-05 pair=2.69e-04 extrap=1.12e-04 n=6 slope=2.00 local=['2.04', '2.01', '2.00', '2.00', '1.97'] -> PASS 
+cuda_fast joint smooth: AD=1.465085e+00 FD=1.465090e+00 rel=3.32e-06 pair=4.85e-05 extrap=7.30e-06 n=6 slope=1.99 local=['1.98', '2.00', '2.00', '2.00', '1.97'] -> PASS 
+cuda_fast source smooth: AD=-3.506158e-01 FD=-3.506169e-01 rel=3.28e-06 pair=1.48e-05 extrap=4.70e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (2.7s)
+cuda_general eps pixel: AD=-1.475630e-02 FD=-1.475610e-02 rel=1.32e-05 pair=9.12e-05 extrap=2.65e-05 n=3 slope=2.03 local=['2.06', '2.01'] -> PASS 
+cuda_general sig pixel: AD=-1.973657e-04 FD=-1.974146e-04 rel=2.48e-04 pair=3.25e-04 extrap=1.04e-03 n=4 slope=2.10 local=['1.99', '2.02', '2.19'] -> PASS 
+cuda_general joint pixel: AD=-1.495366e-02 FD=-1.495283e-02 rel=5.53e-05 pair=6.76e-05 extrap=1.33e-05 n=3 slope=2.03 local=['2.06', '2.01'] -> PASS 
+cuda_general eps random: AD=8.118176e-03 FD=8.122761e-03 rel=5.64e-04 pair=2.38e-03 extrap=1.52e-04 n=4 slope=2.00 local=['2.01', '2.00', '1.99'] -> PASS 
+cuda_general sig random: AD=-2.815523e-03 FD=-2.814985e-03 rel=1.91e-04 pair=1.29e-03 extrap=7.19e-04 n=5 slope=1.94 local=['2.00', '2.00', '1.99', '1.84'] -> PASS 
+cuda_general joint random: AD=5.302653e-03 FD=5.294267e-03 rel=1.58e-03 pair=2.27e-03 extrap=1.33e-03 n=4 slope=2.00 local=['2.01', '2.00', '1.99'] -> PASS 
+cuda_general eps local: AD=-1.086197e-01 FD=-1.085853e-01 rel=3.17e-04 pair=9.15e-04 extrap=4.30e-04 n=5 slope=1.98 local=['2.00', '2.00', '1.99', '1.92'] -> PASS 
+cuda_general sig local: AD=-3.031603e-02 FD=-3.030801e-02 rel=2.65e-04 pair=5.89e-04 extrap=1.54e-04 n=5 slope=1.95 local=['1.92', '1.95', '1.98', '1.94'] -> PASS 
+cuda_general joint local: AD=-1.389358e-01 FD=-1.389009e-01 rel=2.51e-04 pair=5.46e-04 extrap=5.28e-04 n=5 slope=1.97 local=['1.98', '1.99', '1.99', '1.92'] -> PASS 
+cuda_general eps smooth: AD=1.526426e+00 FD=1.526422e+00 rel=2.06e-06 pair=4.18e-06 extrap=4.30e-06 n=6 slope=1.99 local=['1.96', '1.99', '2.00', '2.00', '1.97'] -> PASS 
+cuda_general sig smooth: AD=-6.134031e-02 FD=-6.133513e-02 rel=8.45e-05 pair=2.69e-04 extrap=1.12e-04 n=6 slope=2.00 local=['2.04', '2.01', '2.00', '2.00', '1.97'] -> PASS 
+cuda_general joint smooth: AD=1.465085e+00 FD=1.465090e+00 rel=3.33e-06 pair=4.85e-05 extrap=7.30e-06 n=6 slope=1.99 local=['1.98', '2.00', '2.00', '2.00', '1.97'] -> PASS 
+cuda_general source smooth: AD=-3.506159e-01 FD=-3.506169e-01 rel=2.96e-06 pair=1.52e-05 extrap=4.73e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (1.9s)
+cpu eps pixel: AD=-1.444117e-02 FD=-1.444132e-02 rel=1.01e-05 pair=4.09e-05 extrap=2.38e-05 n=3 slope=2.03 local=['2.05', '2.01'] -> PASS 
+cpu sig pixel: AD=1.325569e-04 FD=1.325911e-04 rel=2.58e-04 pair=7.51e-04 extrap=1.74e-03 n=3 slope=1.98 local=['1.99', '1.98'] -> PASS 
+cpu joint pixel: AD=-1.430861e-02 FD=-1.430857e-02 rel=3.27e-06 pair=5.50e-05 extrap=3.23e-05 n=3 slope=2.03 local=['2.04', '2.02'] -> PASS 
+cpu eps random: AD=3.822672e-02 FD=3.821569e-02 rel=2.89e-04 pair=1.00e-03 extrap=3.60e-04 n=5 slope=2.01 local=['2.03', '2.01', '2.00', '1.99'] -> PASS 
+cpu sig random: AD=-6.028792e-04 FD=-6.043072e-04 rel=2.36e-03 pair=5.08e-03 extrap=8.81e-04 n=5 slope=2.03 local=['2.00', '2.00', '2.00', '2.10'] -> PASS 
+cpu joint random: AD=3.762384e-02 FD=3.765097e-02 rel=7.21e-04 pair=1.39e-03 extrap=4.45e-04 n=5 slope=2.02 local=['2.03', '2.01', '2.01', '2.06'] -> PASS 
+cpu eps local: AD=-1.314560e-01 FD=-1.314539e-01 rel=1.62e-05 pair=8.29e-05 extrap=4.15e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cpu sig local: AD=-3.941141e-02 FD=-3.941095e-02 rel=1.18e-05 pair=5.31e-04 extrap=3.89e-05 n=5 slope=1.98 local=['1.92', '1.95', '1.98', '2.00'] -> PASS 
+cpu joint local: AD=-1.708675e-01 FD=-1.708686e-01 rel=6.47e-06 pair=4.56e-04 extrap=1.94e-04 n=5 slope=1.99 local=['1.97', '1.99', '2.00', '2.00'] -> PASS 
+cpu eps smooth: AD=1.618096e+00 FD=1.618088e+00 rel=5.28e-06 pair=3.45e-05 extrap=1.03e-05 n=7 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.01', '2.03'] -> PASS 
+cpu sig smooth: AD=-6.518990e-02 FD=-6.519070e-02 rel=1.23e-05 pair=5.45e-05 extrap=2.78e-05 n=6 slope=2.01 local=['2.03', '2.01', '2.00', '2.00', '2.01'] -> PASS 
+cpu joint smooth: AD=1.552907e+00 FD=1.553004e+00 rel=6.28e-05 pair=8.50e-05 extrap=3.58e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '2.01'] -> PASS 
+cpu source smooth: AD=2.104736e-02 FD=2.105146e-02 rel=1.95e-04 pair=5.06e-04 extrap=4.92e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (16.5s)
+cuda_fast eps pixel: AD=-1.444117e-02 FD=-1.444131e-02 rel=9.63e-06 pair=8.73e-05 extrap=5.90e-05 n=4 slope=2.00 local=['2.05', '2.01', '1.93'] -> PASS 
+cuda_fast sig pixel: AD=1.325570e-04 FD=1.325116e-04 rel=3.42e-04 pair=7.17e-04 extrap=5.76e-04 n=4 slope=2.00 local=['1.99', '1.99', '2.01'] -> PASS 
+cuda_fast joint pixel: AD=-1.430861e-02 FD=-1.430856e-02 rel=3.82e-06 pair=8.05e-05 extrap=6.38e-05 n=4 slope=2.03 local=['2.05', '2.01', '2.05'] -> PASS 
+cuda_fast eps random: AD=3.822647e-02 FD=3.821533e-02 rel=2.92e-04 pair=3.60e-04 extrap=3.36e-04 n=5 slope=2.01 local=['2.03', '2.01', '2.00', '1.99'] -> PASS 
+cuda_fast sig random: AD=-6.028729e-04 FD=-6.040932e-04 rel=2.02e-03 pair=4.23e-03 extrap=1.07e-03 n=5 slope=2.03 local=['2.00', '2.00', '2.00', '2.09'] -> PASS 
+cuda_fast joint random: AD=3.762360e-02 FD=3.765032e-02 rel=7.10e-04 pair=1.40e-03 extrap=4.45e-04 n=5 slope=2.02 local=['2.03', '2.01', '2.01', '2.06'] -> PASS 
+cuda_fast eps local: AD=-1.314559e-01 FD=-1.314526e-01 rel=2.55e-05 pair=9.46e-05 extrap=9.04e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_fast sig local: AD=-3.941140e-02 FD=-3.941101e-02 rel=9.86e-06 pair=4.31e-04 extrap=3.47e-05 n=5 slope=1.98 local=['1.92', '1.95', '1.98', '2.00'] -> PASS 
+cuda_fast joint local: AD=-1.708673e-01 FD=-1.708665e-01 rel=4.69e-06 pair=4.45e-04 extrap=1.92e-04 n=5 slope=1.99 local=['1.97', '1.99', '2.00', '2.00'] -> PASS 
+cuda_fast eps smooth: AD=1.618099e+00 FD=1.618088e+00 rel=6.78e-06 pair=1.70e-05 extrap=9.35e-06 n=7 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.00', '2.03'] -> PASS 
+cuda_fast sig smooth: AD=-6.518995e-02 FD=-6.519119e-02 rel=1.91e-05 pair=5.34e-05 extrap=1.22e-05 n=6 slope=2.01 local=['2.03', '2.01', '2.00', '2.00', '2.01'] -> PASS 
+cuda_fast joint smooth: AD=1.552909e+00 FD=1.552995e+00 rel=5.59e-05 pair=8.38e-05 extrap=3.33e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '2.01'] -> PASS 
+cuda_fast source smooth: AD=2.105760e-02 FD=2.105926e-02 rel=7.87e-05 pair=2.40e-04 extrap=5.80e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '1.99'] -> PASS  (1.4s)
+cuda_general eps pixel: AD=-1.444116e-02 FD=-1.444131e-02 rel=9.89e-06 pair=8.71e-05 extrap=5.88e-05 n=4 slope=2.00 local=['2.05', '2.01', '1.93'] -> PASS 
+cuda_general sig pixel: AD=1.325569e-04 FD=1.325116e-04 rel=3.42e-04 pair=7.17e-04 extrap=5.75e-04 n=4 slope=2.00 local=['1.99', '1.99', '2.01'] -> PASS 
+cuda_general joint pixel: AD=-1.430861e-02 FD=-1.430856e-02 rel=3.56e-06 pair=8.08e-05 extrap=6.40e-05 n=4 slope=2.03 local=['2.05', '2.01', '2.05'] -> PASS 
+cuda_general eps random: AD=3.822648e-02 FD=3.821533e-02 rel=2.92e-04 pair=3.60e-04 extrap=3.36e-04 n=5 slope=2.01 local=['2.03', '2.01', '2.00', '1.99'] -> PASS 
+cuda_general sig random: AD=-6.028715e-04 FD=-6.040932e-04 rel=2.02e-03 pair=4.22e-03 extrap=1.07e-03 n=5 slope=2.03 local=['2.00', '2.00', '2.00', '2.09'] -> PASS 
+cuda_general joint random: AD=3.762360e-02 FD=3.765032e-02 rel=7.10e-04 pair=1.40e-03 extrap=4.45e-04 n=5 slope=2.02 local=['2.03', '2.01', '2.01', '2.06'] -> PASS 
+cuda_general eps local: AD=-1.314559e-01 FD=-1.314526e-01 rel=2.56e-05 pair=9.47e-05 extrap=9.03e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_general sig local: AD=-3.941140e-02 FD=-3.941101e-02 rel=9.85e-06 pair=4.31e-04 extrap=3.47e-05 n=5 slope=1.98 local=['1.92', '1.95', '1.98', '2.00'] -> PASS 
+cuda_general joint local: AD=-1.708673e-01 FD=-1.708665e-01 rel=4.76e-06 pair=4.45e-04 extrap=1.92e-04 n=5 slope=1.99 local=['1.97', '1.99', '2.00', '2.00'] -> PASS 
+cuda_general eps smooth: AD=1.618099e+00 FD=1.618088e+00 rel=6.77e-06 pair=1.70e-05 extrap=9.36e-06 n=7 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.00', '2.03'] -> PASS 
+cuda_general sig smooth: AD=-6.518995e-02 FD=-6.519119e-02 rel=1.91e-05 pair=5.34e-05 extrap=1.22e-05 n=6 slope=2.01 local=['2.03', '2.01', '2.00', '2.00', '2.01'] -> PASS 
+cuda_general joint smooth: AD=1.552909e+00 FD=1.552995e+00 rel=5.59e-05 pair=8.38e-05 extrap=3.33e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '2.01'] -> PASS 
+cuda_general source smooth: AD=2.105764e-02 FD=2.105926e-02 rel=7.69e-05 pair=2.42e-04 extrap=5.82e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '1.99'] -> PASS  (1.9s)
+cpu eps pixel: AD=-1.454328e-02 FD=-1.454341e-02 rel=9.10e-06 pair=8.91e-05 extrap=2.03e-05 n=3 slope=2.04 local=['2.06', '2.03'] -> PASS 
+cpu sig pixel: AD=-2.086172e-04 FD=-2.086251e-04 rel=3.80e-05 pair=5.03e-04 extrap=4.27e-04 n=4 slope=1.99 local=['1.99', '1.99', '1.98'] -> PASS 
+cpu joint pixel: AD=-1.475189e-02 FD=-1.475212e-02 rel=1.53e-05 pair=3.75e-05 extrap=4.89e-06 n=3 slope=2.04 local=['2.06', '2.02'] -> PASS 
+cpu eps random: AD=1.346397e-01 FD=1.346309e-01 rel=6.56e-05 pair=8.30e-05 extrap=5.60e-05 n=5 slope=2.00 local=['2.00', '2.00', '2.00', '2.02'] -> PASS 
+cpu sig random: AD=8.189317e-05 FD=8.356199e-05 rel=2.00e-02 pair=2.58e-02 extrap=5.78e-03 n=5 slope=2.01 local=['2.00', '2.00', '2.00', '2.02'] -> PASS (noise-limited) |g|/(|grad||p|) = 3.0e-04; FD-AD difference within the FD uncertainty 6.9e-06 = 2.6e-05 |grad||p|
+cpu joint random: AD=1.347216e-01 FD=1.347254e-01 rel=2.82e-05 pair=8.80e-05 extrap=1.23e-04 n=5 slope=2.00 local=['2.00', '2.00', '2.00', '2.01'] -> PASS 
+cpu eps local: AD=-5.858379e-02 FD=-5.857837e-02 rel=9.24e-05 pair=2.35e-04 extrap=2.56e-04 n=6 slope=1.99 local=['2.01', '2.01', '2.00', '1.99', '1.95'] -> PASS 
+cpu sig local: AD=-2.074615e-02 FD=-2.074800e-02 rel=8.91e-05 pair=1.74e-04 extrap=6.08e-05 n=6 slope=1.99 local=['1.91', '1.95', '1.98', '1.99', '2.04'] -> PASS 
+cpu joint local: AD=-7.932994e-02 FD=-7.933324e-02 rel=4.16e-05 pair=6.92e-05 extrap=1.35e-04 n=6 slope=2.00 local=['1.98', '2.00', '2.00', '1.99', '2.05'] -> PASS 
+cpu eps smooth: AD=1.516146e+00 FD=1.516126e+00 rel=1.29e-05 pair=2.81e-05 extrap=1.06e-05 n=6 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.01'] -> PASS 
+cpu sig smooth: AD=-4.848214e-02 FD=-4.847761e-02 rel=9.35e-05 pair=2.97e-04 extrap=9.63e-05 n=7 slope=2.01 local=['2.05', '2.02', '2.01', '2.00', '2.00', '2.02'] -> PASS 
+cpu joint smooth: AD=1.467664e+00 FD=1.467672e+00 rel=5.96e-06 pair=1.34e-04 extrap=4.01e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '2.02'] -> PASS 
+cpu source smooth: AD=3.402700e-01 FD=3.402703e-01 rel=8.42e-07 pair=9.76e-06 extrap=1.21e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.01'] -> PASS  (16.8s)
+cuda_fast eps pixel: AD=-1.454327e-02 FD=-1.454291e-02 rel=2.50e-05 pair=7.04e-05 extrap=3.47e-05 n=4 slope=2.01 local=['2.06', '2.03', '1.94'] -> PASS 
+cuda_fast sig pixel: AD=-2.086169e-04 FD=-2.086409e-04 rel=1.15e-04 pair=3.65e-04 extrap=1.26e-04 n=4 slope=2.01 local=['1.99', '1.99', '2.04'] -> PASS 
+cuda_fast joint pixel: AD=-1.475189e-02 FD=-1.475190e-02 rel=9.30e-07 pair=7.00e-05 extrap=3.26e-05 n=3 slope=2.04 local=['2.06', '2.02'] -> PASS 
+cuda_fast eps random: AD=1.346391e-01 FD=1.346448e-01 rel=4.24e-05 pair=8.46e-05 extrap=5.63e-05 n=5 slope=2.00 local=['2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_fast sig random: AD=8.189657e-05 FD=8.372697e-05 rel=2.19e-02 pair=2.98e-02 extrap=6.76e-03 n=5 slope=2.01 local=['2.00', '2.00', '2.00', '2.03'] -> PASS (noise-limited) |g|/(|grad||p|) = 3.0e-04; FD-AD difference within the FD uncertainty 5.5e-06 = 2.0e-05 |grad||p|
+cuda_fast joint random: AD=1.347210e-01 FD=1.347251e-01 rel=3.02e-05 pair=7.19e-05 extrap=8.90e-05 n=5 slope=2.00 local=['2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_fast eps local: AD=-5.858374e-02 FD=-5.857593e-02 rel=1.33e-04 pair=2.86e-04 extrap=2.09e-04 n=6 slope=2.00 local=['2.01', '2.01', '2.00', '1.99', '1.97'] -> PASS 
+cuda_fast sig local: AD=-2.074615e-02 FD=-2.074786e-02 rel=8.28e-05 pair=1.41e-04 extrap=4.79e-05 n=6 slope=1.99 local=['1.91', '1.95', '1.98', '1.99', '2.04'] -> PASS 
+cuda_fast joint local: AD=-7.932989e-02 FD=-7.933358e-02 rel=4.65e-05 pair=5.35e-05 extrap=1.12e-04 n=6 slope=2.01 local=['1.98', '2.00', '2.00', '1.99', '2.08'] -> PASS 
+cuda_fast eps smooth: AD=1.516146e+00 FD=1.516155e+00 rel=6.48e-06 pair=2.04e-05 extrap=5.68e-06 n=6 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.01'] -> PASS 
+cuda_fast sig smooth: AD=-4.848186e-02 FD=-4.847682e-02 rel=1.04e-04 pair=2.21e-04 extrap=9.26e-05 n=7 slope=2.01 local=['2.05', '2.02', '2.01', '2.00', '2.00', '2.02'] -> PASS 
+cuda_fast joint smooth: AD=1.467664e+00 FD=1.467678e+00 rel=9.42e-06 pair=1.23e-04 extrap=3.44e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_fast source smooth: AD=3.402786e-01 FD=3.402814e-01 rel=8.31e-06 pair=2.97e-05 extrap=2.44e-06 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (1.4s)
+cuda_general eps pixel: AD=-1.454327e-02 FD=-1.454291e-02 rel=2.50e-05 pair=7.04e-05 extrap=3.47e-05 n=4 slope=2.01 local=['2.06', '2.03', '1.94'] -> PASS 
+cuda_general sig pixel: AD=-2.086169e-04 FD=-2.086409e-04 rel=1.15e-04 pair=3.65e-04 extrap=1.26e-04 n=4 slope=2.01 local=['1.99', '1.99', '2.04'] -> PASS 
+cuda_general joint pixel: AD=-1.475189e-02 FD=-1.475190e-02 rel=9.32e-07 pair=7.00e-05 extrap=3.26e-05 n=3 slope=2.04 local=['2.06', '2.02'] -> PASS 
+cuda_general eps random: AD=1.346391e-01 FD=1.346448e-01 rel=4.24e-05 pair=8.46e-05 extrap=5.63e-05 n=5 slope=2.00 local=['2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_general sig random: AD=8.189563e-05 FD=8.372697e-05 rel=2.19e-02 pair=2.98e-02 extrap=6.75e-03 n=5 slope=2.01 local=['2.00', '2.00', '2.00', '2.03'] -> PASS (noise-limited) |g|/(|grad||p|) = 3.0e-04; FD-AD difference within the FD uncertainty 5.5e-06 = 2.0e-05 |grad||p|
+cuda_general joint random: AD=1.347210e-01 FD=1.347251e-01 rel=3.01e-05 pair=7.19e-05 extrap=8.89e-05 n=5 slope=2.00 local=['2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_general eps local: AD=-5.858375e-02 FD=-5.857593e-02 rel=1.33e-04 pair=2.86e-04 extrap=2.09e-04 n=6 slope=2.00 local=['2.01', '2.01', '2.00', '1.99', '1.97'] -> PASS 
+cuda_general sig local: AD=-2.074615e-02 FD=-2.074786e-02 rel=8.28e-05 pair=1.41e-04 extrap=4.79e-05 n=6 slope=1.99 local=['1.91', '1.95', '1.98', '1.99', '2.04'] -> PASS 
+cuda_general joint local: AD=-7.932989e-02 FD=-7.933358e-02 rel=4.65e-05 pair=5.34e-05 extrap=1.12e-04 n=6 slope=2.01 local=['1.98', '2.00', '2.00', '1.99', '2.08'] -> PASS 
+cuda_general eps smooth: AD=1.516146e+00 FD=1.516155e+00 rel=6.48e-06 pair=2.04e-05 extrap=5.69e-06 n=6 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.01'] -> PASS 
+cuda_general sig smooth: AD=-4.848187e-02 FD=-4.847682e-02 rel=1.04e-04 pair=2.21e-04 extrap=9.27e-05 n=7 slope=2.01 local=['2.05', '2.02', '2.01', '2.00', '2.00', '2.02'] -> PASS 
+cuda_general joint smooth: AD=1.467664e+00 FD=1.467678e+00 rel=9.43e-06 pair=1.23e-04 extrap=3.44e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_general source smooth: AD=3.402786e-01 FD=3.402814e-01 rel=8.32e-06 pair=2.97e-05 extrap=2.42e-06 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (1.9s)
+cpu eps pixel: AD=-1.391076e-02 FD=-1.390965e-02 rel=8.02e-05 pair=8.86e-05 extrap=2.34e-05 n=3 slope=2.03 local=['2.05', '2.02'] -> PASS 
+cpu sig pixel: AD=2.546520e-04 FD=2.546477e-04 rel=1.67e-05 pair=3.96e-04 extrap=3.56e-04 n=4 slope=1.95 local=['2.00', '1.99', '1.91'] -> PASS 
+cpu joint pixel: AD=-1.365611e-02 FD=-1.365606e-02 rel=3.34e-06 pair=8.21e-05 extrap=2.99e-05 n=3 slope=2.03 local=['2.05', '2.02'] -> PASS 
+cpu eps random: AD=3.849116e-02 FD=3.848337e-02 rel=2.03e-04 pair=5.48e-04 extrap=2.73e-04 n=5 slope=2.00 local=['1.99', '1.99', '2.00', '2.00'] -> PASS 
+cpu sig random: AD=5.322226e-03 FD=5.325589e-03 rel=6.32e-04 pair=7.91e-04 extrap=1.18e-04 n=5 slope=2.01 local=['2.02', '2.01', '2.01', '2.00'] -> PASS 
+cpu joint random: AD=4.381339e-02 FD=4.380950e-02 rel=8.87e-05 pair=3.93e-04 extrap=7.71e-05 n=5 slope=2.00 local=['1.99', '2.00', '2.00', '2.02'] -> PASS 
+cpu eps local: AD=-7.760927e-02 FD=-7.760827e-02 rel=1.29e-05 pair=1.75e-04 extrap=6.33e-05 n=6 slope=2.01 local=['2.00', '2.00', '2.00', '2.00', '2.04'] -> PASS 
+cpu sig local: AD=-2.377358e-02 FD=-2.377788e-02 rel=1.81e-04 pair=2.00e-04 extrap=3.92e-05 n=6 slope=1.99 local=['1.92', '1.95', '1.98', '2.01', '2.05'] -> PASS 
+cpu joint local: AD=-1.013828e-01 FD=-1.013810e-01 rel=1.80e-05 pair=6.66e-05 extrap=1.41e-04 n=6 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cpu eps smooth: AD=1.504918e+00 FD=1.504917e+00 rel=5.96e-07 pair=3.16e-05 extrap=1.56e-05 n=7 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.00', '2.03'] -> PASS 
+cpu sig smooth: AD=-6.094683e-02 FD=-6.094010e-02 rel=1.10e-04 pair=5.23e-04 extrap=1.74e-04 n=7 slope=2.00 local=['2.04', '2.02', '2.00', '2.00', '1.99', '1.95'] -> PASS 
+cpu joint smooth: AD=1.443971e+00 FD=1.443967e+00 rel=2.75e-06 pair=2.09e-04 extrap=1.19e-04 n=7 slope=2.01 local=['2.00', '2.00', '2.00', '2.00', '2.01', '2.03'] -> PASS 
+cpu source smooth: AD=1.472948e-01 FD=1.472987e-01 rel=2.62e-05 pair=3.18e-05 extrap=1.80e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '1.99'] -> PASS  (17.1s)
+cuda_fast eps pixel: AD=-1.391076e-02 FD=-1.391095e-02 rel=1.37e-05 pair=7.21e-05 extrap=3.19e-05 n=3 slope=2.02 local=['2.05', '2.00'] -> PASS 
+cuda_fast sig pixel: AD=2.546520e-04 FD=2.546421e-04 rel=3.89e-05 pair=1.33e-04 extrap=1.46e-04 n=4 slope=1.92 local=['1.99', '1.98', '1.86'] -> PASS 
+cuda_fast joint pixel: AD=-1.365611e-02 FD=-1.365624e-02 rel=9.42e-06 pair=3.97e-05 extrap=3.11e-05 n=3 slope=2.03 local=['2.04', '2.01'] -> PASS 
+cuda_fast eps random: AD=3.849111e-02 FD=3.848473e-02 rel=1.66e-04 pair=3.39e-04 extrap=3.64e-04 n=6 slope=1.99 local=['1.99', '1.99', '2.00', '2.00', '1.98'] -> PASS 
+cuda_fast sig random: AD=5.322234e-03 FD=5.323368e-03 rel=2.13e-04 pair=7.74e-04 extrap=1.25e-04 n=5 slope=2.01 local=['2.02', '2.01', '2.01', '2.00'] -> PASS 
+cuda_fast joint random: AD=4.381335e-02 FD=4.382161e-02 rel=1.89e-04 pair=3.58e-04 extrap=3.22e-05 n=5 slope=2.00 local=['1.99', '2.00', '2.00', '2.01'] -> PASS 
+cuda_fast eps local: AD=-7.760934e-02 FD=-7.761187e-02 rel=3.26e-05 pair=8.90e-05 extrap=1.66e-05 n=6 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_fast sig local: AD=-2.377357e-02 FD=-2.376970e-02 rel=1.63e-04 pair=1.80e-04 extrap=2.59e-05 n=6 slope=1.99 local=['1.92', '1.95', '1.98', '2.01', '2.01'] -> PASS 
+cuda_fast joint local: AD=-1.013829e-01 FD=-1.013811e-01 rel=1.78e-05 pair=6.28e-05 extrap=1.08e-04 n=6 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_fast eps smooth: AD=1.504918e+00 FD=1.504917e+00 rel=7.51e-07 pair=4.49e-05 extrap=1.61e-05 n=7 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_fast sig smooth: AD=-6.094679e-02 FD=-6.094423e-02 rel=4.20e-05 pair=5.36e-04 extrap=1.40e-04 n=7 slope=2.00 local=['2.04', '2.02', '2.00', '2.00', '1.99', '1.95'] -> PASS 
+cuda_fast joint smooth: AD=1.443971e+00 FD=1.443966e+00 rel=3.62e-06 pair=2.13e-04 extrap=1.26e-04 n=7 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.01', '2.01'] -> PASS 
+cuda_fast source smooth: AD=1.472955e-01 FD=1.472954e-01 rel=8.55e-07 pair=5.41e-06 extrap=2.66e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '1.99'] -> PASS  (1.4s)
+cuda_general eps pixel: AD=-1.391076e-02 FD=-1.391095e-02 rel=1.38e-05 pair=7.22e-05 extrap=3.20e-05 n=3 slope=2.02 local=['2.05', '2.00'] -> PASS 
+cuda_general sig pixel: AD=2.546518e-04 FD=2.546421e-04 rel=3.82e-05 pair=1.34e-04 extrap=1.46e-04 n=4 slope=1.92 local=['1.99', '1.98', '1.86'] -> PASS 
+cuda_general joint pixel: AD=-1.365611e-02 FD=-1.365624e-02 rel=9.47e-06 pair=3.98e-05 extrap=3.11e-05 n=3 slope=2.03 local=['2.04', '2.01'] -> PASS 
+cuda_general eps random: AD=3.849113e-02 FD=3.848473e-02 rel=1.66e-04 pair=3.38e-04 extrap=3.63e-04 n=6 slope=1.99 local=['1.99', '1.99', '2.00', '2.00', '1.98'] -> PASS 
+cuda_general sig random: AD=5.322234e-03 FD=5.323368e-03 rel=2.13e-04 pair=7.74e-04 extrap=1.25e-04 n=5 slope=2.01 local=['2.02', '2.01', '2.01', '2.00'] -> PASS 
+cuda_general joint random: AD=4.381336e-02 FD=4.382161e-02 rel=1.88e-04 pair=3.58e-04 extrap=3.19e-05 n=5 slope=2.00 local=['1.99', '2.00', '2.00', '2.01'] -> PASS 
+cuda_general eps local: AD=-7.760934e-02 FD=-7.761187e-02 rel=3.26e-05 pair=8.91e-05 extrap=1.67e-05 n=6 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_general sig local: AD=-2.377357e-02 FD=-2.376970e-02 rel=1.63e-04 pair=1.80e-04 extrap=2.59e-05 n=6 slope=1.99 local=['1.92', '1.95', '1.98', '2.01', '2.01'] -> PASS 
+cuda_general joint local: AD=-1.013829e-01 FD=-1.013811e-01 rel=1.78e-05 pair=6.28e-05 extrap=1.08e-04 n=6 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.00'] -> PASS 
+cuda_general eps smooth: AD=1.504918e+00 FD=1.504917e+00 rel=7.50e-07 pair=4.49e-05 extrap=1.61e-05 n=7 slope=2.00 local=['1.98', '2.00', '2.00', '2.00', '2.00', '2.02'] -> PASS 
+cuda_general sig smooth: AD=-6.094678e-02 FD=-6.094423e-02 rel=4.20e-05 pair=5.36e-04 extrap=1.40e-04 n=7 slope=2.00 local=['2.04', '2.02', '2.00', '2.00', '1.99', '1.95'] -> PASS 
+cuda_general joint smooth: AD=1.443971e+00 FD=1.443966e+00 rel=3.62e-06 pair=2.13e-04 extrap=1.26e-04 n=7 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.01', '2.01'] -> PASS 
+cuda_general source smooth: AD=1.472954e-01 FD=1.472954e-01 rel=4.08e-07 pair=4.96e-06 extrap=2.66e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '1.99'] -> PASS  (1.9s)
+cpu eps pixel: AD=-1.139568e-02 FD=-1.139576e-02 rel=7.78e-06 pair=3.04e-05 extrap=8.11e-06 n=4 slope=2.04 local=['2.07', '2.03', '2.04'] -> PASS 
+cpu sig pixel: AD=-1.085582e-04 FD=-1.085368e-04 rel=1.97e-04 pair=5.12e-04 extrap=2.06e-05 n=3 slope=2.02 local=['2.01', '2.03'] -> PASS 
+cpu joint pixel: AD=-1.150423e-02 FD=-1.150376e-02 rel=4.09e-05 pair=1.09e-04 extrap=2.49e-05 n=4 slope=2.02 local=['2.06', '2.02', '1.99'] -> PASS 
+cpu eps random: AD=7.853931e-03 FD=7.858074e-03 rel=5.27e-04 pair=3.00e-03 extrap=9.01e-04 n=6 slope=1.98 local=['1.98', '1.99', '2.00', '1.99', '1.89'] -> PASS 
+cpu sig random: AD=1.215966e-03 FD=1.214778e-03 rel=9.77e-04 pair=1.68e-03 extrap=nan n=2 slope=1.97 local=['1.97'] -> INCONCLUSIVE FD agrees but only 2 steps above 10 x noise
+cpu joint random: AD=9.069897e-03 FD=9.053757e-03 rel=1.78e-03 pair=6.27e-03 extrap=2.47e-03 n=5 slope=1.97 local=['1.98', '1.99', '1.99', '1.90'] -> INCONCLUSIVE FD uncertainty too large (relative error 2.5e-03)
+cpu eps local: AD=-9.164058e-02 FD=-9.163979e-02 rel=8.61e-06 pair=1.39e-04 extrap=4.12e-05 n=6 slope=1.99 local=['1.98', '2.00', '2.00', '1.99', '2.00'] -> PASS 
+cpu sig local: AD=-2.277599e-02 FD=-2.279638e-02 rel=8.94e-04 pair=1.25e-03 extrap=2.86e-04 n=3 slope=1.96 local=['1.95', '1.96'] -> PASS 
+cpu joint local: AD=-1.144166e-01 FD=-1.145034e-01 rel=7.58e-04 pair=1.52e-03 extrap=8.20e-04 n=5 slope=1.96 local=['1.96', '1.99', '1.99', '1.89'] -> PASS 
+cpu eps smooth: AD=9.941993e-01 FD=9.942022e-01 rel=2.90e-06 pair=6.39e-05 extrap=4.97e-05 n=7 slope=1.99 local=['1.98', '2.00', '2.00', '2.00', '2.00', '1.95'] -> PASS 
+cpu sig smooth: AD=-3.264454e-02 FD=-3.264222e-02 rel=7.13e-05 pair=2.86e-04 extrap=1.41e-04 n=4 slope=1.97 local=['2.00', '1.99', '1.91'] -> PASS 
+cpu joint smooth: AD=9.615548e-01 FD=9.615519e-01 rel=2.95e-06 pair=3.29e-05 extrap=7.57e-06 n=6 slope=1.99 local=['1.99', '2.00', '2.00', '2.00', '1.95'] -> PASS 
+cpu source smooth: AD=-7.537558e-02 FD=-7.536832e-02 rel=9.64e-05 pair=3.41e-04 extrap=8.84e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (18.0s)
+cuda_fast eps pixel: AD=-1.139567e-02 FD=-1.139469e-02 rel=8.65e-05 pair=1.39e-04 extrap=1.07e-04 n=4 slope=2.03 local=['2.07', '2.02', '2.00'] -> PASS 
+cuda_fast sig pixel: AD=-1.085584e-04 FD=-1.085844e-04 rel=2.40e-04 pair=7.84e-04 extrap=8.92e-04 n=3 slope=1.99 local=['2.00', '1.99'] -> PASS 
+cuda_fast joint pixel: AD=-1.150423e-02 FD=-1.150290e-02 rel=1.16e-04 pair=2.61e-04 extrap=1.31e-04 n=4 slope=2.00 local=['2.06', '2.02', '1.91'] -> PASS 
+cuda_fast eps random: AD=7.853747e-03 FD=7.857663e-03 rel=4.98e-04 pair=4.30e-03 extrap=7.41e-04 n=6 slope=1.97 local=['1.98', '1.99', '2.00', '1.99', '1.88'] -> PASS 
+cuda_fast sig random: AD=1.215962e-03 FD=1.215757e-03 rel=1.69e-04 pair=1.51e-03 extrap=nan n=2 slope=1.97 local=['1.97'] -> INCONCLUSIVE FD agrees but only 2 steps above 10 x noise
+cuda_fast joint random: AD=9.069709e-03 FD=9.068025e-03 rel=1.86e-04 pair=6.35e-03 extrap=1.94e-03 n=5 slope=1.97 local=['1.98', '1.99', '1.99', '1.90'] -> PASS 
+cuda_fast eps local: AD=-9.164052e-02 FD=-9.163715e-02 rel=3.68e-05 pair=1.63e-04 extrap=1.04e-04 n=6 slope=1.99 local=['1.98', '2.00', '2.00', '1.99', '1.97'] -> PASS 
+cuda_fast sig local: AD=-2.277600e-02 FD=-2.279639e-02 rel=8.95e-04 pair=1.23e-03 extrap=2.84e-04 n=3 slope=1.96 local=['1.95', '1.96'] -> PASS 
+cuda_fast joint local: AD=-1.144165e-01 FD=-1.145043e-01 rel=7.67e-04 pair=1.51e-03 extrap=8.17e-04 n=5 slope=1.96 local=['1.96', '1.99', '1.99', '1.89'] -> PASS 
+cuda_fast eps smooth: AD=9.941995e-01 FD=9.941970e-01 rel=2.46e-06 pair=5.38e-05 extrap=4.13e-05 n=7 slope=1.99 local=['1.98', '2.00', '2.00', '2.00', '2.00', '1.95'] -> PASS 
+cuda_fast sig smooth: AD=-3.264453e-02 FD=-3.264250e-02 rel=6.23e-05 pair=2.89e-04 extrap=1.43e-04 n=3 slope=2.00 local=['2.00', '1.99'] -> PASS 
+cuda_fast joint smooth: AD=9.615550e-01 FD=9.615592e-01 rel=4.41e-06 pair=5.32e-05 extrap=1.49e-05 n=6 slope=1.99 local=['1.99', '2.00', '2.00', '1.99', '1.95'] -> PASS 
+cuda_fast source smooth: AD=-7.533196e-02 FD=-7.533755e-02 rel=7.42e-05 pair=2.11e-04 extrap=4.10e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (1.3s)
+cuda_general eps pixel: AD=-1.139567e-02 FD=-1.139469e-02 rel=8.64e-05 pair=1.39e-04 extrap=1.07e-04 n=4 slope=2.03 local=['2.07', '2.02', '2.00'] -> PASS 
+cuda_general sig pixel: AD=-1.085583e-04 FD=-1.085844e-04 rel=2.40e-04 pair=7.85e-04 extrap=8.93e-04 n=3 slope=1.99 local=['2.00', '1.99'] -> PASS 
+cuda_general joint pixel: AD=-1.150423e-02 FD=-1.150290e-02 rel=1.16e-04 pair=2.61e-04 extrap=1.31e-04 n=4 slope=2.00 local=['2.06', '2.02', '1.91'] -> PASS 
+cuda_general eps random: AD=7.853735e-03 FD=7.857663e-03 rel=5.00e-04 pair=4.30e-03 extrap=7.42e-04 n=6 slope=1.97 local=['1.98', '1.99', '2.00', '1.99', '1.88'] -> PASS 
+cuda_general sig random: AD=1.215960e-03 FD=1.215757e-03 rel=1.67e-04 pair=1.51e-03 extrap=nan n=2 slope=1.97 local=['1.97'] -> INCONCLUSIVE FD agrees but only 2 steps above 10 x noise
+cuda_general joint random: AD=9.069695e-03 FD=9.068025e-03 rel=1.84e-04 pair=6.35e-03 extrap=1.94e-03 n=5 slope=1.97 local=['1.98', '1.99', '1.99', '1.90'] -> PASS 
+cuda_general eps local: AD=-9.164054e-02 FD=-9.163715e-02 rel=3.70e-05 pair=1.63e-04 extrap=1.04e-04 n=6 slope=1.99 local=['1.98', '2.00', '2.00', '1.99', '1.97'] -> PASS 
+cuda_general sig local: AD=-2.277600e-02 FD=-2.279639e-02 rel=8.95e-04 pair=1.23e-03 extrap=2.84e-04 n=3 slope=1.96 local=['1.95', '1.96'] -> PASS 
+cuda_general joint local: AD=-1.144165e-01 FD=-1.145043e-01 rel=7.67e-04 pair=1.51e-03 extrap=8.17e-04 n=5 slope=1.96 local=['1.96', '1.99', '1.99', '1.89'] -> PASS 
+cuda_general eps smooth: AD=9.941994e-01 FD=9.941970e-01 rel=2.41e-06 pair=5.37e-05 extrap=4.13e-05 n=7 slope=1.99 local=['1.98', '2.00', '2.00', '2.00', '2.00', '1.95'] -> PASS 
+cuda_general sig smooth: AD=-3.264453e-02 FD=-3.264250e-02 rel=6.23e-05 pair=2.89e-04 extrap=1.43e-04 n=3 slope=2.00 local=['2.00', '1.99'] -> PASS 
+cuda_general joint smooth: AD=9.615549e-01 FD=9.615592e-01 rel=4.47e-06 pair=5.33e-05 extrap=1.49e-05 n=6 slope=1.99 local=['1.99', '2.00', '2.00', '1.99', '1.95'] -> PASS 
+cuda_general source smooth: AD=-7.533195e-02 FD=-7.533755e-02 rel=7.43e-05 pair=2.11e-04 extrap=4.10e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (1.8s)
+cpu eps pixel: AD=-6.600881e-03 FD=-6.601203e-03 rel=4.87e-05 pair=1.81e-04 extrap=4.49e-05 n=4 slope=2.03 local=['2.06', '2.02', '2.02'] -> PASS 
+cpu sig pixel: AD=-2.455606e-04 FD=-2.455107e-04 rel=2.03e-04 pair=3.20e-04 extrap=1.70e-04 n=3 slope=1.99 local=['1.99', '1.98'] -> PASS 
+cpu joint pixel: AD=-6.846442e-03 FD=-6.846938e-03 rel=7.24e-05 pair=1.32e-04 extrap=7.62e-05 n=4 slope=2.02 local=['2.05', '2.02', '2.00'] -> PASS 
+cpu eps random: AD=4.761971e-02 FD=4.762808e-02 rel=1.76e-04 pair=2.91e-04 extrap=1.05e-04 n=5 slope=1.99 local=['2.01', '2.00', '2.00', '1.95'] -> PASS 
+cpu sig random: AD=-6.823991e-04 FD=-6.828542e-04 rel=6.67e-04 pair=7.60e-04 extrap=5.74e-04 n=4 slope=1.95 local=['2.00', '1.99', '1.87'] -> PASS 
+cpu joint random: AD=4.693731e-02 FD=4.695006e-02 rel=2.71e-04 pair=3.19e-04 extrap=1.47e-04 n=5 slope=1.99 local=['2.01', '2.00', '1.99', '1.93'] -> PASS 
+cpu eps local: AD=-5.044817e-02 FD=-5.042500e-02 rel=4.59e-04 pair=7.53e-04 extrap=3.77e-04 n=5 slope=1.98 local=['1.99', '2.00', '1.99', '1.94'] -> PASS 
+cpu sig local: AD=-2.229264e-02 FD=-2.229316e-02 rel=2.31e-05 pair=2.71e-04 extrap=5.45e-05 n=4 slope=1.95 local=['1.93', '1.97', '1.94'] -> PASS 
+cpu joint local: AD=-7.274081e-02 FD=-7.273150e-02 rel=1.28e-04 pair=9.37e-04 extrap=5.27e-04 n=5 slope=1.97 local=['1.97', '1.99', '1.99', '1.91'] -> PASS 
+cpu eps smooth: AD=4.154297e-01 FD=4.154216e-01 rel=1.95e-05 pair=1.53e-04 extrap=3.60e-05 n=6 slope=1.99 local=['1.98', '2.00', '2.00', '2.00', '1.99'] -> PASS 
+cpu sig smooth: AD=-4.436043e-02 FD=-4.436439e-02 rel=8.92e-05 pair=1.93e-04 extrap=2.19e-05 n=6 slope=1.98 local=['2.01', '2.00', '2.00', '1.99', '1.89'] -> PASS 
+cpu joint smooth: AD=3.710693e-01 FD=3.710950e-01 rel=6.93e-05 pair=8.19e-05 extrap=3.17e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '1.98'] -> PASS 
+cpu source smooth: AD=-4.953622e-02 FD=-4.953413e-02 rel=4.23e-05 pair=9.19e-05 extrap=4.27e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (18.0s)
+cuda_fast eps pixel: AD=-6.600877e-03 FD=-6.600486e-03 rel=5.93e-05 pair=1.80e-04 extrap=1.44e-05 n=4 slope=2.04 local=['2.06', '2.02', '2.04'] -> PASS 
+cuda_fast sig pixel: AD=-2.455603e-04 FD=-2.455473e-04 rel=5.30e-05 pair=5.11e-04 extrap=2.05e-05 n=3 slope=2.00 local=['2.00', '2.01'] -> PASS 
+cuda_fast joint pixel: AD=-6.846438e-03 FD=-6.846543e-03 rel=1.53e-05 pair=2.26e-05 extrap=9.40e-05 n=4 slope=2.04 local=['2.05', '2.02', '2.06'] -> PASS 
+cuda_fast eps random: AD=4.761972e-02 FD=4.761021e-02 rel=2.00e-04 pair=2.68e-04 extrap=1.06e-04 n=5 slope=1.99 local=['2.01', '2.00', '2.00', '1.95'] -> PASS 
+cuda_fast sig random: AD=-6.824166e-04 FD=-6.827420e-04 rel=4.77e-04 pair=8.19e-04 extrap=5.94e-04 n=4 slope=1.95 local=['2.00', '1.99', '1.87'] -> PASS 
+cuda_fast joint random: AD=4.693731e-02 FD=4.695097e-02 rel=2.91e-04 pair=3.07e-04 extrap=1.48e-04 n=5 slope=1.99 local=['2.01', '2.00', '1.99', '1.93'] -> PASS 
+cuda_fast eps local: AD=-5.044817e-02 FD=-5.042475e-02 rel=4.64e-04 pair=6.94e-04 extrap=3.56e-04 n=5 slope=1.98 local=['1.99', '2.00', '1.99', '1.94'] -> PASS 
+cuda_fast sig local: AD=-2.229265e-02 FD=-2.229409e-02 rel=6.43e-05 pair=2.38e-04 extrap=3.13e-05 n=4 slope=1.95 local=['1.93', '1.97', '1.94'] -> PASS 
+cuda_fast joint local: AD=-7.274083e-02 FD=-7.273107e-02 rel=1.34e-04 pair=9.38e-04 extrap=5.34e-04 n=5 slope=1.97 local=['1.97', '1.99', '1.99', '1.91'] -> PASS 
+cuda_fast eps smooth: AD=4.154286e-01 FD=4.154159e-01 rel=3.04e-05 pair=1.19e-04 extrap=2.70e-05 n=6 slope=1.99 local=['1.98', '2.00', '2.00', '2.00', '1.99'] -> PASS 
+cuda_fast sig smooth: AD=-4.436057e-02 FD=-4.436448e-02 rel=8.81e-05 pair=1.84e-04 extrap=1.01e-05 n=6 slope=1.98 local=['2.01', '2.00', '2.00', '1.99', '1.89'] -> PASS 
+cuda_fast joint smooth: AD=3.710680e-01 FD=3.710460e-01 rel=5.93e-05 pair=1.11e-04 extrap=4.94e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '1.98'] -> PASS 
+cuda_fast source smooth: AD=-4.954076e-02 FD=-4.954060e-02 rel=3.31e-06 pair=1.40e-04 extrap=3.02e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.01'] -> PASS  (1.3s)
+cuda_general eps pixel: AD=-6.600878e-03 FD=-6.600486e-03 rel=5.94e-05 pair=1.81e-04 extrap=1.45e-05 n=4 slope=2.04 local=['2.06', '2.02', '2.04'] -> PASS 
+cuda_general sig pixel: AD=-2.455603e-04 FD=-2.455473e-04 rel=5.31e-05 pair=5.11e-04 extrap=2.04e-05 n=3 slope=2.00 local=['2.00', '2.01'] -> PASS 
+cuda_general joint pixel: AD=-6.846438e-03 FD=-6.846543e-03 rel=1.52e-05 pair=2.27e-05 extrap=9.39e-05 n=4 slope=2.04 local=['2.05', '2.02', '2.06'] -> PASS 
+cuda_general eps random: AD=4.761971e-02 FD=4.761021e-02 rel=1.99e-04 pair=2.68e-04 extrap=1.06e-04 n=5 slope=1.99 local=['2.01', '2.00', '2.00', '1.95'] -> PASS 
+cuda_general sig random: AD=-6.824156e-04 FD=-6.827420e-04 rel=4.78e-04 pair=8.20e-04 extrap=5.95e-04 n=4 slope=1.95 local=['2.00', '1.99', '1.87'] -> PASS 
+cuda_general joint random: AD=4.693730e-02 FD=4.695097e-02 rel=2.91e-04 pair=3.08e-04 extrap=1.48e-04 n=5 slope=1.99 local=['2.01', '2.00', '1.99', '1.93'] -> PASS 
+cuda_general eps local: AD=-5.044818e-02 FD=-5.042475e-02 rel=4.64e-04 pair=6.94e-04 extrap=3.56e-04 n=5 slope=1.98 local=['1.99', '2.00', '1.99', '1.94'] -> PASS 
+cuda_general sig local: AD=-2.229265e-02 FD=-2.229409e-02 rel=6.43e-05 pair=2.38e-04 extrap=3.13e-05 n=4 slope=1.95 local=['1.93', '1.97', '1.94'] -> PASS 
+cuda_general joint local: AD=-7.274083e-02 FD=-7.273107e-02 rel=1.34e-04 pair=9.38e-04 extrap=5.34e-04 n=5 slope=1.97 local=['1.97', '1.99', '1.99', '1.91'] -> PASS 
+cuda_general eps smooth: AD=4.154286e-01 FD=4.154159e-01 rel=3.04e-05 pair=1.19e-04 extrap=2.70e-05 n=6 slope=1.99 local=['1.98', '2.00', '2.00', '2.00', '1.99'] -> PASS 
+cuda_general sig smooth: AD=-4.436058e-02 FD=-4.436448e-02 rel=8.81e-05 pair=1.84e-04 extrap=1.02e-05 n=6 slope=1.98 local=['2.01', '2.00', '2.00', '1.99', '1.89'] -> PASS 
+cuda_general joint smooth: AD=3.710680e-01 FD=3.710460e-01 rel=5.93e-05 pair=1.11e-04 extrap=4.94e-05 n=6 slope=2.00 local=['1.99', '2.00', '2.00', '2.00', '1.98'] -> PASS 
+cuda_general source smooth: AD=-4.954075e-02 FD=-4.954060e-02 rel=3.14e-06 pair=1.40e-04 extrap=3.02e-04 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.01'] -> PASS  (1.8s)
+cpu eps pixel: AD=-1.485040e-02 FD=-1.485046e-02 rel=3.85e-06 pair=6.00e-05 extrap=1.34e-05 n=3 slope=2.03 local=['2.06', '2.01'] -> PASS 
+cpu sig pixel: AD=-1.986986e-04 FD=-1.987272e-04 rel=1.44e-04 pair=6.14e-04 extrap=4.98e-04 n=4 slope=2.01 local=['1.99', '2.00', '2.03'] -> PASS 
+cpu joint pixel: AD=-1.504910e-02 FD=-1.504898e-02 rel=7.90e-06 pair=5.93e-05 extrap=1.37e-05 n=3 slope=2.03 local=['2.06', '2.00'] -> PASS 
+cpu eps random: AD=-7.395674e-02 FD=-7.395221e-02 rel=6.12e-05 pair=2.64e-04 extrap=2.46e-05 n=5 slope=1.98 local=['1.98', '1.99', '1.99', '1.95'] -> PASS 
+cpu sig random: AD=-4.033484e-03 FD=-4.032637e-03 rel=2.10e-04 pair=3.33e-04 extrap=3.41e-04 n=5 slope=1.99 local=['1.99', '1.99', '1.99', '1.97'] -> PASS 
+cpu joint random: AD=-7.799022e-02 FD=-7.799721e-02 rel=8.96e-05 pair=3.78e-04 extrap=1.06e-04 n=5 slope=1.99 local=['1.98', '1.99', '2.00', '1.98'] -> PASS 
+cpu eps local: AD=-1.085474e-01 FD=-1.085318e-01 rel=1.43e-04 pair=3.72e-04 extrap=1.56e-04 n=5 slope=1.99 local=['2.00', '2.00', '2.00', '1.97'] -> PASS 
+cpu sig local: AD=-2.838829e-02 FD=-2.838738e-02 rel=3.22e-05 pair=1.41e-04 extrap=3.11e-05 n=5 slope=1.97 local=['1.93', '1.96', '1.98', '1.99'] -> PASS 
+cpu joint local: AD=-1.369357e-01 FD=-1.369369e-01 rel=9.09e-06 pair=6.03e-04 extrap=2.96e-04 n=5 slope=1.99 local=['1.98', '2.00', '2.00', '1.96'] -> PASS 
+cpu eps smooth: AD=1.656115e+00 FD=1.656118e+00 rel=1.86e-06 pair=7.37e-06 extrap=2.31e-06 n=6 slope=1.99 local=['1.96', '1.99', '2.00', '2.00', '1.99'] -> PASS 
+cpu sig smooth: AD=-5.648949e-02 FD=-5.648905e-02 rel=7.79e-06 pair=1.01e-04 extrap=3.42e-06 n=6 slope=2.00 local=['2.04', '2.02', '2.00', '2.00', '1.99'] -> PASS 
+cpu joint smooth: AD=1.599626e+00 FD=1.599601e+00 rel=1.55e-05 pair=1.87e-05 extrap=4.54e-06 n=6 slope=1.99 local=['1.97', '1.99', '2.00', '2.00', '1.99'] -> PASS 
+cpu source smooth: AD=-4.708937e-01 FD=-4.708943e-01 rel=1.23e-06 pair=3.94e-05 extrap=9.29e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '2.00'] -> PASS  (16.0s)
+cuda_fast eps pixel: AD=-1.485040e-02 FD=-1.484993e-02 rel=3.15e-05 pair=3.61e-05 extrap=1.82e-05 n=4 slope=1.98 local=['2.06', '1.99', '1.88'] -> PASS 
+cuda_fast sig pixel: AD=-1.986987e-04 FD=-1.987524e-04 rel=2.70e-04 pair=5.61e-04 extrap=5.01e-04 n=4 slope=1.96 local=['1.99', '1.99', '1.93'] -> PASS 
+cuda_fast joint pixel: AD=-1.504910e-02 FD=-1.504811e-02 rel=6.62e-05 pair=8.73e-05 extrap=2.56e-05 n=4 slope=1.98 local=['2.05', '1.99', '1.89'] -> PASS 
+cuda_fast eps random: AD=-7.395675e-02 FD=-7.395599e-02 rel=1.02e-05 pair=2.90e-04 extrap=3.10e-05 n=5 slope=1.98 local=['1.98', '1.99', '1.99', '1.95'] -> PASS 
+cuda_fast sig random: AD=-4.033471e-03 FD=-4.034048e-03 rel=1.43e-04 pair=6.44e-04 extrap=4.89e-04 n=5 slope=1.98 local=['1.99', '1.99', '1.99', '1.96'] -> PASS 
+cuda_fast joint random: AD=-7.799022e-02 FD=-7.799776e-02 rel=9.67e-05 pair=2.76e-04 extrap=6.60e-05 n=5 slope=1.99 local=['1.98', '1.99', '1.99', '1.97'] -> PASS 
+cuda_fast eps local: AD=-1.085473e-01 FD=-1.085328e-01 rel=1.34e-04 pair=3.21e-04 extrap=1.30e-04 n=5 slope=1.99 local=['2.00', '2.00', '2.00', '1.97'] -> PASS 
+cuda_fast sig local: AD=-2.838827e-02 FD=-2.839128e-02 rel=1.06e-04 pair=1.47e-04 extrap=1.29e-05 n=5 slope=1.97 local=['1.93', '1.96', '1.98', '1.98'] -> PASS 
+cuda_fast joint local: AD=-1.369356e-01 FD=-1.369383e-01 rel=2.02e-05 pair=6.06e-04 extrap=2.84e-04 n=5 slope=1.99 local=['1.98', '2.00', '2.00', '1.96'] -> PASS 
+cuda_fast eps smooth: AD=1.656114e+00 FD=1.656107e+00 rel=4.47e-06 pair=1.68e-05 extrap=6.65e-07 n=6 slope=1.99 local=['1.96', '1.99', '2.00', '2.00', '1.99'] -> PASS 
+cuda_fast sig smooth: AD=-5.648951e-02 FD=-5.648765e-02 rel=3.30e-05 pair=8.64e-05 extrap=6.32e-06 n=6 slope=2.00 local=['2.04', '2.02', '2.00', '2.00', '1.99'] -> PASS 
+cuda_fast joint smooth: AD=1.599625e+00 FD=1.599613e+00 rel=7.69e-06 pair=1.34e-05 extrap=5.71e-07 n=6 slope=1.99 local=['1.97', '1.99', '2.00', '2.00', '1.99'] -> PASS 
+cuda_fast source smooth: AD=-4.708860e-01 FD=-4.708837e-01 rel=4.94e-06 pair=1.01e-05 extrap=3.30e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '1.98'] -> PASS  (1.4s)
+cuda_general eps pixel: AD=-1.485040e-02 FD=-1.484993e-02 rel=3.14e-05 pair=3.60e-05 extrap=1.82e-05 n=4 slope=1.98 local=['2.06', '1.99', '1.88'] -> PASS 
+cuda_general sig pixel: AD=-1.986987e-04 FD=-1.987524e-04 rel=2.70e-04 pair=5.61e-04 extrap=5.02e-04 n=4 slope=1.96 local=['1.99', '1.99', '1.93'] -> PASS 
+cuda_general joint pixel: AD=-1.504910e-02 FD=-1.504811e-02 rel=6.61e-05 pair=8.74e-05 extrap=2.57e-05 n=4 slope=1.98 local=['2.05', '1.99', '1.89'] -> PASS 
+cuda_general eps random: AD=-7.395676e-02 FD=-7.395599e-02 rel=1.04e-05 pair=2.90e-04 extrap=3.09e-05 n=5 slope=1.98 local=['1.98', '1.99', '1.99', '1.95'] -> PASS 
+cuda_general sig random: AD=-4.033469e-03 FD=-4.034048e-03 rel=1.43e-04 pair=6.44e-04 extrap=4.89e-04 n=5 slope=1.98 local=['1.99', '1.99', '1.99', '1.96'] -> PASS 
+cuda_general joint random: AD=-7.799022e-02 FD=-7.799776e-02 rel=9.66e-05 pair=2.75e-04 extrap=6.59e-05 n=5 slope=1.99 local=['1.98', '1.99', '1.99', '1.97'] -> PASS 
+cuda_general eps local: AD=-1.085473e-01 FD=-1.085328e-01 rel=1.34e-04 pair=3.21e-04 extrap=1.30e-04 n=5 slope=1.99 local=['2.00', '2.00', '2.00', '1.97'] -> PASS 
+cuda_general sig local: AD=-2.838827e-02 FD=-2.839128e-02 rel=1.06e-04 pair=1.47e-04 extrap=1.29e-05 n=5 slope=1.97 local=['1.93', '1.96', '1.98', '1.98'] -> PASS 
+cuda_general joint local: AD=-1.369356e-01 FD=-1.369383e-01 rel=2.02e-05 pair=6.05e-04 extrap=2.84e-04 n=5 slope=1.99 local=['1.98', '2.00', '2.00', '1.96'] -> PASS 
+cuda_general eps smooth: AD=1.656114e+00 FD=1.656107e+00 rel=4.48e-06 pair=1.68e-05 extrap=6.71e-07 n=6 slope=1.99 local=['1.96', '1.99', '2.00', '2.00', '1.99'] -> PASS 
+cuda_general sig smooth: AD=-5.648951e-02 FD=-5.648765e-02 rel=3.29e-05 pair=8.63e-05 extrap=6.23e-06 n=6 slope=2.00 local=['2.04', '2.02', '2.00', '2.00', '1.99'] -> PASS 
+cuda_general joint smooth: AD=1.599625e+00 FD=1.599613e+00 rel=7.70e-06 pair=1.34e-05 extrap=5.80e-07 n=6 slope=1.99 local=['1.97', '1.99', '2.00', '2.00', '1.99'] -> PASS 
+cuda_general source smooth: AD=-4.708860e-01 FD=-4.708837e-01 rel=4.87e-06 pair=1.01e-05 extrap=3.31e-05 n=8 slope=2.00 local=['2.00', '2.00', '2.00', '2.00', '2.00', '2.00', '1.98'] -> PASS  (1.9s)
+cpu eps random: AD=-1.416319e-01 FD=-1.416401e-01 rel=5.80e-05 pair=8.41e-05 extrap=8.87e-05 n=6 slope=2.01 local=['1.98', '1.99', '2.00', '2.01', '2.12'] -> PASS 
+cpu sig random: AD=4.514104e-03 FD=4.512010e-03 rel=4.64e-04 pair=1.05e-03 extrap=4.22e-04 n=5 slope=2.01 local=['2.02', '2.01', '2.00', '2.02'] -> PASS 
+cpu joint random: AD=-1.371177e-01 FD=-1.371259e-01 rel=5.98e-05 pair=2.47e-04 extrap=1.55e-04 n=6 slope=2.00 local=['1.98', '2.00', '2.00', '2.01', '2.05'] -> PASS 
+cuda_fast eps random: AD=-1.416319e-01 FD=-1.416333e-01 rel=9.45e-06 pair=6.32e-05 extrap=5.80e-06 n=5 slope=2.00 local=['1.98', '1.99', '2.00', '2.01'] -> PASS 
+cuda_fast sig random: AD=4.514125e-03 FD=4.514598e-03 rel=1.05e-04 pair=7.62e-04 extrap=2.98e-04 n=5 slope=2.01 local=['2.02', '2.01', '2.00', '2.02'] -> PASS 
+cuda_fast joint random: AD=-1.371178e-01 FD=-1.371201e-01 rel=1.69e-05 pair=4.14e-04 extrap=1.43e-04 n=5 slope=2.00 local=['1.98', '2.00', '2.00', '2.02'] -> PASS 
+cuda_general eps random: AD=-1.416319e-01 FD=-1.416333e-01 rel=9.36e-06 pair=6.31e-05 extrap=5.71e-06 n=5 slope=2.00 local=['1.98', '1.99', '2.00', '2.01'] -> PASS 
+cuda_general sig random: AD=4.514127e-03 FD=4.514598e-03 rel=1.04e-04 pair=7.63e-04 extrap=2.99e-04 n=5 slope=2.01 local=['2.02', '2.01', '2.00', '2.02'] -> PASS 
+cuda_general joint random: AD=-1.371178e-01 FD=-1.371201e-01 rel=1.68e-05 pair=4.14e-04 extrap=1.43e-04 n=5 slope=2.00 local=['1.98', '2.00', '2.00', '2.02'] -> PASS 
+cpu eps random: AD=2.333678e-02 FD=2.333331e-02 rel=1.49e-04 pair=3.65e-04 extrap=1.45e-04 n=5 slope=2.01 local=['2.03', '2.01', '2.00', '2.02'] -> PASS 
+cpu sig random: AD=-1.623545e-03 FD=-1.623081e-03 rel=2.86e-04 pair=9.43e-04 extrap=4.72e-04 n=5 slope=2.01 local=['2.01', '2.01', '2.00', '2.01'] -> PASS 
+cpu joint random: AD=2.171324e-02 FD=2.172113e-02 rel=3.63e-04 pair=5.00e-04 extrap=3.11e-04 n=5 slope=2.01 local=['2.03', '2.01', '2.00', '2.00'] -> PASS 
+cuda_fast eps random: AD=2.333667e-02 FD=2.333941e-02 rel=1.17e-04 pair=3.44e-04 extrap=6.52e-05 n=5 slope=2.02 local=['2.03', '2.01', '2.01', '2.03'] -> PASS 
+cuda_fast sig random: AD=-1.623560e-03 FD=-1.623024e-03 rel=3.30e-04 pair=3.71e-04 extrap=1.82e-04 n=5 slope=2.01 local=['2.01', '2.01', '2.00', '2.01'] -> PASS 
+cuda_fast joint random: AD=2.171311e-02 FD=2.171883e-02 rel=2.63e-04 pair=9.28e-04 extrap=4.90e-04 n=5 slope=2.01 local=['2.03', '2.01', '2.00', '2.01'] -> PASS 
+cuda_general eps random: AD=2.333669e-02 FD=2.333941e-02 rel=1.17e-04 pair=3.43e-04 extrap=6.60e-05 n=5 slope=2.02 local=['2.03', '2.01', '2.01', '2.03'] -> PASS 
+cuda_general sig random: AD=-1.623561e-03 FD=-1.623024e-03 rel=3.30e-04 pair=3.71e-04 extrap=1.82e-04 n=5 slope=2.01 local=['2.01', '2.01', '2.00', '2.01'] -> PASS 
+cuda_general joint random: AD=2.171313e-02 FD=2.171883e-02 rel=2.62e-04 pair=9.29e-04 extrap=4.91e-04 n=5 slope=2.01 local=['2.03', '2.01', '2.00', '2.01'] -> PASS 
+pixel field {'path': 'cpu', 'label': 'eps', 'n': 48, 'cosine': 0.9999999894636677, 'rel_l2': 0.00014526335822235125, 'max_abs_ad': 0.02711288258433342}
+pixel field {'path': 'cpu', 'label': 'sig', 'n': 48, 'cosine': 0.9999998787232653, 'rel_l2': 0.0005234356831517226, 'max_abs_ad': 0.003024869132786989}
+pixel field {'path': 'cuda_fast', 'label': 'eps', 'n': 48, 'cosine': 0.9999999925789133, 'rel_l2': 0.00012182873292931476, 'max_abs_ad': 0.02711295336484909}
+pixel field {'path': 'cuda_fast', 'label': 'sig', 'n': 48, 'cosine': 0.9999998369346654, 'rel_l2': 0.0005766478405903765, 'max_abs_ad': 0.0030248714610934258}
+wrote /home/ll/下载/DeepGPR-dev/tests/gradient_verification/data/t01_fdtd2d_basic.json
+verdicts: {'PASS': 284, 'PASS (noise-limited)': 3, 'INCONCLUSIVE': 4}

@@ -1,0 +1,21 @@
+Grid-FWI-freeze pml=0 epsilon_only L1x1e7 epsilon: data=PASS, tv=PASS, total=PASS
+Grid-FWI-freeze pml=0 sigma_only L1x1e7 sigma: data=INCONCLUSIVE, tv=INCONCLUSIVE, total=INCONCLUSIVE
+Grid-FWI-freeze pml=0 joint L1x1e7 epsilon: data=PASS, tv=PASS, total=PASS
+Grid-FWI-freeze pml=0 joint L1x1e7 sigma: data=INCONCLUSIVE, tv=INCONCLUSIVE, total=INCONCLUSIVE
+Grid-FWI-freeze pml=0 joint L1x1e7 joint: data=INCONCLUSIVE, tv=PASS, total=INCONCLUSIVE
+Grid-FWI-freeze pml=0 epsilon_only MSEx1e4 epsilon: data=PASS, tv=PASS, total=PASS
+Grid-FWI-freeze pml=0 sigma_only MSEx1e4 sigma: data=PASS, tv=PASS, total=PASS
+Grid-FWI-freeze pml=0 joint MSEx1e4 epsilon: data=INCONCLUSIVE, tv=PASS, total=INCONCLUSIVE
+Grid-FWI-freeze pml=0 joint MSEx1e4 sigma: data=PASS, tv=PASS, total=PASS
+Grid-FWI-freeze pml=0 joint MSEx1e4 joint: data=PASS, tv=PASS, total=PASS
+Grid-FWI-freeze pml=6 epsilon_only L1x1e7 epsilon: data=FAIL, tv=PASS, total=FAIL
+Grid-FWI-freeze pml=6 sigma_only L1x1e7 sigma: data=FAIL, tv=INCONCLUSIVE, total=FAIL
+Grid-FWI-freeze pml=6 joint L1x1e7 epsilon: data=FAIL, tv=PASS, total=FAIL
+Grid-FWI-freeze pml=6 joint L1x1e7 sigma: data=INCONCLUSIVE, tv=INCONCLUSIVE, total=INCONCLUSIVE
+Grid-FWI-freeze pml=6 joint L1x1e7 joint: data=FAIL, tv=PASS, total=FAIL
+Grid-FWI-freeze pml=6 epsilon_only MSEx1e4 epsilon: data=INCONCLUSIVE, tv=PASS, total=INCONCLUSIVE
+Grid-FWI-freeze pml=6 sigma_only MSEx1e4 sigma: data=FAIL, tv=PASS, total=FAIL
+Grid-FWI-freeze pml=6 joint MSEx1e4 epsilon: data=FAIL, tv=PASS, total=FAIL
+Grid-FWI-freeze pml=6 joint MSEx1e4 sigma: data=INCONCLUSIVE, tv=PASS, total=INCONCLUSIVE
+Grid-FWI-freeze pml=6 joint MSEx1e4 joint: data=FAIL, tv=PASS, total=FAIL
+COUNTS {'PASS': 28, 'FAIL': 14, 'INCONCLUSIVE': 18} SUMMARY {'actual_combined_backward_cases': 12, 'combined_vs_separate_gradient_agreement_cases': 12, 'active_gradients_present_finite_cases': 12, 'fixed_inactive_tensors_verified_cases': 12, 'actual_clone_SGD_only_active_updated_cases': 12, 'original_physical_tensors_unchanged_cases': 12, 'single_property_cases_with_frozen_tensor': 8, 'directions': 20, 'term_direction_checks': 60, 'loss_descent_evaluated': False} elapsed 10.365827940870076

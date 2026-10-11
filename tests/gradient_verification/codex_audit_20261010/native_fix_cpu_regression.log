@@ -1,0 +1,8 @@
+test_cpu_lossy_rhs_history_keeps_actual_component_coefficient (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+test_cpu_unupdated_component_keeps_cpml_correction (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+test_cpu_unupdated_components_and_boundary_sources (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.069s
+
+OK

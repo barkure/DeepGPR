@@ -1,0 +1,275 @@
+{
+  "device": "cuda",
+  "models": "synthetic D; zero initial states; full physical gradients",
+  "comparison": {
+    "2d_cuda_fast_stored": {
+      "data": {
+        "shape": [
+          2,
+          400,
+          18
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 9050.38536616423
+      },
+      "eps": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.07939990945663966
+      },
+      "sigma": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 1.4901161193847656e-08,
+        "relative_l2_diff": 4.693946017195181e-08,
+        "before_l2": 2.1039023580209206
+      },
+      "source": {
+        "shape": [
+          1,
+          400,
+          1
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.20775071558472186
+      }
+    },
+    "2d_cuda_fast_reconstructed": {
+      "data": {
+        "shape": [
+          2,
+          400,
+          18
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 9050.38536616423
+      },
+      "eps": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.07939990945663966
+      },
+      "sigma": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 1.4901161193847656e-08,
+        "relative_l2_diff": 4.693946017195181e-08,
+        "before_l2": 2.1039023580209206
+      },
+      "source": {
+        "shape": [
+          1,
+          400,
+          1
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 0.20775071558472186
+      }
+    },
+    "2d_cuda_general_stored": {
+      "data": {
+        "shape": [
+          2,
+          400,
+          18
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 9050.38536616423
+      },
+      "eps": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 2.3283064365386963e-09,
+        "relative_l2_diff": 1.3748296606303068e-07,
+        "before_l2": 0.07939991026704316
+      },
+      "sigma": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 8.940696716308594e-08,
+        "relative_l2_diff": 1.530268457357478e-07,
+        "before_l2": 2.1039023247213424
+      },
+      "source": {
+        "shape": [
+          1,
+          400,
+          1
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 1.4319084584712982e-08,
+        "relative_l2_diff": 3.4632670635209536e-07,
+        "before_l2": 0.20775071191225616
+      }
+    },
+    "2d_cuda_general_reconstructed": {
+      "data": {
+        "shape": [
+          2,
+          400,
+          18
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 9050.38536616423
+      },
+      "eps": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 2.7939677238464355e-09,
+        "relative_l2_diff": 1.4344854047678193e-07,
+        "before_l2": 0.07939991031163555
+      },
+      "sigma": {
+        "shape": [
+          48,
+          48
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 5.960464477539063e-08,
+        "relative_l2_diff": 1.5411825344204177e-07,
+        "before_l2": 2.103902361267986
+      },
+      "source": {
+        "shape": [
+          1,
+          400,
+          1
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 1.5133991837501526e-08,
+        "relative_l2_diff": 3.4509178375391177e-07,
+        "before_l2": 0.20775070992439637
+      }
+    },
+    "3d_cuda_general_stored": {
+      "data": {
+        "shape": [
+          2,
+          150,
+          12
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 2538.994545235073
+      },
+      "eps": {
+        "shape": [
+          16,
+          16,
+          12
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 9.778887033462524e-08,
+        "relative_l2_diff": 6.227408800030321e-06,
+        "before_l2": 0.023733128587150452
+      },
+      "sigma": {
+        "shape": [
+          16,
+          16,
+          12
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 7.62939453125e-06,
+        "relative_l2_diff": 3.472319163681112e-07,
+        "before_l2": 26.571836492284017
+      },
+      "source": {
+        "shape": [
+          1,
+          150,
+          1
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 1.601874828338623e-07,
+        "relative_l2_diff": 1.368610430778188e-06,
+        "before_l2": 0.5937870343602922
+      }
+    },
+    "3d_cuda_general_reconstructed": {
+      "data": {
+        "shape": [
+          2,
+          150,
+          12
+        ],
+        "bitwise_identical": true,
+        "max_abs_diff": 0.0,
+        "relative_l2_diff": 0.0,
+        "before_l2": 2538.994545235073
+      },
+      "eps": {
+        "shape": [
+          16,
+          16,
+          12
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 5.494803190231323e-08,
+        "relative_l2_diff": 2.624312787313978e-06,
+        "before_l2": 0.023733185214214466
+      },
+      "sigma": {
+        "shape": [
+          16,
+          16,
+          12
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 2.86102294921875e-06,
+        "relative_l2_diff": 1.4266709375964592e-07,
+        "before_l2": 26.571840006610188
+      },
+      "source": {
+        "shape": [
+          1,
+          150,
+          1
+        ],
+        "bitwise_identical": false,
+        "max_abs_diff": 7.82310962677002e-08,
+        "relative_l2_diff": 5.833758867342187e-07,
+        "before_l2": 0.5937876345398656
+      }
+    }
+  },
+  "all_bitwise_identical": false
+}

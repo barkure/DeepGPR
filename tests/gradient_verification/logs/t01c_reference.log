@@ -1,0 +1,50 @@
+A                            cpu          data 8.6e-07 eps 2.09e-05 (f32 ref 2.3e-05) sig 4.88e-05 (f32 ref 4.3e-05) cos 0.9999999998 -> PASS
+A                            cuda_fast    data 8.5e-07 eps 2.32e-05 (f32 ref 2.3e-05) sig 5.20e-05 (f32 ref 4.3e-05) cos 0.9999999998 -> PASS
+A                            cuda_general data 8.5e-07 eps 2.32e-05 (f32 ref 2.3e-05) sig 5.21e-05 (f32 ref 4.3e-05) cos 0.9999999997 -> PASS
+reference autograd vs float64 FD (A eps): 1.05e-09
+reference autograd vs float64 FD (A sig): 5.77e-08
+B                            cpu          data 5.7e-07 eps 2.19e-05 (f32 ref 1.2e-05) sig 2.31e-05 (f32 ref 2.2e-05) cos 0.9999999998 -> PASS
+B                            cuda_fast    data 5.6e-07 eps 2.16e-05 (f32 ref 1.2e-05) sig 2.15e-05 (f32 ref 2.2e-05) cos 0.9999999998 -> PASS
+B                            cuda_general data 5.6e-07 eps 2.16e-05 (f32 ref 1.2e-05) sig 2.15e-05 (f32 ref 2.2e-05) cos 0.9999999998 -> PASS
+reference autograd vs float64 FD (B eps): 9.08e-10
+reference autograd vs float64 FD (B sig): 4.64e-08
+C                            cpu          data 4.7e-07 eps 1.12e-05 (f32 ref 1.6e-05) sig 2.28e-05 (f32 ref 2.2e-05) cos 0.9999999999 -> PASS
+C                            cuda_fast    data 4.9e-07 eps 1.27e-05 (f32 ref 1.6e-05) sig 2.56e-05 (f32 ref 2.2e-05) cos 0.9999999999 -> PASS
+C                            cuda_general data 4.9e-07 eps 1.27e-05 (f32 ref 1.6e-05) sig 2.57e-05 (f32 ref 2.2e-05) cos 0.9999999999 -> PASS
+reference autograd vs float64 FD (C eps): 3.52e-10
+reference autograd vs float64 FD (C sig): 1.18e-08
+D                            cpu          data 5.1e-07 eps 2.22e-05 (f32 ref 1.4e-05) sig 2.71e-05 (f32 ref 3.1e-05) cos 0.9999999998 -> PASS
+D                            cuda_fast    data 5.3e-07 eps 2.15e-05 (f32 ref 1.4e-05) sig 2.63e-05 (f32 ref 3.1e-05) cos 0.9999999998 -> PASS
+D                            cuda_general data 5.3e-07 eps 2.15e-05 (f32 ref 1.4e-05) sig 2.62e-05 (f32 ref 3.1e-05) cos 0.9999999998 -> PASS
+reference autograd vs float64 FD (D eps): 1.99e-09
+reference autograd vs float64 FD (D sig): 8.77e-08
+E                            cpu          data 3.3e-06 eps 2.23e-04 (f32 ref 2.4e-04) sig 3.75e-04 (f32 ref 3.7e-04) cos 0.9999999753 -> PASS
+E                            cuda_fast    data 3.3e-06 eps 2.21e-04 (f32 ref 2.4e-04) sig 3.73e-04 (f32 ref 3.7e-04) cos 0.9999999758 -> PASS
+E                            cuda_general data 3.3e-06 eps 2.21e-04 (f32 ref 2.4e-04) sig 3.73e-04 (f32 ref 3.7e-04) cos 0.9999999758 -> PASS
+reference autograd vs float64 FD (E eps): 2.55e-08
+reference autograd vs float64 FD (E sig): 1.13e-06
+F                            cpu          data 1.0e-06 eps 7.12e-05 (f32 ref 8.0e-05) sig 1.18e-04 (f32 ref 1.1e-04) cos 0.9999999975 -> PASS
+F                            cuda_fast    data 1.0e-06 eps 7.77e-05 (f32 ref 8.0e-05) sig 1.24e-04 (f32 ref 1.1e-04) cos 0.9999999970 -> PASS
+F                            cuda_general data 1.0e-06 eps 7.77e-05 (f32 ref 8.0e-05) sig 1.24e-04 (f32 ref 1.1e-04) cos 0.9999999970 -> PASS
+reference autograd vs float64 FD (F eps): 2.17e-09
+reference autograd vs float64 FD (F sig): 1.05e-07
+G                            cpu          data 5.8e-07 eps 1.54e-05 (f32 ref 1.1e-05) sig 2.64e-05 (f32 ref 2.0e-05) cos 0.9999999999 -> PASS
+G                            cuda_fast    data 5.9e-07 eps 1.56e-05 (f32 ref 1.1e-05) sig 2.75e-05 (f32 ref 2.0e-05) cos 0.9999999999 -> PASS
+G                            cuda_general data 5.9e-07 eps 1.56e-05 (f32 ref 1.1e-05) sig 2.75e-05 (f32 ref 2.0e-05) cos 0.9999999999 -> PASS
+reference autograd vs float64 FD (G eps): 1.43e-09
+reference autograd vs float64 FD (G sig): 2.82e-08
+D pml=[3, 12, 0, 7]          cpu          data 6.0e-07 eps 2.18e-05 (f32 ref 1.4e-05) sig 3.10e-05 (f32 ref 3.7e-05) cos 0.9999999998 -> PASS
+D pml=[3, 12, 0, 7]          cuda_fast    data 5.9e-07 eps 2.14e-05 (f32 ref 1.4e-05) sig 3.03e-05 (f32 ref 3.7e-05) cos 0.9999999998 -> PASS
+D pml=[3, 12, 0, 7]          cuda_general data 5.9e-07 eps 2.14e-05 (f32 ref 1.4e-05) sig 3.02e-05 (f32 ref 3.7e-05) cos 0.9999999998 -> PASS
+D pml=0                      cpu          data 6.5e-07 eps 2.72e-05 (f32 ref 1.6e-05) sig 3.21e-05 (f32 ref 3.5e-05) cos 0.9999999997 -> PASS
+D pml=0                      cuda_fast    data 6.6e-07 eps 2.78e-05 (f32 ref 1.6e-05) sig 3.36e-05 (f32 ref 3.5e-05) cos 0.9999999997 -> PASS
+D pml=0                      cuda_general data 6.6e-07 eps 2.78e-05 (f32 ref 1.6e-05) sig 3.36e-05 (f32 ref 3.5e-05) cos 0.9999999997 -> PASS
+D dx=(0.02, 0.015, 0.02)     cpu          data 5.3e-07 eps 2.21e-05 (f32 ref 1.1e-05) sig 2.85e-05 (f32 ref 2.7e-05) cos 0.9999999998 -> PASS
+D dx=(0.02, 0.015, 0.02)     cuda_fast    data 5.0e-07 eps 2.24e-05 (f32 ref 1.1e-05) sig 2.76e-05 (f32 ref 2.7e-05) cos 0.9999999998 -> PASS
+D dx=(0.02, 0.015, 0.02)     cuda_general data 5.0e-07 eps 2.24e-05 (f32 ref 1.1e-05) sig 2.76e-05 (f32 ref 2.7e-05) cos 0.9999999998 -> PASS
+D nt=1200                    cpu          data 5.3e-07 eps 2.20e-05 (f32 ref 1.4e-05) sig 2.68e-05 (f32 ref 3.0e-05) cos 0.9999999998 -> PASS
+D nt=1200                    cuda_fast    data 5.4e-07 eps 2.13e-05 (f32 ref 1.4e-05) sig 2.60e-05 (f32 ref 3.0e-05) cos 0.9999999998 -> PASS
+D nt=1200                    cuda_general data 5.4e-07 eps 2.13e-05 (f32 ref 1.4e-05) sig 2.60e-05 (f32 ref 3.0e-05) cos 0.9999999998 -> PASS
+directional derivatives vs float64 reference: worst rel 0.0030888931012950354 {'model': 'E', 'path': 'cpu', 'kind': 'random', 'label': 'eps', 'g_ad': 0.007853931326558265, 'g_ref': 0.007829746077913306, 'rel_err': 0.0030888931012950354, 'rel_err_cs': 7.997853482547211e-06, 'cancellation': 0.0025892296108253362}
+wrote /home/ll/下载/DeepGPR-dev/tests/gradient_verification/data/t01c_reference.json
+field verdicts {'PASS': 33, 'FAIL': 0}

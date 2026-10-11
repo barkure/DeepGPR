@@ -1,0 +1,10 @@
+test_cuda_fast_unupdated_component_and_boundary_source (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+test_cuda_general_unupdated_component_keeps_cpml_correction (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+test_cuda_general_unupdated_components_and_boundary_sources (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+test_cuda_int8_unupdated_component_and_boundary_source (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+test_cuda_lossy_rhs_history_keeps_actual_component_coefficient (test_unupdated_e_material_gradients.UnupdatedElectricMaterialGradientTests) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.287s
+
+OK

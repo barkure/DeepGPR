@@ -70,24 +70,32 @@ class PreparedModel(NamedTuple):
 
 
 class _ExtendModel(torch.autograd.Function):
-    """Replicate materials into fixed PML cells; backward returns only the model.
+    """Replicate materials into PML and sum sensitivities back to their owner.
 
-    PML is rebuilt from current boundary values on every forward call, but is
-    not an inversion parameter. In particular, halo sensitivities are *not*
-    summed into edge cells as an ordinary replicate-pad backward would do.
+    Fold one axis at a time so faces, edges and corners all contribute, without
+    CUDA atomic scatter in the standard replicate-pad backward.
     """
 
     @staticmethod
     def forward(ctx, model: torch.Tensor, pml: Sequence[int]) -> torch.Tensor:  # type: ignore[override]
-        ctx.model_slices = tuple(
-            slice(pml[2 * axis], pml[2 * axis] + size) for axis, size in enumerate(model.shape)
-        )
+        ctx.model_shape = tuple(model.shape)
+        ctx.pml = tuple(pml)
         padding = (pml[4], pml[5], pml[2], pml[3], pml[0], pml[1])
         return F.pad(model[None, None], padding, mode="replicate")[0, 0]
 
     @staticmethod
     def backward(ctx, gradient: torch.Tensor):  # type: ignore[override]
-        return gradient[ctx.model_slices].contiguous(), None
+        for axis, size in enumerate(ctx.model_shape):
+            low, high = ctx.pml[2 * axis : 2 * axis + 2]
+            folded = gradient.narrow(axis, low, size).clone()
+            if low:
+                folded.select(axis, 0).add_(gradient.narrow(axis, 0, low).sum(dim=axis))
+            if high:
+                folded.select(axis, size - 1).add_(
+                    gradient.narrow(axis, low + size, high).sum(dim=axis)
+                )
+            gradient = folded
+        return gradient.contiguous(), None
 
 
 def _shift_locations(

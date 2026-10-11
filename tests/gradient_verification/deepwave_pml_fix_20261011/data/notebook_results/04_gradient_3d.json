@@ -1,0 +1,643 @@
+{
+  "checks": [
+    {
+      "best_relative_error": 4.838432764771425e-05,
+      "name": "3D relative-permittivity derivative: order 2, polarization 0",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "best_relative_error": 5.851570751017749e-05,
+      "name": "3D conductivity derivative: order 2, polarization 0",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "model_shape": [
+        16,
+        16,
+        16
+      ],
+      "name": "3D physical model gradient shape: order 2, polarization 0",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 9.51928095885906e-05,
+      "name": "3D relative-permittivity derivative: order 2, polarization 1",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "best_relative_error": 4.0344214707675804e-05,
+      "name": "3D conductivity derivative: order 2, polarization 1",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "model_shape": [
+        16,
+        16,
+        16
+      ],
+      "name": "3D physical model gradient shape: order 2, polarization 1",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 0.0002701333252347568,
+      "name": "3D relative-permittivity derivative: order 2, polarization 2",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "best_relative_error": 0.0004058557188409487,
+      "name": "3D conductivity derivative: order 2, polarization 2",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "model_shape": [
+        16,
+        16,
+        16
+      ],
+      "name": "3D physical model gradient shape: order 2, polarization 2",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 4.4983458829922854e-05,
+      "name": "3D relative-permittivity derivative: order 4, polarization 0",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "best_relative_error": 0.00013406225574857353,
+      "name": "3D conductivity derivative: order 4, polarization 0",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "model_shape": [
+        16,
+        16,
+        16
+      ],
+      "name": "3D physical model gradient shape: order 4, polarization 0",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 5.619121101839882e-05,
+      "name": "3D relative-permittivity derivative: order 4, polarization 1",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "best_relative_error": 0.00017115994450563914,
+      "name": "3D conductivity derivative: order 4, polarization 1",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "model_shape": [
+        16,
+        16,
+        16
+      ],
+      "name": "3D physical model gradient shape: order 4, polarization 1",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 0.00016624264890720102,
+      "name": "3D relative-permittivity derivative: order 4, polarization 2",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "best_relative_error": 0.0001612606668134258,
+      "name": "3D conductivity derivative: order 4, polarization 2",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "model_shape": [
+        16,
+        16,
+        16
+      ],
+      "name": "3D physical model gradient shape: order 4, polarization 2",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 0.00016291394413292756,
+      "name": "3D relative-permittivity derivative: order 8, polarization 0",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "best_relative_error": 6.194950897759073e-05,
+      "name": "3D conductivity derivative: order 8, polarization 0",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "model_shape": [
+        16,
+        16,
+        16
+      ],
+      "name": "3D physical model gradient shape: order 8, polarization 0",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 6.5144152467838115e-06,
+      "name": "3D relative-permittivity derivative: order 8, polarization 1",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "best_relative_error": 0.00010894626616628176,
+      "name": "3D conductivity derivative: order 8, polarization 1",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "model_shape": [
+        16,
+        16,
+        16
+      ],
+      "name": "3D physical model gradient shape: order 8, polarization 1",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 0.00026873894499907907,
+      "name": "3D relative-permittivity derivative: order 8, polarization 2",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "best_relative_error": 1.7523155858262377e-05,
+      "name": "3D conductivity derivative: order 8, polarization 2",
+      "status": "PASS",
+      "tolerance": 0.01
+    },
+    {
+      "model_shape": [
+        16,
+        16,
+        16
+      ],
+      "name": "3D physical model gradient shape: order 8, polarization 2",
+      "status": "PASS"
+    },
+    {
+      "message": "mode=2 is an exact model-gradient mode only for 2D Ez-TM modeling. Use mode=3 for 3D or other electric-field components.",
+      "name": "mode=2 gradient is rejected for a 3D model",
+      "received": "ValueError",
+      "status": "PASS"
+    }
+  ],
+  "extra": {
+    "directional_derivative_rows": [
+      {
+        "er_best_relative_error": 4.838432764771425e-05,
+        "er_rows": [
+          {
+            "adjoint": 0.08869914259265338,
+            "finite_difference": 0.0890698282091762,
+            "relative_error": 0.004161741680384487,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.08869914259265338,
+            "finite_difference": 0.08879250381141901,
+            "relative_error": 0.0010514538362823393,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.08869914259265338,
+            "finite_difference": 0.08870343444868922,
+            "relative_error": 4.838432764771425e-05,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.0014771085698157549,
+        "order": 2,
+        "polarization": 0,
+        "se_best_relative_error": 5.851570751017749e-05,
+        "se_rows": [
+          {
+            "adjoint": 5.670320261778077,
+            "finite_difference": 5.671826947946101,
+            "relative_error": 0.00026564388897130133,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 5.670320261778077,
+            "finite_difference": 5.66998845897615,
+            "relative_error": 5.851570751017749e-05,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 5.670320261778077,
+            "finite_difference": 5.667484365403652,
+            "relative_error": 0.0005001298416141556,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 9.51928095885906e-05,
+        "er_rows": [
+          {
+            "adjoint": 0.01531419372376175,
+            "finite_difference": 0.015345701194746653,
+            "relative_error": 0.00205317897077836,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.01531419372376175,
+            "finite_difference": 0.015319910744437948,
+            "relative_error": 0.00037317584753377613,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.01531419372376175,
+            "finite_difference": 0.015312735922634602,
+            "relative_error": 9.51928095885906e-05,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.00038350632530637085,
+        "order": 2,
+        "polarization": 1,
+        "se_best_relative_error": 4.0344214707675804e-05,
+        "se_rows": [
+          {
+            "adjoint": 1.1998090991265062,
+            "finite_difference": 1.1998647823929787,
+            "relative_error": 4.640795137046612e-05,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 1.1998090991265062,
+            "finite_difference": 1.1995687964372337,
+            "relative_error": 0.00020028410306898023,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 1.1998090991265062,
+            "finite_difference": 1.1998575064353645,
+            "relative_error": 4.0344214707675804e-05,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 0.0002701333252347568,
+        "er_rows": [
+          {
+            "adjoint": 0.1133348494334635,
+            "finite_difference": 0.11370370580152667,
+            "relative_error": 0.0032440136006386126,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.1133348494334635,
+            "finite_difference": 0.11342157376930118,
+            "relative_error": 0.0007646194013677704,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.1133348494334635,
+            "finite_difference": 0.11336547322571278,
+            "relative_error": 0.0002701333252347568,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.0023161896970123053,
+        "order": 2,
+        "polarization": 2,
+        "se_best_relative_error": 0.0004058557188409487,
+        "se_rows": [
+          {
+            "adjoint": 7.079961090910827,
+            "finite_difference": 7.083076634444296,
+            "relative_error": 0.00043985738038164414,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 7.079961090910827,
+            "finite_difference": 7.083463715389371,
+            "relative_error": 0.0004944790598607765,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 7.079961090910827,
+            "finite_difference": 7.07708764821291,
+            "relative_error": 0.0004058557188409487,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 4.4983458829922854e-05,
+        "er_rows": [
+          {
+            "adjoint": 0.09066031102899086,
+            "finite_difference": 0.09102216990868328,
+            "relative_error": 0.003975502672101231,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.09066031102899086,
+            "finite_difference": 0.09075442794710398,
+            "relative_error": 0.0010370504254401157,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.09066031102899086,
+            "finite_difference": 0.09066438942681998,
+            "relative_error": 4.4983458829922854e-05,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.0015770362224429846,
+        "order": 4,
+        "polarization": 0,
+        "se_best_relative_error": 0.00013406225574857353,
+        "se_rows": [
+          {
+            "adjoint": 5.773537119916262,
+            "finite_difference": 5.772763106506318,
+            "relative_error": 0.00013406225574857353,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 5.773537119916262,
+            "finite_difference": 5.778138875029981,
+            "relative_error": 0.0007964078422561813,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 5.773537119916262,
+            "finite_difference": 5.762841319665313,
+            "relative_error": 0.0018525558992343177,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 5.619121101839882e-05,
+        "er_rows": [
+          {
+            "adjoint": 0.015090473256860117,
+            "finite_difference": 0.015134915247472236,
+            "relative_error": 0.0029363884690098837,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.015090473256860117,
+            "finite_difference": 0.01510080837761052,
+            "relative_error": 0.000684408443042459,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.015090473256860117,
+            "finite_difference": 0.015091321256477386,
+            "relative_error": 5.619121101839882e-05,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.000347847439115867,
+        "order": 4,
+        "polarization": 1,
+        "se_best_relative_error": 0.00017115994450563914,
+        "se_rows": [
+          {
+            "adjoint": 1.1642464053020327,
+            "finite_difference": 1.163764864031691,
+            "relative_error": 0.0004136076934819388,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 1.1642464053020327,
+            "finite_difference": 1.1644457117654383,
+            "relative_error": 0.00017115994450563914,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 1.1642464053020327,
+            "finite_difference": 1.165274588856846,
+            "relative_error": 0.0008823530218933574,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 0.00016624264890720102,
+        "er_rows": [
+          {
+            "adjoint": 0.11754954580141325,
+            "finite_difference": 0.11791349688792252,
+            "relative_error": 0.0030865939533216533,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.11754954580141325,
+            "finite_difference": 0.11763079382944852,
+            "relative_error": 0.0006907037297824843,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.11754954580141325,
+            "finite_difference": 0.1175690907984972,
+            "relative_error": 0.00016624264890720102,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.002547765616327524,
+        "order": 4,
+        "polarization": 2,
+        "se_best_relative_error": 0.0001612606668134258,
+        "se_rows": [
+          {
+            "adjoint": 7.30741518783682,
+            "finite_difference": 7.308593776542693,
+            "relative_error": 0.0001612606668134258,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 7.30741518783682,
+            "finite_difference": 7.304363534785807,
+            "relative_error": 0.0004176104645171916,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 7.30741518783682,
+            "finite_difference": 7.309373468160629,
+            "relative_error": 0.000267913567741452,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 0.00016291394413292756,
+        "er_rows": [
+          {
+            "adjoint": 0.09054251391652784,
+            "finite_difference": 0.09088170954782981,
+            "relative_error": 0.003732276087120208,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.09054251391652784,
+            "finite_difference": 0.09063234538189135,
+            "relative_error": 0.0009911634194723024,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.09054251391652784,
+            "finite_difference": 0.09055726695805788,
+            "relative_error": 0.00016291394413292756,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.0016019089380279183,
+        "order": 8,
+        "polarization": 0,
+        "se_best_relative_error": 6.194950897759073e-05,
+        "se_rows": [
+          {
+            "adjoint": 5.769355012145057,
+            "finite_difference": 5.769712442997843,
+            "relative_error": 6.194950897759073e-05,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 5.769355012145057,
+            "finite_difference": 5.766229587607086,
+            "relative_error": 0.0005417285868857759,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 5.769355012145057,
+            "finite_difference": 5.768029950559139,
+            "relative_error": 0.00022967239546340607,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 6.5144152467838115e-06,
+        "er_rows": [
+          {
+            "adjoint": 0.014924105650173346,
+            "finite_difference": 0.01496956529081217,
+            "relative_error": 0.003036804326357162,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.014924105650173346,
+            "finite_difference": 0.014934859063941985,
+            "relative_error": 0.0007200211078390537,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.014924105650173346,
+            "finite_difference": 0.014924008428351954,
+            "relative_error": 6.5144152467838115e-06,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.00034256017534062266,
+        "order": 8,
+        "polarization": 1,
+        "se_best_relative_error": 0.00010894626616628176,
+        "se_rows": [
+          {
+            "adjoint": 1.1647256769756371,
+            "finite_difference": 1.1645920312730595,
+            "relative_error": 0.00011474436016950861,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 1.1647256769756371,
+            "finite_difference": 1.165053399745375,
+            "relative_error": 0.0002812942048917486,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 1.1647256769756371,
+            "finite_difference": 1.1648525833152235,
+            "relative_error": 0.00010894626616628176,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 0.00026873894499907907,
+        "er_rows": [
+          {
+            "adjoint": 0.1202949940201788,
+            "finite_difference": 0.12064184838891379,
+            "relative_error": 0.0028750750536979865,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.1202949940201788,
+            "finite_difference": 0.12038681306876242,
+            "relative_error": 0.0007627002180975678,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.1202949940201788,
+            "finite_difference": 0.12032733066007495,
+            "relative_error": 0.00026873894499907907,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.0027127277571707964,
+        "order": 8,
+        "polarization": 2,
+        "se_best_relative_error": 1.7523155858262377e-05,
+        "se_rows": [
+          {
+            "adjoint": 7.461909762705398,
+            "finite_difference": 7.4638836667872965,
+            "relative_error": 0.0002644607244727214,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 7.461909762705398,
+            "finite_difference": 7.460791384801269,
+            "relative_error": 0.000149878240248753,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 7.461909762705398,
+            "finite_difference": 7.462040521204472,
+            "relative_error": 1.7523155858262377e-05,
+            "step": 5e-05
+          }
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "deepgpr_package": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/__init__.py",
+    "device": "cpu",
+    "git_commit": "386f214d88cae2111dda8c5aa1ef0434595b02f8",
+    "git_dirty": true,
+    "native_abi": 6,
+    "native_library": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/lib/deepgpr_cpu.so",
+    "native_library_sha256": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251",
+    "omp_num_threads": "1",
+    "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+    "python": "3.10.16",
+    "source_tree_sha256": "0ee08e098260570f6570a7414749444c2fe0d7b32487ec6dbdfb7b91c6cbd691",
+    "timestamp_utc": "2026-10-11T09:22:17.813505+00:00",
+    "torch": "1.11.0+cu115"
+  },
+  "overall_status": "PASS",
+  "report": "04_gradient_3d"
+}

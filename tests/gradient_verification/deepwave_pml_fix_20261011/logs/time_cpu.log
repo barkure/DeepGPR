@@ -1,0 +1,73 @@
+{
+ "date": "2026-10-11 05:19:08 -0400",
+ "python": "3.10.16",
+ "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+ "torch": "1.11.0+cu115",
+ "torch_cuda": "11.5",
+ "cudnn": 8302,
+ "numpy": "1.26.4",
+ "deepgpr_file": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/__init__.py",
+ "deepgpr_version": "0.1.0",
+ "git_commit": "386f214d88cae2111dda8c5aa1ef0434595b02f8",
+ "git_branch": "test/gradient-verification",
+ "omp_num_threads": "1",
+ "torch_threads": 1,
+ "seed": 20261010,
+ "solver_precision": "float32 (native CPU and CUDA solvers have no float64 path)",
+ "misfit_precision": "float64 accumulation of float32 receiver data",
+ "command": "OMP_NUM_THREADS=1 /home/ll/anaconda3/envs/deepgpr/bin/python -u /home/ll/\u4e0b\u8f7d/DeepGPR-dev/tests/gradient_verification/deepwave_pml_fix_20261011/physical_verification.py time --paths cpu --tag cpu",
+ "hashes": {
+  "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+  "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+  "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+  "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+ }
+}
+nt_series cpu eps/interior_local: INCONCLUSIVE err=0.000223 slope=nan
+nt_series cpu sig/interior_local: INCONCLUSIVE err=0.0298 slope=nan
+nt_series cpu joint/interior_local: INCONCLUSIVE err=0.000659 slope=nan
+nt_series_full cpu joint/smooth: PASS err=8.53e-05 slope=2.01
+nt_series cpu eps/interior_local: INCONCLUSIVE err=0.000148 slope=2
+nt_series cpu sig/interior_local: INCONCLUSIVE err=0.000205 slope=nan
+nt_series cpu joint/interior_local: INCONCLUSIVE err=0.000441 slope=1.98
+nt_series_full cpu joint/smooth: PASS err=6.55e-05 slope=2.01
+nt_series cpu eps/interior_local: PASS err=0.000141 slope=1.97
+nt_series cpu sig/interior_local: PASS err=0.000184 slope=1.95
+nt_series cpu joint/interior_local: PASS err=0.000335 slope=1.93
+nt_series_full cpu joint/smooth: PASS err=6.96e-05 slope=1.99
+nt_series cpu eps/interior_local: PASS err=1.37e-05 slope=1.97
+nt_series cpu sig/interior_local: PASS err=0.000235 slope=2
+nt_series cpu joint/interior_local: PASS err=2.92e-05 slope=2.01
+nt_series_full cpu joint/smooth: PASS err=0.000103 slope=1.98
+nt_series cpu eps/interior_local: PASS err=1.39e-05 slope=1.97
+nt_series cpu sig/interior_local: PASS err=0.000223 slope=2
+nt_series cpu joint/interior_local: PASS err=2.92e-05 slope=2.01
+nt_series_full cpu joint/smooth: PASS err=0.000103 slope=1.98
+window_series cpu eps/interior_local: INCONCLUSIVE err=0.000148 slope=2
+window_series cpu sig/interior_local: INCONCLUSIVE err=0.000205 slope=nan
+window_series cpu joint/interior_local: INCONCLUSIVE err=0.000441 slope=1.98
+window_series cpu eps/interior_local: PASS err=0.000141 slope=1.97
+window_series cpu sig/interior_local: PASS err=0.000184 slope=1.95
+window_series cpu joint/interior_local: PASS err=0.000335 slope=1.93
+window_series cpu eps/interior_local: PASS err=1.37e-05 slope=1.97
+window_series cpu sig/interior_local: PASS err=0.000235 slope=2
+window_series cpu joint/interior_local: PASS err=2.92e-05 slope=2.01
+window_series cpu eps/interior_local: PASS err=1.39e-05 slope=1.97
+window_series cpu sig/interior_local: PASS err=0.000223 slope=2
+window_series cpu joint/interior_local: PASS err=2.92e-05 slope=2.01
+window_series cpu eps/interior_local: PASS err=8.08e-06 slope=1.97
+window_series cpu sig/interior_local: PASS err=0.000168 slope=2
+window_series cpu joint/interior_local: PASS err=2.52e-05 slope=2.01
+window_series cpu eps/interior_local: PASS err=9.87e-05 slope=1.98
+window_series cpu sig/interior_local: PASS err=0.000194 slope=1.94
+window_series cpu joint/interior_local: PASS err=7.92e-05 slope=1.94
+fixed_duration_dt cpu eps/interior_local: PASS err=2.12e-05 slope=2.04
+fixed_duration_dt cpu sig/interior_local: PASS err=0.000109 slope=2
+fixed_duration_dt cpu joint/interior_local: PASS err=1.01e-05 slope=2
+fixed_duration_dt cpu eps/interior_local: PASS err=1.37e-05 slope=1.97
+fixed_duration_dt cpu sig/interior_local: PASS err=0.000235 slope=2
+fixed_duration_dt cpu joint/interior_local: PASS err=2.92e-05 slope=2.01
+fixed_duration_dt cpu eps/interior_local: PASS err=2.93e-05 slope=1.99
+fixed_duration_dt cpu sig/interior_local: PASS err=0.000159 slope=1.98
+fixed_duration_dt cpu joint/interior_local: PASS err=7.26e-06 slope=1.97
+completed seconds 158.7898311088793

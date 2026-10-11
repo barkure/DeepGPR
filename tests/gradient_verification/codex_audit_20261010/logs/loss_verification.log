@@ -1,0 +1,128 @@
+PASS         L2 (official torch MSELoss) random GC=True FD=True
+PASS         L1 (official torch L1Loss) random GC=True FD=True
+PASS         2D actual data objective L1 x 1e7 random GC=True FD=True
+PASS         3D actual data objective MSE x 1e4 random GC=True FD=True
+PASS         Envelope p=1 followed by MSE random GC=True FD=True
+PASS         Envelope p=1.5 followed by MSE random GC=True FD=True
+PASS         Envelope p=2 followed by MSE random GC=True FD=True
+PASS         FIR cutoff=0.12 followed by MSE random GC=True FD=True
+PASS         FIR cutoff=0.14 followed by MSE random GC=True FD=True
+PASS         L2 (official torch MSELoss) ricker GC=True FD=True
+PASS         L1 (official torch L1Loss) ricker GC=True FD=True
+PASS         2D actual data objective L1 x 1e7 ricker GC=True FD=True
+PASS         3D actual data objective MSE x 1e4 ricker GC=True FD=True
+PASS         Envelope p=1 followed by MSE ricker GC=True FD=True
+PASS         Envelope p=1.5 followed by MSE ricker GC=True FD=True
+PASS         Envelope p=2 followed by MSE ricker GC=True FD=True
+PASS         FIR cutoff=0.12 followed by MSE ricker GC=True FD=True
+PASS         FIR cutoff=0.14 followed by MSE ricker GC=True FD=True
+PASS         L2 (official torch MSELoss) shifted GC=True FD=True
+PASS         L1 (official torch L1Loss) shifted GC=True FD=True
+PASS         2D actual data objective L1 x 1e7 shifted GC=True FD=True
+PASS         3D actual data objective MSE x 1e4 shifted GC=True FD=True
+PASS         Envelope p=1 followed by MSE shifted GC=True FD=True
+PASS         Envelope p=1.5 followed by MSE shifted GC=True FD=True
+PASS         Envelope p=2 followed by MSE shifted GC=True FD=True
+PASS         FIR cutoff=0.12 followed by MSE shifted GC=True FD=True
+PASS         FIR cutoff=0.14 followed by MSE shifted GC=True FD=True
+PASS         L2 (official torch MSELoss) scaled GC=True FD=True
+PASS         L1 (official torch L1Loss) scaled GC=True FD=True
+PASS         2D actual data objective L1 x 1e7 scaled GC=True FD=True
+PASS         3D actual data objective MSE x 1e4 scaled GC=True FD=True
+PASS         Envelope p=1 followed by MSE scaled GC=True FD=True
+PASS         Envelope p=1.5 followed by MSE scaled GC=True FD=True
+PASS         Envelope p=2 followed by MSE scaled GC=True FD=True
+PASS         FIR cutoff=0.12 followed by MSE scaled GC=True FD=True
+PASS         FIR cutoff=0.14 followed by MSE scaled GC=True FD=True
+PASS         L2 (official torch MSELoss) low_amplitude GC=True FD=True
+PASS         L1 (official torch L1Loss) low_amplitude GC=True FD=True
+PASS         2D actual data objective L1 x 1e7 low_amplitude GC=True FD=True
+PASS         3D actual data objective MSE x 1e4 low_amplitude GC=True FD=True
+PASS         Envelope p=1 followed by MSE low_amplitude GC=True FD=True
+PASS         Envelope p=1.5 followed by MSE low_amplitude GC=True FD=True
+PASS         Envelope p=2 followed by MSE low_amplitude GC=True FD=True
+PASS         FIR cutoff=0.12 followed by MSE low_amplitude GC=True FD=True
+PASS         FIR cutoff=0.14 followed by MSE low_amplitude GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=1.0, remove_dc=False, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=1.5, remove_dc=False, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=2.0, remove_dc=False, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=1.0, remove_dc=True, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=1.5, remove_dc=True, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=2.0, remove_dc=True, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=1.0, remove_dc=False, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=1.5, remove_dc=False, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=2.0, remove_dc=False, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=1.0, remove_dc=True, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=1.5, remove_dc=True, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=9, p=2.0, remove_dc=True, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=1.0, remove_dc=False, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=1.5, remove_dc=False, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=2.0, remove_dc=False, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=1.0, remove_dc=True, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=1.5, remove_dc=True, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=2.0, remove_dc=True, legacy=False GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=1.0, remove_dc=False, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=1.5, remove_dc=False, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=2.0, remove_dc=False, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=1.0, remove_dc=True, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=1.5, remove_dc=True, legacy=True GC=True FD=True
+PASS         Hilbert direct Jacobian nt=10, p=2.0, remove_dc=True, legacy=True GC=True FD=True
+PASS         FIR direct Jacobian shape=(33,), cutoff=0.12, legacy=False GC=True FD=True
+PASS         FIR direct Jacobian shape=(33,), cutoff=0.12, legacy=True GC=True FD=True
+PASS         FIR direct Jacobian shape=(33,), cutoff=0.14, legacy=False GC=True FD=True
+PASS         FIR direct Jacobian shape=(33,), cutoff=0.14, legacy=True GC=True FD=True
+PASS         FIR direct Jacobian shape=(2, 33, 3), cutoff=0.12, legacy=False GC=True FD=True
+PASS         FIR direct Jacobian shape=(2, 33, 3), cutoff=0.12, legacy=True GC=True FD=True
+PASS         FIR direct Jacobian shape=(2, 33, 3), cutoff=0.14, legacy=False GC=True FD=True
+PASS         FIR direct Jacobian shape=(2, 33, 3), cutoff=0.14, legacy=True GC=True FD=True
+PASS         TV default-dtype contract anisotropic GC=True FD=True
+PASS         TV default-dtype contract isotropic GC=True FD=True
+PASS         TV default-dtype contract legacy_isotropic GC=True FD=True
+PASS         TV float64 context anisotropic, (4, 5), random GC=True FD=True
+PASS         TV float64 context isotropic, (4, 5), random GC=True FD=True
+PASS         TV float64 context legacy_isotropic, (4, 5), random GC=True FD=True
+PASS         TV float64 context anisotropic, (4, 5), scaled GC=True FD=True
+PASS         TV float64 context isotropic, (4, 5), scaled GC=True FD=True
+PASS         TV float64 context legacy_isotropic, (4, 5), scaled GC=True FD=True
+PASS         TV float64 context anisotropic, (4, 5), low_amplitude GC=True FD=True
+FAIL         TV float64 context isotropic, (4, 5), low_amplitude GC=False FD=False
+FAIL         TV float64 context legacy_isotropic, (4, 5), low_amplitude GC=False FD=True
+PASS         TV float64 context anisotropic, (4, 5, 1), random GC=True FD=True
+PASS         TV float64 context isotropic, (4, 5, 1), random GC=True FD=True
+PASS         TV float64 context legacy_isotropic, (4, 5, 1), random GC=True FD=True
+PASS         TV float64 context anisotropic, (4, 5, 1), scaled GC=True FD=True
+PASS         TV float64 context isotropic, (4, 5, 1), scaled GC=True FD=True
+PASS         TV float64 context legacy_isotropic, (4, 5, 1), scaled GC=True FD=True
+PASS         TV float64 context anisotropic, (4, 5, 1), low_amplitude GC=True FD=True
+FAIL         TV float64 context isotropic, (4, 5, 1), low_amplitude GC=False FD=False
+FAIL         TV float64 context legacy_isotropic, (4, 5, 1), low_amplitude GC=False FD=True
+PASS         TV float64 context anisotropic, (3, 4, 3), random GC=True FD=True
+PASS         TV float64 context isotropic, (3, 4, 3), random GC=True FD=True
+PASS         TV float64 context legacy_isotropic, (3, 4, 3), random GC=True FD=True
+PASS         TV float64 context anisotropic, (3, 4, 3), scaled GC=True FD=True
+PASS         TV float64 context isotropic, (3, 4, 3), scaled GC=True FD=True
+PASS         TV float64 context legacy_isotropic, (3, 4, 3), scaled GC=True FD=True
+PASS         TV float64 context anisotropic, (3, 4, 3), low_amplitude GC=True FD=True
+FAIL         TV float64 context isotropic, (3, 4, 3), low_amplitude GC=False FD=False
+FAIL         TV float64 context legacy_isotropic, (3, 4, 3), low_amplitude GC=False FD=True
+PASS         TV float64 context anisotropic, (2, 2, 4, 5), random GC=True FD=True
+PASS         TV float64 context isotropic, (2, 2, 4, 5), random GC=True FD=True
+PASS         TV float64 context legacy_isotropic, (2, 2, 4, 5), random GC=True FD=True
+PASS         TV float64 context anisotropic, (2, 2, 4, 5), scaled GC=True FD=True
+PASS         TV float64 context isotropic, (2, 2, 4, 5), scaled GC=True FD=True
+PASS         TV float64 context legacy_isotropic, (2, 2, 4, 5), scaled GC=True FD=True
+PASS         TV float64 context anisotropic, (2, 2, 4, 5), low_amplitude GC=True FD=True
+FAIL         TV float64 context isotropic, (2, 2, 4, 5), low_amplitude GC=False FD=False
+FAIL         TV float64 context legacy_isotropic, (2, 2, 4, 5), low_amplitude GC=False FD=True
+PASS         2D notebook joint objective  GC=True FD=True
+PASS         3D notebook joint objective  GC=True FD=True
+INCONCLUSIVE L1 zero residual  GC=False FD=False
+INCONCLUSIVE Envelope at zero p=1.0 GC=True FD=True
+PASS         Envelope at zero p=1.5 GC=True FD=True
+PASS         Envelope squared at zero  GC=True FD=True
+INCONCLUSIVE TV at constant model anisotropic GC=True FD=True
+PASS         TV at constant model isotropic GC=True FD=True
+PASS         TV at constant model legacy_isotropic GC=True FD=True
+INCONCLUSIVE TV isotropic epsilon=0 at constant  GC=False FD=False
+INCONCLUSIVE TV legacy partial zero differences  GC=True FD=True
+COUNTS {'PASS': 114, 'FAIL': 0, 'INCONCLUSIVE': 13}

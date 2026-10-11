@@ -1,0 +1,75 @@
+{
+ "date": "2026-10-10 10:12:36 -0400",
+ "python": "3.10.16",
+ "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+ "torch": "1.11.0+cu115",
+ "torch_cuda": "11.5",
+ "cudnn": 8302,
+ "numpy": "1.26.4",
+ "deepgpr_file": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/__init__.py",
+ "deepgpr_version": "0.1.0",
+ "git_commit": "3bfc1e998851dbe489cf3a56b3a7cb27d8f476ba",
+ "git_branch": "test/gradient-verification",
+ "omp_num_threads": "1",
+ "torch_threads": 1,
+ "seed": 20261010,
+ "solver_precision": "float32 (native CPU and CUDA solvers have no float64 path)",
+ "misfit_precision": "float64 accumulation of float32 receiver data",
+ "command": "OMP_NUM_THREADS=1 /home/ll/anaconda3/envs/deepgpr/bin/python -u /home/ll/\u4e0b\u8f7d/DeepGPR-dev/tests/gradient_verification/codex_audit_20261010/physical_verification.py pml --paths cpu --tag cpu",
+ "hashes": {
+  "src/DeepGPR/lib/deepgpr.cu": "436f1d3ca6817fae1631deea7082da9fd6959baef375abff2481a6943e32616b",
+  "src/DeepGPR/lib/deepgpr_cpu.c": "5cc9fe2a0d35fc303913d4ceeb7cb53c70f4ad2e56e0cbe4b4e959265b94e507",
+  "src/DeepGPR/lib/deepgpr.so": "592a9d3bacfa20c2dbfe5b6edc0b11a8ae54c756868d47df0913d1b93c41dabe",
+  "src/DeepGPR/lib/deepgpr_cpu.so": "a901019842ee3daefa05a4412d5e965c1141d3cd404585f4f1d65de216dd4a31"
+ }
+}
+pml_sweep cpu eps/interior_local: PASS err=0.000716 slope=2.04
+pml_sweep cpu eps/edge: INCONCLUSIVE err=0.000307 slope=2
+pml_sweep cpu sig/interior_local: INCONCLUSIVE err=0.000217 slope=nan
+pml_sweep cpu sig/edge: INCONCLUSIVE err=0.000241 slope=nan
+pml_sweep cpu eps/interior_local: PASS err=5.33e-05 slope=1.99
+pml_sweep cpu eps/edge: PASS err=4.66e-06 slope=2
+pml_sweep cpu sig/interior_local: PASS err=8.23e-05 slope=1.96
+pml_sweep cpu sig/edge: PASS err=1.38e-05 slope=1.99
+pml_sweep cpu eps/interior_local: INCONCLUSIVE err=0.000327 slope=1.99
+pml_sweep cpu eps/edge: FAIL err=0.242 slope=0.92
+pml_sweep cpu sig/interior_local: INCONCLUSIVE err=0.000114 slope=nan
+pml_sweep cpu sig/edge: FAIL err=0.153 slope=0.85
+pml_sweep cpu eps/interior_local: PASS err=1.22e-05 slope=2
+pml_sweep cpu eps/edge: FAIL err=1.09 slope=0.989
+pml_sweep cpu sig/interior_local: PASS err=4.58e-06 slope=1.98
+pml_sweep cpu sig/edge: FAIL err=0.446 slope=1.01
+pml_sweep cpu eps/interior_local: PASS err=0.000496 slope=2.05
+pml_sweep cpu eps/edge: FAIL err=0.228 slope=0.887
+pml_sweep cpu sig/interior_local: INCONCLUSIVE err=0.000551 slope=nan
+pml_sweep cpu sig/edge: FAIL err=0.146 slope=0.887
+pml_sweep cpu eps/interior_local: PASS err=2.44e-05 slope=2
+pml_sweep cpu eps/edge: FAIL err=1.07 slope=0.987
+pml_sweep cpu sig/interior_local: PASS err=5.78e-05 slope=1.98
+pml_sweep cpu sig/edge: FAIL err=0.43 slope=1.01
+pml_sweep cpu eps/interior_local: PASS err=0.000708 slope=1.99
+pml_sweep cpu eps/edge: FAIL err=0.242 slope=0.919
+pml_sweep cpu sig/interior_local: INCONCLUSIVE err=8.06e-05 slope=nan
+pml_sweep cpu sig/edge: FAIL err=0.0892 slope=0.577
+pml_sweep cpu eps/interior_local: PASS err=2.1e-05 slope=2
+pml_sweep cpu eps/edge: FAIL err=1.07 slope=0.988
+pml_sweep cpu sig/interior_local: PASS err=2.86e-05 slope=1.98
+pml_sweep cpu sig/edge: FAIL err=0.432 slope=1
+pml_sweep cpu eps/interior_local: PASS err=0.000143 slope=2.11
+pml_sweep cpu eps/edge: FAIL err=0.245 slope=0.902
+pml_sweep cpu sig/interior_local: INCONCLUSIVE err=0.000486 slope=nan
+pml_sweep cpu sig/edge: FAIL err=0.13 slope=0.843
+pml_sweep cpu eps/interior_local: PASS err=9.53e-06 slope=2
+pml_sweep cpu eps/edge: FAIL err=1.08 slope=0.988
+pml_sweep cpu sig/interior_local: PASS err=9.71e-06 slope=1.98
+pml_sweep cpu sig/edge: FAIL err=0.434 slope=1
+stencil_order cpu eps/interior_local: PASS err=3.81e-05 slope=2.01
+stencil_order cpu sig/interior_local: PASS err=0.000257 slope=1.92
+stencil_order cpu joint/interior_local: PASS err=1.79e-05 slope=2
+stencil_order cpu eps/interior_local: PASS err=1.61e-05 slope=1.98
+stencil_order cpu sig/interior_local: PASS err=0.000168 slope=1.91
+stencil_order cpu joint/interior_local: PASS err=3.17e-05 slope=2.01
+stencil_order cpu eps/interior_local: PASS err=1.73e-05 slope=1.96
+stencil_order cpu sig/interior_local: PASS err=0.000294 slope=2
+stencil_order cpu joint/interior_local: PASS err=3.04e-05 slope=2
+completed seconds 82.90508281602524

@@ -716,7 +716,7 @@ dump (3D gradients 3.4e-7, atomic order).
 | check | baseline (`ccf0e54`) | final tree |
 |---|---|---|
 | `python -m unittest discover -s tests -p "test_*.py"` | 105 run, all passed, 1 skipped | 142 run, all passed, 1 skipped (same skipped two-GPU test); no baseline test removed, 37 added (`history_adjoint_ab/final/unittest.log`) |
-| `tools/verify_equivalence.py` (default reference `73b2b50`) | - | all checks passed: 92 cases, forward 0.0, gradients ≤ 8e-7, CPU bitwise determinism for 1/2/4/8 threads (`final/verify_equivalence_73b2b50.log`) |
+| `website/tools/verify_equivalence.py` (default reference `73b2b50`) | - | all checks passed: 92 cases, forward 0.0, gradients ≤ 8e-7, CPU bitwise determinism for 1/2/4/8 threads (`final/verify_equivalence_73b2b50.log`) |
 | same with `--reference-src` = baseline tree | - | every solver case passes (forward 0.0 everywhere, gradients ≤ 7.9e-7); the "FIR / envelope / TV" check fails by construction, because it compares `legacy=True` against the reference's default and is only meaningful against the pre-0.1.0 reference (`final/verify_equivalence_vs_baseline.log`) |
 | `ruff check src/DeepGPR tools` | - | passed |
 
@@ -728,7 +728,7 @@ seeds accept a per-face PML list).
 
 ## Observations outside the scope (not changed)
 
-- `tools/verify_equivalence.py`: the helper check assumes the pre-0.1.0
+- `website/tools/verify_equivalence.py`: the helper check assumes the pre-0.1.0
   reference; with any later `--reference-src` it reports the legacy helpers
   as failures (see above).
 - `adjoint_e_gpu` / `adjoint_h_gpu` are still instantiated with `TM2D = 1`

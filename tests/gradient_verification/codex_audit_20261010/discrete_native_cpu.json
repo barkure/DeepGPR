@@ -1,0 +1,17 @@
+{
+  "device": "cpu",
+  "tests": [
+    "test_weighted_curl_dot_products_orders_2_4_8",
+    "test_native_field_update_dot_products_orders_2_4_8",
+    "test_native_cpml_single_step_dot_product_all_faces",
+    "test_source_waveform_gradient_matches_finite_difference",
+    "test_material_taylor_checks_without_and_with_cpml",
+    "test_incomplete_sampling_block_uses_actual_length",
+    "test_native_2d_tm_state_dot_products_orders_2_4_8"
+  ],
+  "ran": 7,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true
+}

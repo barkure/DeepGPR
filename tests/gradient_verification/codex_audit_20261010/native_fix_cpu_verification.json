@@ -1,0 +1,318 @@
+{
+  "device": "cpu",
+  "cases": {
+    "before": [
+      {
+        "path": "cpu",
+        "component": 2,
+        "dims": 2,
+        "rhs": "stored",
+        "source_value": 0.0,
+        "cpml_correction": false,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4
+        ],
+        "J": 0.5,
+        "data": 1.0,
+        "tm2d_fast_path": false,
+        "ad_eps": 0.0,
+        "ad_sigma": -0.7033979892730713,
+        "fd_eps": 0.0,
+        "fd_sigma": 0.0,
+        "analytic_eps": -0.0,
+        "analytic_sigma": -0.0
+      },
+      {
+        "path": "cpu",
+        "component": 2,
+        "dims": 2,
+        "rhs": "stored",
+        "source_value": 0.0002,
+        "cpml_correction": false,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4
+        ],
+        "J": 0.21014709677763932,
+        "data": 0.6483010053634644,
+        "tm2d_fast_path": false,
+        "ad_eps": 0.05680122599005699,
+        "ad_sigma": -0.37582385540008545,
+        "fd_eps": 0.05680369214540182,
+        "fd_sigma": 0.08018801859766,
+        "analytic_eps": 0.056801236764824556,
+        "analytic_sigma": 0.08018978980024317
+      },
+      {
+        "path": "cpu",
+        "component": 2,
+        "dims": 2,
+        "rhs": "reconstructed",
+        "source_value": 0.0,
+        "cpml_correction": false,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4
+        ],
+        "J": 0.5,
+        "data": 1.0,
+        "tm2d_fast_path": false,
+        "ad_eps": 0.0,
+        "ad_sigma": -0.7033979892730713,
+        "fd_eps": 0.0,
+        "fd_sigma": 0.0,
+        "analytic_eps": -0.0,
+        "analytic_sigma": -0.0
+      },
+      {
+        "path": "cpu",
+        "component": 2,
+        "dims": 2,
+        "rhs": "reconstructed",
+        "source_value": 0.0002,
+        "cpml_correction": false,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4
+        ],
+        "J": 0.21014709677763932,
+        "data": 0.6483010053634644,
+        "tm2d_fast_path": false,
+        "ad_eps": 0.05680122599005699,
+        "ad_sigma": -0.37582385540008545,
+        "fd_eps": 0.05680369214540182,
+        "fd_sigma": 0.08018801859766,
+        "analytic_eps": 0.056801236764824556,
+        "analytic_sigma": 0.08018978980024317
+      },
+      {
+        "path": "cpu",
+        "component": 1,
+        "dims": 3,
+        "rhs": "stored",
+        "source_value": 0.0,
+        "cpml_correction": true,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4,
+          0
+        ],
+        "J": 0.9135450860507106,
+        "data": 1.3516989946365356,
+        "tm2d_fast_path": false,
+        "ad_eps": -0.11842979490756989,
+        "ad_sigma": -1.1179770231246948,
+        "fd_eps": -0.11844539881593619,
+        "fd_sigma": -0.16720455704917944,
+        "analytic_eps": -0.11842982502561468,
+        "analytic_sigma": -0.16719464778916165
+      },
+      {
+        "path": "cpu",
+        "component": 1,
+        "dims": 3,
+        "rhs": "reconstructed",
+        "source_value": 0.0,
+        "cpml_correction": true,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4,
+          0
+        ],
+        "J": 0.9135450860507106,
+        "data": 1.3516989946365356,
+        "tm2d_fast_path": false,
+        "ad_eps": -0.11842979490756989,
+        "ad_sigma": -1.1179770231246948,
+        "fd_eps": -0.11844539881593619,
+        "fd_sigma": -0.16720455704917944,
+        "analytic_eps": -0.11842982502561468,
+        "analytic_sigma": -0.16719464778916165
+      }
+    ],
+    "after": [
+      {
+        "path": "cpu",
+        "component": 2,
+        "dims": 2,
+        "rhs": "stored",
+        "source_value": 0.0,
+        "cpml_correction": false,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4
+        ],
+        "J": 0.5,
+        "data": 1.0,
+        "tm2d_fast_path": false,
+        "ad_eps": 0.0,
+        "ad_sigma": 0.0,
+        "fd_eps": 0.0,
+        "fd_sigma": 0.0,
+        "analytic_eps": -0.0,
+        "analytic_sigma": -0.0
+      },
+      {
+        "path": "cpu",
+        "component": 2,
+        "dims": 2,
+        "rhs": "stored",
+        "source_value": 0.0002,
+        "cpml_correction": false,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4
+        ],
+        "J": 0.21014709677763932,
+        "data": 0.6483010053634644,
+        "tm2d_fast_path": false,
+        "ad_eps": 0.05680122599005699,
+        "ad_sigma": 0.0801897719502449,
+        "fd_eps": 0.05680369214540182,
+        "fd_sigma": 0.08018801859766,
+        "analytic_eps": 0.056801236764824556,
+        "analytic_sigma": 0.08018978980024317
+      },
+      {
+        "path": "cpu",
+        "component": 2,
+        "dims": 2,
+        "rhs": "reconstructed",
+        "source_value": 0.0,
+        "cpml_correction": false,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4
+        ],
+        "J": 0.5,
+        "data": 1.0,
+        "tm2d_fast_path": false,
+        "ad_eps": 0.0,
+        "ad_sigma": 0.0,
+        "fd_eps": 0.0,
+        "fd_sigma": 0.0,
+        "analytic_eps": -0.0,
+        "analytic_sigma": -0.0
+      },
+      {
+        "path": "cpu",
+        "component": 2,
+        "dims": 2,
+        "rhs": "reconstructed",
+        "source_value": 0.0002,
+        "cpml_correction": false,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4
+        ],
+        "J": 0.21014709677763932,
+        "data": 0.6483010053634644,
+        "tm2d_fast_path": false,
+        "ad_eps": 0.05680122599005699,
+        "ad_sigma": 0.0801897719502449,
+        "fd_eps": 0.05680369214540182,
+        "fd_sigma": 0.08018801859766,
+        "analytic_eps": 0.056801236764824556,
+        "analytic_sigma": 0.08018978980024317
+      },
+      {
+        "path": "cpu",
+        "component": 1,
+        "dims": 3,
+        "rhs": "stored",
+        "source_value": 0.0,
+        "cpml_correction": true,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4,
+          0
+        ],
+        "J": 0.9135450860507106,
+        "data": 1.3516989946365356,
+        "tm2d_fast_path": false,
+        "ad_eps": -0.11842980235815048,
+        "ad_sigma": -0.16719461977481842,
+        "fd_eps": -0.11844539881593619,
+        "fd_sigma": -0.16720455704917944,
+        "analytic_eps": -0.11842982502561468,
+        "analytic_sigma": -0.16719464778916165
+      },
+      {
+        "path": "cpu",
+        "component": 1,
+        "dims": 3,
+        "rhs": "reconstructed",
+        "source_value": 0.0,
+        "cpml_correction": true,
+        "compression": null,
+        "storage_dtype": "torch.float32",
+        "conversion_backend": "auto",
+        "cell": [
+          0,
+          4,
+          0
+        ],
+        "J": 0.9135450860507106,
+        "data": 1.3516989946365356,
+        "tm2d_fast_path": false,
+        "ad_eps": -0.11842980235815048,
+        "ad_sigma": -0.16719461977481842,
+        "fd_eps": -0.11844539881593619,
+        "fd_sigma": -0.16720455704917944,
+        "analytic_eps": -0.11842982502561468,
+        "analytic_sigma": -0.16719464778916165
+      }
+    ]
+  },
+  "normal_interior_forward": {
+    "shape": [
+      2,
+      120,
+      10
+    ],
+    "bitwise_identical": true,
+    "max_abs_diff": 0.0,
+    "relative_l2_diff": 0.0
+  },
+  "regression_tests": {
+    "ran": 3,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "successful": true
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "scenario": "unupdated physical low-face Ez cell, no CPML, nonzero initial Ez, one time step",
+  "data": 1.0,
+  "J0": 0.5,
+  "ad_sigma_at_0_4": -0.7033979892730713,
+  "rows": [
+    {
+      "h_sigma": 0.003,
+      "J_plus": 0.5,
+      "J_minus": 0.5,
+      "fd_sigma_at_0_4": 0.0
+    },
+    {
+      "h_sigma": 0.001,
+      "J_plus": 0.5,
+      "J_minus": 0.5,
+      "fd_sigma_at_0_4": 0.0
+    }
+  ]
+}

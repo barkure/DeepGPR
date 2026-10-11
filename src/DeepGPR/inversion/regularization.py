@@ -137,7 +137,7 @@ class TVRegularization(nn.Module):
             raise ValueError("TVRegularization needs at least one of ep or sigma.")
         reference = ep if ep is not None else sigma
         assert reference is not None
-        loss = torch.tensor(0.0, device=reference.device)
+        loss = reference.new_zeros(())
         if ep is not None and self.weight_ep > 0:
             loss += self.weight_ep * self._compute_tv(ep)
         if sigma is not None and self.weight_sigma > 0:

@@ -1,0 +1,191 @@
+{
+ "date": "2026-10-11 02:34:34 -0400",
+ "python": "3.10.16",
+ "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+ "torch": "1.11.0+cu115",
+ "torch_cuda": "11.5",
+ "cudnn": 8302,
+ "numpy": "1.26.4",
+ "deepgpr_file": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/__init__.py",
+ "deepgpr_version": "0.1.0",
+ "git_commit": "386f214d88cae2111dda8c5aa1ef0434595b02f8",
+ "git_branch": "test/gradient-verification",
+ "omp_num_threads": "1",
+ "torch_threads": 1,
+ "seed": 20261010,
+ "solver_precision": "float32 (native CPU and CUDA solvers have no float64 path)",
+ "misfit_precision": "float64 accumulation of float32 receiver data",
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "gpu_capability": [
+  8,
+  9
+ ],
+ "nvidia_smi": "NVIDIA GeForce RTX 4090, 575.51.03, 28 %, 1230 MiB, 24564 MiB",
+ "nvidia_smi_apps": "",
+ "command": "OMP_NUM_THREADS=1 /home/ll/anaconda3/envs/deepgpr/bin/python -u /home/ll/\u4e0b\u8f7d/DeepGPR-dev/tests/gradient_verification/deepwave_pml_fix_20261011/physical_verification.py basic --paths cuda_fast,cuda_general --tag cuda",
+ "hashes": {
+  "src/DeepGPR/lib/deepgpr.cu": "0b0af83588eeba425530c668197962cbfbbc4f86724f6ac8bb243b20ca0ff52f",
+  "src/DeepGPR/lib/deepgpr_cpu.c": "869e4031622142cff685e2511665c743c1d0d1f82fcef7988d77f5844313a4a3",
+  "src/DeepGPR/lib/deepgpr.so": "af0615ebc0052c227abc4f444393dfa5eb066e13cf25183ae6af7c6a011234fb",
+  "src/DeepGPR/lib/deepgpr_cpu.so": "cd20d0f3ab3222d3b2ffe3139216fe100e51eb68d9b729ba7a2ddec28a2e1da9"
+ }
+}
+2d_A cuda_fast eps/pixel: PASS err=1.16e-05 slope=2.03
+2d_A cuda_fast eps/random: PASS err=0.0011 slope=1.99
+2d_A cuda_fast eps/local: PASS err=2.67e-05 slope=1.99
+2d_A cuda_fast eps/smooth: PASS err=0.000127 slope=1.98
+2d_A cuda_fast sig/pixel: INCONCLUSIVE err=8.14e-06 slope=2.08
+2d_A cuda_fast sig/random: PASS err=1.45e-05 slope=1.93
+2d_A cuda_fast sig/local: PASS err=0.000138 slope=1.91
+2d_A cuda_fast sig/smooth: PASS err=0.00192 slope=1.98
+2d_A cuda_fast joint/random: PASS err=0.000822 slope=1.99
+2d_A cuda_fast joint/smooth: PASS err=0.000317 slope=1.99
+2d_A cuda_fast joint/interior_local: PASS err=2e-05 slope=1.99
+2d_A cuda_general eps/pixel: PASS err=1.18e-05 slope=2.03
+2d_A cuda_general eps/random: PASS err=0.0011 slope=1.99
+2d_A cuda_general eps/local: PASS err=2.68e-05 slope=1.99
+2d_A cuda_general eps/smooth: PASS err=0.000127 slope=1.98
+2d_A cuda_general sig/pixel: INCONCLUSIVE err=7.76e-06 slope=2.08
+2d_A cuda_general sig/random: PASS err=1.47e-05 slope=1.93
+2d_A cuda_general sig/local: PASS err=0.000138 slope=1.91
+2d_A cuda_general sig/smooth: PASS err=0.00192 slope=1.98
+2d_A cuda_general joint/random: PASS err=0.000821 slope=1.99
+2d_A cuda_general joint/smooth: PASS err=0.000318 slope=1.99
+2d_A cuda_general joint/interior_local: PASS err=1.99e-05 slope=1.99
+2d_B cuda_fast eps/pixel: PASS err=0.000356 slope=2
+2d_B cuda_fast eps/random: PASS err=2.88e-05 slope=2.01
+2d_B cuda_fast eps/local: PASS err=1.36e-05 slope=2.01
+2d_B cuda_fast eps/smooth: PASS err=2.32e-05 slope=2.04
+2d_B cuda_fast sig/pixel: INCONCLUSIVE err=6.27e-05 slope=2.05
+2d_B cuda_fast sig/random: PASS (noise-limited) err=0.00366 slope=2.03
+2d_B cuda_fast sig/local: PASS err=8.24e-05 slope=2.01
+2d_B cuda_fast sig/smooth: PASS err=0.00138 slope=2.1
+2d_B cuda_fast joint/random: PASS err=3.31e-05 slope=2
+2d_B cuda_fast joint/smooth: PASS err=5.38e-05 slope=2.05
+2d_B cuda_fast joint/interior_local: PASS err=3.11e-05 slope=1.99
+2d_B cuda_general eps/pixel: PASS err=0.000356 slope=2
+2d_B cuda_general eps/random: PASS err=2.88e-05 slope=2.01
+2d_B cuda_general eps/local: PASS err=1.36e-05 slope=2.01
+2d_B cuda_general eps/smooth: PASS err=2.32e-05 slope=2.04
+2d_B cuda_general sig/pixel: INCONCLUSIVE err=6.27e-05 slope=2.05
+2d_B cuda_general sig/random: PASS (noise-limited) err=0.00366 slope=2.03
+2d_B cuda_general sig/local: PASS err=8.24e-05 slope=2.01
+2d_B cuda_general sig/smooth: PASS err=0.00138 slope=2.1
+2d_B cuda_general joint/random: PASS err=3.31e-05 slope=2
+2d_B cuda_general joint/smooth: PASS err=5.38e-05 slope=2.05
+2d_B cuda_general joint/interior_local: PASS err=3.11e-05 slope=1.99
+2d_C cuda_fast eps/pixel: PASS err=4e-05 slope=2.03
+2d_C cuda_fast eps/random: PASS err=3.99e-05 slope=2
+2d_C cuda_fast eps/local: PASS err=3.06e-05 slope=2
+2d_C cuda_fast eps/smooth: PASS err=0.000205 slope=2.01
+2d_C cuda_fast sig/pixel: INCONCLUSIVE err=4.45e-05 slope=2.09
+2d_C cuda_fast sig/random: PASS err=0.00112 slope=1.99
+2d_C cuda_fast sig/local: PASS err=0.000146 slope=1.98
+2d_C cuda_fast sig/smooth: INCONCLUSIVE err=0.000301 slope=2
+2d_C cuda_fast joint/random: PASS err=7.05e-05 slope=1.99
+2d_C cuda_fast joint/smooth: PASS err=1.57e-05 slope=1.93
+2d_C cuda_fast joint/interior_local: PASS err=1.52e-05 slope=1.97
+2d_C cuda_general eps/pixel: PASS err=4e-05 slope=2.03
+2d_C cuda_general eps/random: PASS err=3.99e-05 slope=2
+2d_C cuda_general eps/local: PASS err=3.05e-05 slope=2
+2d_C cuda_general eps/smooth: PASS err=0.000205 slope=2.01
+2d_C cuda_general sig/pixel: INCONCLUSIVE err=4.44e-05 slope=2.09
+2d_C cuda_general sig/random: PASS err=0.00112 slope=1.99
+2d_C cuda_general sig/local: PASS err=0.000146 slope=1.98
+2d_C cuda_general sig/smooth: INCONCLUSIVE err=0.000301 slope=2
+2d_C cuda_general joint/random: PASS err=7.06e-05 slope=1.99
+2d_C cuda_general joint/smooth: PASS err=1.57e-05 slope=1.93
+2d_C cuda_general joint/interior_local: PASS err=1.52e-05 slope=1.97
+2d_D cuda_fast eps/pixel: PASS err=0.000499 slope=2.06
+2d_D cuda_fast eps/random: PASS err=0.000114 slope=2.05
+2d_D cuda_fast eps/local: PASS err=8.76e-07 slope=2
+2d_D cuda_fast eps/smooth: PASS err=0.000111 slope=2.02
+2d_D cuda_fast sig/pixel: INCONCLUSIVE err=0.000354 slope=1.98
+2d_D cuda_fast sig/random: PASS err=0.00155 slope=2
+2d_D cuda_fast sig/local: PASS err=0.000127 slope=1.89
+2d_D cuda_fast sig/smooth: INCONCLUSIVE err=0.000366 slope=1.94
+2d_D cuda_fast joint/random: PASS (noise-limited) err=0.000622 slope=2
+2d_D cuda_fast joint/smooth: PASS err=0.000107 slope=1.98
+2d_D cuda_fast joint/interior_local: PASS err=3.58e-05 slope=2.01
+2d_D cuda_general eps/pixel: PASS err=0.000498 slope=2.06
+2d_D cuda_general eps/random: PASS err=0.000112 slope=2.05
+2d_D cuda_general eps/local: PASS err=8.55e-07 slope=2
+2d_D cuda_general eps/smooth: PASS err=0.000111 slope=2.02
+2d_D cuda_general sig/pixel: INCONCLUSIVE err=0.000354 slope=1.98
+2d_D cuda_general sig/random: PASS err=0.00155 slope=2
+2d_D cuda_general sig/local: PASS err=0.000126 slope=1.89
+2d_D cuda_general sig/smooth: INCONCLUSIVE err=0.000366 slope=1.94
+2d_D cuda_general joint/random: PASS (noise-limited) err=0.000621 slope=2
+2d_D cuda_general joint/smooth: PASS err=0.000107 slope=1.98
+2d_D cuda_general joint/interior_local: PASS err=3.58e-05 slope=2.01
+2d_E cuda_fast eps/pixel: PASS err=0.000361 slope=1.99
+2d_E cuda_fast eps/random: PASS err=8.99e-05 slope=1.94
+2d_E cuda_fast eps/local: PASS err=5.24e-05 slope=1.98
+2d_E cuda_fast eps/smooth: PASS err=0.000276 slope=1.97
+2d_E cuda_fast sig/pixel: INCONCLUSIVE err=8.41e-05 slope=1.89
+2d_E cuda_fast sig/random: PASS err=0.000527 slope=1.86
+2d_E cuda_fast sig/local: PASS err=0.000595 slope=1.95
+2d_E cuda_fast sig/smooth: PASS err=0.000559 slope=1.95
+2d_E cuda_fast joint/random: PASS err=0.000736 slope=1.94
+2d_E cuda_fast joint/smooth: PASS err=6.08e-05 slope=1.98
+2d_E cuda_fast joint/interior_local: PASS err=6.74e-06 slope=1.98
+2d_E cuda_general eps/pixel: PASS err=0.000362 slope=1.99
+2d_E cuda_general eps/random: PASS err=8.96e-05 slope=1.94
+2d_E cuda_general eps/local: PASS err=5.25e-05 slope=1.98
+2d_E cuda_general eps/smooth: PASS err=0.000276 slope=1.97
+2d_E cuda_general sig/pixel: INCONCLUSIVE err=8.4e-05 slope=1.89
+2d_E cuda_general sig/random: PASS err=0.000527 slope=1.86
+2d_E cuda_general sig/local: PASS err=0.000595 slope=1.95
+2d_E cuda_general sig/smooth: PASS err=0.000558 slope=1.95
+2d_E cuda_general joint/random: PASS err=0.000736 slope=1.94
+2d_E cuda_general joint/smooth: PASS err=6.08e-05 slope=1.98
+2d_E cuda_general joint/interior_local: PASS err=6.79e-06 slope=1.98
+2d_F cuda_fast eps/pixel: PASS err=0.000271 slope=1.99
+2d_F cuda_fast eps/random: PASS err=0.000542 slope=1.98
+2d_F cuda_fast eps/local: PASS err=1.01e-05 slope=1.99
+2d_F cuda_fast eps/smooth: PASS err=0.000128 slope=1.99
+2d_F cuda_fast sig/pixel: INCONCLUSIVE err=0.000234 slope=1.95
+2d_F cuda_fast sig/random: PASS (noise-limited) err=0.00216 slope=1.97
+2d_F cuda_fast sig/local: PASS err=8.64e-05 slope=1.94
+2d_F cuda_fast sig/smooth: PASS err=0.000531 slope=1.93
+2d_F cuda_fast joint/random: PASS err=0.000411 slope=1.97
+2d_F cuda_fast joint/smooth: PASS err=0.000322 slope=1.99
+2d_F cuda_fast joint/interior_local: PASS err=0.000136 slope=1.99
+2d_F cuda_general eps/pixel: PASS err=0.000272 slope=1.99
+2d_F cuda_general eps/random: PASS err=0.000542 slope=1.98
+2d_F cuda_general eps/local: PASS err=1e-05 slope=1.99
+2d_F cuda_general eps/smooth: PASS err=0.000128 slope=1.99
+2d_F cuda_general sig/pixel: INCONCLUSIVE err=0.000234 slope=1.95
+2d_F cuda_general sig/random: PASS (noise-limited) err=0.00216 slope=1.97
+2d_F cuda_general sig/local: PASS err=8.64e-05 slope=1.94
+2d_F cuda_general sig/smooth: PASS err=0.000531 slope=1.93
+2d_F cuda_general joint/random: PASS err=0.000411 slope=1.97
+2d_F cuda_general joint/smooth: PASS err=0.000322 slope=1.99
+2d_F cuda_general joint/interior_local: PASS err=0.000136 slope=1.99
+2d_G cuda_fast eps/pixel: PASS err=0.00011 slope=2.03
+2d_G cuda_fast eps/random: PASS err=0.000252 slope=1.99
+2d_G cuda_fast eps/local: PASS err=3.23e-05 slope=2
+2d_G cuda_fast eps/smooth: PASS err=0.000184 slope=2
+2d_G cuda_fast sig/pixel: INCONCLUSIVE err=3.77e-05 slope=2.08
+2d_G cuda_fast sig/random: PASS err=0.000366 slope=2.01
+2d_G cuda_fast sig/local: PASS err=4.38e-05 slope=1.98
+2d_G cuda_fast sig/smooth: PASS err=2.04e-07 slope=1.98
+2d_G cuda_fast joint/random: PASS err=0.000538 slope=2.01
+2d_G cuda_fast joint/smooth: PASS err=0.000258 slope=2
+2d_G cuda_fast joint/interior_local: PASS err=1.19e-05 slope=2
+2d_G_boundary cuda_fast eps/edge: PASS err=0.000374 slope=1.99
+2d_G_boundary cuda_fast sig/edge: PASS err=1.89e-05 slope=1.98
+2d_G cuda_general eps/pixel: PASS err=0.00011 slope=2.03
+2d_G cuda_general eps/random: PASS err=0.000252 slope=1.99
+2d_G cuda_general eps/local: PASS err=3.23e-05 slope=2
+2d_G cuda_general eps/smooth: PASS err=0.000184 slope=2
+2d_G cuda_general sig/pixel: INCONCLUSIVE err=3.8e-05 slope=2.08
+2d_G cuda_general sig/random: PASS err=0.000366 slope=2.01
+2d_G cuda_general sig/local: PASS err=4.38e-05 slope=1.98
+2d_G cuda_general sig/smooth: PASS err=2.62e-08 slope=1.98
+2d_G cuda_general joint/random: PASS err=0.000538 slope=2.01
+2d_G cuda_general joint/smooth: PASS err=0.000258 slope=2
+2d_G cuda_general joint/interior_local: PASS err=1.19e-05 slope=2
+2d_G_boundary cuda_general eps/edge: PASS err=0.000374 slope=1.99
+2d_G_boundary cuda_general sig/edge: PASS err=1.89e-05 slope=1.98
+completed seconds 22.1961138099432

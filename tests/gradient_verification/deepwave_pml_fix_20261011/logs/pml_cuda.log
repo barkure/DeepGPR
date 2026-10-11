@@ -1,0 +1,82 @@
+{
+ "date": "2026-10-11 05:19:55 -0400",
+ "python": "3.10.16",
+ "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+ "torch": "1.11.0+cu115",
+ "torch_cuda": "11.5",
+ "cudnn": 8302,
+ "numpy": "1.26.4",
+ "deepgpr_file": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/__init__.py",
+ "deepgpr_version": "0.1.0",
+ "git_commit": "386f214d88cae2111dda8c5aa1ef0434595b02f8",
+ "git_branch": "test/gradient-verification",
+ "omp_num_threads": "1",
+ "torch_threads": 1,
+ "seed": 20261010,
+ "solver_precision": "float32 (native CPU and CUDA solvers have no float64 path)",
+ "misfit_precision": "float64 accumulation of float32 receiver data",
+ "gpu": "NVIDIA GeForce RTX 4090",
+ "gpu_capability": [
+  8,
+  9
+ ],
+ "nvidia_smi": "NVIDIA GeForce RTX 4090, 575.51.03, 9 %, 1356 MiB, 24564 MiB",
+ "nvidia_smi_apps": "",
+ "command": "OMP_NUM_THREADS=1 /home/ll/anaconda3/envs/deepgpr/bin/python -u /home/ll/\u4e0b\u8f7d/DeepGPR-dev/tests/gradient_verification/deepwave_pml_fix_20261011/physical_verification.py pml --paths cuda_fast --tag cuda",
+ "hashes": {
+  "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+  "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+  "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+  "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+ }
+}
+pml_sweep cuda_fast eps/interior_local: PASS err=0.000167 slope=2.01
+pml_sweep cuda_fast eps/edge: INCONCLUSIVE err=0.000391 slope=1.98
+pml_sweep cuda_fast sig/interior_local: INCONCLUSIVE err=0.000107 slope=nan
+pml_sweep cuda_fast sig/edge: INCONCLUSIVE err=0.000503 slope=nan
+pml_sweep cuda_fast eps/interior_local: PASS err=5.46e-05 slope=1.99
+pml_sweep cuda_fast eps/edge: PASS err=0.000476 slope=1.97
+pml_sweep cuda_fast sig/interior_local: PASS err=7.67e-05 slope=1.96
+pml_sweep cuda_fast sig/edge: PASS err=1.14e-05 slope=1.97
+pml_sweep cuda_fast eps/interior_local: PASS err=0.000483 slope=1.96
+pml_sweep cuda_fast eps/edge: PASS err=3.95e-05 slope=1.96
+pml_sweep cuda_fast sig/interior_local: INCONCLUSIVE err=0.000858 slope=nan
+pml_sweep cuda_fast sig/edge: PASS err=0.000784 slope=1.93
+pml_sweep cuda_fast eps/interior_local: PASS err=2.07e-06 slope=2
+pml_sweep cuda_fast eps/edge: PASS err=1.88e-05 slope=2
+pml_sweep cuda_fast sig/interior_local: PASS err=7.45e-05 slope=1.99
+pml_sweep cuda_fast sig/edge: PASS err=8.22e-06 slope=1.99
+pml_sweep cuda_fast eps/interior_local: PASS err=0.000311 slope=2.04
+pml_sweep cuda_fast eps/edge: PASS err=0.000189 slope=1.97
+pml_sweep cuda_fast sig/interior_local: INCONCLUSIVE err=2.55e-05 slope=nan
+pml_sweep cuda_fast sig/edge: PASS err=0.0012 slope=1.96
+pml_sweep cuda_fast eps/interior_local: PASS err=2.28e-05 slope=2
+pml_sweep cuda_fast eps/edge: PASS err=0.000374 slope=1.99
+pml_sweep cuda_fast sig/interior_local: PASS err=3.77e-05 slope=1.98
+pml_sweep cuda_fast sig/edge: PASS err=1.89e-05 slope=1.98
+pml_sweep cuda_fast eps/interior_local: PASS err=0.000625 slope=2.04
+pml_sweep cuda_fast eps/edge: PASS err=0.000858 slope=1.99
+pml_sweep cuda_fast sig/interior_local: INCONCLUSIVE err=0.000247 slope=nan
+pml_sweep cuda_fast sig/edge: PASS err=0.000286 slope=1.95
+pml_sweep cuda_fast eps/interior_local: PASS err=2.15e-07 slope=2
+pml_sweep cuda_fast eps/edge: PASS err=0.000248 slope=1.99
+pml_sweep cuda_fast sig/interior_local: PASS err=1.56e-06 slope=1.98
+pml_sweep cuda_fast sig/edge: PASS err=4.97e-05 slope=1.98
+pml_sweep cuda_fast eps/interior_local: PASS err=0.000164 slope=1.96
+pml_sweep cuda_fast eps/edge: PASS err=0.00028 slope=1.96
+pml_sweep cuda_fast sig/interior_local: INCONCLUSIVE err=0.000874 slope=nan
+pml_sweep cuda_fast sig/edge: PASS err=0.00121 slope=1.93
+pml_sweep cuda_fast eps/interior_local: PASS err=1.55e-05 slope=2
+pml_sweep cuda_fast eps/edge: PASS err=0.000364 slope=1.99
+pml_sweep cuda_fast sig/interior_local: PASS err=5.32e-05 slope=1.98
+pml_sweep cuda_fast sig/edge: PASS err=5.66e-05 slope=1.98
+stencil_order cuda_fast eps/interior_local: PASS err=2.11e-05 slope=2.02
+stencil_order cuda_fast sig/interior_local: PASS err=0.000128 slope=1.89
+stencil_order cuda_fast joint/interior_local: PASS err=3.58e-05 slope=2.01
+stencil_order cuda_fast eps/interior_local: PASS err=2.89e-05 slope=2.01
+stencil_order cuda_fast sig/interior_local: PASS err=0.000127 slope=2
+stencil_order cuda_fast joint/interior_local: PASS err=3.25e-05 slope=2
+stencil_order cuda_fast eps/interior_local: PASS err=2.67e-05 slope=2
+stencil_order cuda_fast sig/interior_local: PASS err=1.7e-05 slope=1.99
+stencil_order cuda_fast joint/interior_local: PASS err=2.17e-05 slope=2
+completed seconds 6.5183804670814425

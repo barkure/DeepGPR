@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/home/ll/下载/DeepGPR-dev/tests/gradient_verification/codex_audit_20261010/gpu_storage_verification.py", line 362, in <module>
+    raise SystemExit(main())
+  File "/home/ll/下载/DeepGPR-dev/tests/gradient_verification/codex_audit_20261010/gpu_storage_verification.py", line 260, in main
+    if not torch.cuda.is_available():raise RuntimeError("CUDA is unavailable; this script does not mark CPU runs as GPU evidence")
+RuntimeError: CUDA is unavailable; this script does not mark CPU runs as GPU evidence

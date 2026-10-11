@@ -1,0 +1,26 @@
+dumped 2d|order2|pml10|cpu
+dumped 2d|order2|pml10|cuda_fast
+dumped 2d|order2|pml10|cuda_general
+dumped 2d|order2|pml[3, 7, 0, 5]|cpu
+dumped 2d|order2|pml[3, 7, 0, 5]|cuda_fast
+dumped 2d|order2|pml[3, 7, 0, 5]|cuda_general
+dumped 2d|order4|pml10|cpu
+dumped 2d|order4|pml10|cuda_fast
+dumped 2d|order4|pml10|cuda_general
+dumped 2d|order4|pml[3, 7, 0, 5]|cpu
+dumped 2d|order4|pml[3, 7, 0, 5]|cuda_fast
+dumped 2d|order4|pml[3, 7, 0, 5]|cuda_general
+dumped 2d|order8|pml10|cpu
+dumped 2d|order8|pml10|cuda_fast
+dumped 2d|order8|pml10|cuda_general
+dumped 2d|order8|pml[3, 7, 0, 5]|cpu
+dumped 2d|order8|pml[3, 7, 0, 5]|cuda_fast
+dumped 2d|order8|pml[3, 7, 0, 5]|cuda_general
+dumped 3d|order2|pml4|cpu
+dumped 3d|order2|pml4|cuda_general
+dumped 3d|order2|pml[2, 3, 0, 4, 1, 2]|cpu
+dumped 3d|order2|pml[2, 3, 0, 4, 1, 2]|cuda_general
+dumped 3d|order4|pml4|cpu
+dumped 3d|order4|pml4|cuda_general
+dumped 3d|order4|pml[2, 3, 0, 4, 1, 2]|cpu
+dumped 3d|order4|pml[2, 3, 0, 4, 1, 2]|cuda_general

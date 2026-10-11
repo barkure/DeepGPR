@@ -718,7 +718,7 @@ class NumericsValidationTests(unittest.TestCase):
         nx, ny, nz = 20, 24, 24
         nt = 1500
         er = torch.full((nx, ny, nz), 4.0, dtype=torch.float32, requires_grad=True)
-        se = torch.zeros_like(er)
+        se = torch.zeros_like(er, requires_grad=True)
         source = DeepGPR.wavelet.ricker(5.0e8, nt, 2.0e-11, 2.0e-9).reshape(1, nt, 1)
         source_location = torch.tensor([[[10, 7, 12]]], dtype=torch.int32)
         receiver_location = torch.tensor(
@@ -747,6 +747,9 @@ class NumericsValidationTests(unittest.TestCase):
         self.assertTrue(torch.isfinite(receiver).all().item())
         self.assertIsNotNone(er.grad)
         self.assertTrue(torch.isfinite(er.grad).all().item())
+        self.assertIsNotNone(se.grad)
+        self.assertTrue(torch.isfinite(se.grad).all().item())
+        self.assertEqual(se.grad.shape, se.shape)
         self.assertEqual(er.grad.shape, er.shape)
         self.assertGreater(int(torch.count_nonzero(er.grad[:6]).item()), 0)
 

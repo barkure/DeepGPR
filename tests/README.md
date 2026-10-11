@@ -52,10 +52,12 @@ INT8 rebuilds (CPU and CUDA, with async offload), and CPU/CUDA agreement.
 
 `test_history_region.py` covers `wavefield_history_region="physical"`: the
 (tile-aligned) history box, option validation and stale-library rejection, the
-memory estimate, the saved-file metadata, bitwise-identical CPU gradients and
-`E_saved` equal to the cropped extended history (fp32/fp16/bf16, E+R and
-E-only, 2D/3D with asymmetric CPML), the same on CUDA with async offload, and
-INT8 histories whose decoded physical cells equal the extended history.
+memory estimate, the saved-file metadata and `E_saved` equal to the cropped
+extended history (fp32/fp16/bf16, E+R and E-only, 2D/3D with asymmetric CPML),
+the same on CUDA with async offload, and INT8 histories whose decoded physical
+cells equal the extended history. It verifies that material gradients with PML
+reject physical-only histories, while forward diagnostics, source/initial-state
+gradients and material gradients without PML remain valid.
 
 `test_discrete_adjoint.py` also covers the CUDA 2D TM fast path: 2D state
 dot products for orders 2/4/8 with and without CPML (CPU and CUDA, original
@@ -83,9 +85,20 @@ shape validation. It also runs two FWI updates with real temporal checkpoint
 recomputation, checking traces, all 30 final states, material gradients, and
 source gradients against full-history execution. CUDA parity runs when available.
 All models and acquisition coordinates now describe the physical region only.
-Finite-difference directions hold replicated boundary values fixed; this is a
-test constraint, not a mask on returned model gradients. Rebuild CPU/CUDA
-libraries with `deepgpr_supports_external_pml` before running the suite.
+Finite-difference directions include the physical model edges and regenerate
+the replicated PML materials on every forward run. Absorption profiles use a
+fixed reference velocity across all perturbations. Rebuild CPU/CUDA libraries
+with `deepgpr_supports_external_pml` and
+`deepgpr_supports_pml_material_gradients` before running the suite.
+
+`test_pml_total_derivative.py` independently checks full-model edge, random and
+smooth directions for epsilon, sigma and joint updates on CPU, CUDA TM and CUDA
+general paths, including 3D, reconstructed histories, nonzero initial E/H/CPML
+states and temporal checkpoint recomputation. It requires agreement below 0.2%
+at adjacent finite-difference steps. A predefined weak joint direction is
+reported as inconclusive only when separate forward-only rounding measurements
+cannot resolve that tolerance; it is never counted as a pass. Set
+`DEEPGPR_PML_FD_RESULTS` to save the raw losses and all step sizes.
 
 No finite test suite can prove that a numerical program is correct for every
 possible input. The suite instead combines independent checks that are

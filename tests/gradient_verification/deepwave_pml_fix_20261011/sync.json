@@ -1,0 +1,9 @@
+{
+  "branch": "test/gradient-verification",
+  "before": "3bfc1e998851dbe489cf3a56b3a7cb27d8f476ba",
+  "after": "386f214d88cae2111dda8c5aa1ef0434595b02f8",
+  "upstream_merge": "70a81f3",
+  "local_work_backup": "/tmp/deepgpr-before-pull-20261011",
+  "stash_preserved": true,
+  "notes": "Local source fixes restored; fetched CUDA PTX workflow preserved. Previous audit evidence untouched."
+}

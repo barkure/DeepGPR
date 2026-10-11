@@ -9,19 +9,23 @@ preserves source correlation for Nsight; `-Xptxas=-v` prints registers and spill
 stores/loads for each kernel.
 
 ```bash
-nvcc -std=c++14 -O3 -lineinfo -Xptxas=-v -arch=sm_89 --shared -Xcompiler -fPIC \
+nvcc -std=c++14 -O3 -lineinfo -Xptxas=-v \
+  -gencode=arch=compute_89,code=sm_89 -gencode=arch=compute_89,code=compute_89 \
+  --shared -Xcompiler -fPIC \
   -o src/DeepGPR/lib/deepgpr.so src/DeepGPR/lib/deepgpr.cu
 ```
 
 The command above is the audited RTX 4090 build path. Select the matching
-architecture when building for a different GPU; do not add `--use_fast_math`
+architecture when building for a different GPU. The PTX target provides a
+forward-compatible fallback; the release workflow additionally builds multiple
+SASS targets and retains its PTX fallback. Do not add `--use_fast_math`
 unless a separate numerical and gradient validation explicitly permits it.
 
 The new INT8 path deliberately keeps native ABI 6 because the forward/backward
 C signatures are unchanged. A capability symbol prevents an older ABI-6 CUDA
-library from accepting the packed storage code and corrupting memory. External PML also requires the `deepgpr_supports_external_pml` capability on CPU and CUDA, including the INT8 gradient path. Rebuild native libraries on each target platform; older binaries are rejected for PML runs rather than silently dropping physical edge gradients.
+library from accepting the packed storage code and corrupting memory. External PML requires `deepgpr_supports_external_pml`; material gradients with PML additionally require `deepgpr_supports_pml_material_gradients` on CPU and CUDA, including INT8. This capability ensures PML material sensitivities are retained and summed back to physical edges. Rebuild native libraries on each target platform; older binaries are rejected for PML material gradients. ABI 6 signatures are unchanged.
 
-The history and adjoint changes in `CHANGELOG.md` [Unreleased] add three more
+The history and adjoint changes in [`CHANGELOG.md`](CHANGELOG.md) [Unreleased] add three more
 capability symbols (ABI stays 6): `deepgpr_supports_rhs_reconstruction`
 (E-only history, `wavefield_rhs_history`), `deepgpr_supports_physical_history`
 (`wavefield_history_region="physical"`) and `deepgpr_supports_tm2d_fast_path`
@@ -59,3 +63,21 @@ cl /LD /O2 /openmp /Fe:src\DeepGPR\lib\deepgpr_cpu.dll src\DeepGPR\lib\deepgpr_c
 ```
 
 After rebuilding, run `python -m unittest tests/test_native_abi.py` to confirm the library exports ABI 6 and matches the Python ABI table.
+
+## Python package archives
+
+Development dependencies live in the `dev` and `examples` extras of `pyproject.toml`:
+
+```bash
+pip install -e ".[dev,examples]"
+```
+
+The source-distribution template is `docs/MANIFEST.in`. The `egg_info` command
+configured in `pyproject.toml` reads it through `docs/build_support.py`. Both files
+are included in source archives so wheels can also be built from the sdist.
+Native libraries and sources remain package data under `src/DeepGPR/lib`.
+
+Website maintenance and validation tools are under `website/scripts` and
+`website/tools`; film source files are under `website/promo_pixel` and
+`website/tools/promo`. Run their documented commands from the repository root.
+GitHub Pages publishes the pages and assets while excluding those source tools.

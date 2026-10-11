@@ -1,0 +1,130 @@
+MAPPING_GRADCHECK SingleSiren True
+MAPPING_GRADCHECK DualSiren True
+Grid-FWI     pml=0 joint        L1x1e7   ckpt=False epsilon  data INCONCLUSIVE err=0.000108 total INCONCLUSIVE err=0.000108
+Grid-FWI     pml=0 joint        L1x1e7   ckpt=False sigma    data FAIL err=0.00351 total FAIL err=0.00351
+Grid-FWI     pml=0 joint        L1x1e7   ckpt=False joint    data PASS err=0.000681 total PASS err=0.000681
+SingleSiren  pml=0 epsilon_only L1x1e7   ckpt=False all      data PASS err=0.000439 total PASS err=0.000439
+SingleSiren  pml=0 sigma_only   L1x1e7   ckpt=False all      data INCONCLUSIVE err=0.000216 total INCONCLUSIVE err=0.000216
+SingleSiren  pml=0 joint        L1x1e7   ckpt=False all      data PASS err=5.75e-05 total PASS err=5.75e-05
+/home/ll/anaconda3/envs/deepgpr/lib/python3.10/site-packages/torch/autocast_mode.py:162: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
+  warnings.warn('User provided device_type of \'cuda\', but CUDA is not available. Disabling')
+SingleSiren  pml=0 joint        L1x1e7   ckpt=True all      data PASS err=5.75e-05 total PASS err=5.75e-05
+DualSiren    pml=0 epsilon_only L1x1e7   ckpt=False low      data PASS err=8.21e-05 total PASS err=8.21e-05
+DualSiren    pml=0 epsilon_only L1x1e7   ckpt=False high     data PASS err=0.000118 total PASS err=0.000118
+DualSiren    pml=0 epsilon_only L1x1e7   ckpt=False alpha    data FAIL err=0.000144 total FAIL err=0.000144
+DualSiren    pml=0 epsilon_only L1x1e7   ckpt=False all      data PASS err=9.15e-05 total PASS err=9.15e-05
+DualSiren    pml=0 sigma_only   L1x1e7   ckpt=False low      data INCONCLUSIVE err=0.00132 total INCONCLUSIVE err=0.00132
+DualSiren    pml=0 sigma_only   L1x1e7   ckpt=False high     data INCONCLUSIVE err=0.00734 total INCONCLUSIVE err=0.00734
+DualSiren    pml=0 sigma_only   L1x1e7   ckpt=False alpha    data INCONCLUSIVE err=0.00458 total INCONCLUSIVE err=0.00458
+DualSiren    pml=0 sigma_only   L1x1e7   ckpt=False all      data INCONCLUSIVE err=0.0095 total INCONCLUSIVE err=0.0095
+DualSiren    pml=0 joint        L1x1e7   ckpt=False low      data PASS err=0.000177 total PASS err=0.000177
+DualSiren    pml=0 joint        L1x1e7   ckpt=False high     data PASS err=0.0001 total PASS err=0.0001
+DualSiren    pml=0 joint        L1x1e7   ckpt=False alpha    data FAIL err=0.00433 total FAIL err=0.00433
+DualSiren    pml=0 joint        L1x1e7   ckpt=False all      data PASS err=0.000136 total PASS err=0.000136
+DualSiren    pml=0 joint        L1x1e7   ckpt=True low      data PASS err=0.000177 total PASS err=0.000177
+DualSiren    pml=0 joint        L1x1e7   ckpt=True high     data PASS err=0.0001 total PASS err=0.0001
+DualSiren    pml=0 joint        L1x1e7   ckpt=True alpha    data FAIL err=0.00433 total FAIL err=0.00433
+DualSiren    pml=0 joint        L1x1e7   ckpt=True all      data PASS err=0.000136 total PASS err=0.000136
+Grid-FWI     pml=0 joint        MSEx1e4  ckpt=False epsilon  data PASS err=2.13e-05 total PASS err=1.35e-05
+Grid-FWI     pml=0 joint        MSEx1e4  ckpt=False sigma    data INCONCLUSIVE err=0.000275 total INCONCLUSIVE err=0.000275
+Grid-FWI     pml=0 joint        MSEx1e4  ckpt=False joint    data PASS err=2.34e-05 total PASS err=2.16e-05
+SingleSiren  pml=0 epsilon_only MSEx1e4  ckpt=False all      data PASS err=6.15e-05 total PASS err=6.13e-05
+SingleSiren  pml=0 sigma_only   MSEx1e4  ckpt=False all      data INCONCLUSIVE err=0.00423 total INCONCLUSIVE err=0.00423
+SingleSiren  pml=0 joint        MSEx1e4  ckpt=False all      data PASS err=2.67e-05 total PASS err=2.69e-05
+SingleSiren  pml=0 joint        MSEx1e4  ckpt=True all      data PASS err=2.67e-05 total PASS err=2.69e-05
+DualSiren    pml=0 epsilon_only MSEx1e4  ckpt=False low      data PASS err=3.97e-05 total PASS err=3.93e-05
+DualSiren    pml=0 epsilon_only MSEx1e4  ckpt=False high     data PASS err=0.000157 total PASS err=0.000158
+DualSiren    pml=0 epsilon_only MSEx1e4  ckpt=False alpha    data PASS err=0.000268 total PASS err=0.000268
+DualSiren    pml=0 epsilon_only MSEx1e4  ckpt=False all      data PASS err=5.77e-05 total PASS err=5.78e-05
+DualSiren    pml=0 sigma_only   MSEx1e4  ckpt=False low      data INCONCLUSIVE err=4.73e-05 total INCONCLUSIVE err=4.73e-05
+DualSiren    pml=0 sigma_only   MSEx1e4  ckpt=False high     data INCONCLUSIVE err=0.128 total INCONCLUSIVE err=0.128
+DualSiren    pml=0 sigma_only   MSEx1e4  ckpt=False alpha    data INCONCLUSIVE err=0.00921 total INCONCLUSIVE err=0.00921
+DualSiren    pml=0 sigma_only   MSEx1e4  ckpt=False all      data INCONCLUSIVE err=0.166 total INCONCLUSIVE err=0.166
+DualSiren    pml=0 joint        MSEx1e4  ckpt=False low      data PASS err=0.000931 total PASS err=0.000931
+DualSiren    pml=0 joint        MSEx1e4  ckpt=False high     data PASS err=0.00056 total PASS err=0.000559
+DualSiren    pml=0 joint        MSEx1e4  ckpt=False alpha    data PASS err=0.000148 total PASS err=0.000148
+DualSiren    pml=0 joint        MSEx1e4  ckpt=False all      data PASS err=3.55e-05 total PASS err=3.61e-05
+DualSiren    pml=0 joint        MSEx1e4  ckpt=True low      data PASS err=0.000931 total PASS err=0.000931
+DualSiren    pml=0 joint        MSEx1e4  ckpt=True high     data PASS err=0.00056 total PASS err=0.000559
+DualSiren    pml=0 joint        MSEx1e4  ckpt=True alpha    data PASS err=0.000148 total PASS err=0.000148
+DualSiren    pml=0 joint        MSEx1e4  ckpt=True all      data PASS err=3.55e-05 total PASS err=3.61e-05
+Grid-FWI     pml=6 joint        L1x1e7   ckpt=False epsilon  data FAIL err=0.183 total FAIL err=0.183
+Grid-FWI     pml=6 joint        L1x1e7   ckpt=False sigma    data INCONCLUSIVE err=0.166 total INCONCLUSIVE err=0.166
+Grid-FWI     pml=6 joint        L1x1e7   ckpt=False joint    data FAIL err=0.111 total FAIL err=0.111
+SingleSiren  pml=6 epsilon_only L1x1e7   ckpt=False all      data FAIL err=0.0156 total FAIL err=0.0156
+SingleSiren  pml=6 sigma_only   L1x1e7   ckpt=False all      data FAIL err=0.000947 total FAIL err=0.000947
+SingleSiren  pml=6 joint        L1x1e7   ckpt=False all      data FAIL err=0.00132 total FAIL err=0.00132
+SingleSiren  pml=6 joint        L1x1e7   ckpt=True all      data FAIL err=0.00132 total FAIL err=0.00132
+DualSiren    pml=6 epsilon_only L1x1e7   ckpt=False low      data FAIL err=0.00907 total FAIL err=0.00907
+DualSiren    pml=6 epsilon_only L1x1e7   ckpt=False high     data PASS err=0.000881 total PASS err=0.000881
+DualSiren    pml=6 epsilon_only L1x1e7   ckpt=False alpha    data FAIL err=0.00741 total FAIL err=0.00741
+DualSiren    pml=6 epsilon_only L1x1e7   ckpt=False all      data FAIL err=0.00572 total FAIL err=0.00572
+DualSiren    pml=6 sigma_only   L1x1e7   ckpt=False low      data FAIL err=0.0524 total FAIL err=0.0524
+DualSiren    pml=6 sigma_only   L1x1e7   ckpt=False high     data INCONCLUSIVE err=0.0473 total INCONCLUSIVE err=0.0473
+DualSiren    pml=6 sigma_only   L1x1e7   ckpt=False alpha    data FAIL err=0.0325 total FAIL err=0.0325
+DualSiren    pml=6 sigma_only   L1x1e7   ckpt=False all      data INCONCLUSIVE err=0.00774 total INCONCLUSIVE err=0.00774
+DualSiren    pml=6 joint        L1x1e7   ckpt=False low      data INCONCLUSIVE err=0.0133 total INCONCLUSIVE err=0.0133
+DualSiren    pml=6 joint        L1x1e7   ckpt=False high     data FAIL err=0.0413 total FAIL err=0.0413
+DualSiren    pml=6 joint        L1x1e7   ckpt=False alpha    data FAIL err=0.0171 total FAIL err=0.0171
+DualSiren    pml=6 joint        L1x1e7   ckpt=False all      data FAIL err=0.00903 total FAIL err=0.00903
+DualSiren    pml=6 joint        L1x1e7   ckpt=True low      data INCONCLUSIVE err=0.0133 total INCONCLUSIVE err=0.0133
+DualSiren    pml=6 joint        L1x1e7   ckpt=True high     data FAIL err=0.0413 total FAIL err=0.0413
+DualSiren    pml=6 joint        L1x1e7   ckpt=True alpha    data FAIL err=0.0171 total FAIL err=0.0171
+DualSiren    pml=6 joint        L1x1e7   ckpt=True all      data FAIL err=0.00903 total FAIL err=0.00903
+Grid-FWI     pml=6 joint        MSEx1e4  ckpt=False epsilon  data FAIL err=0.0501 total FAIL err=0.0501
+Grid-FWI     pml=6 joint        MSEx1e4  ckpt=False sigma    data FAIL err=0.0972 total FAIL err=0.0972
+Grid-FWI     pml=6 joint        MSEx1e4  ckpt=False joint    data FAIL err=0.00514 total FAIL err=0.00515
+SingleSiren  pml=6 epsilon_only MSEx1e4  ckpt=False all      data FAIL err=0.0257 total FAIL err=0.0257
+SingleSiren  pml=6 sigma_only   MSEx1e4  ckpt=False all      data FAIL err=0.0279 total FAIL err=0.0279
+SingleSiren  pml=6 joint        MSEx1e4  ckpt=False all      data FAIL err=0.0134 total FAIL err=0.0134
+SingleSiren  pml=6 joint        MSEx1e4  ckpt=True all      data FAIL err=0.0134 total FAIL err=0.0134
+DualSiren    pml=6 epsilon_only MSEx1e4  ckpt=False low      data FAIL err=0.013 total FAIL err=0.013
+DualSiren    pml=6 epsilon_only MSEx1e4  ckpt=False high     data FAIL err=0.0141 total FAIL err=0.0141
+DualSiren    pml=6 epsilon_only MSEx1e4  ckpt=False alpha    data FAIL err=0.0369 total FAIL err=0.037
+DualSiren    pml=6 epsilon_only MSEx1e4  ckpt=False all      data INCONCLUSIVE err=0.00238 total INCONCLUSIVE err=0.00239
+DualSiren    pml=6 sigma_only   MSEx1e4  ckpt=False low      data INCONCLUSIVE err=0.931 total INCONCLUSIVE err=0.931
+DualSiren    pml=6 sigma_only   MSEx1e4  ckpt=False high     data INCONCLUSIVE err=0.00864 total INCONCLUSIVE err=0.00864
+DualSiren    pml=6 sigma_only   MSEx1e4  ckpt=False alpha    data FAIL err=0.0329 total FAIL err=0.0329
+DualSiren    pml=6 sigma_only   MSEx1e4  ckpt=False all      data FAIL err=0.0805 total FAIL err=0.0805
+DualSiren    pml=6 joint        MSEx1e4  ckpt=False low      data FAIL err=0.0139 total FAIL err=0.0139
+DualSiren    pml=6 joint        MSEx1e4  ckpt=False high     data FAIL err=0.00243 total FAIL err=0.00243
+DualSiren    pml=6 joint        MSEx1e4  ckpt=False alpha    data FAIL err=0.0384 total FAIL err=0.0385
+DualSiren    pml=6 joint        MSEx1e4  ckpt=False all      data FAIL err=0.0266 total FAIL err=0.0266
+DualSiren    pml=6 joint        MSEx1e4  ckpt=True low      data FAIL err=0.0139 total FAIL err=0.0139
+DualSiren    pml=6 joint        MSEx1e4  ckpt=True high     data FAIL err=0.00243 total FAIL err=0.00243
+DualSiren    pml=6 joint        MSEx1e4  ckpt=True alpha    data FAIL err=0.0384 total FAIL err=0.0385
+DualSiren    pml=6 joint        MSEx1e4  ckpt=True all      data FAIL err=0.0266 total FAIL err=0.0266
+Traceback (most recent call last):
+  File "/home/ll/下载/DeepGPR-dev/tests/gradient_verification/codex_audit_20261010/network_verification.py", line 533, in <module>
+    raise SystemExit(main())
+  File "/home/ll/下载/DeepGPR-dev/tests/gradient_verification/codex_audit_20261010/network_verification.py", line 525, in main
+    (AUDIT/"data/network_results.json").write_text(json.dumps(data,indent=2,ensure_ascii=False,allow_nan=False)+"\n")
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 201, in encode
+    chunks = list(chunks)
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 431, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 325, in _iterencode_list
+    yield from chunks
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 405, in _iterencode_dict
+    yield from chunks
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 438, in _iterencode
+    o = _default(o)
+  File "/home/ll/anaconda3/envs/deepgpr/lib/python3.10/json/encoder.py", line 179, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bool_ is not JSON serializable

@@ -1,0 +1,259 @@
+{
+  "checks": [
+    {
+      "best_relative_error": 4.904215883279695e-05,
+      "name": "order 2 relative-permittivity directional derivative",
+      "status": "PASS",
+      "tolerance": 0.005
+    },
+    {
+      "best_relative_error": 1.7449134504383775e-05,
+      "name": "order 2 conductivity directional derivative",
+      "status": "PASS",
+      "tolerance": 0.005
+    },
+    {
+      "model_shape": [
+        24,
+        30
+      ],
+      "name": "order 2 physical model gradient shape",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 7.133489437167021e-05,
+      "name": "order 4 relative-permittivity directional derivative",
+      "status": "PASS",
+      "tolerance": 0.005
+    },
+    {
+      "best_relative_error": 5.101348028692377e-06,
+      "name": "order 4 conductivity directional derivative",
+      "status": "PASS",
+      "tolerance": 0.005
+    },
+    {
+      "model_shape": [
+        24,
+        30
+      ],
+      "name": "order 4 physical model gradient shape",
+      "status": "PASS"
+    },
+    {
+      "best_relative_error": 9.377389426144542e-05,
+      "name": "order 8 relative-permittivity directional derivative",
+      "status": "PASS",
+      "tolerance": 0.005
+    },
+    {
+      "best_relative_error": 1.2938680676129946e-05,
+      "name": "order 8 conductivity directional derivative",
+      "status": "PASS",
+      "tolerance": 0.005
+    },
+    {
+      "model_shape": [
+        24,
+        30
+      ],
+      "name": "order 8 physical model gradient shape",
+      "status": "PASS"
+    }
+  ],
+  "extra": {
+    "directional_derivative_rows": [
+      {
+        "er_best_relative_error": 4.904215883279695e-05,
+        "er_rows": [
+          {
+            "adjoint": 0.00801382689481746,
+            "finite_difference": 0.008016451465664431,
+            "relative_error": 0.0003273980835801482,
+            "step": 0.08
+          },
+          {
+            "adjoint": 0.00801382689481746,
+            "finite_difference": 0.008014219929464161,
+            "relative_error": 4.904215883279695e-05,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.00801382689481746,
+            "finite_difference": 0.008014970808289945,
+            "relative_error": 0.00014272210090925339,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.00801382689481746,
+            "finite_difference": 0.008016219362616539,
+            "relative_error": 0.00029845338442665057,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.0016762320883572102,
+        "order": 2,
+        "se_best_relative_error": 1.7449134504383775e-05,
+        "se_rows": [
+          {
+            "adjoint": 0.5823496364284939,
+            "finite_difference": 0.5823394749313593,
+            "relative_error": 1.7449134504383775e-05,
+            "step": 0.0005
+          },
+          {
+            "adjoint": 0.5823496364284939,
+            "finite_difference": 0.5821438389830291,
+            "relative_error": 0.00035339155825171254,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 0.5823496364284939,
+            "finite_difference": 0.5825835978612304,
+            "relative_error": 0.0004015928934411769,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 0.5823496364284939,
+            "finite_difference": 0.5832861643284559,
+            "relative_error": 0.0016056062311031317,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 7.133489437167021e-05,
+        "er_rows": [
+          {
+            "adjoint": 0.00790163558348482,
+            "finite_difference": 0.0079041114076972,
+            "relative_error": 0.0003132324539314654,
+            "step": 0.08
+          },
+          {
+            "adjoint": 0.00790163558348482,
+            "finite_difference": 0.007902603829279542,
+            "relative_error": 0.0001225223756168162,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.00790163558348482,
+            "finite_difference": 0.007902199286036193,
+            "relative_error": 7.133489437167021e-05,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.00790163558348482,
+            "finite_difference": 0.007903954247012734,
+            "relative_error": 0.0002933548772490239,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.0016750313807278872,
+        "order": 4,
+        "se_best_relative_error": 5.101348028692377e-06,
+        "se_rows": [
+          {
+            "adjoint": 0.5807008648354898,
+            "finite_difference": 0.5806979024782777,
+            "relative_error": 5.101348028692377e-06,
+            "step": 0.0005
+          },
+          {
+            "adjoint": 0.5807008648354898,
+            "finite_difference": 0.5805803812108934,
+            "relative_error": 0.00020747967136317544,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 0.5807008648354898,
+            "finite_difference": 0.5804747343063354,
+            "relative_error": 0.0003894096648510837,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 0.5807008648354898,
+            "finite_difference": 0.5817832425236702,
+            "relative_error": 0.0018604483750430257,
+            "step": 5e-05
+          }
+        ]
+      },
+      {
+        "er_best_relative_error": 9.377389426144542e-05,
+        "er_rows": [
+          {
+            "adjoint": 0.007879955462302178,
+            "finite_difference": 0.007882050704210997,
+            "relative_error": 0.0002658244646534452,
+            "step": 0.08
+          },
+          {
+            "adjoint": 0.007879955462302178,
+            "finite_difference": 0.00788111356087029,
+            "relative_error": 0.00014694605770703906,
+            "step": 0.04
+          },
+          {
+            "adjoint": 0.007879955462302178,
+            "finite_difference": 0.007880758494138718,
+            "relative_error": 0.00010189778523684925,
+            "step": 0.02
+          },
+          {
+            "adjoint": 0.007879955462302178,
+            "finite_difference": 0.007880694465711713,
+            "relative_error": 9.377389426144542e-05,
+            "step": 0.01
+          }
+        ],
+        "loss": 0.0016729187918826938,
+        "order": 8,
+        "se_best_relative_error": 1.2938680676129946e-05,
+        "se_rows": [
+          {
+            "adjoint": 0.5800969052797069,
+            "finite_difference": 0.5800893995910883,
+            "relative_error": 1.2938680676129946e-05,
+            "step": 0.0005
+          },
+          {
+            "adjoint": 0.5800969052797069,
+            "finite_difference": 0.5800361395813525,
+            "relative_error": 0.00010475094385333506,
+            "step": 0.0002
+          },
+          {
+            "adjoint": 0.5800969052797069,
+            "finite_difference": 0.5798047641292214,
+            "relative_error": 0.0005036074970002098,
+            "step": 0.0001
+          },
+          {
+            "adjoint": 0.5800969052797069,
+            "finite_difference": 0.5812267772853374,
+            "relative_error": 0.0019439434826242492,
+            "step": 5e-05
+          }
+        ]
+      }
+    ]
+  },
+  "metadata": {
+    "deepgpr_package": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/__init__.py",
+    "device": "cpu",
+    "git_commit": "386f214d88cae2111dda8c5aa1ef0434595b02f8",
+    "git_dirty": true,
+    "native_abi": 6,
+    "native_library": "/home/ll/\u4e0b\u8f7d/DeepGPR-dev/src/DeepGPR/lib/deepgpr_cpu.so",
+    "native_library_sha256": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251",
+    "omp_num_threads": "1",
+    "platform": "Linux-6.8.0-60-generic-x86_64-with-glibc2.35",
+    "python": "3.10.16",
+    "source_tree_sha256": "0ee08e098260570f6570a7414749444c2fe0d7b32487ec6dbdfb7b91c6cbd691",
+    "timestamp_utc": "2026-10-11T09:22:16.786024+00:00",
+    "torch": "1.11.0+cu115"
+  },
+  "overall_status": "PASS",
+  "report": "03_gradient_2d"
+}

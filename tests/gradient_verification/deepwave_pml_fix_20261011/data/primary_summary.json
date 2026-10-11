@@ -1,0 +1,133 @@
+{
+  "primary_direction_count": 573,
+  "verdicts": {
+    "PASS": 450,
+    "INCONCLUSIVE": 108,
+    "PASS (noise-limited)": 15
+  },
+  "tables": [
+    {
+      "file": "basic_cpu.json",
+      "count": 79,
+      "verdicts": {
+        "PASS": 67,
+        "INCONCLUSIVE": 9,
+        "PASS (noise-limited)": 3
+      },
+      "hashes": {
+        "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+        "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+        "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+        "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+      }
+    },
+    {
+      "file": "basic_cuda.json",
+      "count": 158,
+      "verdicts": {
+        "PASS": 134,
+        "INCONCLUSIVE": 18,
+        "PASS (noise-limited)": 6
+      },
+      "hashes": {
+        "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+        "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+        "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+        "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+      }
+    },
+    {
+      "file": "three_d_cpu.json",
+      "count": 72,
+      "verdicts": {
+        "INCONCLUSIVE": 25,
+        "PASS": 43,
+        "PASS (noise-limited)": 4
+      },
+      "hashes": {
+        "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+        "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+        "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+        "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+      }
+    },
+    {
+      "file": "three_d_cuda.json",
+      "count": 72,
+      "verdicts": {
+        "INCONCLUSIVE": 25,
+        "PASS": 45,
+        "PASS (noise-limited)": 2
+      },
+      "hashes": {
+        "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+        "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+        "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+        "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+      }
+    },
+    {
+      "file": "time_cpu.json",
+      "count": 47,
+      "verdicts": {
+        "INCONCLUSIVE": 9,
+        "PASS": 38
+      },
+      "hashes": {
+        "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+        "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+        "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+        "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+      }
+    },
+    {
+      "file": "time_cuda.json",
+      "count": 47,
+      "verdicts": {
+        "INCONCLUSIVE": 7,
+        "PASS": 40
+      },
+      "hashes": {
+        "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+        "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+        "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+        "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+      }
+    },
+    {
+      "file": "pml_cpu.json",
+      "count": 49,
+      "verdicts": {
+        "PASS": 41,
+        "INCONCLUSIVE": 8
+      },
+      "hashes": {
+        "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+        "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+        "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+        "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+      }
+    },
+    {
+      "file": "pml_cuda.json",
+      "count": 49,
+      "verdicts": {
+        "PASS": 42,
+        "INCONCLUSIVE": 7
+      },
+      "hashes": {
+        "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f",
+        "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+        "src/DeepGPR/lib/deepgpr.so": "2eaa8b4f573da82e3e2e90c5c2f9f3233f18bd8fbee2343c8dbe0ba21d5a77cd",
+        "src/DeepGPR/lib/deepgpr_cpu.so": "269add7d0bfac4a35e74927ad2cdb14934ac64a1c7ec154e9efe1cd206a73251"
+      }
+    }
+  ],
+  "policy": "No FD boundary mask; fixed profiles; original 0.2% multistep/Taylor/noise rules",
+  "source_hashes": {
+    "src/DeepGPR/lib/deepgpr.h": "47758a3c15aa41a9cab1ddad9052ddbdaecabb8e28c84bbbbba1abbc18709dde",
+    "src/DeepGPR/lib/deepgpr_cpu.c": "34422506689ca4cb8fc6e4f5e2348f487efc2fe9f81afa538f0367de0ffc78e1",
+    "src/DeepGPR/lib/deepgpr.cu": "e60641ecc9900382c328752a809c4bd931c5de9f571a7b44bf1bfbf2a26e9a5f"
+  },
+  "numerical_uncertainty": "Noise-qualified PASS is distinguished from strict PASS; inconclusive tests are not passes."
+}

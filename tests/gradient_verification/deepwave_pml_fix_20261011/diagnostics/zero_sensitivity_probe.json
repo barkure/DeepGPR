@@ -1,0 +1,23 @@
+{
+  "instrumented_source_sha256": "8cfd3a9a51a967c50dd8debe41e635f225c65261873d7de267896ca575e18e64",
+  "configuration": {
+    "shape": [
+      20,
+      24,
+      24
+    ],
+    "nt": 1500,
+    "epsilon": 4,
+    "sigma": 0,
+    "dt": 2e-11,
+    "dx": 0.02,
+    "pml": 5,
+    "sampling_interval": 10,
+    "mode": 3,
+    "pml_max_velocity": 299792458
+  },
+  "measured_nonfinite_cotangents_at_nonzero_E_or_R": 0,
+  "measured_nonfinite_cotangents_at_zero_E_and_R": 16031,
+  "stdout": "NONFINITE diagnostic active=0 zero=16031",
+  "note": "The isolated instrumented baseline precedes the exact-zero material guard. State adjoint equations are unchanged in the final solver."
+}

@@ -1,0 +1,35 @@
+checkpoint 1 plain PASS eps/sig 0.0 0.0
+/home/ll/anaconda3/envs/deepgpr/lib/python3.10/site-packages/torch/autocast_mode.py:162: UserWarning: User provided device_type of 'cuda', but CUDA is not available. Disabling
+  warnings.warn('User provided device_type of \'cuda\', but CUDA is not available. Disabling')
+checkpoint 1 reentrant PASS eps/sig 0.0 0.0
+checkpoint 1 nonreentrant PASS eps/sig 0.0 0.0
+checkpoint 2 plain PASS eps/sig 6.124696524109472e-07 3.8759356824368483e-07
+checkpoint 2 reentrant PASS eps/sig 6.124696524109472e-07 3.8759356824368483e-07
+checkpoint 2 nonreentrant PASS eps/sig 6.124696524109472e-07 3.8759356824368483e-07
+checkpoint 3 plain PASS eps/sig 1.7059066204899098e-06 2.461175227533667e-07
+checkpoint 3 reentrant PASS eps/sig 1.7059066204899098e-06 2.461175227533667e-07
+checkpoint 3 nonreentrant PASS eps/sig 1.7059066204899098e-06 2.461175227533667e-07
+checkpoint 5 plain PASS eps/sig 4.1590540941507393e-07 2.4832777049208073e-07
+checkpoint 5 reentrant PASS eps/sig 4.1590540941507393e-07 2.4832777049208073e-07
+checkpoint 5 nonreentrant PASS eps/sig 4.1590540941507393e-07 2.4832777049208073e-07
+FD eps entire_physical_model AD -0.05293322020566925 best 0.11930273512945484 FAIL
+FD eps outer_physical_faces AD 0.0028382004084356698 best 0.2573304291561396 FAIL
+FD sig entire_physical_model AD -0.15017894309210678 best 0.002210504111055459 PASS
+FD sig outer_physical_faces AD -0.00031128050507828306 best 0.5011892263232057 FAIL
+history fp32_auto PASS eps/sig 0.0 0.0
+history fp32_reconstructed PASS eps/sig 0.0 0.0
+history fp32_physical_stored PASS eps/sig 0.0 0.0
+history fp32_physical_reconstructed PASS eps/sig 0.0 0.0
+history fp16_stored MEASURED_APPROXIMATION eps/sig 0.0003000677662284387 3.174349586368834e-05
+history bf16_stored MEASURED_APPROXIMATION eps/sig 0.004665490351982345 7.621575229919688e-05
+history fp16_reconstructed MEASURED_APPROXIMATION eps/sig 0.0013739935706451921 3.222697797739366e-05
+history bf16_reconstructed MEASURED_APPROXIMATION eps/sig 0.00923682307844513 8.001973886956424e-05
+/home/ll/下载/DeepGPR-dev/tests/gradient_verification/gv_common.py:347: RuntimeWarning: model_gradient_sampling_interval=2 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=8.4249e+09 Hz, dt=2.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  return DeepGPR.compute(**kwargs)
+history sampling_2 MEASURED_APPROXIMATION eps/sig 0.0008450876535648443 0.0007479846050579458
+/home/ll/下载/DeepGPR-dev/tests/gradient_verification/gv_common.py:347: RuntimeWarning: model_gradient_sampling_interval=3 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=8.4249e+09 Hz, dt=2.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  return DeepGPR.compute(**kwargs)
+history sampling_3 MEASURED_APPROXIMATION eps/sig 0.0021746479748684672 0.002001370962586759
+history async_requested_cpu PASS eps/sig 0.0 0.0
+wrote /home/ll/下载/DeepGPR-dev/tests/gradient_verification/codex_audit_20261010/data/checkpoint_results.json
+independent audit failures 3

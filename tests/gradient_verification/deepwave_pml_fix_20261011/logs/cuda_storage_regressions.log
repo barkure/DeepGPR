@@ -1,0 +1,21 @@
+test_2d_compressed_gradient_directional_consistency (test_wavefield_compression.Int8WavefieldCompressionTests) ... ok
+test_2d_wavefield_and_gradient_accuracy (test_wavefield_compression.Int8WavefieldCompressionTests) ... ok
+test_3d_partial_tiles_are_device_safe (test_wavefield_compression.Int8WavefieldCompressionTests) ... ok
+test_fdtd_only_backward_fails_explicitly (test_wavefield_compression.Int8WavefieldCompressionTests) ... ok
+test_fdtd_only_matches_fp32_history_receiver_data (test_wavefield_compression.Int8WavefieldCompressionTests) ... ok
+test_int8_experimental_reduction_requires_64_voxels (test_wavefield_compression.Int8WavefieldCompressionTests) ... ok
+test_int8_reduction_backends_are_bit_exact (test_wavefield_compression.Int8WavefieldCompressionTests) ... ok
+test_backend_contract_rejects_irrelevant_selection (test_cuda_conversion_backends.CudaConversionBackendTests) ... ok
+test_bf16_legacy_native_special_values_are_bit_exact (test_cuda_conversion_backends.CudaConversionBackendTests) ... ok
+test_fp16_legacy_native_special_values_are_bit_exact (test_cuda_conversion_backends.CudaConversionBackendTests) ... ok
+test_full_bf16_legacy_native_parity (test_cuda_conversion_backends.CudaConversionBackendTests) ... ok
+test_full_fp16_legacy_native_parity (test_cuda_conversion_backends.CudaConversionBackendTests) ... ok
+test_cpu_and_cuda_reconstruction_agree (test_rhs_history.CudaRhsReconstructionTests) ... ok
+test_float32_gradients_match_stored_rhs (test_rhs_history.CudaRhsReconstructionTests) ... ok
+test_low_precision_and_int8_reconstruction (test_rhs_history.CudaRhsReconstructionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 1.624s
+
+OK
+SUMMARY 15 True 0 0 0

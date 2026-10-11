@@ -56,13 +56,13 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: >-
-          python source/scripts/update_website_stats.py
+          python source/website/scripts/update_website_stats.py
           --output source/website/data/stats.json
           --history history/pypi_cumulative.json
 
       - name: Validate statistics JSON
         run: >-
-          python source/scripts/update_website_stats.py
+          python source/website/scripts/update_website_stats.py
           --validate-only
           --require-history
           --output source/website/data/stats.json
@@ -113,15 +113,20 @@ jobs:
           path: website/data
 
       - name: Validate public statistics JSON
-        run: python scripts/update_website_stats.py --validate-only
+        run: python website/scripts/update_website_stats.py --validate-only
 
       - name: Configure GitHub Pages
         uses: actions/configure-pages@v6
 
+      - name: Prepare public website files
+        run: >-
+          rsync -a --exclude=/tools/ --exclude=/promo_pixel/ --exclude=/scripts/
+          website/ "${{ runner.temp }}/deepgpr-pages/"
+
       - name: Upload website artifact
         uses: actions/upload-pages-artifact@v5
         with:
-          path: website
+          path: ${{ runner.temp }}/deepgpr-pages
 
   deploy:
     environment:

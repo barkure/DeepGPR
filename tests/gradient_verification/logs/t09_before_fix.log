@@ -1,0 +1,46 @@
+before_fix 2d cpu          nt=  100 material grad finite True | largest initial-state gradient Hz = 5.79e-03
+before_fix 2d cpu          nt=  200 material grad finite True | largest initial-state gradient Hz = 1.71e+01
+before_fix 2d cpu          nt=  400 material grad finite True | largest initial-state gradient Hz = 6.99e+06
+before_fix 2d cpu          nt=  800 material grad finite True | largest initial-state gradient Hz = 2.44e+24
+before_fix 2d cpu          nt= 1200 material grad finite True | largest initial-state gradient Ex = nan
+before_fix 2d cpu          nt= 1600 material grad finite True | largest initial-state gradient Ex = nan
+before_fix 2d cpu          forward from 1e-3 random states, nt=100: max |field| = 5.70e+04
+before_fix 2d cpu          forward from 1e-3 random states, nt=300: max |field| = 2.42e+14
+before_fix 2d cpu          forward from 1e-3 random states, nt=1000: max |field| = inf
+before_fix 2d cuda_fast    nt=  100 material grad finite True | largest initial-state gradient Hx = 4.98e-04
+before_fix 2d cuda_fast    nt=  200 material grad finite True | largest initial-state gradient Hx = 6.85e-01
+before_fix 2d cuda_fast    nt=  400 material grad finite True | largest initial-state gradient Hx = 1.63e+03
+before_fix 2d cuda_fast    nt=  800 material grad finite True | largest initial-state gradient Hx = 5.51e+15
+before_fix 2d cuda_fast    nt= 1200 material grad finite True | largest initial-state gradient Hx = 1.26e+28
+before_fix 2d cuda_fast    nt= 1600 material grad finite True | largest initial-state gradient Ez = nan
+before_fix 2d cuda_fast    forward from 1e-3 random states, nt=100: max |field| = 1.89e+04
+before_fix 2d cuda_fast    forward from 1e-3 random states, nt=300: max |field| = 1.61e+11
+before_fix 2d cuda_fast    forward from 1e-3 random states, nt=1000: max |field| = 1.25e+35
+before_fix 2d cuda_general nt=  100 material grad finite True | largest initial-state gradient Hz = 5.79e-03
+before_fix 2d cuda_general nt=  200 material grad finite True | largest initial-state gradient Hz = 1.71e+01
+before_fix 2d cuda_general nt=  400 material grad finite True | largest initial-state gradient Hz = 7.00e+06
+before_fix 2d cuda_general nt=  800 material grad finite True | largest initial-state gradient Hz = 2.44e+24
+before_fix 2d cuda_general nt= 1200 material grad finite True | largest initial-state gradient Ex = nan
+before_fix 2d cuda_general nt= 1600 material grad finite True | largest initial-state gradient Ex = nan
+before_fix 2d cuda_general forward from 1e-3 random states, nt=100: max |field| = 5.70e+04
+before_fix 2d cuda_general forward from 1e-3 random states, nt=300: max |field| = 2.42e+14
+before_fix 2d cuda_general forward from 1e-3 random states, nt=1000: max |field| = inf
+before_fix 3d cpu          nt=  100 material grad finite True | largest initial-state gradient Hy = 2.87e-04
+before_fix 3d cpu          nt=  200 material grad finite True | largest initial-state gradient Hx = 3.20e-02
+before_fix 3d cpu          nt=  400 material grad finite True | largest initial-state gradient Hx = 2.52e+03
+before_fix 3d cpu          nt=  800 material grad finite True | largest initial-state gradient Hx = 2.60e+16
+before_fix 3d cpu          nt= 1200 material grad finite True | largest initial-state gradient Hx = 1.17e+28
+before_fix 3d cpu          nt= 1600 material grad finite True | largest initial-state gradient Ex = nan
+before_fix 3d cpu          forward from 1e-3 random states, nt=100: max |field| = 4.49e+03
+before_fix 3d cpu          forward from 1e-3 random states, nt=300: max |field| = 8.20e+09
+before_fix 3d cpu          forward from 1e-3 random states, nt=1000: max |field| = 1.14e+33
+before_fix 3d cuda_general nt=  100 material grad finite True | largest initial-state gradient Hy = 2.87e-04
+before_fix 3d cuda_general nt=  200 material grad finite True | largest initial-state gradient Hx = 3.20e-02
+before_fix 3d cuda_general nt=  400 material grad finite True | largest initial-state gradient Hx = 2.52e+03
+before_fix 3d cuda_general nt=  800 material grad finite True | largest initial-state gradient Hx = 2.60e+16
+before_fix 3d cuda_general nt= 1200 material grad finite True | largest initial-state gradient Hx = 1.17e+28
+before_fix 3d cuda_general nt= 1600 material grad finite True | largest initial-state gradient Ex = nan
+before_fix 3d cuda_general forward from 1e-3 random states, nt=100: max |field| = 4.49e+03
+before_fix 3d cuda_general forward from 1e-3 random states, nt=300: max |field| = 8.20e+09
+before_fix 3d cuda_general forward from 1e-3 random states, nt=1000: max |field| = 1.14e+33
+wrote /home/ll/下载/DeepGPR-dev/tests/gradient_verification/data/t09_cpml_degenerate_before_fix.json

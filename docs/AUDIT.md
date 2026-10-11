@@ -107,8 +107,8 @@ and removed again if `torch.save` fails.
 
 ### P-9 Invalid requirement file in the wheel (Medium, Fixed)
 `src/DeepGPR/requirements.txt` contained the single line `torch+cu` (not a
-valid requirement) and was shipped in the sdist/wheel via `MANIFEST.in`.
-Removed; root-level `requirements.txt` / `requirements-dev.txt` added.
+valid requirement) and was shipped in the sdist/wheel via `docs/MANIFEST.in`.
+Removed; root-level `requirements.txt` added; development dependencies are now installed with `pip install -e ".[dev,examples]"`.
 
 ### P-10 Namespace leakage (Low, Fixed)
 `__init__.py` built `__all__` from `globals()` after `from .common import *`
@@ -296,6 +296,8 @@ removes this fixed overhead from short FWI iterations.
 - New helpers: `max_stable_time_step`, public `estimate_compute_memory`,
   `visualization.plot_*`.
 - `tests/test_native_abi.py` runs without PyTorch or a GPU;
-  `tools/verify_equivalence.py` compares any two revisions bitwise;
+  `website/tools/verify_equivalence.py --no-pml` checks the unchanged objective
+  against pre-refactor releases at the original tolerances; corrected PML
+  derivatives are checked by independent finite-difference unit tests;
   `quality.yml` CI runs ruff, the ABI test, the CPU unit tests and the
   equivalence check.

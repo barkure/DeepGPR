@@ -1,0 +1,10 @@
+{
+  "deepgpr_cpu.so": {
+    "workspace_sha256": "a901019842ee3daefa05a4412d5e965c1141d3cd404585f4f1d65de216dd4a31",
+    "backup_sha256": "a901019842ee3daefa05a4412d5e965c1141d3cd404585f4f1d65de216dd4a31"
+  },
+  "deepgpr.so": {
+    "workspace_sha256": "592a9d3bacfa20c2dbfe5b6edc0b11a8ae54c756868d47df0913d1b93c41dabe",
+    "backup_sha256": "592a9d3bacfa20c2dbfe5b6edc0b11a8ae54c756868d47df0913d1b93c41dabe"
+  }
+}

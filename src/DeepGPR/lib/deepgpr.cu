@@ -850,6 +850,15 @@ DEEPGPR_API int deepgpr_supports_physical_history(void)
     return 1;
 }
 
+/* Material sensitivities include replicated CPML cells on the extended grid.
+ * The Python replicate-padding transpose folds them into physical edge cells.
+ * Material gradients with CPML require extended, rather than physical, history.
+ */
+DEEPGPR_API int deepgpr_supports_pml_material_gradients(void)
+{
+    return 1;
+}
+
 /*
  * SOLVER_TM2D: 2D Ez-TM fast path. Valid only for nz = 1, an Ez source and
  * zero Ex/Ey/Hz states (and their CPML auxiliaries), which the caller checks:
@@ -2630,14 +2639,44 @@ __global__ void save_e_snapshot_gpu(
 }
 
 
-/* Save R from the executed update E^(n+1) = ca E^n + cb R. */
+/* Match update_e_gpu for one material cell/component. At an unupdated Yee
+ * field the history coefficient is 1, while source/CPML corrections retain cb. */
+__device__ __forceinline__ bool material_component_has_e_update_gpu(
+    int component, long long i, long long j, long long k, int NX, int NY, int NZ)
+{
+    if (component == 0) {
+        return ((NY - 1) != 1 || (NZ - 1) != 1)
+            && i < NX - 1 && j > 0 && j < NY - 1 && k > 0 && k < NZ - 1;
+    }
+    if (component == 1) {
+        return ((NX - 1) != 1 || (NZ - 1) != 1)
+            && i > 0 && i < NX - 1 && j < NY - 1 && k > 0 && k < NZ - 1;
+    }
+    return ((NX - 1) != 1 || (NY - 1) != 1)
+        && i > 0 && i < NX - 1 && j > 0 && j < NY - 1 && k < NZ - 1;
+}
+
+__device__ __forceinline__ float rhs_history_coefficient_gpu(
+    int component, long long material_idx, const float* ca, int NX, int NY, int NZ)
+{
+    long long i = material_idx / ((long long)NY * NZ);
+    long long remainder = material_idx % ((long long)NY * NZ);
+    long long j = remainder / NZ, k = remainder % NZ;
+    return material_component_has_e_update_gpu(component, i, j, k, NX, NY, NZ)
+        ? ca[material_idx] : 1.0f;
+}
+
+
+/* Save R from E^(n+1) = a E^n + cb R, with a=1 on unupdated components.
+ * Correct the history before any lossy conversion, so inactive-field terms
+ * do not leave a cancellation residual after independent quantization. */
 template<int STORAGE_TYPE, int CONVERSION_BACKEND>
 __global__ void save_rhs_snapshot_gpu(
     void* __restrict__ dst_ptr, int t_idx,
     const float* __restrict__ E, const void* __restrict__ Eold_ptr,
     const float* __restrict__ exact_Eold,
     const float* __restrict__ ca, const float* __restrict__ cb,
-    int step, int NX, int NY, int NZ, HistoryBox box)
+    int step, int NX, int NY, int NZ, HistoryBox box, int component)
 {
     long long ny1 = box.ny, nz1 = box.nz;
     long long total = (long long)box.nx * ny1 * nz1;
@@ -2659,8 +2698,9 @@ __global__ void save_rhs_snapshot_gpu(
     float e_old = STORAGE_TYPE == WAVEFIELD_FLOAT32
         ? load_wavefield_value_device<STORAGE_TYPE, CONVERSION_BACKEND>(Eold_ptr, saved_idx)
         : exact_Eold[work];
+    float effective_ca = rhs_history_coefficient_gpu(component, material_idx, ca, NX, NY, NZ);
     float rhs = cb_value != 0.0f
-        ? (E[field_idx] - ca[material_idx] * e_old) / cb_value
+        ? (E[field_idx] - effective_ca * e_old) / cb_value
         : 0.0f;
     store_wavefield_value_device<STORAGE_TYPE, CONVERSION_BACKEND>(dst_ptr, saved_idx, rhs);
 }
@@ -2727,7 +2767,7 @@ __global__ void save_rhs_snapshot_vec2_gpu(
     const float* __restrict__ E, const void* __restrict__,
     const float* __restrict__ exact_Eold,
     const float* __restrict__ ca, const float* __restrict__ cb,
-    int step, int NX, int NY, int NZ, HistoryBox box)
+    int step, int NX, int NY, int NZ, HistoryBox box, int component)
 {
     long long total = (long long)box.nx * box.ny * box.nz;
     long long count = (long long)step * total;
@@ -2737,8 +2777,9 @@ __global__ void save_rhs_snapshot_vec2_gpu(
     long long field0, material0;
     compact_snapshot_indices(work, total, NX, NY, NZ, box, &field0, &material0);
     float cb0 = cb[material0];
+    float effective_ca0 = rhs_history_coefficient_gpu(component, material0, ca, NX, NY, NZ);
     float value0 = cb0 != 0.0f
-        ? (E[field0] - ca[material0] * exact_Eold[work]) / cb0
+        ? (E[field0] - effective_ca0 * exact_Eold[work]) / cb0
         : 0.0f;
     long long dst_idx = (long long)t_idx * count + work;
 
@@ -2746,8 +2787,9 @@ __global__ void save_rhs_snapshot_vec2_gpu(
         long long field1, material1;
         compact_snapshot_indices(work + 1, total, NX, NY, NZ, box, &field1, &material1);
         float cb1 = cb[material1];
+        float effective_ca1 = rhs_history_coefficient_gpu(component, material1, ca, NX, NY, NZ);
         float value1 = cb1 != 0.0f
-            ? (E[field1] - ca[material1] * exact_Eold[work + 1]) / cb1
+            ? (E[field1] - effective_ca1 * exact_Eold[work + 1]) / cb1
             : 0.0f;
         uintptr_t address = (uintptr_t)((unsigned short*)dst_ptr + dst_idx);
         if ((address & 0x3u) == 0u) {
@@ -2900,7 +2942,7 @@ __global__ void quantize_e_int8_snapshot_gpu(
 }
 
 
-/* Quantize the exact executed RHS: E^(n+1) = ca E^n + cb R^n. */
+/* Quantize the executed RHS with the actual component history coefficient. */
 template<int REDUCTION_BACKEND>
 __global__ void quantize_rhs_int8_snapshot_gpu(
     void* __restrict__ packed, int t_idx, int component,
@@ -2946,8 +2988,10 @@ __global__ void quantize_rhs_int8_snapshot_gpu(
     if (valid) {
         float cb_value = cb[material_idx];
         float e_old = exact_Eold[(long long)shot * total_cells + idx];
+        float effective_ca = rhs_history_coefficient_gpu(
+            components == 3 ? component : 2, material_idx, ca, NX, NY, NZ);
         value = cb_value != 0.0f
-            ? (E[field_idx] - ca[material_idx] * e_old) / cb_value
+            ? (E[field_idx] - effective_ca * e_old) / cb_value
             : 0.0f;
     }
 
@@ -2991,15 +3035,16 @@ __global__ void quantize_rhs_int8_snapshot_gpu(
  *   grad_sigma: Output conductivity gradient array.
  *   step: Number of shots or simulations in the batch.
  *   NX, NY, NZ: Padded field grid sizes.
- *   pml0..pml5: CPML thicknesses; gradients are excluded from these cells.
+ *   pml0..pml5: CPML thicknesses; replicated material sensitivities are retained.
  *   dt: Time step size.
  *   eps_r_requires_grad: Whether to accumulate grad_eps_r.
  *   sigma_requires_grad: Whether to accumulate grad_sigma.
  *   sample_weight: Length of the sampling block represented by this step.
  *   fwi_mode: Gradient mode; 2 uses lambda_ez only, 3 uses lambda_ex, lambda_ey, and lambda_ez.
  *
- * With RHS_FROM_E the right-hand side is rebuilt exactly as the forward
- * save_rhs_snapshot_gpu computed it, so FP32 gradients are unchanged.
+ * With RHS_FROM_E the right-hand side uses the same actual component history
+ * coefficient as save_rhs_snapshot_gpu. Updated-component gradients retain
+ * their previous arithmetic.
  */
 template<int STORAGE_TYPE, int CONVERSION_BACKEND, int RHS_FROM_E>
 __global__ void accumulate_material_gradients_gpu(
@@ -3014,7 +3059,7 @@ __global__ void accumulate_material_gradients_gpu(
     float dt, int eps_r_requires_grad, int sigma_requires_grad,
     int sample_weight, int fwi_mode, HistoryBox box
 ) {
-    long long sx = (NX - 1), sy = (NY - 1), sz = (NZ - 1);
+    long long sy = (NY - 1), sz = (NZ - 1);
     long long hy = box.ny, hz = box.nz;
     long long total_cells = (long long)box.nx * hy * hz;
     int components = (fwi_mode == 3) ? 3 : 1;
@@ -3028,15 +3073,8 @@ __global__ void accumulate_material_gradients_gpu(
     long long iz = rem % hz + box.z0;
     long long idx = ix * sy * sz + iy * sz + iz;
 
-    /* CPML is a numerical boundary, not part of the invertible model. */
-    if ((pml0 > 0 && ix < pml0) ||
-        (pml1 > 0 && ix >= sx - pml1) ||
-        (pml2 > 0 && iy < pml2) ||
-        (pml3 > 0 && iy >= sy - pml3) ||
-        (pml4 > 0 && iz < pml4) ||
-        (pml5 > 0 && iz >= sz - pml5)) {
-        return;
-    }
+    /* CPML materials are replicas of physical edge values. Retain their
+     * sensitivities for the replicate-padding transpose in Python. */
 
     long long material_idx = ix * NY * NZ + iy * NZ + iz;
     float local_grader = 0.0f;
@@ -3056,22 +3094,30 @@ __global__ void accumulate_material_gradients_gpu(
         adjoint_values[2] = lambda_ez[idx_E];
 
         for (int c = 0; c < components; ++c) {
+            int field_component = (fwi_mode == 3) ? c : 2;
+            bool has_e_update = material_component_has_e_update_gpu(
+                field_component, ix, iy, iz, NX, NY, NZ);
             float e_old = load_wavefield_value_device<STORAGE_TYPE, CONVERSION_BACKEND>(
                 e_frame, (long long)c * e_component_stride + base_idx);
             float second = load_wavefield_value_device<STORAGE_TYPE, CONVERSION_BACKEND>(
                 second_frame, (long long)c * second_component_stride + base_idx);
             float rhs;
             if (RHS_FROM_E) {
-                /* Same expression as save_rhs_snapshot_gpu (E^(n+1) = ca E^n + cb R^n). */
+                /* Same expression as save_rhs_snapshot_gpu. */
+                float effective_ca = has_e_update ? ca_value : 1.0f;
                 rhs = cb_value != 0.0f
-                    ? (second - ca_value * e_old) / cb_value
+                    ? (second - effective_ca * e_old) / cb_value
                     : 0.0f;
             } else {
                 rhs = second;
             }
 
             float adjoint_val = adjoint_values[(fwi_mode == 3) ? c : 2];
-            float grad_ca = adjoint_val * e_old * (float)sample_weight;
+            /* Exactly zero material sensitivity must remain zero when a
+             * decoupled CPML-boundary cotangent is non-finite. */
+            if (e_old == 0.0f && rhs == 0.0f) adjoint_val = 0.0f;
+            float grad_ca = has_e_update
+                ? adjoint_val * e_old * (float)sample_weight : 0.0f;
             float grad_cb = adjoint_val * rhs * (float)sample_weight;
 
             if (active_material) {
@@ -3126,7 +3172,7 @@ __global__ void accumulate_material_gradients_int8_gpu(
     int bx, int by, int bz, HistoryBox box)
 {
     __shared__ float shared_scales[2];
-    long long sx = NX - 1, sy = NY - 1, sz = NZ - 1;
+    long long sy = NY - 1, sz = NZ - 1;
     long long hx = box.nx, hy = box.ny, hz = box.nz;
     long long total_cells = hx * hy * hz;
     int components = fwi_mode == 3 ? 3 : 1;
@@ -3154,14 +3200,9 @@ __global__ void accumulate_material_gradients_int8_gpu(
     long long idx = valid ? ix * sy * sz + iy * sz + iz : 0;
     long long material_idx = valid ? ix * NY * NZ + iy * NZ + iz : 0;
 
-    bool outside_pml = valid
-        && !(pml0 > 0 && ix < pml0)
-        && !(pml1 > 0 && ix >= sx - pml1)
-        && !(pml2 > 0 && iy < pml2)
-        && !(pml3 > 0 && iy >= sy - pml3)
-        && !(pml4 > 0 && iz < pml4)
-        && !(pml5 > 0 && iz >= sz - pml5);
-    bool active_material = outside_pml && sigma_pad[material_idx] <= DEEPGPR_PEC_SIGMA_THRESHOLD_F;
+    /* Keep CPML material sensitivities; only invalid tile lanes and PEC
+     * cells are excluded. All lanes still participate in scale barriers. */
+    bool active_material = valid && sigma_pad[material_idx] <= DEEPGPR_PEC_SIGMA_THRESHOLD_F;
     float ca_value = valid ? ca[material_idx] : 0.0f;
     float cb_value = valid ? cb[material_idx] : 0.0f;
     float local_grader = 0.0f;
@@ -3180,14 +3221,18 @@ __global__ void accumulate_material_gradients_int8_gpu(
             __syncthreads();
 
             if (active_material) {
+                int field_component = (fwi_mode == 3) ? component : 2;
+                bool has_e_update = material_component_has_e_update_gpu(
+                    field_component, ix, iy, iz, NX, NY, NZ);
                 float e_old = shared_scales[0]
                     * (float)e_q[(long long)component * e_q_component_stride + history_voxel];
                 float second = shared_scales[1]
                     * (float)second_q[(long long)component * second_q_component_stride + history_voxel];
                 float rhs;
                 if (RHS_FROM_E) {
+                    float effective_ca = has_e_update ? ca_value : 1.0f;
                     rhs = cb_value != 0.0f
-                        ? (second - ca_value * e_old) / cb_value
+                        ? (second - effective_ca * e_old) / cb_value
                         : 0.0f;
                 } else {
                     rhs = second;
@@ -3200,8 +3245,10 @@ __global__ void accumulate_material_gradients_int8_gpu(
                 } else {
                     adjoint_val = lambda_ey[adjoint_idx];
                 }
+                /* Keep every lane in the scale barriers below. */
+                if (e_old == 0.0f && rhs == 0.0f) adjoint_val = 0.0f;
                 float weight = (float)sample_weight * adjoint_val;
-                float grad_ca = weight * e_old;
+                float grad_ca = has_e_update ? weight * e_old : 0.0f;
                 float grad_cb = weight * rhs;
                 if (eps_r_requires_grad == 1) {
                     float dca_der = e0 * (1.0f - ca_value) * cb_value / dt;
@@ -3219,7 +3266,7 @@ __global__ void accumulate_material_gradients_int8_gpu(
         }
     }
 
-    if (outside_pml) {
+    if (valid) {
         if (eps_r_requires_grad == 1) grad_eps_r[idx] += local_grader;
         if (sigma_requires_grad == 1) grad_sigma[idx] += local_gradse;
     }
@@ -3397,6 +3444,12 @@ DEEPGPR_API void forward(const float* __restrict__ eps_r_pad, const float* __res
     int fdtd_order = g_fdtd_order;
     int e_components = (fwi_mode == 3) ? 3 : 1;
     int has_cpml = pml0 || pml1 || pml2 || pml3 || pml4 || pml5;
+    if (save_wavefield_history && save_model_history && has_cpml
+        && (storage_type & WAVEFIELD_PHYSICAL_HISTORY) != 0) {
+        deepgpr_set_error("DeepGPR CPML material gradients require extended wavefield "
+                          "history; physical history omits replicated CPML sensitivities.");
+        return;
+    }
     int nt_saved = (nt + sampling_interval - 1) / sampling_interval;
 
     CudaCallResources resources;
@@ -3653,19 +3706,19 @@ DEEPGPR_API void forward(const float* __restrict__ eps_r_pad, const float* __res
                 if (store_rhs && fwi_mode == 3) {
                     LAUNCH_SAVE_KERNEL(save_rhs_snapshot_gpu, save_rhs_snapshot_vec2_gpu, grid_copy, grid_copy_vec2, blockSize, stream_comp, storage_type,
                         r_buffer, 0, Ex, e_buffer, d_exact_Eold,
-                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history);
+                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, 0);
                     LAUNCH_SAVE_KERNEL(save_rhs_snapshot_gpu, save_rhs_snapshot_vec2_gpu, grid_copy, grid_copy_vec2, blockSize, stream_comp, storage_type,
                         r_buffer + snap_size * storage_size, 0, Ey,
                         e_buffer + snap_size * storage_size, d_exact_Eold != nullptr ? d_exact_Eold + snap_size : nullptr,
-                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history);
+                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, 1);
                     LAUNCH_SAVE_KERNEL(save_rhs_snapshot_gpu, save_rhs_snapshot_vec2_gpu, grid_copy, grid_copy_vec2, blockSize, stream_comp, storage_type,
                         r_buffer + 2 * snap_size * storage_size, 0, Ez,
                         e_buffer + 2 * snap_size * storage_size, d_exact_Eold != nullptr ? d_exact_Eold + 2 * snap_size : nullptr,
-                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history);
+                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, 2);
                 } else if (store_rhs) {
                     LAUNCH_SAVE_KERNEL(save_rhs_snapshot_gpu, save_rhs_snapshot_vec2_gpu, grid_copy, grid_copy_vec2, blockSize, stream_comp, storage_type,
                         r_buffer, 0, Ez, e_buffer, d_exact_Eold,
-                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history);
+                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, 2);
                 }
                 CUDA_CHECK_LAST();
                 CUDA_CHECK(cudaEventRecord(event_comp, stream_comp));
@@ -3691,19 +3744,19 @@ DEEPGPR_API void forward(const float* __restrict__ eps_r_pad, const float* __res
                 if (store_rhs && fwi_mode == 3) {
                     LAUNCH_SAVE_KERNEL(save_rhs_snapshot_gpu, save_rhs_snapshot_vec2_gpu, grid_copy, grid_copy_vec2, blockSize, stream_comp, storage_type,
                         R_saved, t_saved, Ex, E_saved, d_exact_Eold,
-                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history);
+                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, 0);
                     LAUNCH_SAVE_KERNEL(save_rhs_snapshot_gpu, save_rhs_snapshot_vec2_gpu, grid_copy, grid_copy_vec2, blockSize, stream_comp, storage_type,
                         wavefield_offset_host(R_saved, component_stride, storage_type), t_saved, Ey,
                         wavefield_const_offset_host(E_saved, component_stride, storage_type), d_exact_Eold != nullptr ? d_exact_Eold + snap_size : nullptr,
-                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history);
+                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, 1);
                     LAUNCH_SAVE_KERNEL(save_rhs_snapshot_gpu, save_rhs_snapshot_vec2_gpu, grid_copy, grid_copy_vec2, blockSize, stream_comp, storage_type,
                         wavefield_offset_host(R_saved, 2 * component_stride, storage_type), t_saved, Ez,
                         wavefield_const_offset_host(E_saved, 2 * component_stride, storage_type), d_exact_Eold != nullptr ? d_exact_Eold + 2 * snap_size : nullptr,
-                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history);
+                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, 2);
                 } else if (store_rhs) {
                     LAUNCH_SAVE_KERNEL(save_rhs_snapshot_gpu, save_rhs_snapshot_vec2_gpu, grid_copy, grid_copy_vec2, blockSize, stream_comp, storage_type,
                         R_saved, t_saved, Ez, E_saved, d_exact_Eold,
-                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history);
+                        ce_hist, ce_rhs, step, NX_FIELDS, NY_FIELDS, NZ_FIELDS, history, 2);
                 }
                 CUDA_CHECK_LAST();
             }
@@ -3848,6 +3901,11 @@ DEEPGPR_API void backward(const float* __restrict__ eps_r_pad, const float* __re
     int fdtd_order = g_fdtd_order;
     int e_components = (fwi_mode == 3) ? 3 : 1;
     int has_cpml = pml0 || pml1 || pml2 || pml3 || pml4 || pml5;
+    if (need_material_gradient && has_cpml && (storage_type & WAVEFIELD_PHYSICAL_HISTORY) != 0) {
+        deepgpr_set_error("DeepGPR CPML material gradients require extended wavefield "
+                          "history; physical history omits replicated CPML sensitivities.");
+        return;
+    }
     HistoryBox history = history_box_host(
         (storage_type & WAVEFIELD_PHYSICAL_HISTORY) != 0, NX_FIELDS, NY_FIELDS, NZ_FIELDS,
         pml0, pml1, pml2, pml3, pml4, pml5, int8_bx, int8_by, int8_bz);

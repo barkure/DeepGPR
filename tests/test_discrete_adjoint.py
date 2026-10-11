@@ -231,11 +231,11 @@ def _material_case(pml, device="cpu"):
 
     with torch.no_grad():
         reference = DeepGPR.compute(er=eps_base, se=sigma_base, **arguments)[-1]
-    data_scale = reference.abs().max().clamp_min(1.0e-12)
-    data_target = 0.85 * reference
+    data_scale = reference.double().abs().max().clamp_min(1.0e-12)
+    data_target = 0.85 * reference.double()
 
     def objective(eps_r, sigma):
-        residual = (DeepGPR.compute(er=eps_r, se=sigma, **arguments)[-1] - data_target) / data_scale
+        residual = (DeepGPR.compute(er=eps_r, se=sigma, **arguments)[-1].double() - data_target) / data_scale
         return 0.5 * residual.square().sum()
 
     eps_r = eps_base.clone().requires_grad_(True)
@@ -243,17 +243,12 @@ def _material_case(pml, device="cpu"):
     loss = objective(eps_r, sigma)
     loss.backward()
 
-    # Keep replicated edge values fixed during finite-difference checks.
-    mask = torch.ones_like(eps_base)
-    if pml:
-        mask[:1] = 0.0
-        mask[-1:] = 0.0
-        mask[:, :1] = 0.0
-        mask[:, -1:] = 0.0
-    direction_eps = torch.randn_like(eps_base) * mask
+    # The public model is perturbed in full, including values replicated
+    # into the PML. Its fixed numerical absorption profile is unchanged.
+    direction_eps = torch.randn_like(eps_base)
     direction_eps /= direction_eps.abs().max().clamp_min(1.0e-12)
     direction_eps *= 0.15
-    direction_sigma = torch.randn_like(sigma_base) * mask
+    direction_sigma = torch.randn_like(sigma_base)
     direction_sigma /= direction_sigma.abs().max().clamp_min(1.0e-12)
     direction_sigma *= 2.0e-4
 
@@ -264,11 +259,14 @@ def _material_case(pml, device="cpu"):
         "joint": (direction_eps, direction_sigma),
     }
     for name, (d_eps, d_sigma) in directions.items():
-        directional_adjoint = float((eps_r.grad * d_eps).sum() + (sigma.grad * d_sigma).sum())
+        directional_adjoint = float((eps_r.grad.double() * d_eps.double()).sum()
+                                    + (sigma.grad.double() * d_sigma.double()).sum())
         d_eps = d_eps.to(device)
         d_sigma = d_sigma.to(device)
         case_rows = []
-        for step in (1.0, 0.5, 0.25):
+        # Full-model directions include nonlinear PML material contributions;
+        # continue into the asymptotic range before judging the original bound.
+        for step in (1.0, 0.5, 0.25, 0.125, 0.0625, 0.03125, 0.015625):
             with torch.no_grad():
                 plus = float(objective(eps_base + step * d_eps, sigma_base + step * d_sigma))
                 minus = float(objective(eps_base - step * d_eps, sigma_base - step * d_sigma))
@@ -294,6 +292,27 @@ class DiscreteAdjointTests(unittest.TestCase):
             10, 12, 8, pml, torch.device("cpu"), torch.float32,
         )[6:]
         self.assertTrue(all(not tensor.requires_grad for tensor in coefficients))
+
+    def test_cpml_coefficients_stay_fixed_when_the_materials_change(self):
+        eps_r = torch.full((10, 12, 8), 4.0, requires_grad=True)
+        mu_r_pad = torch.ones((11, 13, 9))
+        pml = torch.tensor([2, 1, 3, 0, 1, 2], dtype=torch.int32)
+
+        def profiles(er, mr, speed):
+            return DeepGPR.build_pml_coeffs(
+                er, mr, 2.0e-11, (0.02, 0.017, 0.013),
+                10, 12, 8, pml, torch.device("cpu"), torch.float32,
+                max_velocity=speed,
+            )[6:]
+
+        speed = .75 * 299_792_458.0
+        baseline = profiles(eps_r, mu_r_pad, speed)
+        varied = profiles(2.0 * eps_r, 3.0 * mu_r_pad, speed)
+        for a, b in zip(baseline, varied):
+            self.assertTrue(torch.equal(a, b))
+            self.assertFalse(b.requires_grad)
+        different_speed = profiles(eps_r, mu_r_pad, speed / 2)
+        self.assertTrue(any(not torch.equal(a, b) for a, b in zip(baseline, different_speed)))
 
     def test_canonical_and_deprecated_compute_names_match(self):
         eps_r = torch.full((10, 12), 4.0)

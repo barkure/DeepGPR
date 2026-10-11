@@ -1,0 +1,34 @@
+[
+  {
+    "pml": 1,
+    "h": 0.03,
+    "ad": -0.055166564814514804,
+    "total_fd": -0.07285854637970601,
+    "replication_with_fixed_coeff_fd": -0.06639348061328784,
+    "coefficient_derivative_contribution_fd": -0.006465065766418171
+  },
+  {
+    "pml": 2,
+    "h": 0.03,
+    "ad": 0.04127896189091333,
+    "total_fd": -0.11309638188085984,
+    "replication_with_fixed_coeff_fd": -0.08172546108462983,
+    "coefficient_derivative_contribution_fd": -0.03137092079623001
+  },
+  {
+    "pml": 5,
+    "h": 0.03,
+    "ad": 0.03800497308221679,
+    "total_fd": -0.13322871898632146,
+    "replication_with_fixed_coeff_fd": -0.13339877624706833,
+    "coefficient_derivative_contribution_fd": 0.00017005726074686978
+  },
+  {
+    "pml": 10,
+    "h": 0.03,
+    "ad": 0.03806818577523149,
+    "total_fd": -0.13368860975957003,
+    "replication_with_fixed_coeff_fd": -0.13368970125382518,
+    "coefficient_derivative_contribution_fd": 1.091494255145431e-06
+  }
+]

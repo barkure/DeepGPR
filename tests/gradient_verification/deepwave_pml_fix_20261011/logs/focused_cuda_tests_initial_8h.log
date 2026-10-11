@@ -1,0 +1,86 @@
+test_absorption_speed_must_be_fixed_positive_and_finite (test_external_pml.ExternalPMLTests) ... ok
+test_automatic_extension_matches_manual_solver_grid (test_external_pml.ExternalPMLTests) ... ok
+test_cfl_uses_axes_activated_by_extension (test_external_pml.ExternalPMLTests) ... ok
+test_checkpoint_recomputation_and_fwi_updates (test_external_pml.ExternalPMLTests) ... ok
+test_checkpoint_shot_subset_with_disabled_faces (test_external_pml.ExternalPMLTests) ... ok
+test_cuda_physical_model_gradient_parity (test_external_pml.ExternalPMLTests) ... ok
+test_model_edge_derivative_reextends_materials_on_every_forward (test_external_pml.ExternalPMLTests) ... ok
+test_physical_coordinate_and_state_validation (test_external_pml.ExternalPMLTests) ... ok
+test_replicated_material_values_and_folded_backward (test_external_pml.ExternalPMLTests) ... ok
+test_stale_native_library_is_rejected (test_external_pml.ExternalPMLTests) ... ok
+test_canonical_and_deprecated_compute_names_match (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cpml_coefficients_are_separate_from_trainable_materials (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cpml_coefficients_stay_fixed_when_the_materials_change (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cpu_cuda_forward_and_gradient_consistency (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cuda_2d_tm_adjoint_is_bitwise_reproducible (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cuda_2d_tm_fast_path_selection_and_forward_identity (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cuda_2d_tm_fast_path_state_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cuda_asymmetric_cpml_and_incomplete_sampling_block (test_discrete_adjoint.DiscreteAdjointTests) ... /home/ll/下载/DeepGPR-dev/tests/test_discrete_adjoint.py:775: RuntimeWarning: model_gradient_sampling_interval=4 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=5.0000e+10 Hz, dt=1.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  receiver = DeepGPR.compute(
+ok
+test_cuda_asymmetric_cpml_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cuda_coincident_sources_and_receivers_accumulate (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cuda_cpml_single_step_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_cuda_explicit_device_selects_matching_native_runtime (test_discrete_adjoint.DiscreteAdjointTests) ... skipped 'At least two CUDA devices are required'
+test_cuda_large_3d_all_face_cpml_async_bounds (test_discrete_adjoint.DiscreteAdjointTests) ... /home/ll/下载/DeepGPR-dev/tests/test_discrete_adjoint.py:734: RuntimeWarning: model_gradient_sampling_interval=3 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=5.0000e+10 Hz, dt=1.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  result = DeepGPR.compute(
+ok
+test_cuda_material_taylor_checks_without_and_with_cpml (test_discrete_adjoint.DiscreteAdjointTests) ... test_incomplete_sampling_block_uses_actual_length (test_discrete_adjoint.DiscreteAdjointTests) ... /home/ll/下载/DeepGPR-dev/tests/test_discrete_adjoint.py:530: RuntimeWarning: model_gradient_sampling_interval=11 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=1.6667e+10 Hz, dt=3.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  receiver = DeepGPR.compute(
+/home/ll/下载/DeepGPR-dev/tests/test_discrete_adjoint.py:530: RuntimeWarning: model_gradient_sampling_interval=16 exceeds the recommended bound 1 = floor(1 / (4 f_max dt)) for the source spectrum (f_max=1.6667e+10 Hz, dt=3.0000e-11 s). The temporal-sampling gradient approximation degrades quickly above this bound; use model_gradient_sampling_interval='auto' or an interval <= the bound.
+  receiver = DeepGPR.compute(
+ok
+test_material_taylor_checks_without_and_with_cpml (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_native_2d_tm_state_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_native_cpml_single_step_dot_product_all_faces (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_native_field_update_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_source_waveform_gradient_matches_finite_difference (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_weighted_curl_dot_products_orders_2_4_8 (test_discrete_adjoint.DiscreteAdjointTests) ... ok
+test_forward_only_accepts_physical_history_with_pml (test_history_region.CpuHistoryRegionTests) ... ok
+test_physical_history_preserves_forward_and_source_gradients (test_history_region.CpuHistoryRegionTests) ... ok
+test_physical_history_preserves_initial_state_gradients (test_history_region.CpuHistoryRegionTests) ... ok
+test_physical_history_rejects_pml_material_gradients (test_history_region.CpuHistoryRegionTests) ... ok
+test_physical_history_without_pml_keeps_material_gradients (test_history_region.CpuHistoryRegionTests) ... ok
+test_int8_tiles_and_source_gradients_follow_the_full_grid_tiling (test_history_region.CudaHistoryRegionTests) ... ok
+test_physical_history_preserves_forward_and_source_gradients (test_history_region.CudaHistoryRegionTests) ... ok
+test_physical_history_rejects_pml_material_gradients (test_history_region.CudaHistoryRegionTests) ... ok
+test_history_box_matches_tile_aligned_full_grid (test_history_region.HistoryRegionContractTests) ... ok
+test_invalid_region_and_stale_library (test_history_region.HistoryRegionContractTests) ... ok
+test_memory_estimate_scales_with_physical_cells (test_history_region.HistoryRegionContractTests) ... ok
+test_saved_file_records_the_physical_region (test_history_region.HistoryRegionContractTests) ... ok
+test_segmented_run_reproduces_the_full_run_bitwise (test_cuda_fused_kernels.CudaFusedCpmlStateTests) ... ok
+test_forward_does_not_depend_on_the_history_writer (test_cuda_fused_kernels.CudaFusedHistoryTests) ... ok
+test_low_precision_frames_match_the_separate_writer (test_cuda_fused_kernels.CudaFusedHistoryTests) ... ok
+test_physical_history_rejects_pml_material_gradients (test_cuda_fused_kernels.CudaFusedHistoryTests) ... ok
+test_saved_frames_are_the_fields_after_each_step (test_cuda_fused_kernels.CudaFusedHistoryTests) ... ok
+test_cuda_full_model_receiver_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) ... test_cuda_nonzero_state_single_step_material_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) ... ok
+test_cuda_checkpoint_full_model_pml_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) ... ok
+
+======================================================================
+FAIL: test_cuda_material_taylor_checks_without_and_with_cpml (test_discrete_adjoint.DiscreteAdjointTests) (pml=3, parameter='eps_r')
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ll/下载/DeepGPR-dev/tests/test_discrete_adjoint.py", line 661, in test_cuda_material_taylor_checks_without_and_with_cpml
+    self.assertLess(min(errors), 1.5e-2)
+AssertionError: 0.017701480263157893 not less than 0.015
+
+======================================================================
+FAIL: test_cuda_full_model_receiver_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) (path='cuda_general', dims=3, rhs='stored', states=False, direction='random', parameter='sigma', rows=[{'h': 1.0, 'J_plus': 0.8135087463595998, 'J_minus': 0.827025914451611, 'fd': -0.0067585840460056, 'relative_error': 0.0008120787426945456}, {'h': 0.5, 'J_plus': 0.8168371199489729, 'J_minus': 0.823575862249492, 'fd': -0.006738742300519074, 'relative_error': 0.002125431657147925}, {'h': 0.25, 'J_plus': 0.8184838489684273, 'J_minus': 0.8218504833859821, 'fd': -0.006733268835109607, 'relative_error': 0.00293594372145264}, {'h': 0.125, 'J_plus': 0.8193228849837515, 'J_minus': 0.8210038048887603, 'fd': -0.006723679620035394, 'relative_error': 0.0043559169785082974}, {'h': 0.0625, 'J_plus': 0.8197553989790803, 'J_minus': 0.8205830794268141, 'fd': -0.00662144358186989, 'relative_error': 0.019495053912951896}, {'h': 0.03125, 'J_plus': 0.8199552538664636, 'J_minus': 0.8203716635542683, 'fd': -0.006662555004874449, 'relative_error': 0.013407264581480638}, {'h': 0.015625, 'J_plus': 0.820066863792991, 'J_minus': 0.820288917470049, 'fd': -0.007105717665854883, 'relative_error': 0.049625124282409054}, {'h': 0.0078125, 'J_plus': 0.820116259691579, 'J_minus': 0.8202352860616626, 'fd': -0.007617687685353758, 'relative_error': 0.11349797701013027}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ll/下载/DeepGPR-dev/tests/test_pml_total_derivative.py", line 228, in check_directions
+    test.assertTrue(strict_agreement)
+AssertionError: False is not true
+
+======================================================================
+FAIL: test_cuda_full_model_receiver_derivatives (test_pml_total_derivative.PMLTotalDerivativeTests) (path='cuda_general', dims=3, rhs='reconstructed', states=False, direction='random', parameter='sigma', rows=[{'h': 1.0, 'J_plus': 0.8135087463595998, 'J_minus': 0.827025914451611, 'fd': -0.0067585840460056, 'relative_error': 0.0008116488385775468}, {'h': 0.5, 'J_plus': 0.8168371199489729, 'J_minus': 0.823575862249492, 'fd': -0.006738742300519074, 'relative_error': 0.0021258609960054893}, {'h': 0.25, 'J_plus': 0.8184838489684273, 'J_minus': 0.8218504833859821, 'fd': -0.006733268835109607, 'relative_error': 0.0029363727115846883}, {'h': 0.125, 'J_plus': 0.8193228849837515, 'J_minus': 0.8210038048887603, 'fd': -0.006723679620035394, 'relative_error': 0.004356345357692121}, {'h': 0.0625, 'J_plus': 0.8197553989790803, 'J_minus': 0.8205830794268141, 'fd': -0.00662144358186989, 'relative_error': 0.019495475778471615}, {'h': 0.03125, 'J_plus': 0.8199552538664636, 'J_minus': 0.8203716635542683, 'fd': -0.006662555004874449, 'relative_error': 0.013407689066292}, {'h': 0.015625, 'J_plus': 0.820066863792991, 'J_minus': 0.820288917470049, 'fd': -0.007105717665854883, 'relative_error': 0.04962471538027656}, {'h': 0.0078125, 'J_plus': 0.820116259691579, 'J_minus': 0.8202352860616626, 'fd': -0.007617687685353758, 'relative_error': 0.11349759558951729}])
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/home/ll/下载/DeepGPR-dev/tests/test_pml_total_derivative.py", line 228, in check_directions
+    test.assertTrue(strict_agreement)
+AssertionError: False is not true
+
+----------------------------------------------------------------------
+Ran 51 tests in 16.821s
+
+FAILED (failures=3, skipped=1)

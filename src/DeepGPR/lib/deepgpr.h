@@ -54,6 +54,8 @@ DEEPGPR_API int deepgpr_deterministic_adjoint(void);
 
 DEEPGPR_API int deepgpr_abi_version(void);
 DEEPGPR_API int deepgpr_supports_external_pml(void);
+/* Includes CPML material sensitivities for the replicate-padding transpose. */
+DEEPGPR_API int deepgpr_supports_pml_material_gradients(void);
 DEEPGPR_API int deepgpr_supports_int8_wavefield(void);
 DEEPGPR_API int deepgpr_supports_conversion_backends(void);
 DEEPGPR_API int deepgpr_supports_int8_reduction_backends(void);

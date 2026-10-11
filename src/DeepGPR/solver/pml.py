@@ -1,9 +1,8 @@
 """Convolutional PML (CPML) profiles, update coefficients and auxiliary state.
 
-The CPML is a fixed numerical boundary, not an inversion parameter. Boundary
-material averages are detached, and the native material-gradient kernels
-exclude CPML cells. All arithmetic in this module is carried over unchanged
-from the original implementation so coefficients are bit-for-bit identical.
+The absorbing profiles depend on a fixed reference velocity, not on the
+current model. Materials replicated into CPML remain differentiable and their
+sensitivities are summed back to the physical model boundary.
 
 Face order everywhere is ``x0, xm, y0, ym, z0, zm``. A face *descriptor* is a
 7-element ``int32`` tensor ``(thickness, x_start, x_end, y_start, y_end,
@@ -12,6 +11,7 @@ z_start, z_end)`` in extended-grid cells; disabled faces use an empty tensor.
 
 from __future__ import annotations
 
+import math
 from typing import Any, List, Optional, Sequence, Tuple
 
 import torch
@@ -24,10 +24,12 @@ from ..config.constants import (
     CPML_POLE_COUNT,
     CPML_SCALING_PROFILES,
     CPML_SIGMA_MAX_FACTOR,
+    SPEED_OF_LIGHT,
     VACUUM_PERMEABILITY,
     VACUUM_PERMITTIVITY,
 )
 from ..preprocessing.grid import GridSpacingLike, normalize_grid_spacing
+from ..utils.validators import require_positive_finite
 
 # Legacy short names, kept because the coefficient formulas below read best
 # with them and because they were public module attributes before.
@@ -222,18 +224,24 @@ def pml_face_descriptors(nx: int, ny: int, nz: int, pmlthick: Any) -> Tuple[torc
     )
 
 
-def build_pml_coeffs(eps_r, mu_r, dt, dx: GridSpacingLike, nx, ny, nz, pmlthick, device, dtype):
+def build_pml_coeffs(
+    eps_r, mu_r, dt, dx: GridSpacingLike, nx, ny, nz, pmlthick, device, dtype,
+    *, max_velocity=SPEED_OF_LIGHT,
+):
     """Build CPML face descriptors and electric/magnetic update coefficients.
 
     Args:
-        eps_r: Relative permittivity on the extended grid ``(nx, ny, nz)``.
-        mu_r: Relative permeability (extended grid, optionally with halo).
+        eps_r, mu_r: Material arguments retained for API compatibility. Profiles
+            are independent of their values.
         dt: Time step [s].
         dx: Scalar grid spacing or ``(dx, dy, dz)`` [m].
         nx, ny, nz: Extended grid dimensions.
         pmlthick: Six face thicknesses.
         device: Device of the coefficient tensors.
         dtype: Dtype of the coefficient tensors.
+        max_velocity: Fixed reference maximum propagation speed [m/s]. Keep
+            this scalar unchanged during inversion, finite differences and
+            checkpoint recomputation. Defaults to the vacuum light speed.
 
     Returns:
         ``(x0, xm, y0, ym, z0, zm, x01, x02, xm1, xm2, y01, y02, ym1, ym2,
@@ -242,8 +250,9 @@ def build_pml_coeffs(eps_r, mu_r, dt, dx: GridSpacingLike, nx, ny, nz, pmlthick,
         shape ``(4, 1, thickness)``; disabled faces yield empty tensors.
     """
     spacing = normalize_grid_spacing(dx)
-    eps_r_fixed = eps_r.detach()
-    mu_r_fixed = mu_r.detach()
+    if isinstance(max_velocity, bool) or getattr(max_velocity, "requires_grad", False):
+        raise TypeError("max_velocity must be a fixed finite positive scalar.")
+    max_velocity = require_positive_finite("max_velocity", max_velocity)
     pml = tuple(int(value) for value in pmlthick.tolist())
 
     descriptors: List[torch.Tensor] = []
@@ -257,10 +266,22 @@ def build_pml_coeffs(eps_r, mu_r, dt, dx: GridSpacingLike, nx, ny, nz, pmlthick,
         descriptors.append(
             torch.tensor(_face_descriptor_values(face, thickness, nx, ny, nz), dtype=torch.int)
         )
-        index = _boundary_material_index(face, thickness, nx, ny, nz)
-        average_eps = eps_r_fixed[index].mean()
-        average_mu = mu_r_fixed[index].mean()
         cfs = CFS(device=device)
+        # The legacy formula is factor*(m+1)/(eta0*d*sqrt(eps_r*mu_r)).
+        # With v=1/sqrt(epsilon0*mu0*eps_r*mu_r), this is factor*(m+1)*epsilon0*v/d.
+        # A fixed reference speed prevents the numerical absorber from changing
+        # when finite differences or an optimizer vary the boundary materials.
+        order = CFSParameter.scalingprofiles[cfs.sigma.scalingprofile]
+        sigma_max = (
+            CPML_SIGMA_MAX_FACTOR * (order + 1) * e0 * max_velocity / spacing[face // 2]
+        )
+        # Profiles are generated in the default floating dtype before being
+        # copied to the native coefficient dtype. Reject overflow/underflow
+        # rather than silently producing NaNs or triggering the legacy auto path.
+        limits = torch.finfo(torch.get_default_dtype())
+        if not math.isfinite(sigma_max) or not limits.tiny <= sigma_max <= limits.max:
+            raise ValueError("max_velocity produces an unrepresentable PML absorption profile.")
+        cfs.sigma.max = sigma_max
         electric = torch.zeros(
             (CPML_COEFFICIENTS_PER_CELL, CPML_POLE_COUNT, thickness), device=device, dtype=dtype
         )
@@ -268,8 +289,10 @@ def build_pml_coeffs(eps_r, mu_r, dt, dx: GridSpacingLike, nx, ny, nz, pmlthick,
             (CPML_COEFFICIENTS_PER_CELL, CPML_POLE_COUNT, thickness), device=device, dtype=dtype
         )
         calculate_pml_update_coeffs(
-            cfs, electric, magnetic, average_eps, average_mu, dt, spacing[face // 2], thickness
+            cfs, electric, magnetic, 1.0, 1.0, dt, spacing[face // 2], thickness
         )
+        if not bool(torch.isfinite(electric).all() & torch.isfinite(magnetic).all()):
+            raise ValueError("max_velocity produces non-finite PML update coefficients.")
         coefficients.extend((electric, magnetic))
 
     return (*descriptors, *coefficients)

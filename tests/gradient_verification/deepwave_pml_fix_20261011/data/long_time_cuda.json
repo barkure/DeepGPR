@@ -1,0 +1,786 @@
+{
+  "device": "cuda",
+  "nt": 1500,
+  "sigma": 0.0,
+  "pml_max_velocity": 299792458.0,
+  "material_checks": [
+    {
+      "direction": "edge",
+      "adjoint": -0.008223266224621197,
+      "rows": [
+        {
+          "h": 0.3,
+          "J_plus": 0.33177689215239536,
+          "J_minus": 0.3367123288433713,
+          "fd": -0.008225727818293265,
+          "relative_error": 0.00029925542474116645
+        },
+        {
+          "h": 0.1,
+          "J_plus": 0.3333473039636556,
+          "J_minus": 0.3349917993383207,
+          "fd": -0.008222476873325502,
+          "relative_error": 9.598999644831803e-05
+        },
+        {
+          "h": 0.03,
+          "J_plus": 0.3339155547563432,
+          "J_minus": 0.3344085424703733,
+          "fd": -0.008216461900501886,
+          "relative_error": 0.0008274478696722281
+        },
+        {
+          "h": 0.01,
+          "J_plus": 0.33407845055766533,
+          "J_minus": 0.3342430220310664,
+          "fd": -0.008228573670052142,
+          "relative_error": 0.0006450018731996724
+        },
+        {
+          "h": 0.003,
+          "J_plus": 0.3341359325694244,
+          "J_minus": 0.3341855119669778,
+          "fd": -0.008263232925566818,
+          "relative_error": 0.004836690591398296
+        },
+        {
+          "h": 0.001,
+          "J_plus": 0.33415217627112326,
+          "J_minus": 0.3341690435981628,
+          "fd": -0.008433663519769041,
+          "relative_error": 0.024947319116379273
+        }
+      ],
+      "boundary_mask": false,
+      "verdict": "PASS"
+    },
+    {
+      "direction": "corner",
+      "adjoint": -6.724070189534359e-09,
+      "rows": [
+        {
+          "h": 0.3,
+          "J_plus": 0.33416143205646676,
+          "J_minus": 0.33416143538621745,
+          "fd": -5.5495844956491664e-09,
+          "relative_error": 0.174668862873147
+        },
+        {
+          "h": 0.1,
+          "J_plus": 0.3341614292263814,
+          "J_minus": 0.33416143042932034,
+          "fd": -6.014694575728896e-09,
+          "relative_error": 0.10549794898178884
+        },
+        {
+          "h": 0.03,
+          "J_plus": 0.33416142942349913,
+          "J_minus": 0.3341614301540197,
+          "fd": -1.2175343141092773e-08,
+          "relative_error": 0.4477305393685312
+        },
+        {
+          "h": 0.01,
+          "J_plus": 0.33416142915699887,
+          "J_minus": 0.33416142973830926,
+          "fd": -2.906551943571145e-08,
+          "relative_error": 0.7686581791731956
+        },
+        {
+          "h": 0.003,
+          "J_plus": 0.33416142708372365,
+          "J_minus": 0.3341614293816601,
+          "fd": -3.829894087055881e-07,
+          "relative_error": 0.9824431954599996
+        },
+        {
+          "h": 0.001,
+          "J_plus": 0.33416142970565,
+          "J_minus": 0.3341614295400971,
+          "fd": 8.277645235921227e-08,
+          "relative_error": 1.0812316787913905
+        }
+      ],
+      "boundary_mask": false,
+      "verdict": "UNRESOLVED"
+    }
+  ],
+  "backward_probes": [
+    {
+      "device": "cuda",
+      "interval": 10,
+      "epsilon_history": {
+        "shape": [
+          3,
+          150,
+          1,
+          30,
+          34,
+          34
+        ],
+        "nonfinite": 0,
+        "maximum_finite_absolute": 5789.54833984375
+      },
+      "receiver": {
+        "shape": [
+          1,
+          1500,
+          2
+        ],
+        "nonfinite": 0,
+        "maximum_finite_absolute": 110.53507232666016
+      },
+      "J": 0.33416142950788574,
+      "raw_state_cotangents": {
+        "lambda_ex": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 276,
+          "maximum_finite_absolute": 3.546858194523138e+27
+        },
+        "lambda_ey": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 276,
+          "maximum_finite_absolute": 2.4750086543807185e+27
+        },
+        "lambda_ez": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 276,
+          "maximum_finite_absolute": 3.6724252699772504e+28
+        },
+        "lambda_hx": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 144,
+          "maximum_finite_absolute": 2.8688012194529936e+30
+        },
+        "lambda_hy": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 144,
+          "maximum_finite_absolute": 4.489852268825889e+30
+        },
+        "lambda_hz": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 144,
+          "maximum_finite_absolute": 6.35419722154459e+29
+        },
+        "lambda_x0_e_phi1": {
+          "shape": [
+            1,
+            6,
+            34,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.827490073158829e+27
+        },
+        "lambda_x0_e_phi2": {
+          "shape": [
+            1,
+            6,
+            35,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.9703897683741798e+28
+        },
+        "lambda_x0_h_phi1": {
+          "shape": [
+            1,
+            5,
+            35,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.159662154736464e+26
+        },
+        "lambda_x0_h_phi2": {
+          "shape": [
+            1,
+            5,
+            34,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.7231203943422993e+25
+        },
+        "lambda_xm_e_phi1": {
+          "shape": [
+            1,
+            6,
+            34,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.1028902453301319e+27
+        },
+        "lambda_xm_e_phi2": {
+          "shape": [
+            1,
+            6,
+            35,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.9762313357134895e+28
+        },
+        "lambda_xm_h_phi1": {
+          "shape": [
+            1,
+            5,
+            35,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.1572314272698714e+26
+        },
+        "lambda_xm_h_phi2": {
+          "shape": [
+            1,
+            5,
+            34,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 6.88744699974288e+24
+        },
+        "lambda_y0_e_phi1": {
+          "shape": [
+            1,
+            30,
+            6,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 4.017565681513368e+27
+        },
+        "lambda_y0_e_phi2": {
+          "shape": [
+            1,
+            31,
+            6,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.1462723568109355e+28
+        },
+        "lambda_y0_h_phi1": {
+          "shape": [
+            1,
+            31,
+            5,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.281636059457885e+26
+        },
+        "lambda_y0_h_phi2": {
+          "shape": [
+            1,
+            30,
+            5,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.693536845905042e+25
+        },
+        "lambda_ym_e_phi1": {
+          "shape": [
+            1,
+            30,
+            6,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.1071051418835338e+26
+        },
+        "lambda_ym_e_phi2": {
+          "shape": [
+            1,
+            31,
+            6,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 8.054060231203556e+26
+        },
+        "lambda_ym_h_phi1": {
+          "shape": [
+            1,
+            31,
+            5,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 5.199592398967796e+24
+        },
+        "lambda_ym_h_phi2": {
+          "shape": [
+            1,
+            30,
+            5,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 8.770047624699006e+23
+        },
+        "lambda_z0_e_phi1": {
+          "shape": [
+            1,
+            30,
+            35,
+            6
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 3.05201290627532e+22
+        },
+        "lambda_z0_e_phi2": {
+          "shape": [
+            1,
+            31,
+            34,
+            6
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.941543660655586e+22
+        },
+        "lambda_z0_h_phi1": {
+          "shape": [
+            1,
+            31,
+            34,
+            5
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 9.796497310684178e+19
+        },
+        "lambda_z0_h_phi2": {
+          "shape": [
+            1,
+            30,
+            35,
+            5
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 4.8877179727759016e+20
+        },
+        "lambda_zm_e_phi1": {
+          "shape": [
+            1,
+            30,
+            35,
+            6
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 9.792159556113085e+22
+        },
+        "lambda_zm_e_phi2": {
+          "shape": [
+            1,
+            31,
+            34,
+            6
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.6936707384850547e+22
+        },
+        "lambda_zm_h_phi1": {
+          "shape": [
+            1,
+            31,
+            34,
+            5
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.2692256455697367e+20
+        },
+        "lambda_zm_h_phi2": {
+          "shape": [
+            1,
+            30,
+            35,
+            5
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 3.215761888770418e+20
+        }
+      },
+      "material_gradient": {
+        "shape": [
+          20,
+          24,
+          24
+        ],
+        "nonfinite": 0,
+        "maximum_finite_absolute": 0.7166748046875
+      },
+      "gradient_relative_to_interval_1": 8.416488282735624e-05
+    },
+    {
+      "device": "cuda",
+      "interval": 1,
+      "epsilon_history": {
+        "shape": [
+          3,
+          1500,
+          1,
+          30,
+          34,
+          34
+        ],
+        "nonfinite": 0,
+        "maximum_finite_absolute": 5926.12548828125
+      },
+      "receiver": {
+        "shape": [
+          1,
+          1500,
+          2
+        ],
+        "nonfinite": 0,
+        "maximum_finite_absolute": 110.53507232666016
+      },
+      "J": 0.33416142950788574,
+      "raw_state_cotangents": {
+        "lambda_ex": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 276,
+          "maximum_finite_absolute": 3.546858489671043e+27
+        },
+        "lambda_ey": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 276,
+          "maximum_finite_absolute": 2.475015295208585e+27
+        },
+        "lambda_ez": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 276,
+          "maximum_finite_absolute": 3.6724422704965887e+28
+        },
+        "lambda_hx": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 144,
+          "maximum_finite_absolute": 2.86879729044408e+30
+        },
+        "lambda_hy": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 144,
+          "maximum_finite_absolute": 4.4898292992353164e+30
+        },
+        "lambda_hz": {
+          "shape": [
+            1,
+            31,
+            35,
+            35
+          ],
+          "nonfinite": 144,
+          "maximum_finite_absolute": 6.354204777330962e+29
+        },
+        "lambda_x0_e_phi1": {
+          "shape": [
+            1,
+            6,
+            34,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.827494205229501e+27
+        },
+        "lambda_x0_e_phi2": {
+          "shape": [
+            1,
+            6,
+            35,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.97039661580558e+28
+        },
+        "lambda_x0_h_phi1": {
+          "shape": [
+            1,
+            5,
+            35,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.1596634460085492e+26
+        },
+        "lambda_x0_h_phi2": {
+          "shape": [
+            1,
+            5,
+            34,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.7231100180487578e+25
+        },
+        "lambda_xm_e_phi1": {
+          "shape": [
+            1,
+            6,
+            34,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.1028864084073646e+27
+        },
+        "lambda_xm_e_phi2": {
+          "shape": [
+            1,
+            6,
+            35,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.9762412526831035e+28
+        },
+        "lambda_xm_h_phi1": {
+          "shape": [
+            1,
+            5,
+            35,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.157224601974564e+26
+        },
+        "lambda_xm_h_phi2": {
+          "shape": [
+            1,
+            5,
+            34,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 6.887481587388018e+24
+        },
+        "lambda_y0_e_phi1": {
+          "shape": [
+            1,
+            30,
+            6,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 4.0175857515709204e+27
+        },
+        "lambda_y0_e_phi2": {
+          "shape": [
+            1,
+            31,
+            6,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.146266689971156e+28
+        },
+        "lambda_y0_h_phi1": {
+          "shape": [
+            1,
+            31,
+            5,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.2816391031706571e+26
+        },
+        "lambda_y0_h_phi2": {
+          "shape": [
+            1,
+            30,
+            5,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.6935386905794494e+25
+        },
+        "lambda_ym_e_phi1": {
+          "shape": [
+            1,
+            30,
+            6,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.1071188847078687e+26
+        },
+        "lambda_ym_e_phi2": {
+          "shape": [
+            1,
+            31,
+            6,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 8.054010793929439e+26
+        },
+        "lambda_ym_h_phi1": {
+          "shape": [
+            1,
+            31,
+            5,
+            34
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 5.199584904978016e+24
+        },
+        "lambda_ym_h_phi2": {
+          "shape": [
+            1,
+            30,
+            5,
+            35
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 8.770072844856919e+23
+        },
+        "lambda_z0_e_phi1": {
+          "shape": [
+            1,
+            30,
+            35,
+            6
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 4.346328073703203e+22
+        },
+        "lambda_z0_e_phi2": {
+          "shape": [
+            1,
+            31,
+            34,
+            6
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 3.7454044437638468e+22
+        },
+        "lambda_z0_h_phi1": {
+          "shape": [
+            1,
+            31,
+            34,
+            5
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.065017065342847e+20
+        },
+        "lambda_z0_h_phi2": {
+          "shape": [
+            1,
+            30,
+            35,
+            5
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 2.5491172576163424e+20
+        },
+        "lambda_zm_e_phi1": {
+          "shape": [
+            1,
+            30,
+            35,
+            6
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 8.351977750714262e+22
+        },
+        "lambda_zm_e_phi2": {
+          "shape": [
+            1,
+            31,
+            34,
+            6
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 1.9137278752774456e+22
+        },
+        "lambda_zm_h_phi1": {
+          "shape": [
+            1,
+            31,
+            34,
+            5
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 8.25487645542596e+19
+        },
+        "lambda_zm_h_phi2": {
+          "shape": [
+            1,
+            30,
+            35,
+            5
+          ],
+          "nonfinite": 60,
+          "maximum_finite_absolute": 3.6307995566800477e+20
+        }
+      },
+      "material_gradient": {
+        "shape": [
+          20,
+          24,
+          24
+        ],
+        "nonfinite": 0,
+        "maximum_finite_absolute": 0.7167001366615295
+      }
+    }
+  ],
+  "limitation": "Raw initial-state cotangents on unobservable outer PML corners can overflow at long times; no general state-gradient stability claim."
+}
