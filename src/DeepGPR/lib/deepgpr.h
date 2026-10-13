@@ -48,6 +48,9 @@ extern "C" {
 DEEPGPR_API int deepgpr_supports_error_reporting(void);
 DEEPGPR_API const char* deepgpr_last_error(void);
 DEEPGPR_API void deepgpr_clear_last_error(void);
+/* CUDA only, optional in ABI 6: release idle async resources on the current
+ * device. Active calls are unaffected and may repopulate the cache. */
+DEEPGPR_API void deepgpr_clear_cuda_resource_cache(void);
 
 /* 1 when the adjoint result is independent of the number of threads. */
 DEEPGPR_API int deepgpr_deterministic_adjoint(void);

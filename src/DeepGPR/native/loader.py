@@ -31,6 +31,7 @@ _LOADED_LIBS: Dict[str, ctypes.CDLL] = {}
 _OPENMP_RUNTIME: Optional[ctypes.CDLL] = None
 _LOAD_LOCK = threading.Lock()
 
+
 #: Candidate filenames per backend kind and operating system.
 _LIBRARY_CANDIDATES: Dict[str, Dict[str, List[str]]] = {
     "cuda": {
@@ -239,6 +240,30 @@ def get_deepgpr_library_path(device: Any) -> str:
     return str(getattr(get_deepgpr_lib(device), "_deepgpr_path", ""))
 
 
+def clear_cuda_resource_cache(device: Any = None) -> None:
+    """Release idle native async-offload resources on one CUDA device.
+
+    Defaults to the current CUDA device. Active solver calls are unaffected
+    and may refill the cache afterwards. This is separate from PyTorch's
+    allocator cache; older native libraries without a resource cache are a
+    no-op. The caller's current device is restored on return.
+    """
+    import torch
+    from .bridge import raise_native_error
+
+    target = torch.device("cuda", device) if isinstance(device, int) else torch.device(
+        "cuda" if device is None else device
+    )
+    if target.type != "cuda":
+        raise ValueError("clear_cuda_resource_cache requires a CUDA device")
+    with torch.cuda.device(target):
+        lib = get_deepgpr_lib(target)
+        clear = getattr(lib, "deepgpr_clear_cuda_resource_cache", None)
+        if clear is not None:
+            clear()
+            raise_native_error(lib, "deepgpr_clear_cuda_resource_cache")
+
+
 def set_library_fdtd_order(lib: Any, fdtd_order: int) -> None:
     """Select the FDTD spatial order in a native library.
 
@@ -283,6 +308,7 @@ __all__ = [
     "LIB_DIR",
     "available_library_files",
     "candidate_library_paths",
+    "clear_cuda_resource_cache",
     "configure_library",
     "get_deepgpr_lib",
     "get_deepgpr_library_path",

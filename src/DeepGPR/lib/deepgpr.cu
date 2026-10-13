@@ -9,6 +9,7 @@
 
 #define DEEPGPR_BUILD
 #include "deepgpr.h"
+#include "cuda_resources.h"
 
 __constant__ float e0 = DEEPGPR_EPSILON0_F;
 __constant__ float m0 = DEEPGPR_MU0_F;
@@ -356,37 +357,46 @@ static HistoryBox history_box_host(
     } \
 } while (0)
 
-/* Release partially-created native resources when a checked CUDA call returns early. */
+/* Transient scratch stays call-owned; only successful async work is cached. */
 struct CudaCallResources {
-    unsigned char* d_E_buf = nullptr;
-    unsigned char* d_R_buf = nullptr;
+    CudaAsyncWorkspace async;
     float* d_exact_Eold = nullptr;
     float* d_cpml_weights = nullptr;
-    cudaStream_t streams[2] = {nullptr, nullptr};
-    cudaEvent_t events[4] = {nullptr, nullptr, nullptr, nullptr};
+    bool reusable = false;
 
-    CudaCallResources() = default;
+    cudaError_t prepare_async(size_t e_bytes, size_t r_bytes)
+    {
+        int device;
+        cudaError_t error = cudaGetDevice(&device);
+        if (error != cudaSuccess) return error;
+        cuda_async_cache().take(device, async);
+        return async.prepare(e_bytes, r_bytes);
+    }
 
     ~CudaCallResources()
     {
-        for (cudaStream_t stream : streams) {
-            if (stream != nullptr) cudaStreamSynchronize(stream);
+        if (!reusable) {
+            for (auto stream : async.streams) {
+                if (stream) cudaStreamSynchronize(stream);
+            }
         }
         if (d_exact_Eold != nullptr) cudaFree(d_exact_Eold);
         if (d_cpml_weights != nullptr) cudaFree(d_cpml_weights);
-        if (d_R_buf != nullptr) cudaFree(d_R_buf);
-        if (d_E_buf != nullptr) cudaFree(d_E_buf);
-        for (cudaEvent_t event : events) {
-            if (event != nullptr) cudaEventDestroy(event);
-        }
-        for (cudaStream_t stream : streams) {
-            if (stream != nullptr) cudaStreamDestroy(stream);
-        }
+        if (reusable) cuda_async_cache().put(async);
     }
 
+    CudaCallResources() = default;
     CudaCallResources(const CudaCallResources&) = delete;
     CudaCallResources& operator=(const CudaCallResources&) = delete;
 };
+
+DEEPGPR_API void deepgpr_clear_cuda_resource_cache(void)
+{
+    deepgpr_clear_last_error();
+    int device;
+    CUDA_CHECK(cudaGetDevice(&device));
+    cuda_async_cache().clear(device);
+}
 
 /* Keep storage-format decisions on the host so FP32 kernels contain no dtype branch. */
 #define LAUNCH_STORAGE_KERNEL(kernel, grid, block, stream, storage_type, ...) do { \
@@ -3453,30 +3463,22 @@ DEEPGPR_API void forward(const float* __restrict__ eps_r_pad, const float* __res
     int nt_saved = (nt + sampling_interval - 1) / sampling_interval;
 
     CudaCallResources resources;
-    unsigned char*& d_E_buf = resources.d_E_buf;
-    unsigned char*& d_R_buf = resources.d_R_buf;
+    unsigned char*& d_E_buf = resources.async.e;
+    unsigned char*& d_R_buf = resources.async.r;
     float*& d_exact_Eold = resources.d_exact_Eold;
     long long snap_size = (long long)step * history.nx * history.ny * history.nz;
     long long component_stride = (long long)nt_saved * snap_size;
     size_t storage_size = wavefield_element_size_host(storage_type);
     
-    cudaStream_t& stream_comp = resources.streams[0];
-    cudaStream_t& stream_trans = resources.streams[1];
-    cudaEvent_t& event_input = resources.events[0];
-    cudaEvent_t& event_comp = resources.events[1];
-    cudaEvent_t* event_transfer = &resources.events[2];
+    cudaStream_t& stream_comp = resources.async.streams[0];
+    cudaStream_t& stream_trans = resources.async.streams[1];
+    cudaEvent_t& event_input = resources.async.events[0];
+    cudaEvent_t& event_comp = resources.async.events[1];
+    cudaEvent_t* event_transfer = &resources.async.events[2];
     int transfer_buffer_in_use[2] = {0, 0};
     if (use_async) {
-        CUDA_CHECK(cudaStreamCreate(&stream_comp));
-        CUDA_CHECK(cudaStreamCreate(&stream_trans));
-        CUDA_CHECK(cudaEventCreate(&event_input));
-        CUDA_CHECK(cudaEventCreate(&event_comp));
-        CUDA_CHECK(cudaEventCreate(&event_transfer[0]));
-        CUDA_CHECK(cudaEventCreate(&event_transfer[1]));
-        CUDA_CHECK(cudaMalloc(&d_E_buf, 2 * e_components * snap_size * storage_size));
-        if (store_rhs) {
-            CUDA_CHECK(cudaMalloc(&d_R_buf, 2 * e_components * snap_size * storage_size));
-        }
+        size_t buffer_bytes = 2 * e_components * snap_size * storage_size;
+        CUDA_CHECK(resources.prepare_async(buffer_bytes, store_rhs ? buffer_bytes : 0));
         CUDA_CHECK(cudaEventRecord(event_input, 0));
         CUDA_CHECK(cudaStreamWaitEvent(stream_comp, event_input, 0));
     }
@@ -3796,6 +3798,7 @@ DEEPGPR_API void forward(const float* __restrict__ eps_r_pad, const float* __res
     }
     /* Report launch errors of the final kernels (no device synchronisation). */
     CUDA_CHECK_LAST();
+    resources.reusable = use_async;
 }
 
 /*
@@ -3911,28 +3914,22 @@ DEEPGPR_API void backward(const float* __restrict__ eps_r_pad, const float* __re
         pml0, pml1, pml2, pml3, pml4, pml5, int8_bx, int8_by, int8_bz);
 
     CudaCallResources resources;
-    unsigned char*& d_E_buf = resources.d_E_buf;
-    unsigned char*& d_R_buf = resources.d_R_buf;
+    unsigned char*& d_E_buf = resources.async.e;
+    unsigned char*& d_R_buf = resources.async.r;
     long long snap_size = (long long)step * history.nx * history.ny * history.nz;
     size_t storage_size = wavefield_element_size_host(storage_type);
     
-    cudaStream_t& stream_comp = resources.streams[0];
-    cudaStream_t& stream_trans = resources.streams[1];
-    cudaEvent_t& event_input = resources.events[0];
-    cudaEvent_t& event_trans = resources.events[1];
-    cudaEvent_t& event_comp = resources.events[2];
+    cudaStream_t& stream_comp = resources.async.streams[0];
+    cudaStream_t& stream_trans = resources.async.streams[1];
+    cudaEvent_t& event_input = resources.async.events[0];
+    cudaEvent_t& event_trans = resources.async.events[1];
+    cudaEvent_t& event_comp = resources.async.events[2];
     int staging_buffer_in_use = 0;
     if (use_async) {
-        CUDA_CHECK(cudaStreamCreate(&stream_comp));
-        CUDA_CHECK(cudaStreamCreate(&stream_trans));
-        CUDA_CHECK(cudaEventCreate(&event_input));
-        CUDA_CHECK(cudaEventCreate(&event_trans));
-        CUDA_CHECK(cudaEventCreate(&event_comp));
+        size_t frame_bytes = e_components * snap_size * storage_size;
         /* E-only: two E slots, step t uses slot t % 2 and E^(t+1) in the other. */
-        CUDA_CHECK(cudaMalloc(&d_E_buf, (rhs_from_e ? 2 : 1) * e_components * snap_size * storage_size));
-        if (!rhs_from_e) {
-            CUDA_CHECK(cudaMalloc(&d_R_buf, e_components * snap_size * storage_size));
-        }
+        CUDA_CHECK(resources.prepare_async(
+            (rhs_from_e ? 2 : 1) * frame_bytes, rhs_from_e ? 0 : frame_bytes));
         CUDA_CHECK(cudaEventRecord(event_input, 0));
         CUDA_CHECK(cudaStreamWaitEvent(stream_comp, event_input, 0));
     }
@@ -4173,4 +4170,5 @@ DEEPGPR_API void backward(const float* __restrict__ eps_r_pad, const float* __re
     }
     /* Report launch errors of the final kernels (no device synchronisation). */
     CUDA_CHECK_LAST();
+    resources.reusable = use_async;
 }

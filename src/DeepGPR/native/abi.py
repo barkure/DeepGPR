@@ -162,6 +162,7 @@ NATIVE_FUNCTIONS: Dict[str, Tuple[Signature, object]] = {
     "deepgpr_supports_error_reporting": ((), INT),
     "deepgpr_last_error": ((), CHAR_PTR),
     "deepgpr_clear_last_error": ((), None),
+    "deepgpr_clear_cuda_resource_cache": ((), None),
     "deepgpr_deterministic_adjoint": ((), INT),
     "deepgpr_abi_version": ((), INT),
     "deepgpr_supports_external_pml": ((), INT),
