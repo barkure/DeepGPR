@@ -50,6 +50,13 @@ Measurements, protocol and per-item decisions:
 
 ### Performance
 
+- CUDA async-offload calls reuse streams, synchronization events and staging
+  buffers (audit N-8). Workspaces are exclusive to each call, partitioned by
+  device, and cached only after successful synchronization. At most one idle
+  workspace with up to 64 MiB of staging is retained per device;
+  `DeepGPR.clear_cuda_resource_cache(device=None)` releases idle resources.
+  Native forward/backward signatures and ABI 6 are unchanged. Measurements:
+  [CUDA resource cache report](../tests/profiling_results/cuda_resource_cache_report.md).
 - CUDA full-grid kernels (E/H update and adjoint) take the shot from
   `blockIdx.y` and decode `(i, j, k)` from a 32-bit per-shot index with a
   multiply-high divider instead of four 64-bit `/` and `%` per thread. Grids

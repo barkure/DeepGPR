@@ -445,7 +445,8 @@ def format_compute_preview(
             f"{format_memory_size(estimate['recommended_host_capacity'])}",
         ]
     lines += [
-        "  note: estimates exclude the CUDA context, PyTorch allocator cache, autograd "
+        "  note: estimates exclude the CUDA context, PyTorch allocator cache, idle native "
+        "CUDA resource cache, autograd "
         "metadata, Python objects, and other tensors owned by the calling program.",
         "=== End DeepGPR compute preview ===",
         "",

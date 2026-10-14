@@ -18,6 +18,24 @@ identical parameter names, types and order; it also covers argument
 marshalling, the FDTD-order gate and CPU library configuration. It needs
 neither PyTorch nor a GPU.
 
+`test_cuda_resource_cache.py` checks async-offload results across workspace
+reuse, changing shapes/storage/history layouts, nondefault streams, concurrent
+calls and explicit cache clearing. CUDA cases require a rebuilt CUDA library;
+the multi-device case is skipped when only one GPU is available.
+`verify_cuda_resource_cache.py --baseline LIB_DIR --candidate LIB_DIR --output DIR`
+runs the six A/B configurations in separate processes and compares captured
+fields, histories, receiver data and gradients. Timings and reproduction
+commands are in [the resource-cache report](profiling_results/cuda_resource_cache_report.md).
+`cuda_resource_cache_native.cpp` additionally checks actual handle/buffer reuse,
+capacity growth, the retention limit, partial allocation failure and concurrent
+ownership. Build and run it with a CUDA toolkit:
+
+```bash
+c++ -std=c++14 -pthread -I"$CUDA_HOME/include" tests/cuda_resource_cache_native.cpp \
+  -L"$CUDA_HOME/lib64" -Wl,-rpath,"$CUDA_HOME/lib64" -lcudart -o /tmp/cache-test
+/tmp/cache-test
+```
+
 `test_cpu_determinism.py` runs the same forward/backward problems with 1, 2
 and 5 OpenMP threads in separate processes and requires bitwise identical
 results (the CPU adjoint has no atomics since 0.1.0). The CUDA 2D TM gather

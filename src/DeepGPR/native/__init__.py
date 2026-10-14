@@ -2,6 +2,7 @@
 
 from .abi import BACKWARD_SIGNATURE, FORWARD_SIGNATURE, NATIVE_FUNCTIONS
 from .loader import (
+    clear_cuda_resource_cache,
     LIB_DIR,
     available_library_files,
     candidate_library_paths,
@@ -19,6 +20,7 @@ __all__ = [
     "NATIVE_FUNCTIONS",
     "available_library_files",
     "candidate_library_paths",
+    "clear_cuda_resource_cache",
     "configure_library",
     "get_deepgpr_lib",
     "get_deepgpr_library_path",

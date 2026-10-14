@@ -50,7 +50,7 @@ robustness or hygiene.
 | N-5 | Low | native | PEC threshold `100.0f` duplicated as a literal in 5 places | Fixed |
 | N-6 | Perf | CPU kernels | Per-cell 64-bit division/modulo index decode in every update loop | Recommended |
 | N-7 | Perf | CPU/CUDA | Atomic scatter in the adjoint curl transpose | Fixed on CPU; CUDA 2D TM path fixed, 3D kept (measured) |
-| N-8 | Perf | CUDA | Streams/events/buffers created and destroyed on every call | Recommended |
+| N-8 | Perf | CUDA | Streams/events/buffers created and destroyed on every call | Fixed (bounded cache) |
 
 ## Python package
 
@@ -278,11 +278,21 @@ now applies each cell's CPML transpose inside `adjoint_e_gpu` /
 `adjoint_h_gpu` (§6), which removes two launches per reverse step but keeps
 the atomics.
 
-### N-8 Per-call CUDA resources (Performance, Recommended)
-The async-offload path creates two streams, four events and staging buffers
-on every `forward`/`backward` call and destroys them afterwards. Caching them
-per device (or using PyTorch's caching allocator via pre-allocated tensors)
-removes this fixed overhead from short FWI iterations.
+### N-8 Per-call CUDA resources (Performance, Fixed)
+The async-offload path now reuses two streams, four synchronization-only
+events and E/R staging buffers. Each active call owns its workspace exclusively;
+only successfully synchronized workspaces return to a cache partitioned by
+device. One idle workspace with at most 64 MiB of staging is retained per
+device; oversized and failed workspaces are released. Transient exact-E and
+CPML scratch remain call-owned. `DeepGPR.clear_cuda_resource_cache(device=None)`
+releases idle native resources independently of PyTorch's allocator.
+
+The RTX 4070 measurements show lower median wall time for the tested async
+cases, with no established benefit on the GPU-resident control. Numerical
+checks cover reuse, layout/precision changes, concurrent calls and cache
+clearing. See `tests/profiling_results/cuda_resource_cache_report.md` for the
+protocol, variation and limits; multi-device execution was not available on
+the validation host.
 
 ## Developer-experience improvements made in 0.1.0
 

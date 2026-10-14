@@ -145,6 +145,28 @@ stay finite in that case. This does not guarantee long-time stability when
 optimizing arbitrary initial E/H/CPML states. Details and independent material
 FD checks are in `tests/gradient_verification/deepwave_pml_fix_20261011/REPORT.md`.
 
+### CUDA async-offload resource cache
+
+With `use_async_offload=True`, the CUDA backend reuses streams, synchronization
+events and device staging buffers across calls. Each concurrent call owns a
+separate workspace. After successful completion, at most one idle workspace
+per device is retained, with up to 64 MiB of staging memory. Larger workspaces
+are released when the call returns. Saved histories remain caller-owned.
+
+The native cache is separate from PyTorch's allocator and is not released by
+`torch.cuda.empty_cache()`. To release its idle resources between workloads:
+
+```python
+DeepGPR.clear_cuda_resource_cache()          # current CUDA device
+DeepGPR.clear_cuda_resource_cache("cuda:0")  # a specific device
+```
+
+The caller's current device is preserved. Active calls are unaffected and may
+refill the cache after the clear operation. Older native libraries without a
+cache accept this Python helper as a no-op. CPU and GPU-resident history paths
+do not acquire cached resources. Existing native forward/backward signatures
+and ABI version 6 remain unchanged; rebuild the CUDA library to enable reuse.
+
 ### 4.3 GPU-native block INT8 history
 
 Only the sampled forward state used by the material adjoint is compressed. The

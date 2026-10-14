@@ -34,6 +34,7 @@ from __future__ import annotations
 from . import config, utils
 from ._version import __version__
 from .native.loader import (
+    clear_cuda_resource_cache,
     get_deepgpr_lib,
     get_deepgpr_library_path,
     set_library_fdtd_order,
@@ -97,6 +98,7 @@ __all__ = [
     "check_cfl",
     "check_tensors_for_nan_inf",
     "checkpoint_initial_field",
+    "clear_cuda_resource_cache",
     "common",
     "compute",
     "compute2",
